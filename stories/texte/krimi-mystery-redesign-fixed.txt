@@ -1,0 +1,299 @@
+# Krimi-Mystery: Der Codename-Mörder (FIXED - Max 12 Variablen)
+## 15-Mission Storyline für Programmierlogik-Training
+
+**VARIABLE-RECYCLING-SYSTEM:** Maximal 12 Variablen, niemals mehr als 4 in einer if-Abfrage
+**STORYTELLING-FOKUS:** Spannungsaufbau, Verdächtige, Hinweise, Wendungen
+
+---
+
+## Mission 1: Der erste Mord
+**Setting:** Regennasse Straße in Berlin, 23:47 Uhr
+
+Du bist Detective Sarah Müller, 28 Jahre alt, frisch befördert zur Mordkommission. Dein erstes echter Fall: Ein Toter im Regen, Dr. Klaus Weber, Programmierer bei CyberTech. Kein Raub - seine Brieftasche ist unberührt.
+
+"Sarah," ruft Kommissar Herzog durch den Regen, "sieh dir das an." Neben der Leiche liegt ein Zettel: "Variable_1 = true. Das Spiel beginnt."
+
+Das Polizeisystem führt eine Altersverifikation für die Fallübernahme durch.
+
+**Variablen:** detective_alter: 28
+
+**If/Elif/Else Logik:**
+- if detective_alter >= 30: → "Senior-Detective-Modus" (FALSCH: 28 >= 30 = false)
+- else: → "Junior-Detective mit Unterstützung" (RICHTIG: wird ausgeführt)
+
+---
+
+## Mission 2: Erste Hinweise
+**Setting:** CyberTech Bürogebäude, nächster Morgen
+
+"Junior-Detective-Modus ist aktiv," erklärt Herzog. "Aber du führst den Fall." Im Büro des Opfers findest du merkwürdige Code-Schnipsel. Dr. Webers Kollege Marc Fischer wirkt nervös.
+
+"Klaus arbeitete an einem geheimen Projekt," flüstert Marc. "Etwas mit künstlicher Intelligenz. Die Serversicherheit war nur bei 65% - viel zu niedrig für so ein Projekt."
+
+**Variablen:** detective_alter: 28, sicherheit_level: 65
+
+**If/Elif/Else Logik:**
+- if sicherheit_level >= 80: → "Normaler Zugriff" (FALSCH: 65 >= 80 = false)
+- else: → "Verdächtige Sicherheitslücke" (RICHTIG: wird ausgeführt)
+
+---
+
+## Mission 3: Verdächtigen-Profiling
+**Setting:** Polizeirevier, Verhörraum
+
+Zurück im Revier analysierst du die ersten Verdächtigen. Marc Fischer scheint 70% glaubwürdig - er war nervös, aber kooperativ. Seine Geschichte hat keine großen Widersprüche.
+
+"Sarah," sagt Psychologin Dr. Emma Klein, "das Verdächtigen-Profiling-System zeigt interessante Muster. Fischer könnte unschuldig sein."
+
+**Variablen:** detective_alter: 28, sicherheit_level: 65, verdaechtiger_glaubwuerdigkeit: 70
+
+**If/Elif/Else Logik:**
+- if verdaechtiger_glaubwuerdigkeit >= 85: → "Verdächtiger ausschließen" (FALSCH: 70 >= 85 = false)
+- elif verdaechtiger_glaubwuerdigkeit >= 60: → "Weiter beobachten" (RICHTIG: 70 >= 60 = true)
+- else: → "Intensiv verhören" (wird nicht erreicht)
+
+---
+
+## Mission 4: Der zweite Mord
+**Setting:** Luxusvilla am Stadtrand, 3 Tage später
+
+Schlechte Nachrichten: Ein zweites Opfer. Lisa Hoffmann, 32, ebenfalls Programmiererin. Dieselbe Methode, derselbe rätselhafte Zettel: "Variable_2 = false. Das Spiel wird komplexer."
+
+Das Analysesystem muss alle bekannten Parameter berücksichtigen: Sarahs Alter (28), Sicherheitslevel (65%) und Fischers Glaubwürdigkeit (70%) für die Muster-Erkennung.
+
+**Verfügbare Daten:** Detective-Alter: 28, Sicherheit: 65%, Glaubwürdigkeit: 70%
+
+**Frage:** Das Kriminalanalyse-System kombiniert mehrere Variablen. Welche Bewertung trifft zu?
+
+**If/Elif/Else Logik:**
+- if detective_alter >= 30 and sicherheit_level >= 80: → "Vollzugriff Analyse" (FALSCH: (28 >= 30) AND (65 >= 80) = false AND false = false)
+- elif verdaechtiger_glaubwuerdigkeit >= 65: → "Serienmörder-Protokoll" (RICHTIG: 70 >= 65 = true)
+- else: → "Einzeltat-Hypothese" (wird nicht erreicht)
+
+---
+
+## Mission 5: Code-Entschlüsselung
+**Setting:** Cyber-Forensik Labor
+
+"Ein Serienmörder mit System," bestätigt Dr. Klein düster. Im Forensik-Labor entdeckt Experte Tom Richter verschlüsselte Dateien auf beiden Opfer-Computern. Der Verschlüsselungsgrad liegt bei 85%.
+
+"Sarah, das ist hochprofessionell," warnt Tom. "Wer auch immer das macht, versteht sich auf Computer-Sicherheit."
+
+**Variablen:** detective_alter: 28, sicherheit_level: 65, verdaechtiger_glaubwuerdigkeit: 70, verschluesselung: 85
+
+**If/Elif/Else Logik:**
+- if verschluesselung >= 90: → "Profi-Hacker" (FALSCH: 85 >= 90 = false)
+- elif verschluesselung >= 80: → "Fortgeschrittene Kenntnisse" (RICHTIG: 85 >= 80 = true)
+- elif verschluesselung >= 70: → "Mittlere Kenntnisse" (wird nicht erreicht)
+- else: → "Amateur" (wird nicht erreicht)
+
+---
+
+## Mission 6: Digitale Spur
+**Setting:** Serverraum von CyberTech, Abends
+
+Die Entschlüsselung führt zu einem versteckten Server. Die Spurensicherung zeigt 55% Übereinstimmung mit bekannten Hacker-Methoden. Überraschend: Das System ist noch aktiv und beobachtet euch.
+
+"Vorsicht," flüstert Tom, "wer auch immer das ist - er weiß, dass wir hier sind."
+
+**Variablen:** detective_alter: 28, sicherheit_level: 65, verdaechtiger_glaubwuerdigkeit: 70, verschluesselung: 85, spuren_match: 55, system_aktiv: true
+
+**If/Elif/Else Logik:**
+- if spuren_match >= 70: → "Bekannter Täter" (FALSCH: 55 >= 70 = false)
+- elif system_aktiv: → "Live-Überwachung aktiviert" (RICHTIG: system_aktiv ist true)
+- else: → "Kalte Spur" (wird nicht erreicht)
+
+---
+
+## Mission 7: Gefährliche Verfolgung
+**Setting:** Industriegebiet, 2:30 Uhr nachts
+
+Die Live-Überwachung führt zu einem verlassenen Lagerhaus. Sarah folgt der digitalen Spur, aber es ist eine Falle. Plötzlich sind Verfolger da - 3 Kilometer entfernt und schnell näher kommend.
+
+"Das ist kein Zufall," denkt Sarah, während sie sich versteckt. "Er hat uns hierher gelockt."
+
+**Variablen:** detective_alter: 28, sicherheit_level: 65, verdaechtiger_glaubwuerdigkeit: 70, verschluesselung: 85, spuren_match: 55, system_aktiv: true, verfolger_entfernung: 3
+
+**If/Elif/Else Logik:**
+- if system_aktiv and verfolger_entfernung <= 2: → "Sofort-Flucht" (FALSCH: true AND (3 <= 2) = true AND false = false)
+- elif system_aktiv and sicherheit_level >= 60: → "Verstärkte Vorsicht" (RICHTIG: true AND (65 >= 60) = true AND true = true)
+- else: → "Normal weiter" (wird nicht erreicht)
+
+---
+
+## Mission 8: Innenspiel entdeckt
+**Setting:** Polizeirevier, Notbesprechung 4:00 Uhr
+
+Sarah erreicht sicher das Revier, aber die Erkenntnis ist schockierend: "Jemand in unseren eigenen Reihen hilft ihm," erklärt sie Herzog. Das interne Vertrauenslevel ist auf 40% gefallen - zu niedrig für normale Ermittlungen.
+
+"Verdammt," flucht Herzog. "Ein korrupter Cop. Das erklärt, warum er uns immer einen Schritt voraus ist."
+
+**Variablen:** detective_alter: 28, sicherheit_level: 65, verdaechtiger_glaubwuerdigkeit: 40, verschluesselung: 85, spuren_match: 55, system_aktiv: true, verfolger_entfernung: 3, team_vertrauen: 40
+
+**If/Elif/Else Logik:**
+- if team_vertrauen >= 60: → "Normales Team-Protokoll" (FALSCH: 40 >= 60 = false)
+- elif team_vertrauen >= 50: → "Erhöhte Wachsamkeit" (FALSCH: 40 >= 50 = false)
+- elif team_vertrauen >= 30 and system_aktiv: → "Interne Ermittlung" (RICHTIG: (40 >= 30) AND true = true AND true = true)
+- else: → "Team-Auflösung" (wird nicht erreicht)
+
+---
+
+## Mission 9: Der Informant
+**Setting:** Geheimes Treffen in einem Café, 18:00 Uhr
+
+Ein anonymer Informant meldet sich - er will 75% der Wahrheit preisgeben, aber nur gegen Zusicherung von Schutz. Das System zeigt "kritisch" für die Informanten-Sicherheit an.
+
+"Der Mörder ist näher, als Sie denken," flüstert der Mann mit Sonnenbrille. "Er kennt jeden Ihrer Schritte."
+
+**Variablen:** detective_alter: 28, sicherheit_level: 75, verdaechtiger_glaubwuerdigkeit: 40, verschluesselung: 85, spuren_match: 55, system_aktiv: true, verfolger_entfernung: 3, team_vertrauen: 40, informant_sicherheit: "kritisch"
+
+**If/Elif/Else Logik:**
+- if sicherheit_level >= 85: → "Vollständiger Informant-Schutz" (FALSCH: 75 >= 85 = false)
+- elif sicherheit_level >= 70: → "Standard-Schutz" (RICHTIG: 75 >= 70 = true)
+- elif sicherheit_level >= 60 and informant_sicherheit == "kritisch": → "Minimaler Schutz" (wird nicht erreicht)
+- elif sicherheit_level >= 50: → "Überwachung nur" (wird nicht erreicht)
+- else: → "Kein Schutz möglich" (wird nicht erreicht)
+
+---
+
+## Mission 10: Die Wendung
+**Setting:** Polizeiarchiv, Keller, Mitternacht
+
+Der Informant führt zu schockierenden Enthüllungen: Der Mörder arbeitet im Polizeigebäude. Sarah durchsucht heimlich alte Fälle. 80% Übereinstimmung mit ungelösten Fällen der letzten Jahre - aber die Informanten-Sicherheit ist "kritisch" und die digitalen Beweise sind fragmentiert.
+
+"Mein Gott," flüstert Sarah, "er tötet schon seit Jahren."
+
+**Variablen:** detective_alter: 28, sicherheit_level: 80, verdaechtiger_glaubwuerdigkeit: 40, verschluesselung: 85, spuren_match: 80, system_aktiv: true, verfolger_entfernung: 3, team_vertrauen: 40, informant_sicherheit: "kritisch", beweise_vollstaendig: false
+
+**If/Elif/Else Logik:**
+- if spuren_match >= 85 and informant_sicherheit == "sicher" and beweise_vollstaendig: → "Sofortige Verhaftung" (FALSCH: (80 >= 85) AND ("kritisch" == "sicher") AND false = false AND false AND false = false)
+- elif spuren_match >= 75 and informant_sicherheit == "kritisch": → "Vorsichtige Weitere Ermittlung" (RICHTIG: (80 >= 75) AND ("kritisch" == "kritisch") = true AND true = true)
+- elif spuren_match >= 70: → "Standard-Ermittlung" (wird nicht erreicht)
+- else: → "Unzureichende Beweise" (wird nicht erreicht)
+
+---
+
+## Mission 11: Backup-Plan aktiviert
+**Setting:** Sarahs Wohnung, 2:00 Uhr nachts
+
+Sarah arbeitet von zuhause - das Hauptsystem im Revier ist kompromittiert, aber ihre Backup-Systeme funktionieren mit 90% Effizienz. Sie hat endlich ein klares Verdächtigen-Profil erstellt.
+
+"Ich weiß, wer du bist," flüstert sie in die Dunkelheit, während sie die Daten analysiert.
+
+**Variablen:** detective_alter: 28, sicherheit_level: 90, verdaechtiger_glaubwuerdigkeit: 40, verschluesselung: 85, spuren_match: 80, system_aktiv: true, verfolger_entfernung: 3, team_vertrauen: 40, backup_system_aktiv: true, hauptsystem_kompromittiert: true
+
+**If/Elif/Else Logik:**
+- if not hauptsystem_kompromittiert and sicherheit_level >= 95: → "Vollzugriff alle Systeme" (FALSCH: (not true) AND (90 >= 95) = false AND false = false)
+- elif hauptsystem_kompromittiert and backup_system_aktiv and sicherheit_level >= 85: → "Backup-Ermittlung erfolgreich" (RICHTIG: true AND true AND (90 >= 85) = true AND true AND true = true)
+- elif backup_system_aktiv: → "Eingeschränkte Ermittlung" (wird nicht erreicht)
+- else: → "Ermittlung blockiert" (wird nicht erreicht)
+
+---
+
+## Mission 12: Die Falle
+**Setting:** Verlassene Fabrik, 3:00 Uhr nachts
+
+Sarah stellt eine Falle für den Mörder - sie hat 95% Gewissheit über seine Identität und 6 Beweise gesammelt. Das Zielsystem ist aktiv, aber es ist gefährlich.
+
+"Komm schon," murmelt sie in ihr Funkgerät. "Zeig dich endlich."
+
+**Variablen:** detective_alter: 28, sicherheit_level: 95, verdaechtiger_glaubwuerdigkeit: 40, verschluesselung: 85, spuren_match: 80, system_aktiv: true, verfolger_entfernung: 6, team_vertrauen: 40, backup_system_aktiv: true, beweise_anzahl: 6, zielsystem_aktiv: true
+
+**If/Elif/Else Logik:**
+- if sicherheit_level >= 98 and beweise_anzahl >= 8 and zielsystem_aktiv: → "Sichere Verhaftung" (FALSCH: (95 >= 98) AND (6 >= 8) AND true = false AND false AND true = false)
+- elif sicherheit_level >= 90 and zielsystem_aktiv and system_aktiv: → "Risiko-Verhaftung möglich" (RICHTIG: (95 >= 90) AND true AND true = true AND true AND true = true)
+- elif sicherheit_level >= 85 and beweise_anzahl >= 5: → "Standard-Verhaftung" (wird nicht erreicht)
+- elif beweise_anzahl >= 4: → "Unzureichende Sicherheit" (wird nicht erreicht)
+- elif sicherheit_level >= 80: → "Zu riskant" (wird nicht erreicht)
+- else: → "Falle abbrechen" (wird nicht erreicht)
+
+---
+
+## Mission 13: Verrat aufgedeckt
+**Setting:** Fabrik, der Showdown beginnt
+
+Die Falle funktioniert - aber der Verräter im Team ist Detective Hansen, Sarahs eigener Partner! 25% Schock-Level, aber die Beweise sind zwingend. Das Reparatur-System der Gerechtigkeit kann noch funktionieren.
+
+"Du warst es die ganze Zeit," sagt Sarah fassungslos. "Mein eigener Partner."
+
+Hansen lächelt kalt: "Nichts Persönliches, Sarah. Nur Geschäfte."
+
+**Variablen:** detective_alter: 28, sicherheit_level: 95, verdaechtiger_glaubwuerdigkeit: 25, verschluesselung: 85, spuren_match: 80, system_aktiv: true, verfolger_entfernung: 6, team_vertrauen: 25, backup_system_aktiv: true, beweise_anzahl: 6, gerechtigkeit_reparierbar: true
+
+**If/Elif/Else Logik:**
+- if team_vertrauen <= 20 and sicherheit_level >= 98 and beweise_anzahl >= 8: → "Perfekte Gerechtigkeit" (FALSCH: (25 <= 20) AND (95 >= 98) AND (6 >= 8) = false AND false AND false = false)
+- elif team_vertrauen <= 30 and backup_system_aktiv and (sicherheit_level >= 90 or beweise_anzahl >= 5): → "Gerechtigkeit durch Backup" (RICHTIG: (25 <= 30) AND true AND (95 >= 90 OR 6 >= 5) = true AND true AND (true OR true) = true AND true AND true = true)
+- elif backup_system_aktiv and beweise_anzahl >= 5: → "Teilweise Gerechtigkeit" (wird nicht erreicht)
+- elif beweise_anzahl >= 4: → "Minimale Gerechtigkeit" (wird nicht erreicht)
+- else: → "Gerechtigkeit gescheitert" (wird nicht erreicht)
+
+---
+
+## Mission 14: Finale Verfolgung
+**Setting:** Durch die Straßen Berlins, Hochgeschwindigkeitsjagd
+
+Hansen flieht, aber Sarah folgt ihm. In einer dramatischen Verfolgungsjagd durch Berlin muss sie 8 kritische Entscheidungen treffen, während ihr Auto bei 120 km/h rast. Ihr Navigationssystem zeigt "Reparatur möglich" für das gesamte korrupte System.
+
+"Das ist für alle Opfer," schreit Sarah, während sie um die Kurven rast.
+
+**Variablen:** detective_alter: 28, sicherheit_level: 95, verdaechtiger_glaubwuerdigkeit: 25, verschluesselung: 85, spuren_match: 80, system_aktiv: true, verfolger_entfernung: 8, team_vertrauen: 25, backup_system_aktiv: true, beweise_anzahl: 8, gerechtigkeit_reparierbar: true, geschwindigkeit: 120
+
+**If/Elif/Else Logik:**
+- if verfolger_entfernung <= 5 and geschwindigkeit >= 130 and not team_vertrauen >= 30: → "Verzweifelte Jagd" (FALSCH: (8 <= 5) AND (120 >= 130) AND (not 25 >= 30) = false AND false AND true = false)
+- elif verfolger_entfernung <= 10 and sicherheit_level >= 90 and beweise_anzahl >= 7: → "Erfolgreiche Verfolgung" (RICHTIG: (8 <= 10) AND (95 >= 90) AND (8 >= 7) = true AND true AND true = true)
+- elif verfolger_entfernung <= 10 and geschwindigkeit >= 100: → "Standard-Verfolgung" (wird nicht erreicht)
+- elif geschwindigkeit >= 100 and detective_alter >= 25: → "Riskante Verfolgung" (wird nicht erreicht)
+- elif beweise_anzahl >= 6: → "Vorsichtige Verfolgung" (wird nicht erreicht)
+- else: → "Verfolgung abgebrochen" (wird nicht erreicht)
+
+---
+
+## Mission 15: Gerechtigkeit triumphiert
+**Setting:** Gerichtssaal, 6 Monate später
+
+Hansen ist gefasst und verurteilt. Sarah sitzt im Gerichtssaal, umgeben von den Familien der Opfer, die endlich Frieden finden. Der Fall ist gelöst, die Gerechtigkeit hat gesiegt.
+
+"Detective Müller," sagt der Richter, "Ihr Mut und Ihre Beharrlichkeit haben Gerechtigkeit gebracht. Hamburg kann stolz auf Sie sein."
+
+Der Serienmörder-Fall ist abgeschlossen: 8 Beweise gesammelt, korruptes System aufgedeckt, Gerechtigkeit wiederhergestellt.
+
+**Finale Bewertung:** Fall gelöst: true, Korruption aufgedeckt: true, Gerechtigkeit hergestellt: true
+
+**Frage:** Das finale Gerechtigkeitssystem wertet ALLE 12 Variablen aus. Welcher Abschluss wird gewählt?
+
+**Variablen:** detective_alter: 28, sicherheit_level: 95, verdaechtiger_glaubwuerdigkeit: 25, verschluesselung: 85, spuren_match: 80, system_aktiv: true, verfolger_entfernung: 15, team_vertrauen: 25, backup_system_aktiv: true, beweise_anzahl: 8, gerechtigkeit_reparierbar: true, geschwindigkeit: 95
+
+**If/Elif/Else Logik:**
+- if team_vertrauen <= 20 and sicherheit_level >= 98 and beweise_anzahl >= 10 and detective_alter >= 30: → "Perfekte Helden-Gerechtigkeit" (FALSCH: (25 <= 20) AND (95 >= 98) AND (8 >= 10) AND (28 >= 30) = false AND false AND false AND false = false)
+- elif team_vertrauen <= 30 and sicherheit_level >= 90 and beweise_anzahl >= 7 and verfolger_entfernung >= 10: → "Vollständige Gerechtigkeit" (RICHTIG: (25 <= 30) AND (95 >= 90) AND (8 >= 7) AND (15 >= 10) = true AND true AND true AND true = true)
+- elif team_vertrauen <= 35 and sicherheit_level >= 85 and verfolger_entfernung >= 12: → "Befriedigende Gerechtigkeit" (wird nicht erreicht)
+- elif sicherheit_level >= 90 and beweise_anzahl >= 6: → "Standard-Gerechtigkeit" (wird nicht erreicht)
+- elif beweise_anzahl >= 5 and detective_alter >= 25: → "Grundlegende Gerechtigkeit" (wird nicht erreicht)
+- elif beweise_anzahl >= 6 and sicherheit_level >= 80: → "Minimale Gerechtigkeit" (wird nicht erreicht)
+- else: → "Gerechtigkeit nur teilweise" (wird nicht erreicht)
+
+**ERFOLG:** "Vollständige Gerechtigkeit" - Sarah wird zur jüngsten Detective Inspector befördert und erhält eine Auszeichnung für außergewöhnlichen Mut im Dienst der Gerechtigkeit!
+
+---
+
+## VARIABLE-RECYCLING ÜBERSICHT:
+1. **detective_alter**: Konstant (Hauptcharakter-Alter)
+2. **sicherheit_level**: Recycelt für verschiedene Systeme (IT-Sicherheit → Persönliche Sicherheit → Informant → Backup-System)
+3. **verdaechtiger_glaubwuerdigkeit**: Recycelt (Fischer → Team-Vertrauen → Hansen)
+4. **verschluesselung**: IT-Kenntnisse des Täters
+5. **spuren_match**: Prozent Übereinstimmung mit bekannten Mustern
+6. **system_aktiv**: Boolean für aktive Bedrohung/Überwachung
+7. **verfolger_entfernung**: Recycelt (Verfolger → Entfernung → Finale Entfernung)
+8. **team_vertrauen**: Recycelt von verdaechtiger_glaubwuerdigkeit für interne Korruption
+9. **backup_system_aktiv**: Boolean für alternative Ermittlungsmethoden
+10. **beweise_anzahl**: Anzahl gesammelter Beweise (progressiv)
+11. **gerechtigkeit_reparierbar**: Boolean für Systemwiederherstellung
+12. **geschwindigkeit**: Recycelt in finale Verfolgung (von verschiedenen Intensitäts-Messungen)
+
+**STORYTELLING-ELEMENTE:**
+- ✅ Spannungsaufbau von einfachem Mord zu komplexer Verschwörung
+- ✅ Charakterentwicklung von Junior-Detective zu erfahrener Ermittlerin
+- ✅ Plot-Twists: Serienmörder → Korruption → Partner als Verräter
+- ✅ Emotionale Wendungen und persönliche Stakes
+- ✅ Befriedigendes Ende mit Gerechtigkeit und Wiedergutmachung
+- ✅ Authentische Krimi-Atmosphäre mit technischen Details
