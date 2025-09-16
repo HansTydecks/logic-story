@@ -7,30 +7,31 @@
     {
       "id": 1,
       "title": "Der erste Sprung",
-      "text": "Du bist Dr. Maya Chen, 23 Jahre alt, Assistentin von Professor Viktor Steinberg. Heute ist der Tag des ersten menschlichen Zeitsprungs. Aber etwas geht schief - Professor Steinberg verschwindet während des Tests spurlos, und die Zeitmaschine geht kaputt.\n\n\"Maya!\" ruft Techniker Alex aus dem Kontrollraum. \"Die Chronos-Kapsel ist zurückgekehrt, aber sie ist leer! Professor Steinberg ist weg, und das System zeigt dein Alter als neuen Hauptforscher an.\"\n\nAuf dem Bildschirm blinkt: \"NEUER HAUPTFORSCHER ERKANNT - ALTERSVERIFIKATION LÄUFT\"\n\n**Systemlog:** Forscher-Alter: 23 Jahre\n\n**Frage:** Welche Bedingung führt das Sicherheitssystem aus?",
+      "text": "Du bist Dr. Maya Chen, 23 Jahre alt, Assistentin von Professor Viktor Steinberg. Heute ist der Tag des ersten menschlichen Zeitsprungs. Aber etwas geht schief - Professor Steinberg verschwindet während des Tests spurlos, und die Zeitmaschine geht kaputt.\n\n\"Maya!\" ruft Techniker Alex aus dem Kontrollraum. \"Die Chronos-Kapsel ist zurückgekehrt, aber sie ist leer! Professor Steinberg ist weg, und das System zeigt dein Alter als neuen Hauptforscher an.\"\n\nAuf dem Bildschirm blinkt: \"NEUER HAUPTFORSCHER ERKANNT - ALTERSVERIFIKATION LÄUFT\"\n\n**Frage:** Welche Bedingung führt das Sicherheitssystem aus?",
       "variables": {},
       "variables_discovered": {
         "forscher_alter": 23
       },
       "buttons": [
         {
-          "label": "if forscher_alter >= 25:",
+          "label": "if forscher_alter >= 25:\n        vollzugriff_gewaehren()",
           "correct": false,
           "explanation": "❌ **Falsch!** 23 >= 25 ist **false**. Diese Bedingung wird übersprungen, der Computer geht zur nächsten."
         },
         {
-          "label": "else:",
+          "label": "else:\n        junior_protokoll_aktivieren()",
           "correct": true,
           "explanation": "✅ **Richtig!** Da die if-Bedingung false war, führt der Computer die else-Anweisung aus: 'Junior-Protokoll aktiviert'."
         }
       ],
       "success_text": "🎉 **Level 1 geschafft!** Du verstehst jetzt wie Computer if/else von oben nach unten abarbeiten.",
-      "next_mission": 2
+      "next_mission": 2,
+      "lrs_support": "**Systemlog:**Forscher-Alter: 23 Jahre"
     },
     {
       "id": 2,
       "title": "Energiekristall-Analyse",
-      "text": "\"Junior-Protokoll ist aktiv, aber das ist nur ein Notfallmodus,\" erklärt Dr. Chen. \"Wir müssen sofort die Zeitmaschine überprüfen. Der Hypersprung-Unfall könnte den Kristall beschädigt haben.\"\n\nPhysikerin Dr. Sarah Kim meldet sich: \"Maya, ich bin im Labor. Der Zeitkristall, der die Maschine antreibt, hat nur noch 70% Energie. Ohne mindestens 80% können wir keine sicheren Sprünge machen.\"\n\n**Kristall-Anzeige:** Energie-Level: 70%\n\n**Frage:** Welche Anweisung führt das Energiesystem aus?",
+      "text": "\"Junior-Protokoll ist aktiv, aber das ist nur ein Notfallmodus,\" erklärt Dr. Chen. \"Wir müssen sofort die Zeitmaschine überprüfen. Der Hypersprung-Unfall könnte den Kristall beschädigt haben.\"\n\nPhysikerin Dr. Sarah Kim meldet sich: \"Maya, ich bin im Labor. Der Zeitkristall, der die Maschine antreibt, hat nur noch 70% Energie. Ohne mindestens 80% können wir keine sicheren Sprünge machen.\"\n\n**Frage:** Welche Anweisung führt das Energiesystem aus?",
       "variables": {
         "forscher_alter": 23
       },
@@ -39,23 +40,24 @@
       },
       "buttons": [
         {
-          "label": "if energie_level >= 80:",
+          "label": "if energie_level >= 80:\n        sicheren_sprung_starten()",
           "correct": false,
           "explanation": "❌ **Falsch!** 70 >= 80 ist **false**. Computer springt zur else-Anweisung."
         },
         {
-          "label": "else:",
+          "label": "else:\n        energiesparmodus_aktivieren()",
           "correct": true,
           "explanation": "✅ **Richtig!** Da 70 < 80, führt der Computer die else-Anweisung aus: 'Energiesparmodus aktiviert'."
         }
       ],
       "success_text": "🎉 **Level 2 geschafft!** Du verstehst wie Computer Zahlenvergleiche auswerten.",
-      "next_mission": 3
+      "next_mission": 3,
+      "lrs_support": "**Kristall-Anzeige:**Energie-Level: 70%"
     },
     {
       "id": 3,
       "title": "Crew-Vertrauen",
-      "text": "\"Gute Entscheidung mit dem Energiesparmodus,\" sagt Sarah erleichtert. \"Das kauft uns Zeit.\" Sie kommt ins Labor, ihr Kittel ist voller Kristallstaub. \"Aber wir haben ein anderes Problem.\"\n\nDie fünfköpfige Forschungsgruppe versammelt sich. Historiker Dr. James Wright und Linguistin Dr. Zara Okafor blicken Maya skeptisch an.\n\n\"Maya, du warst bisher nur Assistentin,\" sagt Dr. Wright vorsichtig. \"Kannst du wirklich eine Zeitrettungsmission leiten? Die Moral-Scanner zeigen 60% Teamvertrauen.\"\n\n**Crew-Report:** Team-Vertrauen: 60%\n\n**Frage:** Das Führungssystem prüft drei Stufen. Welche wird ausgeführt?",
+      "text": "\"Gute Entscheidung mit dem Energiesparmodus,\" sagt Sarah erleichtert. \"Das kauft uns Zeit.\" Sie kommt ins Labor, ihr Kittel ist voller Kristallstaub. \"Aber wir haben ein anderes Problem.\"\n\nDie fünfköpfige Forschungsgruppe versammelt sich. Historiker Dr. James Wright und Linguistin Dr. Zara Okafor blicken Maya skeptisch an.\n\n\"Maya, du warst bisher nur Assistentin,\" sagt Dr. Wright vorsichtig. \"Kannst du wirklich eine Zeitrettungsmission leiten? Die Moral-Scanner zeigen 60% Teamvertrauen.\"\n\n**Frage:** Das Führungssystem prüft drei Stufen. Welche wird ausgeführt?",
       "variables": {
         "forscher_alter": 23,
         "energie_level": 70
@@ -65,28 +67,29 @@
       },
       "buttons": [
         {
-          "label": "if team_vertrauen >= 80:",
+          "label": "if team_vertrauen >= 80:\n        expertenteam_fuehrung_aktivieren()",
           "correct": false,
           "explanation": "❌ **Falsch!** 60 >= 80 ist **false**. Computer geht zur nächsten Bedingung."
         },
         {
-          "label": "elif team_vertrauen >= 50:",
+          "label": "elif team_vertrauen >= 50:\n        standard_fuehrung_aktivieren()",
           "correct": true,
           "explanation": "✅ **Richtig!** 60 >= 50 ist **true**. Computer führt aus: 'Standard-Führung' und stoppt hier."
         },
         {
-          "label": "else:",
+          "label": "else:\n        basis_fuehrung_aktivieren()",
           "correct": false,
           "explanation": "❌ **Falsch!** Da elif bereits true war, wird else nie erreicht."
         }
       ],
       "success_text": "🎉 **Level 3 geschafft!** Du verstehst jetzt if/elif/else - Computer stoppt bei der ersten wahren Bedingung!",
-      "next_mission": 4
+      "next_mission": 4,
+      "lrs_support": "**Crew-Report:**Team-Vertrauen: 60%"
     },
     {
       "id": 4,
       "title": "Erste Zeitkoordinaten",
-      "text": "Drei Stunden später hat sich die Crew etwas beruhigt. \"Ich habe Professor Steinbergs letzte Aufzeichnungen gefunden,\" berichtet Dr. Okafor. \"Er ist ins Jahr 1455 gesprungen - mitten in die Renaissance. Aber warum?\"\n\nDas Navigationssystem muss alle aktuellen Parameter berücksichtigen: Mayas Alter (23), Energielevel (70%) und Teamvertrauen (60%) für die Sprungberechnung.\n\n**Verfügbare Daten:** Forscher-Alter: 23, Energie-Level: 70%, Team-Vertrauen: 60%\n\n**Frage:** Das Navigationssystem kombiniert mehrere Variablen. Welche Bedingung trifft zu?",
+      "text": "Drei Stunden später hat sich die Crew etwas beruhigt. \"Ich habe Professor Steinbergs letzte Aufzeichnungen gefunden,\" berichtet Dr. Okafor. \"Er ist ins Jahr 1455 gesprungen - mitten in die Renaissance. Aber warum?\"\n\nDas Navigationssystem muss alle aktuellen Parameter berücksichtigen: Mayas Alter (23), Energielevel (70%) und Teamvertrauen (60%) für die Sprungberechnung.\n\n**Frage:** Das Navigationssystem kombiniert mehrere Variablen. Welche Bedingung trifft zu?",
       "variables": {
         "forscher_alter": 23,
         "energie_level": 70,
@@ -95,28 +98,29 @@
       "variables_discovered": {},
       "buttons": [
         {
-          "label": "if forscher_alter >= 25 and energie_level >= 80:",
+          "label": "if forscher_alter >= 25 and energie_level >= 80:\n        direkter_verfolgungssprung_starten()",
           "correct": false,
           "explanation": "❌ **Falsch!** (23 >= 25) AND (70 >= 80) = false AND false = **false**. Zur nächsten Bedingung."
         },
         {
-          "label": "elif team_vertrauen >= 50:",
+          "label": "elif team_vertrauen >= 50:\n        kurzzeit_verfolgungssprung_starten()",
           "correct": true,
           "explanation": "✅ **Richtig!** 60 >= 50 ist **true**. Computer führt aus: 'Kurzzeit-Verfolgungssprung'."
         },
         {
-          "label": "else:",
+          "label": "else:\n        notfall_sprung_vorbereiten()",
           "correct": false,
           "explanation": "❌ **Falsch!** elif war bereits true, else wird nicht erreicht."
         }
       ],
       "success_text": "🎉 **Level 4 geschafft!** Du kannst jetzt AND-Verknüpfungen und mehrere Variablen kombinieren!",
-      "next_mission": 5
+      "next_mission": 5,
+      "lrs_support": "**Verfügbare Daten:**Forscher-Alter: 23, Energie-Level: 70%, Team-Vertrauen: 60%"
     },
     {
       "id": 5,
       "title": "Renaissance-Landung",
-      "text": "\"Route zur Renaissance gesetzt,\" bestätigt Dr. Wright mit einem anerkennenden Nicken. \"Du lernst schnell.\"\n\nDer erste Sprung gelingt! Maya materialisiert sich in einer engen Gasse im Renaissance-Florenz. Ihre Zeitanzeige zeigt 45 Stabilität.\n\nEin Mann in einem Umhang beobachtet sie - ist das Professor Steinberg? Er verschwindet, bevor sie ihn erreichen kann, aber hinterlässt einen Zettel: \"Die Kunstwerke sind der Schlüssel. Verhindere den Diebstahl.\"\n\n**Zeit-Status:** Stabilität: 45 Einheiten\n\n**Frage:** Das Stabilisierungssystem hat vier Stufen. Welche wird aktiviert?",
+      "text": "\"Route zur Renaissance gesetzt,\" bestätigt Dr. Wright mit einem anerkennenden Nicken. \"Du lernst schnell.\"\n\nDer erste Sprung gelingt! Maya materialisiert sich in einer engen Gasse im Renaissance-Florenz. Ihre Zeitanzeige zeigt 45 Stabilität.\n\nEin Mann in einem Umhang beobachtet sie - ist das Professor Steinberg? Er verschwindet, bevor sie ihn erreichen kann, aber hinterlässt einen Zettel: \"Die Kunstwerke sind der Schlüssel. Verhindere den Diebstahl.\"\n\n**Frage:** Das Stabilisierungssystem hat vier Stufen. Welche wird aktiviert?",
       "variables": {
         "forscher_alter": 23,
         "energie_level": 70,
@@ -127,33 +131,34 @@
       },
       "buttons": [
         {
-          "label": "if stabilitat >= 60:",
+          "label": "if stabilitat >= 60:\n        vollstaendige_materialisation_starten()",
           "correct": false,
           "explanation": "❌ **Falsch!** 45 >= 60 ist **false**. Computer geht weiter."
         },
         {
-          "label": "elif stabilitat >= 50:",
+          "label": "elif stabilitat >= 50:\n        normale_materialisation_starten()",
           "correct": false,
           "explanation": "❌ **Falsch!** 45 >= 50 ist **false**. Computer geht weiter."
         },
         {
-          "label": "elif stabilitat >= 40:",
+          "label": "elif stabilitat >= 40:\n        minimale_aktivitaet_starten()",
           "correct": true,
           "explanation": "✅ **Richtig!** 45 >= 40 ist **true**. Computer führt aus: 'Minimale Aktivität' und stoppt."
         },
         {
-          "label": "else:",
+          "label": "else:\n        notfall_stabilisierung_starten()",
           "correct": false,
           "explanation": "❌ **Falsch!** elif war bereits true, else wird übersprungen."
         }
       ],
       "success_text": "🎉 **Level 5 geschafft!** Du beherrschst jetzt mehrfache elif-Ketten!",
-      "next_mission": 6
+      "next_mission": 6,
+      "lrs_support": "**Zeit-Status:**Stabilität: 45 Einheiten"
     },
     {
       "id": 6,
       "title": "Kommunikation durch Zeit",
-      "text": "Zurück in der Renaissance entdeckt Maya ein merkwürdiges Gerät - einen Chronos-Kommunikator mit 30% Signalstärke. Sie kann kurze Nachrichten in ihre Zeit senden, aber die Verschlüsselung funktioniert.\n\n\"Maya, bist du das?\" knistert Alex' Stimme durch das Gerät. \"Wir empfangen dich, aber sehr schwach. Hast du Professor Steinberg gefunden?\"\n\n**Kom-System:** Signalstärke: 30%, Verschlüsselung: aktiv (true)\n\n**Frage:** Das Kommunikationssystem prüft Boolean-Werte. Welche Bedingung trifft zu?",
+      "text": "Zurück in der Renaissance entdeckt Maya ein merkwürdiges Gerät - einen Chronos-Kommunikator mit 30% Signalstärke. Sie kann kurze Nachrichten in ihre Zeit senden, aber die Verschlüsselung funktioniert.\n\n\"Maya, bist du das?\" knistert Alex' Stimme durch das Gerät. \"Wir empfangen dich, aber sehr schwach. Hast du Professor Steinberg gefunden?\"\n\n**Frage:** Das Kommunikationssystem prüft Boolean-Werte. Welche Bedingung trifft zu?",
       "variables": {
         "forscher_alter": 23,
         "energie_level": 70,
@@ -166,28 +171,29 @@
       },
       "buttons": [
         {
-          "label": "if signal_staerke >= 50:",
+          "label": "if signal_staerke >= 50:\n        direkte_zukunfts_kommunikation_starten()",
           "correct": false,
           "explanation": "❌ **Falsch!** 30 >= 50 ist **false**. Computer geht zur nächsten Bedingung."
         },
         {
-          "label": "elif verschluesselung_aktiv:",
+          "label": "elif verschluesselung_aktiv:\n        sichere_schwach_kommunikation_starten()",
           "correct": true,
           "explanation": "✅ **Richtig!** verschluesselung_aktiv ist **true**. Computer führt aus: 'Sichere Kommunikation trotz schwachem Signal'."
         },
         {
-          "label": "else:",
+          "label": "else:\n        offene_notfall_kommunikation_senden()",
           "correct": false,
           "explanation": "❌ **Falsch!** elif war true, else wird nicht erreicht."
         }
       ],
       "success_text": "🎉 **Level 6 geschafft!** Du verstehst jetzt Boolean-Werte (true/false) in Bedingungen!",
-      "next_mission": 7
+      "next_mission": 7,
+      "lrs_support": "**Kom-System:**Signalstärke: 30%, Verschlüsselung: aktiv (true)"
     },
     {
       "id": 7,
       "title": "Feindkontakt im Mittelalter",
-      "text": "Plötzlich geht etwas schief - Maya wird ungewollt ins Jahr 1347 geschleudert, mitten in die Pest-Zeit. Schwarzgekleidete Gestalten mit futuristischen Geräten jagen sie durch die Straßen.\n\n\"Das sind die Chronos-Wächter!\" ruft eine vertraute Stimme. Professor Steinberg erscheint und zieht sie in ein Versteck. \"Sie versuchen, die Geschichte zu 'korrigieren' - aber ihre Version wird die Zukunft zerstören.\"\n\n**Bedrohungsanalyse:** Feindkontakt: erkannt (true), Entfernung: 12 Blöcke\n\n**Frage:** Das Verteidigungssystem kombiniert Boolean und Zahlen. Welche Aktion wird ausgeführt?",
+      "text": "Plötzlich geht etwas schief - Maya wird ungewollt ins Jahr 1347 geschleudert, mitten in die Pest-Zeit. Schwarzgekleidete Gestalten mit futuristischen Geräten jagen sie durch die Straßen.\n\n\"Das sind die Chronos-Wächter!\" ruft eine vertraute Stimme. Professor Steinberg erscheint und zieht sie in ein Versteck. \"Sie versuchen, die Geschichte zu 'korrigieren' - aber ihre Version wird die Zukunft zerstören.\"\n\n**Frage:** Das Verteidigungssystem kombiniert Boolean und Zahlen. Welche Aktion wird ausgeführt?",
       "variables": {
         "forscher_alter": 23,
         "energie_level": 70,
@@ -202,28 +208,29 @@
       },
       "buttons": [
         {
-          "label": "if feindkontakt and entfernung <= 8:",
+          "label": "if feindkontakt and entfernung <= 8:\n        sofort_angriff_starten()",
           "correct": false,
           "explanation": "❌ **Falsch!** true AND (12 <= 8) = true AND false = **false**. Computer geht weiter."
         },
         {
-          "label": "elif feindkontakt and energie_level >= 60:",
+          "label": "elif feindkontakt and energie_level >= 60:\n        temporalschild_aktivieren()",
           "correct": true,
           "explanation": "✅ **Richtig!** true AND (70 >= 60) = true AND true = **true**. Computer führt aus: 'Temporalschild aktivieren'."
         },
         {
-          "label": "else:",
+          "label": "else:\n        flucht_vorbereiten()",
           "correct": false,
           "explanation": "❌ **Falsch!** elif war bereits true, else wird übersprungen."
         }
       ],
       "success_text": "🎉 **Level 7 geschafft!** Du beherrschst AND-Verknüpfungen mit gemischten Datentypen!",
-      "next_mission": 8
+      "next_mission": 8,
+      "lrs_support": "**Bedrohungsanalyse:**Feindkontakt: erkannt (true), Entfernung: 12 Blöcke"
     },
     {
       "id": 8,
       "title": "Zeitenergie-Krise",
-      "text": "\"Schilde sind aktiv,\" meldet Steinberg erleichtert. Die Chronos-Wächter verschwinden vorläufig. \"Aber wir haben ein Problem. Die Chronos-Wächter haben Zeitenergie-Blocker aufgestellt. Unsere Sprungkraft ist auf 35 gesunken.\"\n\nMaya checkt ihre Ausrüstung. Der Zeitkristall glimmt schwächer. Das System zeigt jetzt \"kritisch\" für den Effizienz-Modus.\n\n**Energie-Status:** Sprungkraft: 35 Einheiten, Effizienz-Modus: \"kritisch\"\n\n**Frage:** Das Energiemanagement-System hat fünf Stufen. Welche wird aktiviert?",
+      "text": "\"Schilde sind aktiv,\" meldet Steinberg erleichtert. Die Chronos-Wächter verschwinden vorläufig. \"Aber wir haben ein Problem. Die Chronos-Wächter haben Zeitenergie-Blocker aufgestellt. Unsere Sprungkraft ist auf 35 gesunken.\"\n\nMaya checkt ihre Ausrüstung. Der Zeitkristall glimmt schwächer. Das System zeigt jetzt \"kritisch\" für den Effizienz-Modus.\n\n**Frage:** Das Energiemanagement-System hat fünf Stufen. Welche wird aktiviert?",
       "variables": {
         "forscher_alter": 23,
         "energie_level": 70,
@@ -240,38 +247,39 @@
       },
       "buttons": [
         {
-          "label": "if sprungkraft >= 50:",
+          "label": "if sprungkraft >= 50:\n        optimale_zeitenergie_nutzen()",
           "correct": false,
           "explanation": "❌ **Falsch!** 35 >= 50 ist **false**. Computer geht weiter."
         },
         {
-          "label": "elif sprungkraft >= 40:",
+          "label": "elif sprungkraft >= 40:\n        erweiterte_zeitenergie_nutzen()",
           "correct": false,
           "explanation": "❌ **Falsch!** 35 >= 40 ist **false**. Computer geht weiter."
         },
         {
-          "label": "elif sprungkraft >= 30 and effizienz_modus == \"kritisch\":",
+          "label": "elif sprungkraft >= 30 and effizienz_modus == \"kritisch\":\n        notfall_energiesparmodus_starten()",
           "correct": true,
           "explanation": "✅ **Richtig!** (35 >= 30) AND (\"kritisch\" == \"kritisch\") = true AND true = **true**. Computer führt aus: 'Notfall-Energiesparmodus'."
         },
         {
-          "label": "elif sprungkraft >= 20:",
+          "label": "elif sprungkraft >= 20:\n        basis_zeitenergie_nutzen()",
           "correct": false,
           "explanation": "❌ **Falsch!** Die vorherige elif-Bedingung war bereits true, diese wird nicht erreicht."
         },
         {
-          "label": "else:",
+          "label": "else:\n        minimale_zeitenergie_nutzen()",
           "correct": false,
           "explanation": "❌ **Falsch!** Eine elif-Bedingung war bereits true, else wird übersprungen."
         }
       ],
       "success_text": "🎉 **Level 8 geschafft!** Du verstehst jetzt String-Vergleiche und komplexe elif-Ketten!",
-      "next_mission": 9
+      "next_mission": 9,
+      "lrs_support": "**Energie-Status:**Sprungkraft: 35 Einheiten, Effizienz-Modus: \"kritisch\""
     },
     {
       "id": 9,
       "title": "Zeitkapsel-Problem",
-      "text": "Der Energiesparmodus zeigt Wirkung, aber Steinberg entdeckt ein neues Problem. \"Maya, wir haben ein Problem! Die Zeitkapsel ist beschädigt - wir verlieren Stabilität. 75% Kohärenz, aber die Temp-Regulierung ist auf 'kritisch', und der Zeitanker ist defekt.\"\n\n**Zeitkapsel-Status:** Kohärenz: 75%, Effizienz-Modus: \"kritisch\", Zeitanker defekt: true\n\n**Frage:** Das Zeitreise-System prüft alle drei Parameter. Welche Aktion wird ausgeführt?",
+      "text": "Der Energiesparmodus zeigt Wirkung, aber Steinberg entdeckt ein neues Problem. \"Maya, wir haben ein Problem! Die Zeitkapsel ist beschädigt - wir verlieren Stabilität. 75% Kohärenz, aber die Temp-Regulierung ist auf 'kritisch', und der Zeitanker ist defekt.\"\n\n**Frage:** Das Zeitreise-System prüft alle drei Parameter. Welche Aktion wird ausgeführt?",
       "variables": {
         "forscher_alter": 23,
         "energie_level": 70,
@@ -311,12 +319,13 @@
         }
       ],
       "success_text": "🎉 **Level 9 geschafft!** Du beherrschst jetzt komplexe AND-Verknüpfungen und NOT-Operatoren!",
-      "next_mission": 10
+      "next_mission": 10,
+      "lrs_support": "**Zeitkapsel-Status:**Kohärenz: 75%, Effizienz-Modus: \"kritisch\", Zeitanker defekt: true"
     },
     {
       "id": 10,
       "title": "Antikes Rom",
-      "text": "Die Zeitkapsel stürzt ins antike Rom, 73 v.Chr., mitten im Spartacus-Aufstand. Maya und Steinberg finden sich in einer gefährlichen historischen Situation wieder. Der neue Zeitdruck-Wert beträgt nur 0.6 - zu niedrig für sichere Arbeiten.\n\n\"Die Zeitschleuse ist verschlossen - das ist gut,\" bemerkt Steinberg. \"Aber wir müssen in dieser gefährlichen Zeit äußerst vorsichtig sein.\"\n\n**Rom-Status:** Zeitdruck: 0.6 Bar, Verschlüsselung: aktiv\n\n**Frage:** Das System berücksichtigt wichtige Zeitparameter. Welche Aktion wird gewählt?",
+      "text": "Die Zeitkapsel stürzt ins antike Rom, 73 v.Chr., mitten im Spartacus-Aufstand. Maya und Steinberg finden sich in einer gefährlichen historischen Situation wieder. Der neue Zeitdruck-Wert beträgt nur 0.6 - zu niedrig für sichere Arbeiten.\n\n\"Die Zeitschleuse ist verschlossen - das ist gut,\" bemerkt Steinberg. \"Aber wir müssen in dieser gefährlichen Zeit äußerst vorsichtig sein.\"\n\n**Frage:** Das System berücksichtigt wichtige Zeitparameter. Welche Aktion wird gewählt?",
       "variables": {
         "forscher_alter": 23,
         "energie_level": 70,
@@ -355,12 +364,13 @@
         }
       ],
       "success_text": "🎉 **Level 10 geschafft!** Du kombinierst jetzt mühelos viele Variablen in komplexen Bedingungen!",
-      "next_mission": 11
+      "next_mission": 11,
+      "lrs_support": "**Rom-Status:**Zeitdruck: 0.6 Bar, Verschlüsselung: aktiv"
     },
     {
       "id": 11,
       "title": "Zukunfts-Raumstation",
-      "text": "Ein ungewollter Sprung bringt sie in die nahe Zukunft auf Raumstation Chronos-Alpha, Jahr 2156. \"Die Hauptsensoren sind offline,\" meldet Maya. \"Aber die Backup-Systeme funktionieren mit 80% Reichweite.\"\n\nSteinberg ist besorgt: \"Wir sind nur ein Jahr vor der Zeit der Chronos-Wächter. Hier müssen wir extrem vorsichtig sein.\"\n\n**Sensor-Status:** Hauptsensor offline: true, Verschlüsselung aktiv: true, Reichweite: 80%\n\n**Frage:** Das Sensorsystem nutzt erweiterte NOT-Logik. Welche Konfiguration wird gewählt?",
+      "text": "Ein ungewollter Sprung bringt sie in die nahe Zukunft auf Raumstation Chronos-Alpha, Jahr 2156. \"Die Hauptsensoren sind offline,\" meldet Maya. \"Aber die Backup-Systeme funktionieren mit 80% Reichweite.\"\n\nSteinberg ist besorgt: \"Wir sind nur ein Jahr vor der Zeit der Chronos-Wächter. Hier müssen wir extrem vorsichtig sein.\"\n\n**Frage:** Das Sensorsystem nutzt erweiterte NOT-Logik. Welche Konfiguration wird gewählt?",
       "variables": {
         "forscher_alter": 23,
         "energie_level": 70,
@@ -399,12 +409,13 @@
         }
       ],
       "success_text": "🎉 **Level 11 geschafft!** Du meisterst jetzt NOT-Operatoren und Dreifach-AND-Verknüpfungen!",
-      "next_mission": 12
+      "next_mission": 12,
+      "lrs_support": "**Sensor-Status:**Hauptsensor offline: true, Verschlüsselung aktiv: true, Reichweite: 80%"
     },
     {
       "id": 12,
       "title": "Zeitwaffen-Arsenal",
-      "text": "\"Maya, schau dir das an,\" flüstert Steinberg. Sie entdecken ein Arsenal von Zeitwaffen: Chronos-Laser (80% geladen), 6 Temporal-Granaten, und ein aktives Zielsystem.\n\n\"Die Chronos-Wächter haben uns entdeckt,\" warnt Steinberg. \"Diese Waffen sind für Zeitkriege konzipiert - sie können Menschen aus der Timeline löschen.\"\n\n**Waffen-Status:** Laser-Energie: 80%, Granaten: 6 Stück, Zielsystem aktiv: true\n\n**Frage:** Das Waffensystem hat sechs Kampfbereitschaftsstufen. Welche wird aktiviert?",
+      "text": "\"Maya, schau dir das an,\" flüstert Steinberg. Sie entdecken ein Arsenal von Zeitwaffen: Chronos-Laser (80% geladen), 6 Temporal-Granaten, und ein aktives Zielsystem.\n\n\"Die Chronos-Wächter haben uns entdeckt,\" warnt Steinberg. \"Diese Waffen sind für Zeitkriege konzipiert - sie können Menschen aus der Timeline löschen.\"\n\n**Frage:** Das Waffensystem hat sechs Kampfbereitschaftsstufen. Welche wird aktiviert?",
       "variables": {
         "forscher_alter": 23,
         "energie_level": 80,
@@ -453,12 +464,13 @@
         }
       ],
       "success_text": "🎉 **Level 12 geschafft!** Du beherrschst jetzt sechs-stufige elif-Ketten mit komplexen Bedingungen!",
-      "next_mission": 13
+      "next_mission": 13,
+      "lrs_support": "**Waffen-Status:**Laser-Energie: 80%, Granaten: 6 Stück, Zielsystem aktiv: true"
     },
     {
       "id": 13,
       "title": "Zeitriss-Notreparatur",
-      "text": "Während der Flucht von der Raumstation reißt ein Loch in die Zeit selbst auf. \"ZEITRISS!\" schreit Steinberg. \"15% Timeline-Schaden! Aber es ist reparabel - noch.\"\n\nMaya starrt in den wirbelnden Strudel von Vergangenheit und Zukunft. \"Wenn wir das nicht reparieren, könnte die gesamte Zeitlinie kollabieren.\"\n\n**Zeitriss-Status:** Timeline-Schaden: 15%, Reparatur möglich: true\n\n**Frage:** Das Notfallsystem wertet komplexe Parameter aus. Welches Protokoll wird aktiviert?",
+      "text": "Während der Flucht von der Raumstation reißt ein Loch in die Zeit selbst auf. \"ZEITRISS!\" schreit Steinberg. \"15% Timeline-Schaden! Aber es ist reparabel - noch.\"\n\nMaya starrt in den wirbelnden Strudel von Vergangenheit und Zukunft. \"Wenn wir das nicht reparieren, könnte die gesamte Zeitlinie kollabieren.\"\n\n**Frage:** Das Notfallsystem wertet komplexe Parameter aus. Welches Protokoll wird aktiviert?",
       "variables": {
         "forscher_alter": 23,
         "energie_level": 80,
@@ -502,12 +514,13 @@
         }
       ],
       "success_text": "🎉 **Level 13 geschafft!** Du meisterst jetzt OR-Verknüpfungen in Klammern und komplexeste Logik!",
-      "next_mission": 14
+      "next_mission": 14,
+      "lrs_support": "**Zeitriss-Status:**Timeline-Schaden: 15%, Reparatur möglich: true"
     },
     {
       "id": 14,
       "title": "Zeitschleifen-Rettung",
-      "text": "Ein Notsprung bringt sie zurück ins Jahr 2087 - aber etwas ist anders. In einer Zeitschleife gefangen sind 4 Wissenschaftler, die endlos denselben Tag wiederholen. Das Zeitfenster beträgt 8 Stunden.\n\n\"Maya!\" ruft die alternative Version von Dr. Kim. \"Wir sind seit Stunden hier gefangen! Die Chronos-Wächter haben eine Zeitfalle aufgestellt!\"\n\n**Rettungs-Status:** Gefangene: 4, Zeitfenster: 8 Stunden, Reparatur möglich: true\n\n**Frage:** Das Rettungsprotokoll hat sechs Prioritätsstufen. Welche wird gewählt?",
+      "text": "Ein Notsprung bringt sie zurück ins Jahr 2087 - aber etwas ist anders. In einer Zeitschleife gefangen sind 4 Wissenschaftler, die endlos denselben Tag wiederholen. Das Zeitfenster beträgt 8 Stunden.\n\n\"Maya!\" ruft die alternative Version von Dr. Kim. \"Wir sind seit Stunden hier gefangen! Die Chronos-Wächter haben eine Zeitfalle aufgestellt!\"\n\n**Frage:** Das Rettungsprotokoll hat sechs Prioritätsstufen. Welche wird gewählt?",
       "variables": {
         "forscher_alter": 23,
         "energie_level": 80,
@@ -556,12 +569,13 @@
         }
       ],
       "success_text": "🎉 **Level 14 geschafft!** Du beherrschst jetzt sogar NOT-Operatoren mit Vergleichen in komplexen Ketten!",
-      "next_mission": 15
+      "next_mission": 15,
+      "lrs_support": "**Rettungs-Status:**Gefangene: 4, Zeitfenster: 8 Stunden, Reparatur möglich: true"
     },
     {
       "id": 15,
       "title": "Finale Zeitentscheidung",
-      "text": "Alle Zeitlinien treffen in einem spektakulären Finale zusammen. Maya steht vor der ursprünglichen Zeitmaschine, umgeben von Chronos-Wächtern, alternativen Versionen ihrer Crew, und Professor Steinberg.\n\n\"Maya,\" spricht der Anführer der Chronos-Wächter, \"du hast 8 Timeline-Störungen verursacht und 12 Zeitparadoxe gelöst. Du bist sowohl die Gefahr als auch die Lösung.\"\n\nSteinberg fügt hinzu: \"Die Entscheidung liegt bei dir - zerstöre die Zeitmaschine und verhindere zukünftige Zeitkriege, oder vervollständige sie und ermögliche der Menschheit wahre Zeitherrschaft.\"\n\n**Finale Bewertung:** Timeline-Störungen: 8, Zeitparadoxe gelöst: 12, Mission erfolgreich: true\n\n**Frage:** Das finale Entscheidungssystem wertet ALLE 12 Variablen aus. Welche Strategie wird gewählt?",
+      "text": "Alle Zeitlinien treffen in einem spektakulären Finale zusammen. Maya steht vor der ursprünglichen Zeitmaschine, umgeben von Chronos-Wächtern, alternativen Versionen ihrer Crew, und Professor Steinberg.\n\n\"Maya,\" spricht der Anführer der Chronos-Wächter, \"du hast 8 Timeline-Störungen verursacht und 12 Zeitparadoxe gelöst. Du bist sowohl die Gefahr als auch die Lösung.\"\n\nSteinberg fügt hinzu: \"Die Entscheidung liegt bei dir - zerstöre die Zeitmaschine und verhindere zukünftige Zeitkriege, oder vervollständige sie und ermögliche der Menschheit wahre Zeitherrschaft.\"\n\n**Frage:** Das finale Entscheidungssystem wertet ALLE 12 Variablen aus. Welche Strategie wird gewählt?",
       "variables": {
         "forscher_alter": 23,
         "energie_level": 80,
@@ -615,7 +629,8 @@
         }
       ],
       "success_text": "🎊 **ZEITREISE-MISSION ABGESCHLOSSEN!** Du bist jetzt ein Meister der Programmierlogik! Du verstehst wie Computer if/elif/else-Ketten von oben nach unten abarbeiten und bei der ersten wahren Bedingung stoppen. Du beherrschst Vergleiche, AND, OR, NOT und komplexe verschachtelte Bedingungen mit 12 Variablen! Maya ist zur Wächterin aller Zeiten geworden!",
-      "next_mission": null
+      "next_mission": null,
+      "lrs_support": "**Finale Bewertung:**Timeline-Störungen: 8, Zeitparadoxe gelöst: 12, Mission erfolgreich: true"
     }
   ]
 }

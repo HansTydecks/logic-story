@@ -7,19 +7,20 @@
     {
       "id": 1,
       "title": "Erste Kommando-Übernahme",
-      "text": "Du erwachst langsam in der Kapitänskabine der Aurora. Dein Kopf brummt - was ist passiert? Dr. Chen steht besorgt neben deinem Bett.\n\n\"Alex, endlich wachst du auf! Es gab einen Unfall in der Hypersprung-Kammer. Kapitän Morrison... er hat es nicht geschafft.\" Dr. Chens Stimme zittert. \"Das Computersystem hat dich als Nachfolger designiert, aber du bist erst 15. Das System führt gerade eine Altersverifikation durch.\"\n\n**Systemlog:** Kapitäns-Alter: 15 Jahre\n\n**Frage:** Welche Bedingung führt das Sicherheitssystem aus?",
+      "text": "Du erwachst langsam in der Kapitänskabine der Aurora. Dein Kopf brummt - was ist passiert? Dr. Chen steht besorgt neben deinem Bett.\n\n\"Alex, endlich wachst du auf! Es gab einen Unfall in der Hypersprung-Kammer. Kapitän Morrison... er hat es nicht geschafft.\" Dr. Chens Stimme zittert. \"Das Computersystem hat dich als Nachfolger designiert, aber du bist erst 15. Das System führt gerade eine Altersverifikation durch.\"\n\n**Frage:** Welche Bedingung führt das Sicherheitssystem aus?",
+      "lrs_support": "**Systemlog:** Kapitäns-Alter: 15 Jahre",
       "variables": {},
       "variables_discovered": {
         "kapitaen_alter": 15
       },
       "buttons": [
         {
-          "label": "if kapitaen_alter >= 18:",
+          "label": "if kapitaen_alter >= 18:\n        vollkommando_aktivieren()",
           "correct": false,
           "explanation": "❌ **Falsch!** 15 >= 18 ist **false**. Diese Bedingung wird übersprungen, der Computer geht zur nächsten."
         },
         {
-          "label": "else:",
+          "label": "else:\n        junior_kommando_aktivieren()",
           "correct": true,
           "explanation": "✅ **Richtig!** Da die if-Bedingung false war, führt der Computer die else-Anweisung aus: 'Junior-Kommando aktiviert'."
         }
@@ -30,7 +31,8 @@
     {
       "id": 2,
       "title": "Energiesystem-Check",
-      "text": "\"Junior-Kommando ist aktiv, aber das ist nur ein Notfallmodus,\" erklärt Dr. Chen. \"Wir müssen sofort die Energiesysteme überprüfen. Der Hypersprung-Unfall könnte die Hauptreaktoren beschädigt haben.\"\n\nIngenieurin Sarah Rodriguez meldet sich über Comm: \"Alex, ich bin im Maschinenraum. Die Energielevel sind instabil - wir haben nur 75% Leistung. Ohne mehr Energie können wir nicht navigieren oder die Lebenserhaltung aufrechterhalten.\"\n\n**Energie-Anzeige:** Energielevel: 75%\n\n**Frage:** Welche Anweisung führt das Energiesystem aus?",
+      "text": "\"Junior-Kommando ist aktiv, aber das ist nur ein Notfallmodus,\" erklärt Dr. Chen. \"Wir müssen sofort die Energiesysteme überprüfen. Der Hypersprung-Unfall könnte die Hauptreaktoren beschädigt haben.\"\n\nIngenieurin Sarah Rodriguez meldet sich über Comm: \"Alex, ich bin im Maschinenraum. Die Energielevel sind instabil - wir haben nur 75% Leistung. Ohne mehr Energie können wir nicht navigieren oder die Lebenserhaltung aufrechterhalten.\"\n\n**Frage:** Welche Anweisung führt das Energiesystem aus?",
+      "lrs_support": "**Energie-Anzeige:** Energielevel: 75%",
       "variables": {
         "kapitaen_alter": 15
       },
@@ -39,12 +41,12 @@
       },
       "buttons": [
         {
-          "label": "if energielevel >= 80:",
+          "label": "if energielevel >= 80:\n        normale_navigation_starten()",
           "correct": false,
           "explanation": "❌ **Falsch!** 75 >= 80 ist **false**. Computer springt zur else-Anweisung."
         },
         {
-          "label": "else:",
+          "label": "else:\n        energiesparmodus_aktivieren()",
           "correct": true,
           "explanation": "✅ **Richtig!** Da 75 < 80, führt der Computer die else-Anweisung aus: 'Energiesparmodus aktiviert'."
         }
@@ -55,7 +57,8 @@
     {
       "id": 3,
       "title": "Crew-Status Bewertung",
-      "text": "\"Gute Entscheidung mit dem Energiesparmodus,\" sagt Sarah erleichtert. \"Das kauft uns Zeit.\" Sie kommt zur Brücke, ihr Overall ist voller Maschinenöl. \"Aber wir haben ein anderes Problem.\"\n\nCommunications Officer Kim Patel schaltet sich ein: \"Die Crew ist... nun ja, sie sind nervös. Ein 15-jähriger Kapitän? Manche bezweifeln, ob du uns nach Hause bringen kannst. Die Moral-Sensoren zeigen 65% Bereitschaft.\"\n\n**Crew-Report:** Crew-Bereitschaft: 65%\n\n**Frage:** Das Führungssystem prüft drei Stufen. Welche wird ausgeführt?",
+      "text": "\"Gute Entscheidung mit dem Energiesparmodus,\" sagt Sarah erleichtert. \"Das kauft uns Zeit.\" Sie kommt zur Brücke, ihr Overall ist voller Maschinenöl. \"Aber wir haben ein anderes Problem.\"\n\nCommunications Officer Kim Patel schaltet sich ein: \"Die Crew ist... nun ja, sie sind nervös. Ein 15-jähriger Kapitän? Manche bezweifeln, ob du uns nach Hause bringen kannst. Die Moral-Sensoren zeigen 65% Bereitschaft.\"\n\n**Frage:** Das Führungssystem prüft drei Stufen. Welche wird ausgeführt?",
+      "lrs_support": "**Crew-Report:** Crew-Bereitschaft: 65%",
       "variables": {
         "kapitaen_alter": 15,
         "energielevel": 75
@@ -65,17 +68,17 @@
       },
       "buttons": [
         {
-          "label": "if crew_bereitschaft >= 80:",
+          "label": "if crew_bereitschaft >= 80:\n        elite_mission_starten()",
           "correct": false,
           "explanation": "❌ **Falsch!** 65 >= 80 ist **false**. Computer geht zur nächsten Bedingung."
         },
         {
-          "label": "elif crew_bereitschaft >= 50:",
+          "label": "elif crew_bereitschaft >= 50:\n        standard_vorbereitung_aktivieren()",
           "correct": true,
           "explanation": "✅ **Richtig!** 65 >= 50 ist **true**. Computer führt aus: 'Standard-Vorbereitung' und stoppt hier."
         },
         {
-          "label": "else:",
+          "label": "else:\n        notfall_protokoll_starten()",
           "correct": false,
           "explanation": "❌ **Falsch!** Da elif bereits true war, wird else nie erreicht."
         }
@@ -86,7 +89,8 @@
     {
       "id": 4,
       "title": "Navigationskurs setzen",
-      "text": "Drei Stunden später hat sich die Crew etwas beruhigt. \"Ich habe die Navigationsdaten gecheckt,\" berichtet Kim. \"Wir sind 25 Lichtjahre von der Erde entfernt. Nicht schlecht für einen Notfall-Hypersprung.\"\n\nDas Navigationssystem muss alle aktuellen Parameter berücksichtigen: Alexs Alter (15), Energielevel (75%) und Crew-Bereitschaft (65%) für die Kursberechnung.\n\n**Verfügbare Daten:** Kapitäns-Alter: 15, Energielevel: 75%, Crew-Bereitschaft: 65%\n\n**Frage:** Das Navigationssystem kombiniert mehrere Variablen. Welche Bedingung trifft zu?",
+      "text": "Drei Stunden später hat sich die Crew etwas beruhigt. \"Ich habe die Navigationsdaten gecheckt,\" berichtet Kim. \"Wir sind 25 Lichtjahre von der Erde entfernt. Nicht schlecht für einen Notfall-Hypersprung.\"\n\nDas Navigationssystem muss alle aktuellen Parameter berücksichtigen: Alexs Alter (15), Energielevel (75%) und Crew-Bereitschaft (65%) für die Kursberechnung.\n\n**Frage:** Das Navigationssystem kombiniert mehrere Variablen. Welche Bedingung trifft zu?",
+      "lrs_support": "**Verfügbare Daten:** Kapitäns-Alter: 15, Energielevel: 75%, Crew-Bereitschaft: 65%",
       "variables": {
         "kapitaen_alter": 15,
         "energielevel": 75,
@@ -95,17 +99,17 @@
       "variables_discovered": {},
       "buttons": [
         {
-          "label": "if kapitaen_alter >= 18 and energielevel >= 80:",
+          "label": "if kapitaen_alter >= 18 and energielevel >= 80:\n        direkter_heimkurs_berechnen()",
           "correct": false,
           "explanation": "❌ **Falsch!** (15 >= 18) AND (75 >= 80) = false AND false = **false**. Zur nächsten Bedingung."
         },
         {
-          "label": "elif crew_bereitschaft >= 60:",
+          "label": "elif crew_bereitschaft >= 60:\n        sicherer_heimkurs_berechnen()",
           "correct": true,
           "explanation": "✅ **Richtig!** 65 >= 60 ist **true**. Computer führt aus: 'Heimkurs berechnet'."
         },
         {
-          "label": "else:",
+          "label": "else:\n        notfall_sammelpunkt_ansteuern()",
           "correct": false,
           "explanation": "❌ **Falsch!** elif war bereits true, else wird nicht erreicht."
         }
@@ -116,7 +120,8 @@
     {
       "id": 5,
       "title": "Asteroiden-Navigation",
-      "text": "\"Kurs gesetzt,\" bestätigt Kim mit einem anerkennenden Nicken. \"Du lernst schnell, Kapitän.\"\n\nPlötzlich ertönt ein Alarm. \"Asteroiden-Feld voraus!\" ruft Sensor-Spezialist Dr. Martinez. \"Wir brauchen 1200 Einheiten Schubkraft, um durchzukommen. Aber bei unserem Energielevel sind nur 950 möglich.\"\n\n**Schub-Status:** Schubkraft: 950 Einheiten\n\n**Frage:** Das Schubsystem hat vier Stufen. Welche wird aktiviert?",
+      "text": "\"Kurs gesetzt,\" bestätigt Kim mit einem anerkennenden Nicken. \"Du lernst schnell, Kapitän.\"\n\nPlötzlich ertönt ein Alarm. \"Asteroiden-Feld voraus!\" ruft Sensor-Spezialist Dr. Martinez. \"Wir brauchen 1200 Einheiten Schubkraft, um durchzukommen. Aber bei unserem Energielevel sind nur 950 möglich.\"\n\n**Frage:** Das Schubsystem hat vier Stufen. Welche wird aktiviert?",
+      "lrs_support": "**Schub-Status:** Schubkraft: 950 Einheiten",
       "variables": {
         "kapitaen_alter": 15,
         "energielevel": 75,
@@ -127,22 +132,22 @@
       },
       "buttons": [
         {
-          "label": "if schubkraft >= 1200:",
+          "label": "if schubkraft >= 1200:\n        maximale_geschwindigkeit_aktivieren()",
           "correct": false,
           "explanation": "❌ **Falsch!** 950 >= 1200 ist **false**. Computer geht weiter."
         },
         {
-          "label": "elif schubkraft >= 1000:",
+          "label": "elif schubkraft >= 1000:\n        normale_geschwindigkeit_setzen()",
           "correct": false,
           "explanation": "❌ **Falsch!** 950 >= 1000 ist **false**. Computer geht weiter."
         },
         {
-          "label": "elif schubkraft >= 800:",
+          "label": "elif schubkraft >= 800:\n        vorsichtige_navigation_starten()",
           "correct": true,
           "explanation": "✅ **Richtig!** 950 >= 800 ist **true**. Computer führt aus: 'Vorsichtige Navigation' und stoppt."
         },
         {
-          "label": "else:",
+          "label": "else:\n        antrieb_reparatur_starten()",
           "correct": false,
           "explanation": "❌ **Falsch!** elif war bereits true, else wird übersprungen."
         }
@@ -153,7 +158,8 @@
     {
       "id": 6,
       "title": "Kommunikation mit der Erde",
-      "text": "Die Aurora navigiert erfolgreich durch das Asteroidenfeld. \"Großartige Arbeit, Kapitän,\" sagt Dr. Martinez. \"Aber wir haben ein neues Problem.\"\n\nKim checkt das Kommunikationssystem: \"Ich kann die Erde erreichen, aber das Signal ist schwach - nur 45% Stärke. Immerhin funktioniert die Verschlüsselung noch.\"\n\n**Kom-System:** Signalstärke: 45%, Verschlüsselung: aktiv (true)\n\n**Frage:** Das Kommunikationssystem prüft Boolean-Werte. Welche Bedingung trifft zu?",
+      "text": "Die Aurora navigiert erfolgreich durch das Asteroidenfeld. \"Großartige Arbeit, Kapitän,\" sagt Dr. Martinez. \"Aber wir haben ein neues Problem.\"\n\nKim checkt das Kommunikationssystem: \"Ich kann die Erde erreichen, aber das Signal ist schwach - nur 45% Stärke. Immerhin funktioniert die Verschlüsselung noch.\"\n\n**Frage:** Das Kommunikationssystem prüft Boolean-Werte. Welche Bedingung trifft zu?",
+      "lrs_support": "**Kom-System:** Signalstärke: 45%, Verschlüsselung: aktiv (true)",
       "variables": {
         "kapitaen_alter": 15,
         "energielevel": 75,
@@ -166,17 +172,17 @@
       },
       "buttons": [
         {
-          "label": "if signal_staerke >= 70:",
+          "label": "if signal_staerke >= 70:\n        direkte_erd_kommunikation_starten()",
           "correct": false,
           "explanation": "❌ **Falsch!** 45 >= 70 ist **false**. Computer geht zur nächsten Bedingung."
         },
         {
-          "label": "elif verschluesselung_aktiv:",
+          "label": "elif verschluesselung_aktiv:\n        sichere_schwach_kommunikation_starten()",
           "correct": true,
           "explanation": "✅ **Richtig!** verschluesselung_aktiv ist **true**. Computer führt aus: 'Sichere Schwach-Kommunikation'."
         },
         {
-          "label": "else:",
+          "label": "else:\n        offene_notfall_kommunikation_senden()",
           "correct": false,
           "explanation": "❌ **Falsch!** elif war true, else wird nicht erreicht."
         }
@@ -187,7 +193,8 @@
     {
       "id": 7,
       "title": "Feindkontakt",
-      "text": "\"Erdkontakt hergestellt,\" meldet Kim erleichtert. Aber plötzlich schrillen alle Alarme.\n\n\"UNBEKANNTE SCHIFFE!\" schreit Dr. Martinez. \"Drei Raumjäger, unbekannte Bauart! Sie nähern sich schnell - 8 Kilometer Entfernung und schließen auf!\"\n\nDas taktische Display zeigt rote Signale. \"Das sind keine irdischen Schiffe,\" flüstert Sarah.\n\n**Bedrohungsanalyse:** Feindkontakt: erkannt (true), Entfernung: 8 Kilometer\n\n**Frage:** Das Verteidigungssystem kombiniert Boolean und Zahlen. Welche Aktion wird ausgeführt?",
+      "text": "\"Erdkontakt hergestellt,\" meldet Kim erleichtert. Aber plötzlich schrillen alle Alarme.\n\n\"UNBEKANNTE SCHIFFE!\" schreit Dr. Martinez. \"Drei Raumjäger, unbekannte Bauart! Sie nähern sich schnell - 8 Kilometer Entfernung und schließen auf!\"\n\nDas taktische Display zeigt rote Signale. \"Das sind keine irdischen Schiffe,\" flüstert Sarah.\n\n**Frage:** Das Verteidigungssystem kombiniert Boolean und Zahlen. Welche Aktion wird ausgeführt?",
+      "lrs_support": "**Bedrohungsanalyse:** Feindkontakt: erkannt (true), Entfernung: 8 Kilometer",
       "variables": {
         "kapitaen_alter": 15,
         "energielevel": 75,
@@ -202,17 +209,17 @@
       },
       "buttons": [
         {
-          "label": "if feindkontakt and entfernung <= 5:",
+          "label": "if feindkontakt and entfernung <= 5:\n        sofort_angriff_starten()",
           "correct": false,
           "explanation": "❌ **Falsch!** true AND (8 <= 5) = true AND false = **false**. Computer geht weiter."
         },
         {
-          "label": "elif feindkontakt and energielevel >= 70:",
+          "label": "elif feindkontakt and energielevel >= 70:\n        defensivschild_aktivieren()",
           "correct": true,
           "explanation": "✅ **Richtig!** true AND (75 >= 70) = true AND true = **true**. Computer führt aus: 'Defensivschild aktivieren'."
         },
         {
-          "label": "else:",
+          "label": "else:\n        flucht_vorbereiten()",
           "correct": false,
           "explanation": "❌ **Falsch!** elif war bereits true, else wird übersprungen."
         }
@@ -223,7 +230,8 @@
     {
       "id": 8,
       "title": "Sauerstoff-Krise",
-      "text": "\"Schilde sind oben,\" meldet Sarah erleichtert. Die feindlichen Schiffe verschwinden hinter einem Asteroiden. \"Aber wir haben ein neues Problem - die Schilde verbrauchen viel Energie und belasten die Lebenserhaltung.\"\n\nDr. Chen checkt die Lebenserhaltungssysteme: \"Sauerstofflevel bei 55%. Das reicht nur noch 6 Stunden. Die Temperatur ist auf 'kritisch' gestiegen.\"\n\n**Lebenserhaltung:** Sauerstoff: 55%, Temperatur: \"kritisch\"\n\n**Frage:** Das Lebenserhaltungs-System hat fünf Stufen. Welche wird aktiviert?",
+      "text": "\"Schilde sind oben,\" meldet Sarah erleichtert. Die feindlichen Schiffe verschwinden hinter einem Asteroiden. \"Aber wir haben ein neues Problem - die Schilde verbrauchen viel Energie und belasten die Lebenserhaltung.\"\n\nDr. Chen checkt die Lebenserhaltungssysteme: \"Sauerstofflevel bei 55%. Das reicht nur noch 6 Stunden. Die Temperatur ist auf 'kritisch' gestiegen.\"\n\n**Frage:** Das Lebenserhaltungs-System hat fünf Stufen. Welche wird aktiviert?",
+      "lrs_support": "**Lebenserhaltung:** Sauerstoff: 55%, Temperatur: \"kritisch\"",
       "variables": {
         "kapitaen_alter": 15,
         "energielevel": 75,
@@ -239,27 +247,27 @@
       },
       "buttons": [
         {
-          "label": "if signal_staerke >= 70:",
+          "label": "if signal_staerke >= 70:\n        vollstaendige_kommunikation_starten()",
           "correct": false,
           "explanation": "❌ **Falsch!** 55 >= 70 ist **false**. Computer geht weiter."
         },
         {
-          "label": "elif signal_staerke >= 60:",
+          "label": "elif signal_staerke >= 60:\n        erweiterte_lebenserhaltung_aktivieren()",
           "correct": false,
           "explanation": "❌ **Falsch!** 55 >= 60 ist **false**. Computer geht weiter."
         },
         {
-          "label": "elif signal_staerke >= 50 and temperatur == \"kritisch\":",
+          "label": "elif signal_staerke >= 50 and temperatur == \"kritisch\":\n        notfall_lebenserhaltung_starten()",
           "correct": true,
           "explanation": "✅ **Richtig!** (55 >= 50) AND (\"kritisch\" == \"kritisch\") = true AND true = **true**. Computer führt aus: 'Notfall-Lebenserhaltung'."
         },
         {
-          "label": "elif signal_staerke >= 40:",
+          "label": "elif signal_staerke >= 40:\n        basis_lebenserhaltung_starten()",
           "correct": false,
           "explanation": "❌ **Falsch!** Die vorherige elif-Bedingung war bereits true, diese wird nicht erreicht."
         },
         {
-          "label": "else:",
+          "label": "else:\n        minimale_ueberlebensfunktionen_aktivieren()",
           "correct": false,
           "explanation": "❌ **Falsch!** Eine elif-Bedingung war bereits true, else wird übersprungen."
         }
@@ -270,7 +278,7 @@
     {
       "id": 9,
       "title": "Hüllenschaden-Analyse",
-      "text": "Die Lebenserhaltung stabilisiert sich, aber Dr. Martinez entdeckt ein neues Problem. \"Kapitän, wir haben Mikroschäden an der Hülle! Die feindlichen Schiffe haben uns anscheinend mit Energiewaffen beschossen. 80% Hüllenintegrität, aber die Reparaturen sind möglich - noch.\"\n\n**Hüllen-Status:** Hüllenintegrität: 80%, Temperatur: \"kritisch\", Reparatur möglich: true\n\n**Frage:** Das Reparatursystem prüft alle drei Parameter. Welche Aktion wird ausgeführt?",
+      "text": "Die Lebenserhaltung stabilisiert sich, aber Dr. Martinez entdeckt ein neues Problem. \"Kapitän, wir haben Mikroschäden an der Hülle! Die feindlichen Schiffe haben uns anscheinend mit Energiewaffen beschossen. 80% Hüllenintegrität, aber die Reparaturen sind möglich - noch.\"\n\n**Frage:** Das Reparatursystem prüft alle drei Parameter. Welche Aktion wird ausgeführt?",
       "variables": {
         "kapitaen_alter": 15,
         "energielevel": 75,
@@ -287,33 +295,34 @@
       },
       "buttons": [
         {
-          "label": "if entfernung >= 90 and temperatur == \"normal\" and not reparatur_moeglich:",
+          "label": "if entfernung >= 90 and temperatur == \"normal\" and not reparatur_moeglich:\n        langzeit_reparatur_starten()",
           "correct": false,
           "explanation": "❌ **Falsch!** (80 >= 90) AND (\"kritisch\" == \"normal\") AND (not true) = false AND false AND false = **false**."
         },
         {
-          "label": "elif entfernung >= 75 and temperatur == \"kritisch\":",
+          "label": "elif entfernung >= 75 and temperatur == \"kritisch\":\n        schnell_reparatur_starten()",
           "correct": true,
           "explanation": "✅ **Richtig!** (80 >= 75) AND (\"kritisch\" == \"kritisch\") = true AND true = **true**. Computer führt aus: 'Schnell-Reparatur'."
         },
         {
-          "label": "elif entfernung >= 70:",
+          "label": "elif entfernung >= 70:\n        standard_reparatur_starten()",
           "correct": false,
           "explanation": "❌ **Falsch!** Die vorherige elif-Bedingung war bereits true, diese wird nicht erreicht."
         },
         {
-          "label": "else:",
+          "label": "else:\n        notfall_reparatur_starten()",
           "correct": false,
           "explanation": "❌ **Falsch!** Eine elif-Bedingung war bereits true, else wird übersprungen."
         }
       ],
       "success_text": "🎉 **Level 9 geschafft!** Du beherrschst jetzt komplexe AND-Verknüpfungen und NOT-Operatoren!",
-      "next_mission": 10
+      "next_mission": 10,
+      "lrs_support": "**Hüllen-Status:**Hüllenintegrität: 80%, Temperatur: \"kritisch\", Reparatur möglich: true"
     },
     {
       "id": 10,
       "title": "Raumstation-Andocken",
-      "text": "Die Reparaturen laufen, aber das Schiff steuert auf eine verlassene Raumstation zu. \"Das ist Station Omega-7,\" meldet Kim. \"Sie wurde vor Jahren aufgegeben, aber der Andockcomputer ist noch aktiv. Andockdruck bei 0.8 Bar - das ist knapp.\"\n\n\"Die Luftschleuse ist geschlossen - das ist gut,\" bemerkt Dr. Chen. \"Wir können andocken und Vorräte holen.\"\n\n**Andock-Status:** Andockdruck: 0.8 Bar, Verschlüsselung: aktiv\n\n**Frage:** Das System berücksichtigt wichtige Andockparameter. Welche Aktion wird gewählt?",
+      "text": "Die Reparaturen laufen, aber das Schiff steuert auf eine verlassene Raumstation zu. \"Das ist Station Omega-7,\" meldet Kim. \"Sie wurde vor Jahren aufgegeben, aber der Andockcomputer ist noch aktiv. Andockdruck bei 0.8 Bar - das ist knapp.\"\n\n\"Die Luftschleuse ist geschlossen - das ist gut,\" bemerkt Dr. Chen. \"Wir können andocken und Vorräte holen.\"\n\n**Frage:** Das System berücksichtigt wichtige Andockparameter. Welche Aktion wird gewählt?",
       "variables": {
         "kapitaen_alter": 15,
         "energielevel": 75,
@@ -329,33 +338,34 @@
       "variables_discovered": {},
       "buttons": [
         {
-          "label": "if kapitaen_alter >= 18 and entfernung >= 90 and energielevel >= 85:",
+          "label": "if kapitaen_alter >= 18 and entfernung >= 90 and energielevel >= 85:\n        vollautomatisches_andocken_starten()",
           "correct": false,
           "explanation": "❌ **Falsch!** (15 >= 18) AND (80 >= 90) AND (75 >= 85) = false AND false AND false = **false**."
         },
         {
-          "label": "elif entfernung >= 75 and crew_bereitschaft >= 0.9:",
+          "label": "elif entfernung >= 75 and crew_bereitschaft >= 0.9:\n        praezisions_andocken_starten()",
           "correct": false,
           "explanation": "❌ **Falsch!** (80 >= 75) AND (0.8 >= 0.9) = true AND false = **false**."
         },
         {
-          "label": "elif crew_bereitschaft >= 0.7 and verschluesselung_aktiv:",
+          "label": "elif crew_bereitschaft >= 0.7 and verschluesselung_aktiv:\n        sicheres_andocken_starten()",
           "correct": true,
           "explanation": "✅ **Richtig!** (0.8 >= 0.7) AND true = true AND true = **true**. Computer führt aus: 'Sicheres Andocken'."
         },
         {
-          "label": "else:",
+          "label": "else:\n        notfall_andocken_versuchen()",
           "correct": false,
           "explanation": "❌ **Falsch!** Die elif-Bedingung war bereits true, else wird nicht erreicht."
         }
       ],
       "success_text": "🎉 **Level 10 geschafft!** Du kombinierst jetzt mühelos viele Variablen in komplexen Bedingungen!",
-      "next_mission": 11
+      "next_mission": 11,
+      "lrs_support": "**Andock-Status:**Andockdruck: 0.8 Bar, Verschlüsselung: aktiv"
     },
     {
       "id": 11,
       "title": "Backup-Systeme",
-      "text": "Das Andocken gelingt perfekt. Auf der Station entdeckt die Crew wichtige Vorräte. \"Die Hauptsensoren sind offline,\" meldet Dr. Martinez. \"Aber die Backup-Systeme funktionieren mit 85% Reichweite.\"\n\nSarah fügt hinzu: \"Das Backup-System ist aktiv - wir können alle wichtigen Funktionen aufrechterhalten.\"\n\n**Sensor-Status:** Hauptsensor offline: true, Verschlüsselung aktiv: true, entfernung: 85%\n\n**Frage:** Das Sensorsystem nutzt erweiterte NOT-Logik. Welche Konfiguration wird gewählt?",
+      "text": "Das Andocken gelingt perfekt. Auf der Station entdeckt die Crew wichtige Vorräte. \"Die Hauptsensoren sind offline,\" meldet Dr. Martinez. \"Aber die Backup-Systeme funktionieren mit 85% Reichweite.\"\n\nSarah fügt hinzu: \"Das Backup-System ist aktiv - wir können alle wichtigen Funktionen aufrechterhalten.\"\n\n**Frage:** Das Sensorsystem nutzt erweiterte NOT-Logik. Welche Konfiguration wird gewählt?",
       "variables": {
         "kapitaen_alter": 15,
         "energielevel": 75,
@@ -372,33 +382,34 @@
       "variables_discovered": {},
       "buttons": [
         {
-          "label": "if not backup_aktiv and entfernung >= 90:",
+          "label": "if not backup_aktiv and entfernung >= 90:\n        hauptsensor_reparatur_starten()",
           "correct": false,
           "explanation": "❌ **Falsch!** (not true) AND (85 >= 90) = false AND false = **false**."
         },
         {
-          "label": "elif backup_aktiv and verschluesselung_aktiv and entfernung >= 80:",
+          "label": "elif backup_aktiv and verschluesselung_aktiv and entfernung >= 80:\n        backup_sensoren_aktivieren()",
           "correct": true,
           "explanation": "✅ **Richtig!** true AND true AND (85 >= 80) = true AND true AND true = **true**. Computer führt aus: 'Backup-Sensoren ausreichend'."
         },
         {
-          "label": "elif verschluesselung_aktiv:",
+          "label": "elif verschluesselung_aktiv:\n        minimale_sensoren_aktivieren()",
           "correct": false,
           "explanation": "❌ **Falsch!** Die vorherige elif-Bedingung war bereits true, diese wird nicht erreicht."
         },
         {
-          "label": "else:",
+          "label": "else:\n        blind_navigation_aktivieren()",
           "correct": false,
           "explanation": "❌ **Falsch!** Eine elif-Bedingung war bereits true, else wird übersprungen."
         }
       ],
       "success_text": "🎉 **Level 11 geschafft!** Du meisterst jetzt NOT-Operatoren und Dreifach-AND-Verknüpfungen!",
-      "next_mission": 12
+      "next_mission": 12,
+      "lrs_support": "**Sensor-Status:**Hauptsensor offline: true, Verschlüsselung aktiv: true, entfernung: 85%"
     },
     {
       "id": 12,
       "title": "Waffenarsenal entdeckt",
-      "text": "\"Alex, schau dir das an,\" flüstert Sarah. Sie entdecken ein Arsenal von Schiffswaffen: Laser-Kanonen (85% geladen), 7 Quantentorpedos, und ein aktives Zielsystem.\n\n\"Die Aliens könnten zurückkommen,\" warnt Dr. Martinez. \"Diese Waffen könnten unser Leben retten.\"\n\n**Waffen-Status:** Laser-Energie: 85%, Torpedos: 7 Stück, Zielsystem aktiv: true\n\n**Frage:** Das Waffensystem hat sechs Kampfbereitschaftsstufen. Welche wird aktiviert?",
+      "text": "\"Alex, schau dir das an,\" flüstert Sarah. Sie entdecken ein Arsenal von Schiffswaffen: Laser-Kanonen (85% geladen), 7 Quantentorpedos, und ein aktives Zielsystem.\n\n\"Die Aliens könnten zurückkommen,\" warnt Dr. Martinez. \"Diese Waffen könnten unser Leben retten.\"\n\n**Frage:** Das Waffensystem hat sechs Kampfbereitschaftsstufen. Welche wird aktiviert?",
       "variables": {
         "kapitaen_alter": 15,
         "energielevel": 85,
@@ -415,43 +426,44 @@
       "variables_discovered": {},
       "buttons": [
         {
-          "label": "if energielevel >= 90 and entfernung >= 10 and backup_aktiv:",
+          "label": "if energielevel >= 90 and entfernung >= 10 and backup_aktiv:\n        maximale_kampfkraft_aktivieren()",
           "correct": false,
           "explanation": "❌ **Falsch!** (85 >= 90) AND (7 >= 10) AND true = false AND false AND true = **false**."
         },
         {
-          "label": "elif energielevel >= 80 and backup_aktiv and feindkontakt:",
+          "label": "elif energielevel >= 80 and backup_aktiv and feindkontakt:\n        vollstaendige_kampfbereitschaft_aktivieren()",
           "correct": true,
           "explanation": "✅ **Richtig!** (85 >= 80) AND true AND true = true AND true AND true = **true**. Computer führt aus: 'Vollständige Kampfbereitschaft'."
         },
         {
-          "label": "elif energielevel >= 75 and entfernung >= 5:",
+          "label": "elif energielevel >= 75 and entfernung >= 5:\n        basis_verteidigung_aktivieren()",
           "correct": false,
           "explanation": "❌ **Falsch!** Die vorherige elif-Bedingung war bereits true, diese wird nicht erreicht."
         },
         {
-          "label": "elif entfernung >= 6:",
+          "label": "elif entfernung >= 6:\n        praezisions_waffen_aktivieren()",
           "correct": false,
           "explanation": "❌ **Falsch!** Eine frühere elif-Bedingung war bereits true, diese wird übersprungen."
         },
         {
-          "label": "elif energielevel >= 70:",
+          "label": "elif energielevel >= 70:\n        minimale_waffen_aktivieren()",
           "correct": false,
           "explanation": "❌ **Falsch!** Eine frühere elif-Bedingung war bereits true, diese wird übersprungen."
         },
         {
-          "label": "else:",
+          "label": "else:\n        defensive_haltung_aktivieren()",
           "correct": false,
           "explanation": "❌ **Falsch!** Eine elif-Bedingung war bereits true, else wird nicht erreicht."
         }
       ],
       "success_text": "🎉 **Level 12 geschafft!** Du beherrschst jetzt sechs-stufige elif-Ketten mit komplexen Bedingungen!",
-      "next_mission": 13
+      "next_mission": 13,
+      "lrs_support": "**Waffen-Status:**Laser-Energie: 85%, Torpedos: 7 Stück, Zielsystem aktiv: true"
     },
     {
       "id": 13,
       "title": "CO2-Filter Problem",
-      "text": "Während der Waffeninstallation entdeckt Dr. Chen ein kritisches Problem. \"Alex! Die CO2-Filter sind defekt - 20% Verschmutzung und steigend! Aber es ist reparabel - noch.\"\n\nAlex starrt auf die Warnanzeigen. \"Wenn wir das nicht reparieren, ersticken wir in unserer eigenen Atemluft.\"\n\n**Filter-Status:** CO2-Filter defekt: true, Verschmutzung: 20%, Reparatur möglich: true\n\n**Frage:** Das Lebenserhaltungssystem wertet komplexe Parameter aus. Welches Protokoll wird aktiviert?",
+      "text": "Während der Waffeninstallation entdeckt Dr. Chen ein kritisches Problem. \"Alex! Die CO2-Filter sind defekt - 20% Verschmutzung und steigend! Aber es ist reparabel - noch.\"\n\nAlex starrt auf die Warnanzeigen. \"Wenn wir das nicht reparieren, ersticken wir in unserer eigenen Atemluft.\"\n\n**Frage:** Das Lebenserhaltungssystem wertet komplexe Parameter aus. Welches Protokoll wird aktiviert?",
       "variables": {
         "kapitaen_alter": 15,
         "energielevel": 85,
@@ -468,38 +480,39 @@
       "variables_discovered": {},
       "buttons": [
         {
-          "label": "if crew_bereitschaft <= 15 and energielevel >= 90 and schubkraft >= 1000:",
+          "label": "if crew_bereitschaft <= 15 and energielevel >= 90 and schubkraft >= 1000:\n        vollautomatische_reparatur_starten()",
           "correct": false,
           "explanation": "❌ **Falsch!** (20 <= 15) AND (85 >= 90) AND (950 >= 1000) = false AND false AND false = **false**."
         },
         {
-          "label": "elif crew_bereitschaft <= 25 and backup_aktiv and (energielevel >= 80 or entfernung >= 5):",
+          "label": "elif crew_bereitschaft <= 25 and backup_aktiv and (energielevel >= 80 or entfernung >= 5):\n        notfall_co2_reparatur_starten()",
           "correct": true,
           "explanation": "✅ **Richtig!** (20 <= 25) AND true AND (85 >= 80 OR 7 >= 5) = true AND true AND (true OR true) = true AND true AND true = **true**. Computer führt aus: 'Notfall-CO2-Reparatur'."
         },
         {
-          "label": "elif backup_aktiv and schubkraft >= 800:",
+          "label": "elif backup_aktiv and schubkraft >= 800:\n        backup_luftreinigung_aktivieren()",
           "correct": false,
           "explanation": "❌ **Falsch!** Die vorherige elif-Bedingung war bereits true, diese wird nicht erreicht."
         },
         {
-          "label": "elif entfernung >= 5:",
+          "label": "elif entfernung >= 5:\n        minimale_filterreparatur_starten()",
           "correct": false,
           "explanation": "❌ **Falsch!** Eine frühere elif-Bedingung war bereits true, diese wird übersprungen."
         },
         {
-          "label": "else:",
+          "label": "else:\n        sauerstoff_recycling_notbetrieb()",
           "correct": false,
           "explanation": "❌ **Falsch!** Eine elif-Bedingung war bereits true, else wird nicht erreicht."
         }
       ],
       "success_text": "🎉 **Level 13 geschafft!** Du meisterst jetzt OR-Verknüpfungen in Klammern und komplexeste Logik!",
-      "next_mission": 14
+      "next_mission": 14,
+      "lrs_support": "**Filter-Status:**CO2-Filter defekt: true, Verschmutzung: 20%, Reparatur möglich: true"
     },
     {
       "id": 14,
       "title": "Kapsel-Evakuierung",
-      "text": "Ein Systemfehler zwingt zur Evakuierung in Rettungskapseln. \"Nur 6 Kapseln für 8 Crew-Mitglieder,\" meldet Kim panisch. \"Die Kapsel-Kapazität liegt bei 12 Stunden Lebenserhaltung.\"\n\n\"Alex, du musst entscheiden wer in die Kapseln geht,\" sagt Dr. Chen. \"Du bist der Kapitän.\"\n\n**Kapsel-Status:** Kapseln: 6, Kapsel-Kapazität: 12 Stunden, Reparatur möglich: true\n\n**Frage:** Das Evakuierungsprotokoll hat sechs Prioritätsstufen. Welche wird gewählt?",
+      "text": "Ein Systemfehler zwingt zur Evakuierung in Rettungskapseln. \"Nur 6 Kapseln für 8 Crew-Mitglieder,\" meldet Kim panisch. \"Die Kapsel-Kapazität liegt bei 12 Stunden Lebenserhaltung.\"\n\n\"Alex, du musst entscheiden wer in die Kapseln geht,\" sagt Dr. Chen. \"Du bist der Kapitän.\"\n\n**Frage:** Das Evakuierungsprotokoll hat sechs Prioritätsstufen. Welche wird gewählt?",
       "variables": {
         "kapitaen_alter": 15,
         "energielevel": 85,
@@ -516,43 +529,44 @@
       "variables_discovered": {},
       "buttons": [
         {
-          "label": "if entfernung <= 4 and signal_staerke >= 15 and not crew_bereitschaft >= 25:",
+          "label": "if entfernung <= 4 and signal_staerke >= 15 and not crew_bereitschaft >= 25:\n        risiko_rettung_versuchen()",
           "correct": false,
           "explanation": "❌ **Falsch!** (6 <= 4) AND (12 >= 15) AND (not 20 >= 25) = false AND false AND true = **false**."
         },
         {
-          "label": "elif entfernung <= 8 and energielevel >= 80 and schubkraft >= 900:",
+          "label": "elif entfernung <= 8 and energielevel >= 80 and schubkraft >= 900:\n        vollstaendige_rettung_durchfuehren()",
           "correct": true,
           "explanation": "✅ **Richtig!** (6 <= 8) AND (85 >= 80) AND (950 >= 900) = true AND true AND true = **true**. Computer führt aus: 'Alle können gerettet werden'."
         },
         {
-          "label": "elif entfernung <= 8 and signal_staerke >= 10:",
+          "label": "elif entfernung <= 8 and signal_staerke >= 10:\n        standard_rettung_starten()",
           "correct": false,
           "explanation": "❌ **Falsch!** Die vorherige elif-Bedingung war bereits true, diese wird nicht erreicht."
         },
         {
-          "label": "elif signal_staerke >= 10 and kapitaen_alter >= 12:",
+          "label": "elif signal_staerke >= 10 and kapitaen_alter >= 12:\n        junior_rettung_protokoll_aktivieren()",
           "correct": false,
           "explanation": "❌ **Falsch!** Eine frühere elif-Bedingung war bereits true, diese wird übersprungen."
         },
         {
-          "label": "elif schubkraft >= 800:",
+          "label": "elif schubkraft >= 800:\n        basis_rettung_versuchen()",
           "correct": false,
           "explanation": "❌ **Falsch!** Eine frühere elif-Bedingung war bereits true, diese wird übersprungen."
         },
         {
-          "label": "else:",
+          "label": "else:\n        notfall_rettung_aktivieren()",
           "correct": false,
           "explanation": "❌ **Falsch!** Eine elif-Bedingung war bereits true, else wird nicht erreicht."
         }
       ],
       "success_text": "🎉 **Level 14 geschafft!** Du beherrschst jetzt sogar NOT-Operatoren mit Vergleichen in komplexen Ketten!",
-      "next_mission": 15
+      "next_mission": 15,
+      "lrs_support": "**Kapsel-Status:**Kapseln: 6, Kapsel-Kapazität: 12 Stunden, Reparatur möglich: true"
     },
     {
       "id": 15,
       "title": "Heimkehr zur Erde",
-      "text": "Alle Systeme funktionieren wieder, und die Aurora nähert sich der Erde. Alex steht auf der Brücke, umgeben von seiner Crew, die ihn jetzt respektiert.\n\n\"Alex,\" sagt Dr. Chen stolz, \"du hast uns alle gerettet. Das Raumfahrt-Kommando wird nicht glauben, was ein 15-jähriger Kapitän alles geschafft hat.\"\n\nKim meldet: \"Erdkontakt hergestellt - sie empfangen uns! Mission erfolgreich!\"\n\n**Finale Bewertung:** Mission erfolgreich: true, Crew gerettet: 8, Alien-Kontakt überlebt: true\n\n**Frage:** Das finale Missionssystem wertet ALLE 12 Variablen aus. Welcher Abschluss wird gewählt?",
+      "text": "Alle Systeme funktionieren wieder, und die Aurora nähert sich der Erde. Alex steht auf der Brücke, umgeben von seiner Crew, die ihn jetzt respektiert.\n\n\"Alex,\" sagt Dr. Chen stolz, \"du hast uns alle gerettet. Das Raumfahrt-Kommando wird nicht glauben, was ein 15-jähriger Kapitän alles geschafft hat.\"\n\nKim meldet: \"Erdkontakt hergestellt - sie empfangen uns! Mission erfolgreich!\"\n\n**Frage:** Das finale Missionssystem wertet ALLE 12 Variablen aus. Welcher Abschluss wird gewählt?",
       "variables": {
         "kapitaen_alter": 15,
         "energielevel": 85,
@@ -569,43 +583,44 @@
       "variables_discovered": {},
       "buttons": [
         {
-          "label": "if crew_bereitschaft <= 15 and energielevel >= 90 and schubkraft >= 1000 and kapitaen_alter >= 18:",
+          "label": "if crew_bereitschaft <= 15 and energielevel >= 90 and schubkraft >= 1000 and kapitaen_alter >= 18:\n        perfekte_heimkehr_mission_starten()",
           "correct": false,
           "explanation": "❌ **Falsch!** (20 <= 15) AND (85 >= 90) AND (950 >= 1000) AND (15 >= 18) = false AND false AND false AND false = **false**."
         },
         {
-          "label": "elif crew_bereitschaft <= 25 and energielevel >= 80 and schubkraft >= 900 and entfernung >= 10:",
+          "label": "elif crew_bereitschaft <= 25 and energielevel >= 80 and schubkraft >= 900 and entfernung >= 10:\n        helden_heimkehr_mission_starten()",
           "correct": true,
           "explanation": "✅ **LEGENDÄR!** (20 <= 25) AND (85 >= 80) AND (950 >= 900) AND (15 >= 10) = true AND true AND true AND true = **true**. Computer führt aus: 'Weltraum-Mission erfolgreich' - Alex wird zum jüngsten Weltraum-Helden aller Zeiten!"
         },
         {
-          "label": "elif crew_bereitschaft <= 30 and energielevel >= 85 and entfernung >= 12:",
+          "label": "elif crew_bereitschaft <= 30 and energielevel >= 85 and entfernung >= 12:\n        erfolgreiche_heimkehr_mission_starten()",
           "correct": false,
           "explanation": "❌ **Falsch!** Die vorherige elif-Bedingung war bereits true, diese wird nicht erreicht."
         },
         {
-          "label": "elif energielevel >= 85 and schubkraft >= 800:",
+          "label": "elif energielevel >= 85 and schubkraft >= 800:\n        standard_heimkehr_mission_starten()",
           "correct": false,
           "explanation": "❌ **Falsch!** Eine frühere elif-Bedingung war bereits true, diese wird übersprungen."
         },
         {
-          "label": "elif schubkraft >= 700 and kapitaen_alter >= 12:",
+          "label": "elif schubkraft >= 700 and kapitaen_alter >= 12:\n        junior_heimkehr_mission_starten()",
           "correct": false,
           "explanation": "❌ **Falsch!** Eine frühere elif-Bedingung war bereits true, diese wird übersprungen."
         },
         {
-          "label": "elif schubkraft >= 800 and energielevel >= 70:",
+          "label": "elif schubkraft >= 800 and energielevel >= 70:\n        basis_heimkehr_mission_starten()",
           "correct": false,
           "explanation": "❌ **Falsch!** Eine frühere elif-Bedingung war bereits true, diese wird übersprungen."
         },
         {
-          "label": "else:",
+          "label": "else:\n        notfall_heimkehr_mission_starten()",
           "correct": false,
           "explanation": "❌ **Falsch!** Eine elif-Bedingung war bereits true, else wird nicht erreicht."
         }
       ],
       "success_text": "🎊 **MISSION AURORA ABGESCHLOSSEN!** Du bist jetzt ein Meister der Programmierlogik! Du verstehst wie Computer if/elif/else-Ketten von oben nach unten abarbeiten und bei der ersten wahren Bedingung stoppen. Du beherrschst Vergleiche, AND, OR, NOT und komplexe verschachtelte Bedingungen mit 12 Variablen! Alex ist zum jüngsten Weltraum-Helden aller Zeiten geworden!",
-      "next_mission": null
+      "next_mission": null,
+      "lrs_support": "**Finale Bewertung:**Mission erfolgreich: true, Crew gerettet: 8, Alien-Kontakt überlebt: true"
     }
   ]
 }

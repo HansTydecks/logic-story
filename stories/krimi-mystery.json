@@ -4,608 +4,623 @@
   "description": "Lerne echte if/elif/else Programmierung durch 15 spannende Krimi-Missionen",
   "image": "images/krimi-mystery.png",
   "missions": [
-    {
-      "id": 1,
-      "title": "Der erste Mord",
-      "text": "Du bist Detective Sarah Müller, 28 Jahre alt, frisch befördert zur Mordkommission. Dein erstes echter Fall: Ein Toter im Regen, Dr. Klaus Weber, Programmierer bei CyberTech. Kein Raub - seine Brieftasche ist unberührt.\n\n\"Sarah,\" ruft Kommissar Herzog durch den Regen, \"sieh dir das an.\" Neben der Leiche liegt ein Zettel: \"Variable_1 = true. Das Spiel beginnt.\"\n\nDas Polizeisystem führt eine Altersverifikation für die Fallübernahme durch.\n\n**Systemlog:** Detective-Alter: 28 Jahre\n\n**Frage:** Welche Bedingung führt das Sicherheitssystem aus?",
-      "variables": {},
-      "variables_discovered": {
-        "detective_alter": 28
-      },
-      "buttons": [
         {
-          "label": "if detective_alter >= 30:",
-          "correct": false,
-          "explanation": "❌ **Falsch!** 28 >= 30 ist **false**. Diese Bedingung wird übersprungen, der Computer geht zur nächsten."
+          "id": 1,
+          "title": "Der erste Mord",
+          "text": "Du bist Detective Sarah Müller, 28 Jahre alt, frisch befördert zur Mordkommission. Dein erstes echter Fall: Ein Toter im Regen, Dr. Klaus Weber, Programmierer bei CyberTech. Kein Raub - seine Brieftasche ist unberührt.\n\n\"Sarah,\" ruft Kommissar Herzog durch den Regen, \"sieh dir das an.\" Neben der Leiche liegt ein Zettel: \"Variable_1 = true. Das Spiel beginnt.\"\n\nDas Polizeisystem führt eine Altersverifikation für die Fallübernahme durch.\n\n**Frage:** Welche Bedingung führt das Sicherheitssystem aus?",
+          "variables": {},
+          "variables_discovered": {
+            "detective_alter": 28
+          },
+          "buttons": [
+            {
+              "label": "if detective_alter >= 30:\n        vollzugriff_gewaehren()",
+              "correct": false,
+              "explanation": "❌ **Falsch!** 28 >= 30 ist **false**. Diese Bedingung wird übersprungen, der Computer geht zur nächsten."
+            },
+            {
+              "label": "else:\n        junior_detective_modus_aktivieren()",
+              "correct": true,
+              "explanation": "✅ **Richtig!** Da die if-Bedingung false war, führt der Computer die else-Anweisung aus: 'Junior-Detective mit Unterstützung'."
+            }
+          ],
+          "success_text": "🎉 **Level 1 geschafft!** Du verstehst jetzt wie Computer if/else von oben nach unten abarbeiten.",
+          "next_mission": 2,
+          "lrs_support": "**Systemlog:**Detective-Alter: 28 Jahre"
         },
         {
-          "label": "else:",
-          "correct": true,
-          "explanation": "✅ **Richtig!** Da die if-Bedingung false war, führt der Computer die else-Anweisung aus: 'Junior-Detective mit Unterstützung'."
+          "id": 2,
+          "title": "Erste Hinweise",
+          "text": "\"Junior-Detective-Modus ist aktiv,\" erklärt Herzog. \"Aber du führst den Fall.\" Im Büro des Opfers findest du merkwürdige Code-Schnipsel. Dr. Webers Kollege Marc Fischer wirkt nervös.\n\n\"Klaus arbeitete an einem geheimen Projekt,\" flüstert Marc. \"Etwas mit künstlicher Intelligenz. Die Serversicherheit war nur bei 65% - viel zu niedrig für so ein Projekt.\"\n\n**Frage:** Welche Anweisung führt das Sicherheitssystem aus?",
+          "variables": {
+            "detective_alter": 28
+          },
+          "variables_discovered": {
+            "sicherheit_level": 65
+          },
+          "buttons": [
+            {
+              "label": "if sicherheit_level >= 80:\n        sichere_datenzugriff_gewaehren()",
+              "correct": false,
+              "explanation": "❌ **Falsch!** 65 >= 80 ist **false**. Computer springt zur else-Anweisung."
+            },
+            {
+              "label": "else:\n        verdaechtige_sicherheitsluecke_melden()",
+              "correct": true,
+              "explanation": "✅ **Richtig!** Da 65 < 80, führt der Computer die else-Anweisung aus: 'Verdächtige Sicherheitslücke'."
+            }
+          ],
+          "success_text": "🎉 **Level 2 geschafft!** Du verstehst wie Computer Zahlenvergleiche auswerten.",
+          "next_mission": 3,
+          "lrs_support": "**Sicherheits-Anzeige:**Sicherheitslevel: 65%"
+        },
+        {
+          "id": 3,
+          "title": "Verdächtigen-Profiling",
+          "text": "Zurück im Revier analysierst du die ersten Verdächtigen. Marc Fischer scheint 70% glaubwürdig - er war nervös, aber kooperativ. Seine Geschichte hat keine großen Widersprüche.\n\n\"Sarah,\" sagt Psychologin Dr. Emma Klein, \"das Verdächtigen-Profiling-System zeigt interessante Muster. Fischer könnte unschuldig sein.\"\n\n**Frage:** Das Profiling-System prüft drei Stufen. Welche wird ausgeführt?",
+          "variables": {
+            "detective_alter": 28,
+            "sicherheit_level": 65
+          },
+          "variables_discovered": {
+            "verdaechtiger_glaubwuerdigkeit": 70
+          },
+          "buttons": [
+            {
+              "label": "if verdaechtiger_glaubwuerdigkeit >= 85:",
+              "correct": false,
+              "explanation": "❌ **Falsch!** 70 >= 85 ist **false**. Computer geht zur nächsten Bedingung."
+            },
+            {
+              "label": "elif verdaechtiger_glaubwuerdigkeit >= 60:",
+              "correct": true,
+              "explanation": "✅ **Richtig!** 70 >= 60 ist **true**. Computer führt aus: 'Weiter beobachten' und stoppt hier."
+            },
+            {
+              "label": "else:",
+              "correct": false,
+              "explanation": "❌ **Falsch!** Da elif bereits true war, wird else nie erreicht."
+            }
+          ],
+          "success_text": "🎉 **Level 3 geschafft!** Du verstehst jetzt if/elif/else - Computer stoppt bei der ersten wahren Bedingung!",
+          "next_mission": 4,
+          "lrs_support": "**Profiling-Report:**Verdächtiger-Glaubwürdigkeit: 70%"
+        },
+        {
+          "id": 4,
+          "title": "Der zweite Mord",
+          "text": "Schlechte Nachrichten: Ein zweites Opfer. Lisa Hoffmann, 32, ebenfalls Programmiererin. Dieselbe Methode, derselbe rätselhafte Zettel: \"Variable_2 = false. Das Spiel wird komplexer.\"\n\nDas Analysesystem muss alle bekannten Parameter berücksichtigen: Sarahs Alter (28), Sicherheitslevel (65%) und Fischers Glaubwürdigkeit (70%) für die Muster-Erkennung.\n\n**Frage:** Das Kriminalanalyse-System kombiniert mehrere Variablen. Welche Bewertung trifft zu?",
+          "variables": {
+            "detective_alter": 28,
+            "sicherheit_level": 65,
+            "verdaechtiger_glaubwuerdigkeit": 70
+          },
+          "variables_discovered": {},
+          "buttons": [
+            {
+              "label": "if detective_alter >= 30 and sicherheit_level >= 80:",
+              "correct": false,
+              "explanation": "❌ **Falsch!** (28 >= 30) AND (65 >= 80) = false AND false = **false**. Zur nächsten Bedingung."
+            },
+            {
+              "label": "elif verdaechtiger_glaubwuerdigkeit >= 65:",
+              "correct": true,
+              "explanation": "✅ **Richtig!** 70 >= 65 ist **true**. Computer führt aus: 'Serienmörder-Protokoll'."
+            },
+            {
+              "label": "else:",
+              "correct": false,
+              "explanation": "❌ **Falsch!** elif war bereits true, else wird nicht erreicht."
+            }
+          ],
+          "success_text": "🎉 **Level 4 geschafft!** Du kannst jetzt AND-Verknüpfungen und mehrere Variablen kombinieren!",
+          "next_mission": 5,
+          "lrs_support": "**Verfügbare Daten:**Detective-Alter: 28, Sicherheit: 65%, Glaubwürdigkeit: 70%"
+        },
+        {
+          "id": 5,
+          "title": "Code-Entschlüsselung",
+          "text": "\"Ein Serienmörder mit System,\" bestätigt Dr. Klein düster. Im Forensik-Labor entdeckt Experte Tom Richter verschlüsselte Dateien auf beiden Opfer-Computern. Der Verschlüsselungsgrad liegt bei 85%.\n\n\"Sarah, das ist hochprofessionell,\" warnt Tom. \"Wer auch immer das macht, versteht sich auf Computer-Sicherheit.\"\n\n**Frage:** Das Verschlüsselungssystem hat vier Stufen. Welche wird aktiviert?",
+          "variables": {
+            "detective_alter": 28,
+            "sicherheit_level": 65,
+            "verdaechtiger_glaubwuerdigkeit": 70
+          },
+          "variables_discovered": {
+            "verschluesselung": 85
+          },
+          "buttons": [
+            {
+              "label": "if verschluesselung >= 90:",
+              "correct": false,
+              "explanation": "❌ **Falsch!** 85 >= 90 ist **false**. Computer geht weiter."
+            },
+            {
+              "label": "elif verschluesselung >= 80:",
+              "correct": true,
+              "explanation": "✅ **Richtig!** 85 >= 80 ist **true**. Computer führt aus: 'Fortgeschrittene Kenntnisse' und stoppt."
+            },
+            {
+              "label": "elif verschluesselung >= 70:",
+              "correct": false,
+              "explanation": "❌ **Falsch!** elif war bereits true, else wird übersprungen."
+            },
+            {
+              "label": "else:",
+              "correct": false,
+              "explanation": "❌ **Falsch!** Eine elif-Bedingung war bereits true, else wird übersprungen."
+            }
+          ],
+          "success_text": "🎉 **Level 5 geschafft!** Du beherrschst jetzt mehrfache elif-Ketten!",
+          "next_mission": 6,
+          "lrs_support": "**Forensik-Status:**Verschlüsselung: 85%"
+        },
+        {
+          "id": 6,
+          "title": "Digitale Spur",
+          "text": "Die Entschlüsselung führt zu einem versteckten Server. Die Spurensicherung zeigt 55% Übereinstimmung mit bekannten Hacker-Methoden. Überraschend: Das System ist noch aktiv und beobachtet euch.\n\n\"Vorsicht,\" flüstert Tom, \"wer auch immer das ist - er weiß, dass wir hier sind.\"\n\n**Frage:** Das Überwachungssystem prüft Boolean-Werte. Welche Bedingung trifft zu?",
+          "variables": {
+            "detective_alter": 28,
+            "sicherheit_level": 65,
+            "verdaechtiger_glaubwuerdigkeit": 70,
+            "verschluesselung": 85
+          },
+          "variables_discovered": {
+            "spuren_match": 55,
+            "system_aktiv": true
+          },
+          "buttons": [
+            {
+              "label": "if spuren_match >= 70:",
+              "correct": false,
+              "explanation": "❌ **Falsch!** 55 >= 70 ist **false**. Computer geht zur nächsten Bedingung."
+            },
+            {
+              "label": "elif system_aktiv:",
+              "correct": true,
+              "explanation": "✅ **Richtig!** system_aktiv ist **true**. Computer führt aus: 'Live-Überwachung aktiviert'."
+            },
+            {
+              "label": "else:",
+              "correct": false,
+              "explanation": "❌ **Falsch!** elif war true, else wird nicht erreicht."
+            }
+          ],
+          "success_text": "🎉 **Level 6 geschafft!** Du verstehst jetzt Boolean-Werte (true/false) in Bedingungen!",
+          "next_mission": 7,
+          "lrs_support": "**Server-System:**Spuren-Match: 55%, System aktiv: true"
+        },
+        {
+          "id": 7,
+          "title": "Gefährliche Verfolgung",
+          "text": "Die Live-Überwachung führt zu einem verlassenen Lagerhaus. Sarah folgt der digitalen Spur, aber es ist eine Falle. Plötzlich sind Verfolger da - 3 Kilometer entfernt und schnell näher kommend.\n\n\"Das ist kein Zufall,\" denkt Sarah, während sie sich versteckt. \"Er hat uns hierher gelockt.\"\n\n**Frage:** Das Sicherheitssystem kombiniert Boolean und Zahlen. Welche Aktion wird ausgeführt?",
+          "variables": {
+            "detective_alter": 28,
+            "sicherheit_level": 65,
+            "verdaechtiger_glaubwuerdigkeit": 70,
+            "verschluesselung": 85,
+            "spuren_match": 55,
+            "system_aktiv": true
+          },
+          "variables_discovered": {
+            "verfolger_entfernung": 3
+          },
+          "buttons": [
+            {
+              "label": "if system_aktiv and verfolger_entfernung <= 2:",
+              "correct": false,
+              "explanation": "❌ **Falsch!** true AND (3 <= 2) = true AND false = **false**. Computer geht weiter."
+            },
+            {
+              "label": "elif system_aktiv and sicherheit_level >= 60:",
+              "correct": true,
+              "explanation": "✅ **Richtig!** true AND (65 >= 60) = true AND true = **true**. Computer führt aus: 'Verstärkte Vorsicht'."
+            },
+            {
+              "label": "else:",
+              "correct": false,
+              "explanation": "❌ **Falsch!** elif war bereits true, else wird übersprungen."
+            }
+          ],
+          "success_text": "🎉 **Level 7 geschafft!** Du beherrschst AND-Verknüpfungen mit gemischten Datentypen!",
+          "next_mission": 8,
+          "lrs_support": "**Bedrohungsanalyse:**System aktiv: true, Verfolger-Entfernung: 3 km"
+        },
+        {
+          "id": 8,
+          "title": "Innenspiel entdeckt",
+          "text": "Sarah erreicht sicher das Revier, aber die Erkenntnis ist schockierend: \"Jemand in unseren eigenen Reihen hilft ihm,\" erklärt sie Herzog. Das interne Vertrauenslevel ist auf 40% gefallen - zu niedrig für normale Ermittlungen.\n\n\"Verdammt,\" flucht Herzog. \"Ein korrupter Cop. Das erklärt, warum er uns immer einen Schritt voraus ist.\"\n\n**Frage:** Das Korruptionserkennungs-System hat fünf Stufen. Welche wird aktiviert?",
+          "variables": {
+            "detective_alter": 28,
+            "sicherheit_level": 65,
+            "verdaechtiger_glaubwuerdigkeit": 40,
+            "verschluesselung": 85,
+            "spuren_match": 55,
+            "system_aktiv": true,
+            "verfolger_entfernung": 3
+          },
+          "variables_discovered": {},
+          "buttons": [
+            {
+              "label": "if verdaechtiger_glaubwuerdigkeit >= 60:",
+              "correct": false,
+              "explanation": "❌ **Falsch!** 40 >= 60 ist **false**. Computer geht weiter."
+            },
+            {
+              "label": "elif verdaechtiger_glaubwuerdigkeit >= 50:",
+              "correct": false,
+              "explanation": "❌ **Falsch!** 40 >= 50 ist **false**. Computer geht weiter."
+            },
+            {
+              "label": "elif verdaechtiger_glaubwuerdigkeit >= 30 and system_aktiv:",
+              "correct": true,
+              "explanation": "✅ **Richtig!** (40 >= 30) AND true = true AND true = **true**. Computer führt aus: 'Interne Ermittlung'."
+            },
+            {
+              "label": "elif verdaechtiger_glaubwuerdigkeit >= 20:",
+              "correct": false,
+              "explanation": "❌ **Falsch!** Die vorherige elif-Bedingung war bereits true, diese wird nicht erreicht."
+            },
+            {
+              "label": "else:",
+              "correct": false,
+              "explanation": "❌ **Falsch!** Eine elif-Bedingung war bereits true, else wird übersprungen."
+            }
+          ],
+          "success_text": "🎉 **Level 8 geschafft!** Du verstehst jetzt komplexe elif-Ketten mit AND-Verknüpfungen!",
+          "next_mission": 9,
+          "lrs_support": "**Internes System:**Team-Vertrauen: 40%, System aktiv: true"
+        },
+        {
+          "id": 9,
+          "title": "Der Informant",
+          "text": "Ein anonymer Informant meldet sich - er will 75% der Wahrheit preisgeben, aber nur gegen Zusicherung von Schutz. Das System zeigt \"kritisch\" für die Informanten-Sicherheit an.\n\n\"Der Mörder ist näher, als Sie denken,\" flüstert der Mann mit Sonnenbrille. \"Er kennt jeden Ihrer Schritte.\"\n\n**Frage:** Das Informantenschutz-System prüft alle Parameter. Welche Aktion wird ausgeführt?",
+          "variables": {
+            "detective_alter": 28,
+            "sicherheit_level": 75,
+            "verdaechtiger_glaubwuerdigkeit": 40,
+            "verschluesselung": 85,
+            "spuren_match": 55,
+            "system_aktiv": true,
+            "verfolger_entfernung": 3
+          },
+          "variables_discovered": {
+            "informant_sicherheit": "kritisch"
+          },
+          "buttons": [
+            {
+              "label": "if sicherheit_level >= 85:",
+              "correct": false,
+              "explanation": "❌ **Falsch!** 75 >= 85 ist **false**. Computer geht weiter."
+            },
+            {
+              "label": "elif sicherheit_level >= 70:",
+              "correct": true,
+              "explanation": "✅ **Richtig!** 75 >= 70 ist **true**. Computer führt aus: 'Standard-Schutz' und stoppt."
+            },
+            {
+              "label": "elif sicherheit_level >= 60 and informant_sicherheit == \"kritisch\":",
+              "correct": false,
+              "explanation": "❌ **Falsch!** Die vorherige elif-Bedingung war bereits true, diese wird nicht erreicht."
+            },
+            {
+              "label": "elif sicherheit_level >= 50:",
+              "correct": false,
+              "explanation": "❌ **Falsch!** Eine frühere elif-Bedingung war bereits true, diese wird übersprungen."
+            },
+            {
+              "label": "else:",
+              "correct": false,
+              "explanation": "❌ **Falsch!** Eine elif-Bedingung war bereits true, else wird übersprungen."
+            }
+          ],
+          "success_text": "🎉 **Level 9 geschafft!** Du beherrschst jetzt String-Vergleiche und komplexe elif-Ketten!",
+          "next_mission": 10,
+          "lrs_support": "**Informant-Status:**Sicherheitslevel: 75%, Informanten-Sicherheit: \"kritisch\""
+        },
+        {
+          "id": 10,
+          "title": "Die Wendung",
+          "text": "Der Informant führt zu schockierenden Enthüllungen: Der Mörder arbeitet im Polizeigebäude. Sarah durchsucht heimlich alte Fälle. 80% Übereinstimmung mit ungelösten Fällen der letzten Jahre - aber die Informanten-Sicherheit ist \"kritisch\" und die digitalen Beweise sind unvollständig.\n\n\"Mein Gott,\" flüstert Sarah, \"er tötet schon seit Jahren.\"\n\n**Frage:** Das Beweissystem prüft alle drei Parameter. Welche Aktion wird ausgeführt?",
+          "variables": {
+            "detective_alter": 28,
+            "sicherheit_level": 80,
+            "verdaechtiger_glaubwuerdigkeit": 40,
+            "verschluesselung": 85,
+            "spuren_match": 80,
+            "system_aktiv": true,
+            "verfolger_entfernung": 3,
+            "informant_sicherheit": "kritisch"
+          },
+          "variables_discovered": {
+            "beweise_vollstaendig": false
+          },
+          "buttons": [
+            {
+              "label": "if spuren_match >= 85 and informant_sicherheit == \"sicher\" and beweise_vollstaendig:",
+              "correct": false,
+              "explanation": "❌ **Falsch!** (80 >= 85) AND (\"kritisch\" == \"sicher\") AND false = false AND false AND false = **false**."
+            },
+            {
+              "label": "elif spuren_match >= 75 and informant_sicherheit == \"kritisch\":",
+              "correct": true,
+              "explanation": "✅ **Richtig!** (80 >= 75) AND (\"kritisch\" == \"kritisch\") = true AND true = **true**. Computer führt aus: 'Vorsichtige Weitere Ermittlung'."
+            },
+            {
+              "label": "elif spuren_match >= 70:",
+              "correct": false,
+              "explanation": "❌ **Falsch!** Die vorherige elif-Bedingung war bereits true, diese wird nicht erreicht."
+            },
+            {
+              "label": "else:",
+              "correct": false,
+              "explanation": "❌ **Falsch!** Eine elif-Bedingung war bereits true, else wird übersprungen."
+            }
+          ],
+          "success_text": "🎉 **Level 10 geschafft!** Du kombinierst jetzt mühelos viele Variablen mit komplexen AND-Verknüpfungen!",
+          "next_mission": 11,
+          "lrs_support": "**Enthüllungs-Status:**Spuren-Match: 80%, Informanten-Sicherheit: \"kritisch\", Beweise vollständig: false"
+        },
+        {
+          "id": 11,
+          "title": "Backup-Plan aktiviert",
+          "text": "Sarah arbeitet von zuhause - das Hauptsystem im Revier ist kompromittiert, aber ihre Backup-Systeme funktionieren mit 90% Effizienz. Sie hat endlich ein klares Verdächtigen-Profil erstellt.\n\n\"Ich weiß, wer du bist,\" flüstert sie in die Dunkelheit, während sie die Daten analysiert.\n\n**Frage:** Das Backup-System nutzt erweiterte NOT-Logik. Welche Konfiguration wird gewählt?",
+          "variables": {
+            "detective_alter": 28,
+            "sicherheit_level": 90,
+            "verdaechtiger_glaubwuerdigkeit": 40,
+            "verschluesselung": 85,
+            "spuren_match": 80,
+            "system_aktiv": true,
+            "verfolger_entfernung": 3,
+            "informant_sicherheit": "kritisch",
+            "beweise_vollstaendig": false
+          },
+          "variables_discovered": {
+            "backup_aktiv": true,
+            "hauptsystem_kompromittiert": true
+          },
+          "buttons": [
+            {
+              "label": "if not hauptsystem_kompromittiert and sicherheit_level >= 95:",
+              "correct": false,
+              "explanation": "❌ **Falsch!** (not true) AND (90 >= 95) = false AND false = **false**."
+            },
+            {
+              "label": "elif hauptsystem_kompromittiert and backup_aktiv and sicherheit_level >= 85:",
+              "correct": true,
+              "explanation": "✅ **Richtig!** true AND true AND (90 >= 85) = true AND true AND true = **true**. Computer führt aus: 'Backup-Ermittlung erfolgreich'."
+            },
+            {
+              "label": "elif backup_aktiv:",
+              "correct": false,
+              "explanation": "❌ **Falsch!** Die vorherige elif-Bedingung war bereits true, diese wird nicht erreicht."
+            },
+            {
+              "label": "else:",
+              "correct": false,
+              "explanation": "❌ **Falsch!** Eine elif-Bedingung war bereits true, else wird übersprungen."
+            }
+          ],
+          "success_text": "🎉 **Level 11 geschafft!** Du meisterst jetzt NOT-Operatoren und Dreifach-AND-Verknüpfungen!",
+          "next_mission": 12,
+          "lrs_support": "**Backup-Status:**Hauptsystem kompromittiert: true, Backup aktiv: true, Sicherheitslevel: 90%"
+        },
+        {
+          "id": 12,
+          "title": "Die Falle",
+          "text": "Sarah stellt eine Falle für den Mörder - sie hat 95% Gewissheit über seine Identität und 6 Beweise gesammelt. Das Zielsystem ist aktiv, aber es ist gefährlich.\n\n\"Komm schon,\" murmelt sie in ihr Funkgerät. \"Zeig dich endlich.\"\n\n**Frage:** Das Fangoperations-System hat sechs Risikoabwägungsstufen. Welche wird aktiviert?",
+          "variables": {
+            "detective_alter": 28,
+            "sicherheit_level": 95,
+            "verdaechtiger_glaubwuerdigkeit": 40,
+            "verschluesselung": 85,
+            "spuren_match": 80,
+            "system_aktiv": true,
+            "verfolger_entfernung": 6,
+            "informant_sicherheit": "kritisch",
+            "beweise_vollstaendig": false,
+            "backup_aktiv": true,
+            "hauptsystem_kompromittiert": true
+          },
+          "variables_discovered": {},
+          "buttons": [
+            {
+              "label": "if sicherheit_level >= 98 and verfolger_entfernung >= 8 and backup_aktiv:",
+              "correct": false,
+              "explanation": "❌ **Falsch!** (95 >= 98) AND (6 >= 8) AND true = false AND false AND true = **false**."
+            },
+            {
+              "label": "elif sicherheit_level >= 90 and backup_aktiv and system_aktiv:",
+              "correct": true,
+              "explanation": "✅ **Richtig!** (95 >= 90) AND true AND true = true AND true AND true = **true**. Computer führt aus: 'Risiko-Verhaftung möglich'."
+            },
+            {
+              "label": "elif sicherheit_level >= 85 and verfolger_entfernung >= 5:",
+              "correct": false,
+              "explanation": "❌ **Falsch!** Die vorherige elif-Bedingung war bereits true, diese wird nicht erreicht."
+            },
+            {
+              "label": "elif verfolger_entfernung >= 4:",
+              "correct": false,
+              "explanation": "❌ **Falsch!** Eine frühere elif-Bedingung war bereits true, diese wird übersprungen."
+            },
+            {
+              "label": "elif sicherheit_level >= 80:",
+              "correct": false,
+              "explanation": "❌ **Falsch!** Eine frühere elif-Bedingung war bereits true, diese wird übersprungen."
+            },
+            {
+              "label": "else:",
+              "correct": false,
+              "explanation": "❌ **Falsch!** Eine elif-Bedingung war bereits true, else wird nicht erreicht."
+            }
+          ],
+          "success_text": "🎉 **Level 12 geschafft!** Du beherrschst jetzt sechs-stufige elif-Ketten mit komplexen Bedingungen!",
+          "next_mission": 13,
+          "lrs_support": "**Falle-Status:**Sicherheitslevel: 95%, Beweise: 6, Zielsystem aktiv: true"
+        },
+        {
+          "id": 13,
+          "title": "Verrat aufgedeckt",
+          "text": "Die Falle funktioniert - aber der Verräter im Team ist Detective Hansen, Sarahs eigener Partner! 25% Team-Vertrauen bleibt, aber die Beweise sind zwingend. Das Reparatur-System der Gerechtigkeit kann noch funktionieren.\n\n\"Du warst es die ganze Zeit,\" sagt Sarah fassungslos. \"Mein eigener Partner.\"\n\nHansen lächelt kalt: \"Nichts Persönliches, Sarah. Nur Geschäfte.\"\n\n**Frage:** Das Gerechtigkeitssystem wertet komplexe Parameter aus. Welches Protokoll wird aktiviert?",
+          "variables": {
+            "detective_alter": 28,
+            "sicherheit_level": 95,
+            "verdaechtiger_glaubwuerdigkeit": 25,
+            "verschluesselung": 85,
+            "spuren_match": 80,
+            "system_aktiv": true,
+            "verfolger_entfernung": 6,
+            "informant_sicherheit": "kritisch",
+            "beweise_vollstaendig": false,
+            "backup_aktiv": true,
+            "hauptsystem_kompromittiert": true
+          },
+          "variables_discovered": {},
+          "buttons": [
+            {
+              "label": "if verdaechtiger_glaubwuerdigkeit <= 20 and sicherheit_level >= 98 and verfolger_entfernung >= 8:",
+              "correct": false,
+              "explanation": "❌ **Falsch!** (25 <= 20) AND (95 >= 98) AND (6 >= 8) = false AND false AND false = **false**."
+            },
+            {
+              "label": "elif verdaechtiger_glaubwuerdigkeit <= 30 and backup_aktiv and (sicherheit_level >= 90 or verfolger_entfernung >= 5):",
+              "correct": true,
+              "explanation": "✅ **Richtig!** (25 <= 30) AND true AND (95 >= 90 OR 6 >= 5) = true AND true AND (true OR true) = true AND true AND true = **true**. Computer führt aus: 'Gerechtigkeit durch Backup'."
+            },
+            {
+              "label": "elif backup_aktiv and verfolger_entfernung >= 5:",
+              "correct": false,
+              "explanation": "❌ **Falsch!** Die vorherige elif-Bedingung war bereits true, diese wird nicht erreicht."
+            },
+            {
+              "label": "elif verfolger_entfernung >= 4:",
+              "correct": false,
+              "explanation": "❌ **Falsch!** Eine frühere elif-Bedingung war bereits true, diese wird übersprungen."
+            },
+            {
+              "label": "else:",
+              "correct": false,
+              "explanation": "❌ **Falsch!** Eine elif-Bedingung war bereits true, else wird nicht erreicht."
+            }
+          ],
+          "success_text": "🎉 **Level 13 geschafft!** Du meisterst jetzt OR-Verknüpfungen in Klammern und komplexeste Logik!",
+          "next_mission": 14,
+          "lrs_support": "**Verrats-Status:**Team-Vertrauen: 25%, Backup aktiv: true, Gerechtigkeit reparierbar: true"
+        },
+        {
+          "id": 14,
+          "title": "Finale Verfolgung",
+          "text": "Hansen flieht, aber Sarah folgt ihm. In einer dramatischen Verfolgungsjagd durch Berlin muss sie 8 kritische Entscheidungen treffen, während ihr Auto bei 120 km/h rast. Ihr Navigationssystem zeigt \"Reparatur möglich\" für das gesamte korrupte System.\n\n\"Das ist für alle Opfer,\" schreit Sarah, während sie um die Kurven rast.\n\n**Frage:** Das Verfolgungsprotokoll hat sechs Prioritätsstufen. Welche wird gewählt?",
+          "variables": {
+            "detective_alter": 28,
+            "sicherheit_level": 95,
+            "verdaechtiger_glaubwuerdigkeit": 25,
+            "verschluesselung": 85,
+            "spuren_match": 80,
+            "system_aktiv": true,
+            "verfolger_entfernung": 8,
+            "informant_sicherheit": "kritisch",
+            "beweise_vollstaendig": true,
+            "backup_aktiv": true,
+            "hauptsystem_kompromittiert": true
+          },
+          "variables_discovered": {},
+          "buttons": [
+            {
+              "label": "if verfolger_entfernung <= 5 and sicherheit_level >= 98 and not verdaechtiger_glaubwuerdigkeit >= 30:",
+              "correct": false,
+              "explanation": "❌ **Falsch!** (8 <= 5) AND (95 >= 98) AND (not 25 >= 30) = false AND false AND true = **false**."
+            },
+            {
+              "label": "elif verfolger_entfernung <= 10 and sicherheit_level >= 90 and beweise_vollstaendig:",
+              "correct": true,
+              "explanation": "✅ **Richtig!** (8 <= 10) AND (95 >= 90) AND true = true AND true AND true = **true**. Computer führt aus: 'Erfolgreiche Verfolgung'."
+            },
+            {
+              "label": "elif verfolger_entfernung <= 10 and backup_aktiv:",
+              "correct": false,
+              "explanation": "❌ **Falsch!** Die vorherige elif-Bedingung war bereits true, diese wird nicht erreicht."
+            },
+            {
+              "label": "elif backup_aktiv and detective_alter >= 25:",
+              "correct": false,
+              "explanation": "❌ **Falsch!** Eine frühere elif-Bedingung war bereits true, diese wird übersprungen."
+            },
+            {
+              "label": "elif spuren_match >= 70:",
+              "correct": false,
+              "explanation": "❌ **Falsch!** Eine frühere elif-Bedingung war bereits true, diese wird übersprungen."
+            },
+            {
+              "label": "else:",
+              "correct": false,
+              "explanation": "❌ **Falsch!** Eine elif-Bedingung war bereits true, else wird nicht erreicht."
+            }
+          ],
+          "success_text": "🎉 **Level 14 geschafft!** Du beherrschst jetzt sogar NOT-Operatoren mit Vergleichen in komplexen Ketten!",
+          "next_mission": 15,
+          "lrs_support": "**Verfolgung-Status:**Verfolger-Entfernung: 8, Geschwindigkeit: 120 km/h, Gerechtigkeit reparierbar: true"
+        },
+        {
+          "id": 15,
+          "title": "Gerechtigkeit triumphiert",
+          "text": "Hansen ist gefasst und verurteilt. Sarah sitzt im Gerichtssaal, umgeben von den Familien der Opfer, die endlich Frieden finden. Der Fall ist gelöst, die Gerechtigkeit hat gesiegt.\n\n\"Detective Müller,\" sagt der Richter, \"Ihr Mut und Ihre Beharrlichkeit haben Gerechtigkeit gebracht. Berlin kann stolz auf Sie sein.\"\n\nDer Serienmörder-Fall ist abgeschlossen: 8 Beweise gesammelt, korruptes System aufgedeckt, Gerechtigkeit wiederhergestellt.\n\n**Frage:** Das finale Gerechtigkeitssystem wertet ALLE 12 Variablen aus. Welcher Abschluss wird gewählt?",
+          "variables": {
+            "detective_alter": 28,
+            "sicherheit_level": 95,
+            "verdaechtiger_glaubwuerdigkeit": 25,
+            "verschluesselung": 85,
+            "spuren_match": 80,
+            "system_aktiv": true,
+            "verfolger_entfernung": 15,
+            "informant_sicherheit": "kritisch",
+            "beweise_vollstaendig": true,
+            "backup_aktiv": true,
+            "hauptsystem_kompromittiert": true
+          },
+          "variables_discovered": {},
+          "buttons": [
+            {
+              "label": "if verdaechtiger_glaubwuerdigkeit <= 20 and sicherheit_level >= 98 and spuren_match >= 85 and detective_alter >= 30:",
+              "correct": false,
+              "explanation": "❌ **Falsch!** (25 <= 20) AND (95 >= 98) AND (80 >= 85) AND (28 >= 30) = false AND false AND false AND false = **false**."
+            },
+            {
+              "label": "elif verdaechtiger_glaubwuerdigkeit <= 30 and sicherheit_level >= 90 and spuren_match >= 75 and verfolger_entfernung >= 10:",
+              "correct": true,
+              "explanation": "✅ **LEGENDÄR!** (25 <= 30) AND (95 >= 90) AND (80 >= 75) AND (15 >= 10) = true AND true AND true AND true = **true**. Computer führt aus: 'Vollständige Gerechtigkeit' - Sarah wird zur jüngsten Detective Inspector befördert!"
+            },
+            {
+              "label": "elif verdaechtiger_glaubwuerdigkeit <= 35 and sicherheit_level >= 85 and verfolger_entfernung >= 12:",
+              "correct": false,
+              "explanation": "❌ **Falsch!** Die vorherige elif-Bedingung war bereits true, diese wird nicht erreicht."
+            },
+            {
+              "label": "elif sicherheit_level >= 90 and spuren_match >= 70:",
+              "correct": false,
+              "explanation": "❌ **Falsch!** Eine frühere elif-Bedingung war bereits true, diese wird übersprungen."
+            },
+            {
+              "label": "elif spuren_match >= 70 and detective_alter >= 25:",
+              "correct": false,
+              "explanation": "❌ **Falsch!** Eine frühere elif-Bedingung war bereits true, diese wird übersprungen."
+            },
+            {
+              "label": "elif spuren_match >= 75 and sicherheit_level >= 80:",
+              "correct": false,
+              "explanation": "❌ **Falsch!** Eine frühere elif-Bedingung war bereits true, diese wird übersprungen."
+            },
+            {
+              "label": "else:",
+              "correct": false,
+              "explanation": "❌ **Falsch!** Eine elif-Bedingung war bereits true, else wird nicht erreicht."
+            }
+          ],
+          "success_text": "🎊 **KRIMI-MYSTERY ABGESCHLOSSEN!** Du bist jetzt ein Meister der Programmierlogik! Du verstehst wie Computer if/elif/else-Ketten von oben nach unten abarbeiten und bei der ersten wahren Bedingung stoppen. Du beherrschst Vergleiche, AND, OR, NOT und komplexe verschachtelte Bedingungen mit 12 Variablen! Sarah ist zur jüngsten Detective Inspector aller Zeiten befördert worden!",
+          "next_mission": null,
+          "lrs_support": "**Finale Bewertung:**Fall gelöst: true, Korruption aufgedeckt: true, Gerechtigkeit hergestellt: true"
         }
-      ],
-      "success_text": "🎉 **Level 1 geschafft!** Du verstehst jetzt wie Computer if/else von oben nach unten abarbeiten.",
-      "next_mission": 2
-    },
-    {
-      "id": 2,
-      "title": "Erste Hinweise",
-      "text": "\"Junior-Detective-Modus ist aktiv,\" erklärt Herzog. \"Aber du führst den Fall.\" Im Büro des Opfers findest du merkwürdige Code-Schnipsel. Dr. Webers Kollege Marc Fischer wirkt nervös.\n\n\"Klaus arbeitete an einem geheimen Projekt,\" flüstert Marc. \"Etwas mit künstlicher Intelligenz. Die Serversicherheit war nur bei 65% - viel zu niedrig für so ein Projekt.\"\n\n**Sicherheits-Anzeige:** Sicherheitslevel: 65%\n\n**Frage:** Welche Anweisung führt das Sicherheitssystem aus?",
-      "variables": {
-        "detective_alter": 28
-      },
-      "variables_discovered": {
-        "sicherheit_level": 65
-      },
-      "buttons": [
-        {
-          "label": "if sicherheit_level >= 80:",
-          "correct": false,
-          "explanation": "❌ **Falsch!** 65 >= 80 ist **false**. Computer springt zur else-Anweisung."
-        },
-        {
-          "label": "else:",
-          "correct": true,
-          "explanation": "✅ **Richtig!** Da 65 < 80, führt der Computer die else-Anweisung aus: 'Verdächtige Sicherheitslücke'."
-        }
-      ],
-      "success_text": "🎉 **Level 2 geschafft!** Du verstehst wie Computer Zahlenvergleiche auswerten.",
-      "next_mission": 3
-    },
-    {
-      "id": 3,
-      "title": "Verdächtigen-Profiling",
-      "text": "Zurück im Revier analysierst du die ersten Verdächtigen. Marc Fischer scheint 70% glaubwürdig - er war nervös, aber kooperativ. Seine Geschichte hat keine großen Widersprüche.\n\n\"Sarah,\" sagt Psychologin Dr. Emma Klein, \"das Verdächtigen-Profiling-System zeigt interessante Muster. Fischer könnte unschuldig sein.\"\n\n**Profiling-Report:** Verdächtiger-Glaubwürdigkeit: 70%\n\n**Frage:** Das Profiling-System prüft drei Stufen. Welche wird ausgeführt?",
-      "variables": {
-        "detective_alter": 28,
-        "sicherheit_level": 65
-      },
-      "variables_discovered": {
-        "verdaechtiger_glaubwuerdigkeit": 70
-      },
-      "buttons": [
-        {
-          "label": "if verdaechtiger_glaubwuerdigkeit >= 85:",
-          "correct": false,
-          "explanation": "❌ **Falsch!** 70 >= 85 ist **false**. Computer geht zur nächsten Bedingung."
-        },
-        {
-          "label": "elif verdaechtiger_glaubwuerdigkeit >= 60:",
-          "correct": true,
-          "explanation": "✅ **Richtig!** 70 >= 60 ist **true**. Computer führt aus: 'Weiter beobachten' und stoppt hier."
-        },
-        {
-          "label": "else:",
-          "correct": false,
-          "explanation": "❌ **Falsch!** Da elif bereits true war, wird else nie erreicht."
-        }
-      ],
-      "success_text": "🎉 **Level 3 geschafft!** Du verstehst jetzt if/elif/else - Computer stoppt bei der ersten wahren Bedingung!",
-      "next_mission": 4
-    },
-    {
-      "id": 4,
-      "title": "Der zweite Mord",
-      "text": "Schlechte Nachrichten: Ein zweites Opfer. Lisa Hoffmann, 32, ebenfalls Programmiererin. Dieselbe Methode, derselbe rätselhafte Zettel: \"Variable_2 = false. Das Spiel wird komplexer.\"\n\nDas Analysesystem muss alle bekannten Parameter berücksichtigen: Sarahs Alter (28), Sicherheitslevel (65%) und Fischers Glaubwürdigkeit (70%) für die Muster-Erkennung.\n\n**Verfügbare Daten:** Detective-Alter: 28, Sicherheit: 65%, Glaubwürdigkeit: 70%\n\n**Frage:** Das Kriminalanalyse-System kombiniert mehrere Variablen. Welche Bewertung trifft zu?",
-      "variables": {
-        "detective_alter": 28,
-        "sicherheit_level": 65,
-        "verdaechtiger_glaubwuerdigkeit": 70
-      },
-      "variables_discovered": {},
-      "buttons": [
-        {
-          "label": "if detective_alter >= 30 and sicherheit_level >= 80:",
-          "correct": false,
-          "explanation": "❌ **Falsch!** (28 >= 30) AND (65 >= 80) = false AND false = **false**. Zur nächsten Bedingung."
-        },
-        {
-          "label": "elif verdaechtiger_glaubwuerdigkeit >= 65:",
-          "correct": true,
-          "explanation": "✅ **Richtig!** 70 >= 65 ist **true**. Computer führt aus: 'Serienmörder-Protokoll'."
-        },
-        {
-          "label": "else:",
-          "correct": false,
-          "explanation": "❌ **Falsch!** elif war bereits true, else wird nicht erreicht."
-        }
-      ],
-      "success_text": "🎉 **Level 4 geschafft!** Du kannst jetzt AND-Verknüpfungen und mehrere Variablen kombinieren!",
-      "next_mission": 5
-    },
-    {
-      "id": 5,
-      "title": "Code-Entschlüsselung",
-      "text": "\"Ein Serienmörder mit System,\" bestätigt Dr. Klein düster. Im Forensik-Labor entdeckt Experte Tom Richter verschlüsselte Dateien auf beiden Opfer-Computern. Der Verschlüsselungsgrad liegt bei 85%.\n\n\"Sarah, das ist hochprofessionell,\" warnt Tom. \"Wer auch immer das macht, versteht sich auf Computer-Sicherheit.\"\n\n**Forensik-Status:** Verschlüsselung: 85%\n\n**Frage:** Das Verschlüsselungssystem hat vier Stufen. Welche wird aktiviert?",
-      "variables": {
-        "detective_alter": 28,
-        "sicherheit_level": 65,
-        "verdaechtiger_glaubwuerdigkeit": 70
-      },
-      "variables_discovered": {
-        "verschluesselung": 85
-      },
-      "buttons": [
-        {
-          "label": "if verschluesselung >= 90:",
-          "correct": false,
-          "explanation": "❌ **Falsch!** 85 >= 90 ist **false**. Computer geht weiter."
-        },
-        {
-          "label": "elif verschluesselung >= 80:",
-          "correct": true,
-          "explanation": "✅ **Richtig!** 85 >= 80 ist **true**. Computer führt aus: 'Fortgeschrittene Kenntnisse' und stoppt."
-        },
-        {
-          "label": "elif verschluesselung >= 70:",
-          "correct": false,
-          "explanation": "❌ **Falsch!** elif war bereits true, else wird übersprungen."
-        },
-        {
-          "label": "else:",
-          "correct": false,
-          "explanation": "❌ **Falsch!** Eine elif-Bedingung war bereits true, else wird übersprungen."
-        }
-      ],
-      "success_text": "🎉 **Level 5 geschafft!** Du beherrschst jetzt mehrfache elif-Ketten!",
-      "next_mission": 6
-    },
-    {
-      "id": 6,
-      "title": "Digitale Spur",
-      "text": "Die Entschlüsselung führt zu einem versteckten Server. Die Spurensicherung zeigt 55% Übereinstimmung mit bekannten Hacker-Methoden. Überraschend: Das System ist noch aktiv und beobachtet euch.\n\n\"Vorsicht,\" flüstert Tom, \"wer auch immer das ist - er weiß, dass wir hier sind.\"\n\n**Server-System:** Spuren-Match: 55%, System aktiv: true\n\n**Frage:** Das Überwachungssystem prüft Boolean-Werte. Welche Bedingung trifft zu?",
-      "variables": {
-        "detective_alter": 28,
-        "sicherheit_level": 65,
-        "verdaechtiger_glaubwuerdigkeit": 70,
-        "verschluesselung": 85
-      },
-      "variables_discovered": {
-        "spuren_match": 55,
-        "system_aktiv": true
-      },
-      "buttons": [
-        {
-          "label": "if spuren_match >= 70:",
-          "correct": false,
-          "explanation": "❌ **Falsch!** 55 >= 70 ist **false**. Computer geht zur nächsten Bedingung."
-        },
-        {
-          "label": "elif system_aktiv:",
-          "correct": true,
-          "explanation": "✅ **Richtig!** system_aktiv ist **true**. Computer führt aus: 'Live-Überwachung aktiviert'."
-        },
-        {
-          "label": "else:",
-          "correct": false,
-          "explanation": "❌ **Falsch!** elif war true, else wird nicht erreicht."
-        }
-      ],
-      "success_text": "🎉 **Level 6 geschafft!** Du verstehst jetzt Boolean-Werte (true/false) in Bedingungen!",
-      "next_mission": 7
-    },
-    {
-      "id": 7,
-      "title": "Gefährliche Verfolgung",
-      "text": "Die Live-Überwachung führt zu einem verlassenen Lagerhaus. Sarah folgt der digitalen Spur, aber es ist eine Falle. Plötzlich sind Verfolger da - 3 Kilometer entfernt und schnell näher kommend.\n\n\"Das ist kein Zufall,\" denkt Sarah, während sie sich versteckt. \"Er hat uns hierher gelockt.\"\n\n**Bedrohungsanalyse:** System aktiv: true, Verfolger-Entfernung: 3 km\n\n**Frage:** Das Sicherheitssystem kombiniert Boolean und Zahlen. Welche Aktion wird ausgeführt?",
-      "variables": {
-        "detective_alter": 28,
-        "sicherheit_level": 65,
-        "verdaechtiger_glaubwuerdigkeit": 70,
-        "verschluesselung": 85,
-        "spuren_match": 55,
-        "system_aktiv": true
-      },
-      "variables_discovered": {
-        "verfolger_entfernung": 3
-      },
-      "buttons": [
-        {
-          "label": "if system_aktiv and verfolger_entfernung <= 2:",
-          "correct": false,
-          "explanation": "❌ **Falsch!** true AND (3 <= 2) = true AND false = **false**. Computer geht weiter."
-        },
-        {
-          "label": "elif system_aktiv and sicherheit_level >= 60:",
-          "correct": true,
-          "explanation": "✅ **Richtig!** true AND (65 >= 60) = true AND true = **true**. Computer führt aus: 'Verstärkte Vorsicht'."
-        },
-        {
-          "label": "else:",
-          "correct": false,
-          "explanation": "❌ **Falsch!** elif war bereits true, else wird übersprungen."
-        }
-      ],
-      "success_text": "🎉 **Level 7 geschafft!** Du beherrschst AND-Verknüpfungen mit gemischten Datentypen!",
-      "next_mission": 8
-    },
-    {
-      "id": 8,
-      "title": "Innenspiel entdeckt",
-      "text": "Sarah erreicht sicher das Revier, aber die Erkenntnis ist schockierend: \"Jemand in unseren eigenen Reihen hilft ihm,\" erklärt sie Herzog. Das interne Vertrauenslevel ist auf 40% gefallen - zu niedrig für normale Ermittlungen.\n\n\"Verdammt,\" flucht Herzog. \"Ein korrupter Cop. Das erklärt, warum er uns immer einen Schritt voraus ist.\"\n\n**Internes System:** Team-Vertrauen: 40%, System aktiv: true\n\n**Frage:** Das Korruptionserkennungs-System hat fünf Stufen. Welche wird aktiviert?",
-      "variables": {
-        "detective_alter": 28,
-        "sicherheit_level": 65,
-        "verdaechtiger_glaubwuerdigkeit": 40,
-        "verschluesselung": 85,
-        "spuren_match": 55,
-        "system_aktiv": true,
-        "verfolger_entfernung": 3
-      },
-      "variables_discovered": {},
-      "buttons": [
-        {
-          "label": "if verdaechtiger_glaubwuerdigkeit >= 60:",
-          "correct": false,
-          "explanation": "❌ **Falsch!** 40 >= 60 ist **false**. Computer geht weiter."
-        },
-        {
-          "label": "elif verdaechtiger_glaubwuerdigkeit >= 50:",
-          "correct": false,
-          "explanation": "❌ **Falsch!** 40 >= 50 ist **false**. Computer geht weiter."
-        },
-        {
-          "label": "elif verdaechtiger_glaubwuerdigkeit >= 30 and system_aktiv:",
-          "correct": true,
-          "explanation": "✅ **Richtig!** (40 >= 30) AND true = true AND true = **true**. Computer führt aus: 'Interne Ermittlung'."
-        },
-        {
-          "label": "elif verdaechtiger_glaubwuerdigkeit >= 20:",
-          "correct": false,
-          "explanation": "❌ **Falsch!** Die vorherige elif-Bedingung war bereits true, diese wird nicht erreicht."
-        },
-        {
-          "label": "else:",
-          "correct": false,
-          "explanation": "❌ **Falsch!** Eine elif-Bedingung war bereits true, else wird übersprungen."
-        }
-      ],
-      "success_text": "🎉 **Level 8 geschafft!** Du verstehst jetzt komplexe elif-Ketten mit AND-Verknüpfungen!",
-      "next_mission": 9
-    },
-    {
-      "id": 9,
-      "title": "Der Informant",
-      "text": "Ein anonymer Informant meldet sich - er will 75% der Wahrheit preisgeben, aber nur gegen Zusicherung von Schutz. Das System zeigt \"kritisch\" für die Informanten-Sicherheit an.\n\n\"Der Mörder ist näher, als Sie denken,\" flüstert der Mann mit Sonnenbrille. \"Er kennt jeden Ihrer Schritte.\"\n\n**Informant-Status:** Sicherheitslevel: 75%, Informanten-Sicherheit: \"kritisch\"\n\n**Frage:** Das Informantenschutz-System prüft alle Parameter. Welche Aktion wird ausgeführt?",
-      "variables": {
-        "detective_alter": 28,
-        "sicherheit_level": 75,
-        "verdaechtiger_glaubwuerdigkeit": 40,
-        "verschluesselung": 85,
-        "spuren_match": 55,
-        "system_aktiv": true,
-        "verfolger_entfernung": 3
-      },
-      "variables_discovered": {
-        "informant_sicherheit": "kritisch"
-      },
-      "buttons": [
-        {
-          "label": "if sicherheit_level >= 85:",
-          "correct": false,
-          "explanation": "❌ **Falsch!** 75 >= 85 ist **false**. Computer geht weiter."
-        },
-        {
-          "label": "elif sicherheit_level >= 70:",
-          "correct": true,
-          "explanation": "✅ **Richtig!** 75 >= 70 ist **true**. Computer führt aus: 'Standard-Schutz' und stoppt."
-        },
-        {
-          "label": "elif sicherheit_level >= 60 and informant_sicherheit == \"kritisch\":",
-          "correct": false,
-          "explanation": "❌ **Falsch!** Die vorherige elif-Bedingung war bereits true, diese wird nicht erreicht."
-        },
-        {
-          "label": "elif sicherheit_level >= 50:",
-          "correct": false,
-          "explanation": "❌ **Falsch!** Eine frühere elif-Bedingung war bereits true, diese wird übersprungen."
-        },
-        {
-          "label": "else:",
-          "correct": false,
-          "explanation": "❌ **Falsch!** Eine elif-Bedingung war bereits true, else wird übersprungen."
-        }
-      ],
-      "success_text": "🎉 **Level 9 geschafft!** Du beherrschst jetzt String-Vergleiche und komplexe elif-Ketten!",
-      "next_mission": 10
-    },
-    {
-      "id": 10,
-      "title": "Die Wendung",
-      "text": "Der Informant führt zu schockierenden Enthüllungen: Der Mörder arbeitet im Polizeigebäude. Sarah durchsucht heimlich alte Fälle. 80% Übereinstimmung mit ungelösten Fällen der letzten Jahre - aber die Informanten-Sicherheit ist \"kritisch\" und die digitalen Beweise sind unvollständig.\n\n\"Mein Gott,\" flüstert Sarah, \"er tötet schon seit Jahren.\"\n\n**Enthüllungs-Status:** Spuren-Match: 80%, Informanten-Sicherheit: \"kritisch\", Beweise vollständig: false\n\n**Frage:** Das Beweissystem prüft alle drei Parameter. Welche Aktion wird ausgeführt?",
-      "variables": {
-        "detective_alter": 28,
-        "sicherheit_level": 80,
-        "verdaechtiger_glaubwuerdigkeit": 40,
-        "verschluesselung": 85,
-        "spuren_match": 80,
-        "system_aktiv": true,
-        "verfolger_entfernung": 3,
-        "informant_sicherheit": "kritisch"
-      },
-      "variables_discovered": {
-        "beweise_vollstaendig": false
-      },
-      "buttons": [
-        {
-          "label": "if spuren_match >= 85 and informant_sicherheit == \"sicher\" and beweise_vollstaendig:",
-          "correct": false,
-          "explanation": "❌ **Falsch!** (80 >= 85) AND (\"kritisch\" == \"sicher\") AND false = false AND false AND false = **false**."
-        },
-        {
-          "label": "elif spuren_match >= 75 and informant_sicherheit == \"kritisch\":",
-          "correct": true,
-          "explanation": "✅ **Richtig!** (80 >= 75) AND (\"kritisch\" == \"kritisch\") = true AND true = **true**. Computer führt aus: 'Vorsichtige Weitere Ermittlung'."
-        },
-        {
-          "label": "elif spuren_match >= 70:",
-          "correct": false,
-          "explanation": "❌ **Falsch!** Die vorherige elif-Bedingung war bereits true, diese wird nicht erreicht."
-        },
-        {
-          "label": "else:",
-          "correct": false,
-          "explanation": "❌ **Falsch!** Eine elif-Bedingung war bereits true, else wird übersprungen."
-        }
-      ],
-      "success_text": "🎉 **Level 10 geschafft!** Du kombinierst jetzt mühelos viele Variablen mit komplexen AND-Verknüpfungen!",
-      "next_mission": 11
-    },
-    {
-      "id": 11,
-      "title": "Backup-Plan aktiviert",
-      "text": "Sarah arbeitet von zuhause - das Hauptsystem im Revier ist kompromittiert, aber ihre Backup-Systeme funktionieren mit 90% Effizienz. Sie hat endlich ein klares Verdächtigen-Profil erstellt.\n\n\"Ich weiß, wer du bist,\" flüstert sie in die Dunkelheit, während sie die Daten analysiert.\n\n**Backup-Status:** Hauptsystem kompromittiert: true, Backup aktiv: true, Sicherheitslevel: 90%\n\n**Frage:** Das Backup-System nutzt erweiterte NOT-Logik. Welche Konfiguration wird gewählt?",
-      "variables": {
-        "detective_alter": 28,
-        "sicherheit_level": 90,
-        "verdaechtiger_glaubwuerdigkeit": 40,
-        "verschluesselung": 85,
-        "spuren_match": 80,
-        "system_aktiv": true,
-        "verfolger_entfernung": 3,
-        "informant_sicherheit": "kritisch",
-        "beweise_vollstaendig": false
-      },
-      "variables_discovered": {
-        "backup_aktiv": true,
-        "hauptsystem_kompromittiert": true
-      },
-      "buttons": [
-        {
-          "label": "if not hauptsystem_kompromittiert and sicherheit_level >= 95:",
-          "correct": false,
-          "explanation": "❌ **Falsch!** (not true) AND (90 >= 95) = false AND false = **false**."
-        },
-        {
-          "label": "elif hauptsystem_kompromittiert and backup_aktiv and sicherheit_level >= 85:",
-          "correct": true,
-          "explanation": "✅ **Richtig!** true AND true AND (90 >= 85) = true AND true AND true = **true**. Computer führt aus: 'Backup-Ermittlung erfolgreich'."
-        },
-        {
-          "label": "elif backup_aktiv:",
-          "correct": false,
-          "explanation": "❌ **Falsch!** Die vorherige elif-Bedingung war bereits true, diese wird nicht erreicht."
-        },
-        {
-          "label": "else:",
-          "correct": false,
-          "explanation": "❌ **Falsch!** Eine elif-Bedingung war bereits true, else wird übersprungen."
-        }
-      ],
-      "success_text": "🎉 **Level 11 geschafft!** Du meisterst jetzt NOT-Operatoren und Dreifach-AND-Verknüpfungen!",
-      "next_mission": 12
-    },
-    {
-      "id": 12,
-      "title": "Die Falle",
-      "text": "Sarah stellt eine Falle für den Mörder - sie hat 95% Gewissheit über seine Identität und 6 Beweise gesammelt. Das Zielsystem ist aktiv, aber es ist gefährlich.\n\n\"Komm schon,\" murmelt sie in ihr Funkgerät. \"Zeig dich endlich.\"\n\n**Falle-Status:** Sicherheitslevel: 95%, Beweise: 6, Zielsystem aktiv: true\n\n**Frage:** Das Fangoperations-System hat sechs Risikoabwägungsstufen. Welche wird aktiviert?",
-      "variables": {
-        "detective_alter": 28,
-        "sicherheit_level": 95,
-        "verdaechtiger_glaubwuerdigkeit": 40,
-        "verschluesselung": 85,
-        "spuren_match": 80,
-        "system_aktiv": true,
-        "verfolger_entfernung": 6,
-        "informant_sicherheit": "kritisch",
-        "beweise_vollstaendig": false,
-        "backup_aktiv": true,
-        "hauptsystem_kompromittiert": true
-      },
-      "variables_discovered": {},
-      "buttons": [
-        {
-          "label": "if sicherheit_level >= 98 and verfolger_entfernung >= 8 and backup_aktiv:",
-          "correct": false,
-          "explanation": "❌ **Falsch!** (95 >= 98) AND (6 >= 8) AND true = false AND false AND true = **false**."
-        },
-        {
-          "label": "elif sicherheit_level >= 90 and backup_aktiv and system_aktiv:",
-          "correct": true,
-          "explanation": "✅ **Richtig!** (95 >= 90) AND true AND true = true AND true AND true = **true**. Computer führt aus: 'Risiko-Verhaftung möglich'."
-        },
-        {
-          "label": "elif sicherheit_level >= 85 and verfolger_entfernung >= 5:",
-          "correct": false,
-          "explanation": "❌ **Falsch!** Die vorherige elif-Bedingung war bereits true, diese wird nicht erreicht."
-        },
-        {
-          "label": "elif verfolger_entfernung >= 4:",
-          "correct": false,
-          "explanation": "❌ **Falsch!** Eine frühere elif-Bedingung war bereits true, diese wird übersprungen."
-        },
-        {
-          "label": "elif sicherheit_level >= 80:",
-          "correct": false,
-          "explanation": "❌ **Falsch!** Eine frühere elif-Bedingung war bereits true, diese wird übersprungen."
-        },
-        {
-          "label": "else:",
-          "correct": false,
-          "explanation": "❌ **Falsch!** Eine elif-Bedingung war bereits true, else wird nicht erreicht."
-        }
-      ],
-      "success_text": "🎉 **Level 12 geschafft!** Du beherrschst jetzt sechs-stufige elif-Ketten mit komplexen Bedingungen!",
-      "next_mission": 13
-    },
-    {
-      "id": 13,
-      "title": "Verrat aufgedeckt",
-      "text": "Die Falle funktioniert - aber der Verräter im Team ist Detective Hansen, Sarahs eigener Partner! 25% Team-Vertrauen bleibt, aber die Beweise sind zwingend. Das Reparatur-System der Gerechtigkeit kann noch funktionieren.\n\n\"Du warst es die ganze Zeit,\" sagt Sarah fassungslos. \"Mein eigener Partner.\"\n\nHansen lächelt kalt: \"Nichts Persönliches, Sarah. Nur Geschäfte.\"\n\n**Verrats-Status:** Team-Vertrauen: 25%, Backup aktiv: true, Gerechtigkeit reparierbar: true\n\n**Frage:** Das Gerechtigkeitssystem wertet komplexe Parameter aus. Welches Protokoll wird aktiviert?",
-      "variables": {
-        "detective_alter": 28,
-        "sicherheit_level": 95,
-        "verdaechtiger_glaubwuerdigkeit": 25,
-        "verschluesselung": 85,
-        "spuren_match": 80,
-        "system_aktiv": true,
-        "verfolger_entfernung": 6,
-        "informant_sicherheit": "kritisch",
-        "beweise_vollstaendig": false,
-        "backup_aktiv": true,
-        "hauptsystem_kompromittiert": true
-      },
-      "variables_discovered": {},
-      "buttons": [
-        {
-          "label": "if verdaechtiger_glaubwuerdigkeit <= 20 and sicherheit_level >= 98 and verfolger_entfernung >= 8:",
-          "correct": false,
-          "explanation": "❌ **Falsch!** (25 <= 20) AND (95 >= 98) AND (6 >= 8) = false AND false AND false = **false**."
-        },
-        {
-          "label": "elif verdaechtiger_glaubwuerdigkeit <= 30 and backup_aktiv and (sicherheit_level >= 90 or verfolger_entfernung >= 5):",
-          "correct": true,
-          "explanation": "✅ **Richtig!** (25 <= 30) AND true AND (95 >= 90 OR 6 >= 5) = true AND true AND (true OR true) = true AND true AND true = **true**. Computer führt aus: 'Gerechtigkeit durch Backup'."
-        },
-        {
-          "label": "elif backup_aktiv and verfolger_entfernung >= 5:",
-          "correct": false,
-          "explanation": "❌ **Falsch!** Die vorherige elif-Bedingung war bereits true, diese wird nicht erreicht."
-        },
-        {
-          "label": "elif verfolger_entfernung >= 4:",
-          "correct": false,
-          "explanation": "❌ **Falsch!** Eine frühere elif-Bedingung war bereits true, diese wird übersprungen."
-        },
-        {
-          "label": "else:",
-          "correct": false,
-          "explanation": "❌ **Falsch!** Eine elif-Bedingung war bereits true, else wird nicht erreicht."
-        }
-      ],
-      "success_text": "🎉 **Level 13 geschafft!** Du meisterst jetzt OR-Verknüpfungen in Klammern und komplexeste Logik!",
-      "next_mission": 14
-    },
-    {
-      "id": 14,
-      "title": "Finale Verfolgung",
-      "text": "Hansen flieht, aber Sarah folgt ihm. In einer dramatischen Verfolgungsjagd durch Berlin muss sie 8 kritische Entscheidungen treffen, während ihr Auto bei 120 km/h rast. Ihr Navigationssystem zeigt \"Reparatur möglich\" für das gesamte korrupte System.\n\n\"Das ist für alle Opfer,\" schreit Sarah, während sie um die Kurven rast.\n\n**Verfolgung-Status:** Verfolger-Entfernung: 8, Geschwindigkeit: 120 km/h, Gerechtigkeit reparierbar: true\n\n**Frage:** Das Verfolgungsprotokoll hat sechs Prioritätsstufen. Welche wird gewählt?",
-      "variables": {
-        "detective_alter": 28,
-        "sicherheit_level": 95,
-        "verdaechtiger_glaubwuerdigkeit": 25,
-        "verschluesselung": 85,
-        "spuren_match": 80,
-        "system_aktiv": true,
-        "verfolger_entfernung": 8,
-        "informant_sicherheit": "kritisch",
-        "beweise_vollstaendig": true,
-        "backup_aktiv": true,
-        "hauptsystem_kompromittiert": true
-      },
-      "variables_discovered": {},
-      "buttons": [
-        {
-          "label": "if verfolger_entfernung <= 5 and sicherheit_level >= 98 and not verdaechtiger_glaubwuerdigkeit >= 30:",
-          "correct": false,
-          "explanation": "❌ **Falsch!** (8 <= 5) AND (95 >= 98) AND (not 25 >= 30) = false AND false AND true = **false**."
-        },
-        {
-          "label": "elif verfolger_entfernung <= 10 and sicherheit_level >= 90 and beweise_vollstaendig:",
-          "correct": true,
-          "explanation": "✅ **Richtig!** (8 <= 10) AND (95 >= 90) AND true = true AND true AND true = **true**. Computer führt aus: 'Erfolgreiche Verfolgung'."
-        },
-        {
-          "label": "elif verfolger_entfernung <= 10 and backup_aktiv:",
-          "correct": false,
-          "explanation": "❌ **Falsch!** Die vorherige elif-Bedingung war bereits true, diese wird nicht erreicht."
-        },
-        {
-          "label": "elif backup_aktiv and detective_alter >= 25:",
-          "correct": false,
-          "explanation": "❌ **Falsch!** Eine frühere elif-Bedingung war bereits true, diese wird übersprungen."
-        },
-        {
-          "label": "elif spuren_match >= 70:",
-          "correct": false,
-          "explanation": "❌ **Falsch!** Eine frühere elif-Bedingung war bereits true, diese wird übersprungen."
-        },
-        {
-          "label": "else:",
-          "correct": false,
-          "explanation": "❌ **Falsch!** Eine elif-Bedingung war bereits true, else wird nicht erreicht."
-        }
-      ],
-      "success_text": "🎉 **Level 14 geschafft!** Du beherrschst jetzt sogar NOT-Operatoren mit Vergleichen in komplexen Ketten!",
-      "next_mission": 15
-    },
-    {
-      "id": 15,
-      "title": "Gerechtigkeit triumphiert",
-      "text": "Hansen ist gefasst und verurteilt. Sarah sitzt im Gerichtssaal, umgeben von den Familien der Opfer, die endlich Frieden finden. Der Fall ist gelöst, die Gerechtigkeit hat gesiegt.\n\n\"Detective Müller,\" sagt der Richter, \"Ihr Mut und Ihre Beharrlichkeit haben Gerechtigkeit gebracht. Berlin kann stolz auf Sie sein.\"\n\nDer Serienmörder-Fall ist abgeschlossen: 8 Beweise gesammelt, korruptes System aufgedeckt, Gerechtigkeit wiederhergestellt.\n\n**Finale Bewertung:** Fall gelöst: true, Korruption aufgedeckt: true, Gerechtigkeit hergestellt: true\n\n**Frage:** Das finale Gerechtigkeitssystem wertet ALLE 12 Variablen aus. Welcher Abschluss wird gewählt?",
-      "variables": {
-        "detective_alter": 28,
-        "sicherheit_level": 95,
-        "verdaechtiger_glaubwuerdigkeit": 25,
-        "verschluesselung": 85,
-        "spuren_match": 80,
-        "system_aktiv": true,
-        "verfolger_entfernung": 15,
-        "informant_sicherheit": "kritisch",
-        "beweise_vollstaendig": true,
-        "backup_aktiv": true,
-        "hauptsystem_kompromittiert": true
-      },
-      "variables_discovered": {},
-      "buttons": [
-        {
-          "label": "if verdaechtiger_glaubwuerdigkeit <= 20 and sicherheit_level >= 98 and spuren_match >= 85 and detective_alter >= 30:",
-          "correct": false,
-          "explanation": "❌ **Falsch!** (25 <= 20) AND (95 >= 98) AND (80 >= 85) AND (28 >= 30) = false AND false AND false AND false = **false**."
-        },
-        {
-          "label": "elif verdaechtiger_glaubwuerdigkeit <= 30 and sicherheit_level >= 90 and spuren_match >= 75 and verfolger_entfernung >= 10:",
-          "correct": true,
-          "explanation": "✅ **LEGENDÄR!** (25 <= 30) AND (95 >= 90) AND (80 >= 75) AND (15 >= 10) = true AND true AND true AND true = **true**. Computer führt aus: 'Vollständige Gerechtigkeit' - Sarah wird zur jüngsten Detective Inspector befördert!"
-        },
-        {
-          "label": "elif verdaechtiger_glaubwuerdigkeit <= 35 and sicherheit_level >= 85 and verfolger_entfernung >= 12:",
-          "correct": false,
-          "explanation": "❌ **Falsch!** Die vorherige elif-Bedingung war bereits true, diese wird nicht erreicht."
-        },
-        {
-          "label": "elif sicherheit_level >= 90 and spuren_match >= 70:",
-          "correct": false,
-          "explanation": "❌ **Falsch!** Eine frühere elif-Bedingung war bereits true, diese wird übersprungen."
-        },
-        {
-          "label": "elif spuren_match >= 70 and detective_alter >= 25:",
-          "correct": false,
-          "explanation": "❌ **Falsch!** Eine frühere elif-Bedingung war bereits true, diese wird übersprungen."
-        },
-        {
-          "label": "elif spuren_match >= 75 and sicherheit_level >= 80:",
-          "correct": false,
-          "explanation": "❌ **Falsch!** Eine frühere elif-Bedingung war bereits true, diese wird übersprungen."
-        },
-        {
-          "label": "else:",
-          "correct": false,
-          "explanation": "❌ **Falsch!** Eine elif-Bedingung war bereits true, else wird nicht erreicht."
-        }
-      ],
-      "success_text": "🎊 **KRIMI-MYSTERY ABGESCHLOSSEN!** Du bist jetzt ein Meister der Programmierlogik! Du verstehst wie Computer if/elif/else-Ketten von oben nach unten abarbeiten und bei der ersten wahren Bedingung stoppen. Du beherrschst Vergleiche, AND, OR, NOT und komplexe verschachtelte Bedingungen mit 12 Variablen! Sarah ist zur jüngsten Detective Inspector aller Zeiten befördert worden!",
-      "next_mission": null
-    }
   ]
 }
