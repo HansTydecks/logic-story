@@ -1,0 +1,149 @@
+{
+  "id": "krimi-mystery",
+  "title": "Krimi-Mystery - Der Fall der verschwundenen Daten",
+  "description": "Löse einen spannenden Kriminalfall mit logischen Schlussfolgerungen",
+  "image": "images/krimi.jpg",
+  "missions": [
+    {
+      "id": 1,
+      "title": "Tatort Bürogebäude",
+      "text": "🕵️ Du bist Detektiv und untersuchst einen Einbruch in ein Softwareunternehmen. Wichtige Daten wurden gestohlen!\n\n**Erste Ermittlungen:**\n- Verdächtiger wurde gesehen: Ja (true)\n- Sicherheitskamera defekt: Nein (false)\n- Alarm ausgelöst: Ja (true)\n\n**Der Sicherheitschef:** 'Ein Einbruch ist nur möglich, wenn die Kamera defekt ist UND kein Alarm ausgelöst wird.'\n\n**Frage:** War ein Einbruch unter diesen Umständen möglich?",
+      "variables": {},
+      "variables_discovered": {
+        "verdaechtiger_gesehen": true,
+        "kamera_defekt": false,
+        "alarm_ausgeloest": true
+      },
+      "buttons": [
+        {
+          "label": "if kamera_defekt and not alarm_ausgeloest:",
+          "correct": true,
+          "explanation": "✅ **Richtig!** false AND not true = false AND false = **false**. Kein Einbruch möglich!"
+        },
+        {
+          "label": "if verdaechtiger_gesehen:",
+          "correct": false,
+          "explanation": "❌ **Falsch!** Ein Verdächtiger zu sehen bedeutet nicht, dass ein Einbruch möglich war!"
+        },
+        {
+          "label": "if alarm_ausgeloest:",
+          "correct": false,
+          "explanation": "❌ **Falsch!** Der Alarm allein zeigt nicht die Einbruchsmöglichkeit!"
+        }
+      ],
+      "success_text": "🎉 **Erste Spur!** Du verstehst die AND/NOT-Logik des Sicherheitssystems!",
+      "next_mission": 2
+    },
+    {
+      "id": 2,
+      "title": "Verdächtigen-Befragung",
+      "text": "🔍 Du befragst den Hauptverdächtigen. Er hat ein Alibi, wenn er ENTWEDER im Restaurant war ODER zu Hause mit Familie.\n\n**Alibi-Check:**\n- Im Restaurant gesehen: Nein (false)\n- Zu Hause mit Familie: Ja (true)\n- Restaurant-Rechnung vorhanden: Nein (false)\n\n**Frage:** Hat der Verdächtige ein gültiges Alibi?",
+      "variables": {
+        "verdaechtiger_gesehen": true,
+        "kamera_defekt": false,
+        "alarm_ausgeloest": true
+      },
+      "variables_discovered": {
+        "im_restaurant": false,
+        "zu_hause_familie": true,
+        "rechnung_vorhanden": false
+      },
+      "buttons": [
+        {
+          "label": "if im_restaurant or zu_hause_familie:",
+          "correct": true,
+          "explanation": "✅ **Korrekt!** false OR true = **true**. Er hat ein Alibi!"
+        },
+        {
+          "label": "if im_restaurant and rechnung_vorhanden:",
+          "correct": false,
+          "explanation": "❌ **Falsch!** false AND false = **false**. Er war nicht im Restaurant!"
+        },
+        {
+          "label": "if not zu_hause_familie:",
+          "correct": false,
+          "explanation": "❌ **Falsch!** not true = **false**. Er WAR zu Hause!"
+        }
+      ],
+      "success_text": "🎉 **Alibi bestätigt!** Du verstehst OR-Verknüpfungen in der Ermittlung!",
+      "next_mission": 3
+    },
+    {
+      "id": 3,
+      "title": "Digitale Spurensuche",
+      "text": "💻 Der IT-Forensiker analysiert die Daten. Ein Hack ist nur möglich, wenn ALLE drei Bedingungen erfüllt sind: Admin-Zugang UND VPN aktiv UND Firewall deaktiviert.\n\n**System-Log:**\n- Admin-Zugang verwendet: Ja (true)\n- VPN war aktiv: Ja (true)\n- Firewall deaktiviert: Nein (false)\n\n**Frage:** War ein erfolgreicher Hack möglich?",
+      "variables": {
+        "verdaechtiger_gesehen": true,
+        "kamera_defekt": false,
+        "alarm_ausgeloest": true,
+        "im_restaurant": false,
+        "zu_hause_familie": true,
+        "rechnung_vorhanden": false
+      },
+      "variables_discovered": {
+        "admin_zugang": true,
+        "vpn_aktiv": true,
+        "firewall_deaktiviert": false
+      },
+      "buttons": [
+        {
+          "label": "if admin_zugang and vpn_aktiv and firewall_deaktiviert:",
+          "correct": true,
+          "explanation": "✅ **Richtig!** true AND true AND false = **false**. Hack war nicht möglich!"
+        },
+        {
+          "label": "if admin_zugang and vpn_aktiv:",
+          "correct": false,
+          "explanation": "❌ **Falsch!** Zwei Bedingungen reichen nicht - alle drei müssen erfüllt sein!"
+        },
+        {
+          "label": "if not firewall_deaktiviert:",
+          "correct": false,
+          "explanation": "❌ **Falsch!** Das zeigt nur, dass die Firewall aktiv war, nicht die Hack-Möglichkeit!"
+        }
+      ],
+      "success_text": "🎉 **System sicher!** Du verstehst komplexe AND-Verknüpfungen in der IT-Forensik!",
+      "next_mission": 4
+    },
+    {
+      "id": 4,
+      "title": "Der wahre Täter",
+      "text": "🎯 Finale Ermittlung! Du hast drei Verdächtige. Der Täter ist derjenige, der Zugang hatte UND kein Alibi hat UND Motiv besitzt.\n\n**Verdächtiger A:**\n- Zugang zum Gebäude: Ja (true)\n- Alibi vorhanden: Nein (false)\n- Motiv vorhanden: Ja (true)\n\n**Frage:** Ist Verdächtiger A der Täter?",
+      "variables": {
+        "verdaechtiger_gesehen": true,
+        "kamera_defekt": false,
+        "alarm_ausgeloest": true,
+        "im_restaurant": false,
+        "zu_hause_familie": true,
+        "rechnung_vorhanden": false,
+        "admin_zugang": true,
+        "vpn_aktiv": true,
+        "firewall_deaktiviert": false
+      },
+      "variables_discovered": {
+        "hat_zugang": true,
+        "hat_alibi": false,
+        "hat_motiv": true
+      },
+      "buttons": [
+        {
+          "label": "if hat_zugang and not hat_alibi and hat_motiv:",
+          "correct": true,
+          "explanation": "✅ **Fall gelöst!** true AND not false AND true = true AND true AND true = **true**. Verdächtiger A ist der Täter!"
+        },
+        {
+          "label": "if hat_zugang and hat_alibi:",
+          "correct": false,
+          "explanation": "❌ **Falsch!** true AND false = **false**. Er hat kein Alibi!"
+        },
+        {
+          "label": "if not hat_motiv:",
+          "correct": false,
+          "explanation": "❌ **Falsch!** not true = **false**. Er HAT ein Motiv!"
+        }
+      ],
+      "success_text": "🎉 **Krimi gelöst!** Du bist jetzt ein Meister-Detektiv der Logik!",
+      "next_mission": null
+    }
+  ]
+}

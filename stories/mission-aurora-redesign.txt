@@ -1,0 +1,372 @@
+MISSION AURORA - ERWEITERTE VERSION (15+ Missionen)
+=====================================================
+
+Mission 1: Erste Kommando-Übernahme
+-----------------------------------
+**HANDLUNG:**
+Du erwachst langsam in der Kapitänskabine der Aurora. Dein Kopf brummt - was ist passiert? Dr. Chen steht besorgt neben deinem Bett.
+
+"Alex, endlich wachst du auf! Es gab einen Unfall in der Hypersprung-Kammer. Kapitän Morrison... er hat es nicht geschafft." Dr. Chens Stimme zittert. "Das Computersystem hat dich als Nachfolger designiert, aber du bist erst 15. Das System führt gerade eine Altersverifikation durch."
+
+Auf dem Bildschirm blinkt: "NEUER KAPITÄN ERKANNT - ALTERSVERIFIKATION LÄUFT"
+
+**Systemlog:** "Kapitäns-Alter: 15 Jahre"
+
+Buttons (nur if/else - Einstieg):
+- if kapitaen_alter >= 18: (FALSCH - "Vollzugriff gewährt")
+- else: (RICHTIG - "Junior-Kommando aktiviert")
+
+Entdeckte Variable: kapitaen_alter = 15
+
+---
+
+Mission 2: Energiesystem-Check
+------------------------------
+**HANDLUNG:**
+"Junior-Kommando ist aktiv, aber das ist nur ein Notfallmodus," erklärt Dr. Chen. "Wir müssen sofort die Energiesysteme überprüfen. Der Hypersprung-Unfall könnte die Hauptreaktoren beschädigt haben."
+
+Ingenieurin Sarah Rodriguez meldet sich über Comm: "Alex, ich bin im Maschinenraum. Die Energielevel sind instabil - wir haben nur 75% Leistung. Ohne mehr Energie können wir nicht navigieren oder die Lebenserhaltung aufrechterhalten."
+
+Du siehst die blinkenden Warnlichter im ganzen Schiff. Eine Entscheidung muss getroffen werden.
+
+**Energieanzeige:** "Energielevel: 75%"
+
+Buttons (if/else):
+- if energielevel >= 80: (FALSCH - "Vollleistung freigegeben")  
+- else: (RICHTIG - "Energiesparmodus aktiviert")
+
+Entdeckte Variable: energielevel = 75
+
+---
+
+Mission 3: Crew-Status Bewertung
+--------------------------------
+**HANDLUNG:**
+"Gute Entscheidung mit dem Energiesparmodus," sagt Sarah erleichtert. "Das kauft uns Zeit." Sie kommt zur Brücke, ihr Overall ist voller Maschinenöl. "Aber wir haben ein anderes Problem."
+
+Communications Officer Kim Patel schaltet sich ein: "Die Crew ist... nun ja, sie sind nervös. Ein 15-jähriger Kapitän? Manche bezweifeln, ob du uns nach Hause bringen kannst. Die Moral-Sensoren zeigen 65% Bereitschaft."
+
+Dr. Chen nickt zustimmend: "Wir müssen zeigen, dass du trotz deines Alters kompetente Entscheidungen treffen kannst. Die Crew beobachtet jede deiner Handlungen."
+
+**Crew-Report:** "Crew-Bereitschaft: 65%"
+
+Buttons (if/elif/else eingeführt):
+- if crew_bereitschaft >= 80: (FALSCH - "Sofortiger Missionsstart")
+- elif crew_bereitschaft >= 50: (RICHTIG - "Standard-Vorbereitung")
+- else: (FALSCH - "Ausbildung erforderlich")
+
+Entdeckte Variable: crew_bereitschaft = 65
+
+---
+
+Mission 4: Navigationssystem-Test
+---------------------------------
+**HANDLUNG:**
+Drei Stunden später hat sich die Crew etwas beruhigt. Navigator Lucas Kane, ein erfahrener Offizier mit grauem Bart, kommt zur Brücke.
+
+"Alex, ich war skeptisch," gibt er ehrlich zu. "Aber deine bisherigen Entscheidungen waren... überraschend durchdacht. Das Navigationssystem ist bereit für eine Kursberechnung nach Hause." Er zeigt auf die Sternkarten. "Allerdings muss das System all unsere aktuellen Parameter berücksichtigen."
+
+Kim fügt hinzu: "Die Computer analysieren dein Alter, unsere Energiereserven und die Crew-Bereitschaft für die optimale Route."
+
+**Status-Check:** "Navigation bereit für Kurs-Berechnung"
+**Verfügbare Daten:** Kapitäns-Alter: 15, Energielevel: 75%, Crew-Bereitschaft: 65%
+
+Buttons (Verwendung vorheriger Variablen):
+- if kapitaen_alter >= 18 and energielevel >= 80: (FALSCH - "Hochgeschwindigkeits-Route")
+- elif crew_bereitschaft >= 60: (RICHTIG - "Standard-Route berechnet")  
+- else: (FALSCH - "Sicherheitsroute erforderlich")
+
+Keine neuen Variablen - übt Verwendung akkumulierter Daten
+
+---
+
+Mission 5: Triebwerk-Kalibrierung
+---------------------------------
+**HANDLUNG:**
+"Route gesetzt," bestätigt Lucas mit einem anerkennenden Nicken. "Du lernst schnell." 
+
+Sarah's Stimme knackt über den Comm: "Alex, wir haben die Triebwerke fast repariert, aber die Kalibrierung ist knifflig. Der Unfall hat die automatischen Systeme durcheinander gebracht."
+
+Du gehst mit Dr. Chen zum Maschinenraum. Die riesigen Triebwerke dröhnen leise. Sarah zeigt auf die Anzeigen: "Wir haben 45 Kilonewton Schubkraft erreicht. Aber je nach Einstellung verbrauchen wir unterschiedlich viel Treibstoff. Eine falsche Entscheidung könnte uns stranden lassen."
+
+**Triebwerk-Status:** "Schubkraft: 45 Kilonewton"
+
+Buttons (4 Optionen - Komplexität steigt):
+- if schubkraft >= 60: (FALSCH - "Maximaler Schub aktiviert")
+- elif schubkraft >= 50: (FALSCH - "Hoher Schub eingestellt")  
+- elif schubkraft >= 40: (RICHTIG - "Moderater Schub optimal")
+- else: (FALSCH - "Notfall-Schub erforderlich")
+
+Entdeckte Variable: schubkraft = 45
+
+---
+
+Mission 6: Kommunikationssystem
+-------------------------------
+**HANDLUNG:**
+Zurück auf der Brücke arbeitet Kim fieberhaft an der Kommunikation. "Alex, ich versuche Kontakt zur Erde aufzunehmen, aber der Hypersprung-Unfall hat auch unsere Antennen beschädigt."
+
+Dr. Chen schaut besorgt auf die Anzeigen: "Wie stark ist das Signal?"
+
+"Nur 30%, aber unsere Verschlüsselung funktioniert noch," antwortet Kim. "Das ist wichtig - wir wissen nicht, ob wir in einem sicheren Sektor sind. Es könnten Piraten oder feindliche Schiffe in der Nähe sein."
+
+Lucas fügt hinzu: "Eine schwache, aber verschlüsselte Nachricht ist besser als gar keine Kommunikation."
+
+**Kom-System:** "Signalstärke: 30%, Verschlüsselung: aktiv"
+
+Buttons (Boolean-Werte eingeführt):
+- if signalstaerke >= 50: (FALSCH - "Direktkommunikation möglich")
+- elif verschluesselung_aktiv: (RICHTIG - "Sichere Kommunikation trotz schwachem Signal")
+- else: (FALSCH - "Kommunikation nicht möglich")
+
+Entdeckte Variablen: signalstaerke = 30, verschluesselung_aktiv = true
+
+---
+
+Mission 7: Schildsystem-Aktivierung  
+-----------------------------------
+**HANDLUNG:**
+Plötzlich piept Kim's Konsole alarmierend. "Alex! Ich habe einen unbekannten Kontakt auf dem Scanner. 15 Kilometer entfernt und nähert sich."
+
+Dr. Chen wird blass: "Könnten das Piraten sein?"
+
+Sarah's Stimme kommt panisch über Comm: "Ich sehe die Anzeigen hier unten auch! Wer auch immer das ist - sie scannen uns!"
+
+Du erinnerst dich an Captain Morrison's Worte: "Ein guter Kapitän bereitet sich auf das Schlimmste vor." Lucas bestätigt: "Deine Energielevel von 75% geben uns Optionen für die Schilde."
+
+**Bedrohungsanalyse:** "Feindkontakt: erkannt, Entfernung: 15 km"
+
+Buttons (Kombination alter und neuer Daten):
+- if feindkontakt and entfernung <= 10: (FALSCH - "Vollschilde + Angriff")
+- elif feindkontakt and energielevel >= 70: (RICHTIG - "Defensivschilde aktivieren")
+- else: (FALSCH - "Abwarten und beobachten")
+
+Entdeckte Variablen: feindkontakt = true, entfernung = 15
+
+---
+
+Mission 8: Treibstoff-Management
+--------------------------------
+**HANDLUNG:**
+"Schilde sind aktiv," meldet Lucas erleichtert. Das unbekannte Schiff verändert den Kurs und verschwindet. "Nur ein Handelsfrachter, aber gut, dass wir vorsichtig waren."
+
+Sarah kommt atemlos zur Brücke: "Alex, wir haben ein Problem. Der Schild-Einsatz und die Triebwerk-Reparaturen haben unseren Treibstoff stark belastet. Wir haben nur noch 60%, und unser Verbrauch ist hoch."
+
+Dr. Chen studiert die Anzeigen: "Bei dieser Rate erreichen wir nicht die Erde."
+
+Kim schlägt vor: "Es gibt eine Raumstation in diesem Sektor, aber der Umweg würde zusätzlichen Treibstoff kosten. Wir müssen den Verbrauch jetzt optimieren."
+
+**Treibstoff-Status:** "Treibstoff: 60%, Verbrauchsrate: hoch"
+
+Buttons (5 Optionen - weitere Steigerung):
+- if treibstoff >= 80: (FALSCH - "Vollgas ohne Einschränkungen")
+- elif treibstoff >= 70: (FALSCH - "Hohe Geschwindigkeit")
+- elif treibstoff >= 50 and verbrauchsrate == "hoch": (RICHTIG - "Sparmodus aktivieren")
+- elif treibstoff >= 40: (FALSCH - "Langsame Fahrt")
+- else: (FALSCH - "Notlandung vorbereiten")
+
+Entdeckte Variablen: treibstoff = 60, verbrauchsrate = "hoch"
+
+---
+
+Mission 9: Lebenserhaltung-Kritisch
+-----------------------------------
+**HANDLUNG:**
+Der Treibstoff-Sparmodus zeigt Wirkung, aber Dr. Chen entdeckt ein neues Problem. "Alex, komm sofort zum Medizinischen Bereich. Es ist dringend."
+
+Im Krankenrevier zeigt sie auf die Lebenserhaltungs-Anzeigen: "Unsere CO2-Filter sind defekt - wahrscheinlich durch den ursprünglichen Unfall. Der Sauerstoff ist noch bei 85%, und die Temperatur ist normal, aber ohne funktionierende Filter wird das nicht lange so bleiben."
+
+Sarah, die mitgekommen ist, untersucht die defekten Systeme: "Ich kann Notfilter aktivieren, aber das ist nur eine temporäre Lösung."
+
+Kim meldet über Comm: "Die Crew wird unruhig - sie spüren, dass etwas nicht stimmt."
+
+**Life-Support:** "Sauerstoff: 85%, Temperatur: normal, CO2-Filter: defekt"
+
+Buttons (Komplexe Bedingungen):
+- if sauerstoff >= 90 and temperatur == "normal" and not co2_filter_defekt: (FALSCH - "Alle Systeme optimal")
+- elif sauerstoff >= 80 and temperatur == "normal": (RICHTIG - "CO2-Notfilter aktivieren")
+- elif sauerstoff >= 70: (FALSCH - "Teilweise Evakuierung")
+- else: (FALSCH - "Sofortige Evakuierung")
+
+Entdeckte Variablen: sauerstoff = 85, temperatur = "normal", co2_filter_defekt = true
+
+---
+
+Mission 10: Cargo-Bay Druckausgleich
+------------------------------------
+**HANDLUNG:**
+Die Notfilter laufen, aber Dr. Chen ist immer noch besorgt: "Alex, wir brauchen Ersatzteile für eine permanente Reparatur. Sarah meint, sie könnte welche aus der Cargo-Bay holen."
+
+Im Cargo-Bereich angekommen, stellt Sarah fest: "Der Druck hier ist nur 0.8 Bar - zu niedrig für sicheres Arbeiten. Aber die Luftschleuse ist geschlossen, das ist gut."
+
+Lucas, der mitgekommen ist, warnt: "Bei deinem Alter und der aktuellen Crew-Bereitschaft sollten wir vorsichtig sein. Ein Unfall hier könnte das Vertrauen der Crew völlig zerstören."
+
+Du erinnerst dich an alle Parameter: dein Alter, die Energie, die Crew-Moral, der Sauerstoff-Level...
+
+**Cargo-Status:** "Druck: 0.8 Bar, Luftschleuse: geschlossen"
+
+Buttons (Viele Variablen kombiniert):
+- if kapitaen_alter >= 18 and crew_bereitschaft >= 70 and energielevel >= 80: (FALSCH - "Vollautomatischer Ausgleich")
+- elif sauerstoff >= 80 and druck >= 0.9: (FALSCH - "Standard-Druckausgleich")
+- elif druck >= 0.7 and luftschleuse_geschlossen: (RICHTIG - "Langsamer Druckausgleich")
+- else: (FALSCH - "Notfall-Abdichtung")
+
+Entdeckte Variablen: druck = 0.8, luftschleuse_geschlossen = true
+
+---
+
+Mission 11: Sensoren-Array Kalibrierung
+---------------------------------------
+**HANDLUNG:**
+Der Druckausgleich war erfolgreich, und Sarah konnte die benötigten Ersatzteile holen. Während sie die CO2-Filter repariert, entdeckt Kim ein neues Problem.
+
+"Alex, unsere Hauptsensoren sind offline gegangen. Der Hypersprung-Unfall hat mehr Schäden verursacht, als wir dachten." Sie zeigt frustriert auf ihre Konsole. "Aber die Backup-Sensoren funktionieren noch, und wir haben 80% Reichweite."
+
+Lucas runzelt die Stirn: "Ohne Hauptsensoren können wir keine Gefahren in der Ferne erkennen. Aber 80% Reichweite mit den Backups könnte reichen."
+
+Dr. Chen fügt hinzu: "Es ist riskant, aber wir haben keine andere Wahl als mit dem zu arbeiten, was wir haben."
+
+**Sensor-Status:** "Hauptsensor: offline, Backup aktiv: true, Reichweite: 80%"
+
+Buttons (NOT-Logik):
+- if not hauptsensor_offline and reichweite >= 90: (FALSCH - "Optimale Sensorleistung")
+- elif hauptsensor_offline and backup_aktiv and reichweite >= 70: (RICHTIG - "Backup-Sensoren ausreichend")
+- elif backup_aktiv: (FALSCH - "Eingeschränkte Sensoren")
+- else: (FALSCH - "Sensor-Totalausfall")
+
+Entdeckte Variablen: hauptsensor_offline = true, backup_aktiv = true, reichweite = 80
+
+---
+
+Mission 12: Waffensystem-Check
+------------------------------
+**HANDLUNG:**
+"Die Sensoren laufen wieder," bestätigt Kim erleichtert. Aber Lucas sieht ernst aus: "Alex, wir müssen über etwas reden. Dieser Sektor ist nicht so sicher, wie wir dachten."
+
+Er führt dich zur Waffen-Konsole: "Captain Morrison hat mir vor seinem Tod gesagt, dass Piraten in diesem Bereich aktiv sind. Unsere Laser sind zu 90% geladen, wir haben 12 Raketen, und das Zielsystem funktioniert."
+
+Sarah, die gerade von der Reparatur zurückkommt, fügt hinzu: "Wir hatten schon einen unbekannten Kontakt. Beim nächsten Mal könnten wir nicht so viel Glück haben."
+
+Dr. Chen mahnt zur Vorsicht: "Wir sind hier, um nach Hause zu kommen, nicht um zu kämpfen. Aber Verteidigung ist klug."
+
+**Waffen-Status:** "Laser geladen: 90%, Raketen: 12 Stück, Zielsystem: aktiv"
+
+Buttons (6 Optionen - maximale Komplexität):
+- if laser_geladen >= 95 and raketen >= 15 and zielsystem_aktiv: (FALSCH - "Vollbewaffnung bereit")
+- elif laser_geladen >= 80 and zielsystem_aktiv and feindkontakt: (RICHTIG - "Kampfbereitschaft Stufe 2")
+- elif laser_geladen >= 70 and raketen >= 10: (FALSCH - "Grundverteidigung")
+- elif raketen >= 8: (FALSCH - "Nur Raketensysteme")
+- elif laser_geladen >= 50: (FALSCH - "Nur Lasersysteme")  
+- else: (FALSCH - "Wehrlos - Flucht empfohlen")
+
+Entdeckte Variablen: laser_geladen = 90, raketen = 12, zielsystem_aktiv = true
+
+---
+
+Mission 13: Notreparatur-Entscheidung
+-------------------------------------
+**HANDLUNG:**
+Sechs Stunden später passiert das Unvermeidliche. Ein lautes Knirschen erschüttert das Schiff, gefolgt von Alarmtönen.
+
+"HÜLLENBREACH!" schreit Kim über den Lärm. Sarah rennt zu ihren Instrumenten: "15% Hüllenschaden an der Backbord-Sektion! Aber es ist reparabel - noch."
+
+Dr. Chen überprüft hektisch die Lebenserhaltung: "Wir verlieren langsam Atmosphäre. Die Reparatur muss schnell gehen."
+
+Lucas schaut dich ernst an: "Alex, das ist der Moment, wo sich zeigt, ob du wirklich ein Kapitän bist. Eine falsche Entscheidung könnte uns alle umbringen." Er deutet auf die Anzeigen: "Wir haben die Laser-Energie und Schubkraft für Schutz während der Reparatur."
+
+**Schadens-Report:** "Hüllenschaden: 15%, Reparatur möglich: true"
+
+Buttons (Sehr komplexe Bedingungen):
+- if huellenschaden <= 10 and energielevel >= 80 and crew_bereitschaft >= 80: (FALSCH - "Normale Reparatur")
+- elif huellenschaden <= 20 and reparatur_moeglich and (laser_geladen >= 70 or schubkraft >= 40): (RICHTIG - "Notreparatur unter Schutz")
+- elif reparatur_moeglich and sauerstoff >= 80: (FALSCH - "Riskante Außenreparatur") 
+- elif treibstoff >= 50: (FALSCH - "Flucht zur Raumstation")
+- else: (FALSCH - "SOS-Signal senden")
+
+Entdeckte Variablen: huellenschaden = 15, reparatur_moeglich = true
+
+---
+
+Mission 14: Rettungskapsel-Protokoll
+------------------------------------
+**HANDLUNG:**
+Die Reparatur war erfolgreich, aber während Sarah und ihr Team draußen arbeiteten, entdeckte Kim etwas Unerwartetes.
+
+"Alex! Ich empfange ein schwaches Notsignal!" Kim's Augen leuchten vor Aufregung. "Es ist eine Rettungskapsel, 2 Kilometer entfernt. Acht Überlebende!"
+
+Dr. Chen ist sofort interessiert: "Acht Menschen? Unsere Kapsel hat Platz für zwölf, aber..."
+
+Sarah, immer noch im Raumanzug, meldet sich über Comm: "Zehn Minuten bis die nächste Mikrometeorit-Welle kommt. Wenn wir sie retten wollen, muss es jetzt passieren."
+
+Lucas warnt: "Bei unserem aktuellen Energielevel und Schubkraft ist es machbar, aber riskant."
+
+Du denkst an all die Variablen: Energie, Schubkraft, Hüllenschaden, Zeit...
+
+**Rettungs-Status:** "Überlebende: 8, Kapsel-Kapazität: 12, Zeitfenster: 10 Minuten"
+
+Buttons (Maximale Verzweigung):
+- if ueberlebende <= kapsel_kapazitaet and zeitfenster >= 15 and not huellenschaden >= 20: (FALSCH - "Entspannte Rettung")
+- elif ueberlebende <= kapsel_kapazitaet and energielevel >= 60 and schubkraft >= 40: (RICHTIG - "Schnellrettung möglich")
+- elif ueberlebende <= kapsel_kapazitaet and zeitfenster >= 5: (FALSCH - "Riskante Rettung")
+- elif zeitfenster >= 8 and crew_bereitschaft >= 60: (FALSCH - "Mehrfach-Transport")
+- elif sauerstoff >= 70: (FALSCH - "Teilrettung")
+- else: (FALSCH - "Rettung unmöglich")
+
+Entdeckte Variablen: ueberlebende = 8, kapsel_kapazitaet = 12, zeitfenster = 10
+
+---
+
+Mission 15: Finale Heimkehr-Entscheidung  
+----------------------------------------
+**HANDLUNG:**
+Die Rettung war ein voller Erfolg! Die acht Überlebenden sind Wissenschaftler von einer Forschungsstation, die von Piraten angegriffen wurde. Dr. Martinez, ihre Leiterin, bringt unglaubliche Neuigkeiten.
+
+"Alex," sagt Dr. Martinez dankbar, "wir haben 15 bahnbrechende Entdeckungen gemacht - neue Antriebstechnologien, die die Raumfahrt revolutionieren könnten."
+
+Dr. Chen ist begeistert: "Das könnte der wichtigste wissenschaftliche Fund des Jahrhunderts sein!"
+
+Aber Lucas bringt dich auf den Boden zurück: "Die Frage ist: Kehren wir jetzt nach Hause zurück, oder erkunden wir weiter?"
+
+Sarah checkt die Systeme: "Unser Treibstoff reicht für die Heimreise, und mit den geretteten Wissenschaftlern ist unser Ansehen gestiegen."
+
+Kim fügt hinzu: "Die Erdregierung wird begeistert sein - ein 15-jähriger Kapitän, der eine erfolgreiche Rettungsmission durchgeführt hat!"
+
+Du blickst auf alle Parameter der ganzen Reise: dein Alter, die Mission, die Entdeckungen, alle Systeme...
+
+**Finale Bewertung:** "Mission erfolgreich: true, Entdeckungen: 15"
+
+Buttons (7 Optionen - Master-Level):
+- if mission_erfolgreich and entdeckungen >= 20 and huellenschaden <= 5 and crew_bereitschaft >= 90: (FALSCH - "Triumphale Heimkehr")
+- elif mission_erfolgreich and entdeckungen >= 10 and treibstoff >= 60 and ueberlebende >= 5: (RICHTIG - "Erfolgreiche Mission beendet")
+- elif mission_erfolgreich and laser_geladen >= 80 and raketen >= 10: (FALSCH - "Kampfbereite Rückkehr")
+- elif entdeckungen >= 15 and sauerstoff >= 80: (FALSCH - "Wissenschaftlicher Erfolg")
+- elif treibstoff >= 40 and crew_bereitschaft >= 50: (FALSCH - "Sichere Heimreise")
+- elif huellenschaden <= 30 and energielevel >= 40: (FALSCH - "Notfall-Rückkehr")
+- else: (FALSCH - "Aufgabe der Mission")
+
+Entdeckte Variablen: mission_erfolgreich = true, entdeckungen = 15
+
+=====================================
+
+HANDLUNGSBOGEN:
+✓ Tragische Ausgangslage (Captain Morrison's Tod)
+✓ Charakter-Entwicklung (Alex wächst in die Kapitänsrolle)
+✓ Team-Dynamik (Crew gewinnt Vertrauen)
+✓ Eskalierende Herausforderungen (Systeme, Gefahren, Rettung)
+✓ Triumphaler Abschluss (Erfolgreiche Mission und Rettung)
+
+CHARAKTERE:
+- Alex (15): Hauptcharakter, wächst zum Kapitän
+- Dr. Chen: Medizinerin, Mentorin, emotionale Stütze
+- Sarah Rodriguez: Ingenieurin, praktisch, mutig
+- Kim Patel: Communications Officer, aufmerksam, loyal
+- Lucas Kane: Navigator, anfangs skeptisch, wird Ally
+- Dr. Martinez: Gerettete Wissenschaftlerin (ab Mission 14)
+
+LERNPROGRESSION:
+Mission 1-2: if/else (2 Buttons)
+Mission 3-4: if/elif/else (3 Buttons) + vorherige Variablen
+Mission 5-6: 4 Buttons + Boolean-Werte
+Mission 7-9: 5 Buttons + AND/OR-Logik
+Mission 10-12: 6 Buttons + NOT-Operatoren
+Mission 13-15: 7 Buttons + maximale Komplexität mit 20+ Variablen

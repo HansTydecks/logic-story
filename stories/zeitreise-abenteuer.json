@@ -1,0 +1,141 @@
+{
+  "id": "zeitreise-abenteuer",
+  "title": "Zeitreise-Abenteuer - Durch die Jahrhunderte",
+  "description": "Reise durch die Zeit und löse logische Rätsel in verschiedenen Epochen",
+  "image": "images/zeitreise.jpg",
+  "missions": [
+    {
+      "id": 1,
+      "title": "Ankunft im alten Ägypten",
+      "text": "Deine Zeitmaschine ist in 2500 v.Chr. gelandet! Du stehst vor den Pyramiden von Gizeh. Ein ägyptischer Wächter versperrt dir den Weg.\n\n**Der Wächter spricht:** 'Nur wer das Rätsel der Zahlen löst, darf passieren!'\n\n**Die Situation:**\n- Dein Alter in dieser Zeit: 25 Jahre\n- Mindestalter für Pyramiden-Zutritt: 20 Jahre\n\n**Frage:** Welche Bedingung prüft der Wächter, um dir Zutritt zu gewähren?",
+      "variables": {},
+      "variables_discovered": {
+        "reisender_alter": 25,
+        "mindest_alter": 20
+      },
+      "buttons": [
+        {
+          "label": "if reisender_alter >= mindest_alter:",
+          "correct": true,
+          "explanation": "✅ **Richtig!** 25 >= 20 ist **true**. Der Wächter lässt dich passieren!"
+        },
+        {
+          "label": "if reisender_alter < mindest_alter:",
+          "correct": false,
+          "explanation": "❌ **Falsch!** 25 < 20 ist **false**. Du bist alt genug!"
+        },
+        {
+          "label": "if reisender_alter == mindest_alter:",
+          "correct": false,
+          "explanation": "❌ **Falsch!** 25 == 20 ist **false**. Du bist älter als das Mindestalter!"
+        }
+      ],
+      "success_text": "🎉 **Pyramide erreicht!** Du verstehst jetzt Vergleichsoperatoren in der Antike!",
+      "next_mission": 2
+    },
+    {
+      "id": 2,
+      "title": "Mittelalterliches Schloss",
+      "text": "📿 1347 n.Chr. - Du stehst vor einem mittelalterlichen Schloss. Der Torwächter verlangt, dass du SOWOHL ein Schwert trägst ALS AUCH das richtige Passwort kennst.\n\n**Deine Ausrüstung:**\n- Schwert dabei: Ja (true)\n- Passwort bekannt: Ja (true)\n\n**Frage:** Welche Bedingung öffnet das Schlosstor?",
+      "variables": {
+        "reisender_alter": 25,
+        "mindest_alter": 20
+      },
+      "variables_discovered": {
+        "schwert_dabei": true,
+        "passwort_bekannt": true
+      },
+      "buttons": [
+        {
+          "label": "if schwert_dabei and passwort_bekannt:",
+          "correct": true,
+          "explanation": "✅ **Perfekt!** true AND true ist **true**. Das Tor öffnet sich!"
+        },
+        {
+          "label": "if schwert_dabei or passwort_bekannt:",
+          "correct": false,
+          "explanation": "❌ **Falsch!** Der Wächter verlangt BEIDES, nicht nur eins davon!"
+        },
+        {
+          "label": "if not schwert_dabei:",
+          "correct": false,
+          "explanation": "❌ **Falsch!** not true ist **false**. Du HAST ein Schwert!"
+        }
+      ],
+      "success_text": "🎉 **Schloss betreten!** Du verstehst jetzt AND-Verknüpfungen im Mittelalter!",
+      "next_mission": 3
+    },
+    {
+      "id": 3,
+      "title": "Wilde Westen Saloon",
+      "text": "🤠 1875 - Im Wilden Westen angekommen! Der Saloon-Besitzer lässt dich nur rein, wenn du ENTWEDER Sheriff bist ODER mindestens 100 Dollar hast.\n\n**Dein Status:**\n- Bist du Sheriff: Nein (false)\n- Geld dabei: 150 Dollar\n- Minimum für Eintritt: 100 Dollar\n\n**Frage:** Welche Bedingung gewährt dir Zutritt zum Saloon?",
+      "variables": {
+        "reisender_alter": 25,
+        "mindest_alter": 20,
+        "schwert_dabei": true,
+        "passwort_bekannt": true
+      },
+      "variables_discovered": {
+        "ist_sheriff": false,
+        "geld_dabei": 150,
+        "minimum_geld": 100
+      },
+      "buttons": [
+        {
+          "label": "if ist_sheriff or geld_dabei >= minimum_geld:",
+          "correct": true,
+          "explanation": "✅ **Richtig!** false OR (150 >= 100) = false OR true = **true**!"
+        },
+        {
+          "label": "if ist_sheriff and geld_dabei >= minimum_geld:",
+          "correct": false,
+          "explanation": "❌ **Falsch!** false AND true ist **false**. Du brauchst nur EINS davon!"
+        },
+        {
+          "label": "if ist_sheriff:",
+          "correct": false,
+          "explanation": "❌ **Falsch!** ist_sheriff ist **false**. Du bist kein Sheriff!"
+        }
+      ],
+      "success_text": "🎉 **Saloon betreten!** Du verstehst jetzt OR-Verknüpfungen im Wilden Westen!",
+      "next_mission": 4
+    },
+    {
+      "id": 4,
+      "title": "Zukunfts-Labor 2150",
+      "text": "🚀 2150 n.Chr. - In der Zukunft angekommen! Das KI-System des Labors prüft komplexe Bedingungen: Du darfst nur rein, wenn du NICHT von der Vergangenheit kommst UND deine Zeitreise-Lizenz gültig ist.\n\n**System-Check:**\n- Von Vergangenheit: Ja, du kommst aus 2024 (true)\n- Zeitreise-Lizenz gültig: Ja (true)\n\n**Frage:** Welche Bedingung prüft das KI-System?",
+      "variables": {
+        "reisender_alter": 25,
+        "mindest_alter": 20,
+        "schwert_dabei": true,
+        "passwort_bekannt": true,
+        "ist_sheriff": false,
+        "geld_dabei": 150,
+        "minimum_geld": 100
+      },
+      "variables_discovered": {
+        "von_vergangenheit": true,
+        "lizenz_gueltig": true
+      },
+      "buttons": [
+        {
+          "label": "if not von_vergangenheit and lizenz_gueltig:",
+          "correct": true,
+          "explanation": "✅ **Korrekt!** not true AND true = false AND true = **false**. Das System verweigert Zutritt!"
+        },
+        {
+          "label": "if von_vergangenheit and lizenz_gueltig:",
+          "correct": false,
+          "explanation": "❌ **Falsch!** Das System will NICHT von_vergangenheit!"
+        },
+        {
+          "label": "if lizenz_gueltig:",
+          "correct": false,
+          "explanation": "❌ **Falsch!** Die Lizenz allein reicht nicht - du darfst nicht aus der Vergangenheit kommen!"
+        }
+      ],
+      "success_text": "🎉 **Zeitreise-Abenteuer beendet!** Du bist ein Meister der Logik durch alle Zeiten!",
+      "next_mission": null
+    }
+  ]
+}

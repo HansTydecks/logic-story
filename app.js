@@ -1,0 +1,400 @@
+/**
+ * Logic Story Game - Interactive Programming Logic Trainer
+ * Mit Story-Auswahl und verbessertem Layout
+ */
+
+class LogicStoryEngine {
+    constructor() {
+        this.currentMission = 1;
+        this.storyData = null;
+        this.mission = null;
+        this.currentTheme = 'default';
+        this.availableStories = [
+            {
+                id: 'mission-aurora',
+                title: 'Mission Aurora',
+                subtitle: 'Weltraum-Abenteuer',
+                description: 'Kommandiere ein Raumschiff und lerne Programmierlogik',
+                image: 'images/mission-aurora.png',
+                file: 'stories/mission-aurora.json',
+                theme: 'space'
+            },
+            {
+                id: 'zeitreise-abenteuer', 
+                title: 'Zeitreise-Abenteuer',
+                subtitle: 'Durch die Jahrhunderte',
+                description: 'Reise durch die Zeit und löse logische Rätsel',
+                image: 'images/zeitreise-abenteuer.png',
+                file: 'stories/zeitreise-abenteuer.json',
+                theme: 'timetravel'
+            },
+            {
+                id: 'krimi-mystery',
+                title: 'Krimi-Mystery',
+                subtitle: 'Detektiv-Fall',
+                description: 'Löse einen spannenden Kriminalfall mit Logik',
+                image: 'images/kirimi-mystery.png',
+                file: 'stories/krimi-mystery.json',
+                theme: 'mystery'
+            }
+        ];
+        
+        // Theme-Definitionen - Subtile, elegante Varianten mit serifenlosen Schriften
+        this.themes = {
+            default: {
+                background: 'linear-gradient(135deg, #1a1a2e, #16213e, #0f3460)',
+                primaryColor: '#64ffda',
+                secondaryColor: '#b0bec5',
+                accentColor: '#ffd54f',
+                cardBg: 'rgba(255, 255, 255, 0.05)',
+                textColor: '#ffffff',
+                fontFamily: "'Segoe UI', 'Roboto', sans-serif"
+            },
+            space: {
+                background: 'linear-gradient(135deg, #0a0a0a, #1a1a2e, #2d3748)',
+                primaryColor: '#4fd1c7',
+                secondaryColor: '#a0aec0',
+                accentColor: '#68d391',
+                cardBg: 'rgba(79, 209, 199, 0.03)',
+                textColor: '#e2e8f0',
+                borderColor: '#4fd1c7',
+                fontFamily: "'Consolas', 'Monaco', 'Courier New', monospace"
+            },
+            timetravel: {
+                background: 'linear-gradient(135deg, #1a202c, #2d3748, #4a5568)',
+                primaryColor: '#d69e2e',
+                secondaryColor: '#cbd5e0',
+                accentColor: '#ed8936',
+                cardBg: 'rgba(214, 158, 46, 0.04)',
+                textColor: '#f7fafc',
+                borderColor: '#d69e2e',
+                fontFamily: "'Open Sans', 'Helvetica Neue', sans-serif"
+            },
+            mystery: {
+                background: 'linear-gradient(135deg, #1a1a1a, #2d2d2d, #3d3d3d)',
+                primaryColor: '#e53e3e',
+                secondaryColor: '#a0a0a0',
+                accentColor: '#fc8181',
+                cardBg: 'rgba(229, 62, 62, 0.03)',
+                textColor: '#f5f5f5',
+                borderColor: '#e53e3e',
+                fontFamily: "'Arial', 'Helvetica', sans-serif"
+            }
+        };
+    }
+
+    /**
+     * Wendet ein Theme an
+     */
+    applyTheme(themeName) {
+        this.currentTheme = themeName;
+        const theme = this.themes[themeName];
+        const root = document.documentElement;
+        
+        // CSS Custom Properties setzen
+        root.style.setProperty('--bg-gradient', theme.background);
+        root.style.setProperty('--primary-color', theme.primaryColor);
+        root.style.setProperty('--secondary-color', theme.secondaryColor);
+        root.style.setProperty('--accent-color', theme.accentColor);
+        root.style.setProperty('--card-bg', theme.cardBg);
+        root.style.setProperty('--text-color', theme.textColor);
+        root.style.setProperty('--border-color', theme.borderColor || theme.primaryColor);
+        root.style.setProperty('--font-family', theme.fontFamily);
+        
+        // Body-Klasse für Theme setzen
+        document.body.className = `theme-${themeName}`;
+        
+        // Schriftart für den gesamten Body setzen
+        document.body.style.fontFamily = theme.fontFamily;
+    }
+
+    /**
+     * Zeigt die Story-Auswahl an
+     */
+    showStorySelection() {
+        // Zurück zum Default-Theme
+        this.applyTheme('default');
+        
+        const container = document.getElementById('game-container');
+        
+        let html = `
+            <div class="story-selection">
+                <div class="selection-header">
+                    <h1>🧠 Logik-Geschichten</h1>
+                    <p>Wähle dein Abenteuer und lerne Programmierlogik!</p>
+                </div>
+                
+                <div class="stories-grid">
+        `;
+        
+        this.availableStories.forEach(story => {
+            html += `
+                <div class="story-card" onclick="game.selectStory('${story.id}')">
+                    <div class="story-image">
+                        <img src="${story.image}" alt="${story.title}">
+                    </div>
+                    <div class="story-info">
+                        <h3>${story.title}</h3>
+                        <p class="story-subtitle">${story.subtitle}</p>
+                        <p class="story-description">${story.description}</p>
+                    </div>
+                </div>
+            `;
+        });
+        
+        html += `
+                </div>
+            </div>
+        `;
+        
+        container.innerHTML = html;
+    }
+
+    /**
+     * Wählt eine Story aus und lädt sie
+     */
+    async selectStory(storyId) {
+        const story = this.availableStories.find(s => s.id === storyId);
+        if (!story) {
+            this.showError('Story nicht gefunden');
+            return;
+        }
+
+        // Theme für die gewählte Story anwenden
+        this.applyTheme(story.theme);
+
+        try {
+            const response = await fetch(story.file);
+            this.storyData = await response.json();
+            this.loadMission(1);
+        } catch (error) {
+            console.error('Fehler beim Laden der Story:', error);
+            this.showError('Story konnte nicht geladen werden');
+        }
+    }
+
+    /**
+     * Lädt eine spezifische Mission
+     */
+    loadMission(missionId) {
+        this.mission = this.storyData.missions.find(m => m.id === missionId);
+        
+        if (!this.mission) {
+            this.showError(`Mission ${missionId} nicht gefunden`);
+            return;
+        }
+
+        this.currentMission = missionId;
+        this.displayMission();
+    }
+
+    /**
+     * Verarbeitet den Übergang zur nächsten Mission und sammelt Variablen
+     */
+    proceedToNextMission(nextMissionId) {
+        // Sammle entdeckte Variablen der aktuellen Mission
+        if (this.mission.variables_discovered) {
+            // Finde die nächste Mission und füge die entdeckten Variablen hinzu
+            const nextMission = this.storyData.missions.find(m => m.id === nextMissionId);
+            if (nextMission) {
+                // Füge entdeckte Variablen zu den Variablen der nächsten Mission hinzu
+                Object.assign(nextMission.variables, this.mission.variables_discovered);
+            }
+        }
+
+        // Lade die nächste Mission
+        this.loadMission(nextMissionId);
+    }
+
+    /**
+     * Zeigt die aktuelle Mission an (neues Layout: Text links, Variablen rechts)
+     */
+    displayMission() {
+        const container = document.getElementById('game-container');
+        
+        let html = `
+            <div class="mission-container">
+                <div class="mission-header">
+                    <h2>Mission ${this.mission.id}: ${this.mission.title}</h2>
+                    <button class="back-button" onclick="game.showStorySelection()">↩️ Zurück zur Auswahl</button>
+                </div>
+                
+                <div class="mission-layout">
+                    <div class="mission-left">
+                        <div class="mission-text">
+                            ${this.formatText(this.mission.text)}
+                        </div>
+                        
+                        <div class="choices">
+                            <h3>🎯 Wähle die richtige Bedingung:</h3>
+                            ${this.displayButtons()}
+                        </div>
+                    </div>
+                    
+                    <div class="mission-right">
+                        <div class="variables-display">
+                            <h3>🔍 Variablen:</h3>
+                            ${this.displayVariables()}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `;
+        
+        container.innerHTML = html;
+    }
+
+    /**
+     * Formatiert den Missionstext
+     */
+    formatText(text) {
+        return text
+            .replace(/\n/g, '<br>')
+            .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+            .replace(/\*(.*?)\*/g, '<em>$1</em>');
+    }
+
+    /**
+     * Zeigt die Variablen an
+     */
+    displayVariables() {
+        let html = '<div class="variables-list">';
+        
+        for (const [varName, value] of Object.entries(this.mission.variables)) {
+            const displayValue = typeof value === 'string' ? `"${value}"` : value;
+            const valueType = typeof value === 'boolean' ? 'boolean' : 
+                             typeof value === 'string' ? 'string' : 'number';
+            
+            html += `
+                <div class="variable-item ${valueType}">
+                    <div class="var-name">${varName}</div>
+                    <div class="var-equals">=</div>
+                    <div class="var-value">${displayValue}</div>
+                    <div class="var-type">(${valueType})</div>
+                </div>
+            `;
+        }
+        
+        html += '</div>';
+        return html;
+    }
+
+    /**
+     * Zeigt die Antwort-Buttons an
+     */
+    displayButtons() {
+        let html = '<div class="button-container">';
+        
+        this.mission.buttons.forEach((button, index) => {
+            html += `
+                <button class="choice-button" onclick="game.selectAnswer(${index})">
+                    <code>${button.label}</code>
+                </button>
+            `;
+        });
+        
+        html += '</div>';
+        return html;
+    }
+
+    /**
+     * Verarbeitet die Antwortauswahl
+     */
+    selectAnswer(buttonIndex) {
+        const button = this.mission.buttons[buttonIndex];
+        
+        if (!button) {
+            this.showError('Ungültige Auswahl');
+            return;
+        }
+
+        this.showResult(button);
+    }
+
+    /**
+     * Zeigt das Ergebnis der Auswahl
+     */
+    showResult(button) {
+        const container = document.getElementById('game-container');
+        
+        let html = `
+            <div class="result-container">
+                <div class="result-header ${button.correct ? 'correct' : 'incorrect'}">
+                    ${button.correct ? '✅ RICHTIG!' : '❌ FALSCH!'}
+                </div>
+                
+                <div class="explanation">
+                    ${this.formatText(button.explanation)}
+                </div>
+        `;
+
+        if (button.correct) {
+            html += `
+                <div class="success-message">
+                    ${this.formatText(this.mission.success_text)}
+                </div>
+                
+                <div class="progress-info">
+                    <strong>Mission ${this.mission.id} von ${this.storyData.missions.length} abgeschlossen!</strong>
+                </div>
+            `;
+
+            if (this.mission.next_mission) {
+                html += `
+                    <button class="continue-button" onclick="game.proceedToNextMission(${this.mission.next_mission})">
+                        🚀 Weiter zu Mission ${this.mission.next_mission}
+                    </button>
+                `;
+            } else {
+                html += `
+                    <div class="final-success">
+                        <h2>🎊 GESCHICHTE ABGESCHLOSSEN! 🎊</h2>
+                        <p>Du hast alle Missionen dieser Geschichte erfolgreich abgeschlossen!</p>
+                        <div class="final-buttons">
+                            <button class="restart-button" onclick="game.loadMission(1)">
+                                🔄 Geschichte wiederholen
+                            </button>
+                            <button class="new-story-button" onclick="game.showStorySelection()">
+                                📚 Neue Geschichte wählen
+                            </button>
+                        </div>
+                    </div>
+                `;
+            }
+        } else {
+            html += `
+                <button class="retry-button" onclick="game.displayMission()">
+                    🔄 Nochmal versuchen
+                </button>
+            `;
+        }
+
+        html += '</div>';
+        container.innerHTML = html;
+    }
+
+    /**
+     * Zeigt Fehlermeldungen an
+     */
+    showError(message) {
+        const container = document.getElementById('game-container');
+        container.innerHTML = `
+            <div class="error-container">
+                <h2>❌ Fehler</h2>
+                <p>${message}</p>
+                <button onclick="game.showStorySelection()">🏠 Zurück zur Auswahl</button>
+            </div>
+        `;
+    }
+}
+
+// Globale Spiel-Instanz
+let game;
+
+// Spiel starten
+document.addEventListener('DOMContentLoaded', () => {
+    game = new LogicStoryEngine();
+    // Initialisiere mit Default-Theme
+    game.applyTheme('default');
+    game.showStorySelection();
+});
