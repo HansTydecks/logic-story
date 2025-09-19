@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Logik-Geschichten - Programmieren lernen</title>
+    <link rel="icon" type="image/png" href="favicon.png">
     <style>
         :root {
             --bg-gradient: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460);
@@ -28,6 +29,9 @@
             background: var(--bg-gradient);
             color: var(--text-color);
             min-height: 100vh;
+            /* Sticky footer layout */
+            display: flex;
+            flex-direction: column;
             line-height: 1.6;
             transition: all 0.4s ease;
         }
@@ -48,6 +52,8 @@
         .container {
             max-width: 1200px;
             margin: 0 auto;
+            /* allow footer to sit at the bottom when content is short */
+            flex: 1 0 auto;
             padding: 20px;
         }
 
@@ -307,13 +313,20 @@
             background: var(--card-bg);
             color: var(--text-color);
             border: 1px solid var(--border-color);
-            padding: 18px 25px;
+            padding: 20px 25px;
             border-radius: 8px;
-            font-size: 1em;
+            /* Thicker, more readable monospaced font */
+            font-family: Consolas, "Cascadia Mono", "Cascadia Code", "SFMono-Regular", Menlo, "Liberation Mono", "DejaVu Sans Mono", "Courier New", monospace;
+            font-weight: 700;
+            font-size: 1.05em;
+            line-height: 1.5;
             cursor: pointer;
             transition: all 0.2s ease;
             text-align: left;
-            font-family: var(--font-family);
+            white-space: pre; /* preserve indentation */
+            min-height: 60px;
+            display: flex;
+            align-items: center;
         }
 
         .choice-button:hover {
@@ -327,8 +340,9 @@
             background: rgba(0, 0, 0, 0.2);
             padding: 4px 8px;
             border-radius: 4px;
-            font-family: 'Courier New', monospace;
-            font-size: 0.95em;
+            font-family: Consolas, "Cascadia Mono", "Cascadia Code", "SFMono-Regular", Menlo, "Liberation Mono", "DejaVu Sans Mono", "Courier New", monospace;
+            font-weight: 700;
+            font-size: 1.05em;
             color: var(--accent-color);
         }
 
@@ -445,6 +459,65 @@
             animation: fadeInUp 0.6s ease-out;
         }
 
+        /* LRS Button Styles */
+        .lrs-toggle-container {
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .lrs-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--card-bg);
+            color: var(--secondary-color);
+            border: 1px solid var(--border-color);
+            padding: 12px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: var(--font-family);
+            font-size: 0.9em;
+            margin-bottom: 10px;
+        }
+
+        .lrs-button:hover {
+            background: rgba(255, 255, 255, 0.08);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .lrs-button.active {
+            background: var(--primary-color);
+            color: #000;
+            border-color: var(--primary-color);
+        }
+
+        .lrs-button .lrs-icon {
+            font-size: 1.1em;
+        }
+
+        .lrs-button .lrs-status {
+            font-weight: bold;
+            font-size: 0.8em;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+
+        .lrs-button.active .lrs-status {
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        .lrs-description {
+            color: var(--secondary-color);
+            font-size: 0.8em;
+            margin: 0;
+            max-width: 500px;
+            margin: 0 auto;
+            line-height: 1.4;
+        }
+
         /* Responsive Design */
         @media (max-width: 968px) {
             .mission-layout {
@@ -497,6 +570,52 @@
                 transform: translateY(0);
             }
         }
+
+        /* Footer Styles */
+        footer {
+            margin-top: 40px;
+            padding: 30px 20px;
+            background: rgba(255, 255, 255, 0.02);
+            border-top: 1px solid rgba(100, 255, 218, 0.1);
+            text-align: center;
+            flex: 0 0 auto; /* stick to bottom in flex layout */
+        }
+
+        .impressum {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .impressum p {
+            font-size: 0.9em;
+            color: rgba(255, 255, 255, 0.7);
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        .impressum a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .impressum a:hover {
+            color: var(--accent-color);
+            text-decoration: underline;
+        }
+
+        .impressum a:not(:last-child)::after {
+            content: " | ";
+            color: rgba(255, 255, 255, 0.4);
+            margin: 0 8px;
+            /* prevent the separator from extending the link hover/click area */
+            pointer-events: none;
+        }
+
+        /* Hide footer in story mode */
+        body.story-mode footer {
+            display: none;
+        }
     </style>
 </head>
 <body>
@@ -510,6 +629,19 @@
             </div>
         </div>
     </div>
+
+    <footer>
+        <div class="impressum">
+            <p>
+                Entwickelt für Lernende und Lehrende |
+                <a href="https://tinfo.space/teachers/Digitale_Tools/" target="_blank" rel="noopener">More apps and tools</a> 
+                <a href="http://contact.tinfo.space/" id="contact-link">Kontakt</a> 
+                <a href="https://linktr.ee/tinfo.space" target="_blank" rel="noopener">Links</a> 
+                <a href="https://github.com/HansTydecks" target="_blank" rel="noopener">GitHub</a> 
+                © 2025 Hans Tydecks
+            </p>
+        </div>
+    </footer>
 
     <script src="app.js"></script>
 </body>

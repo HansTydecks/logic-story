@@ -1,15 +1,39 @@
 /**
  * Logic Story Game - Interactive Programming Logic Trainer
- * Mit Story-Auswahl und verbessertem Layout
- */
-
-class LogicStoryEngine {
+ * Mit Story-Auswahl und verbessertem Layout    /**
+     * Zeigt die Story-Auswahl an
+     */
+    showStorySelection() {
+        // Zurück zum Default-Theme
+        this.applyTheme('default');
+        
+        const container = document.getElementById('game-container');
+        
+        let html = `
+            <div class="story-selection">
+                <div class="selection-header">
+                    <h1>🧠 Logik-Geschichten</h1>
+                    <p>Wähle dein Abenteuer und lerne Programmierlogik!</p>
+                    
+                    <div class="lrs-toggle-container">
+                        <button id="lrs-toggle" class="lrs-button ${this.lrsMode ? 'active' : ''}" 
+                                onclick="game.toggleLRS()">
+                            <span class="lrs-icon">👁️</span>
+                            <span class="lrs-text">LRS-Unterstützung</span>
+                            <span class="lrs-status">${this.lrsMode ? 'EIN' : 'AUS'}</span>
+                        </button>
+                        <p class="lrs-description">
+                            Aktiviere diese Option für eine bessere Lesbarkeit bei Lese-Rechtschreib-Schwäche
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="stories-grid">`;gicStoryEngine {
     constructor() {
         this.currentMission = 1;
         this.storyData = null;
         this.mission = null;
         this.currentTheme = 'default';
-        this.lrsMode = false; // LRS-Unterstützung standardmäßig deaktiviert
         this.availableStories = [
             {
                 id: 'mission-aurora',
@@ -116,9 +140,6 @@ class LogicStoryEngine {
         // Zurück zum Default-Theme
         this.applyTheme('default');
         
-        // Remove story-mode class to show footer
-        document.body.classList.remove('story-mode');
-        
         const container = document.getElementById('game-container');
         
         let html = `
@@ -126,18 +147,6 @@ class LogicStoryEngine {
                 <div class="selection-header">
                     <h1>🧠 Logik-Geschichten</h1>
                     <p>Wähle dein Abenteuer und lerne Programmierlogik!</p>
-                    
-                    <div class="lrs-toggle-container">
-                        <button id="lrs-toggle" class="lrs-button ${this.lrsMode ? 'active' : ''}" 
-                                onclick="game.toggleLRS()">
-                            <span class="lrs-icon">👁️</span>
-                            <span class="lrs-text">LRS-Unterstützung</span>
-                            <span class="lrs-status">${this.lrsMode ? 'EIN' : 'AUS'}</span>
-                        </button>
-                        <p class="lrs-description">
-                            Aktiviere diese Option für eine bessere Lesbarkeit bei Lese-Rechtschreib-Schwäche
-                        </p>
-                    </div>
                 </div>
                 
                 <div class="stories-grid">
@@ -167,30 +176,6 @@ class LogicStoryEngine {
     }
 
     /**
-     * Toggles LRS-Unterstützung an/aus
-     */
-    toggleLRS() {
-        this.lrsMode = !this.lrsMode;
-        
-        // Button-Status aktualisieren
-        const button = document.getElementById('lrs-toggle');
-        const statusSpan = button.querySelector('.lrs-status');
-        
-        if (this.lrsMode) {
-            button.classList.add('active');
-            statusSpan.textContent = 'EIN';
-        } else {
-            button.classList.remove('active');
-            statusSpan.textContent = 'AUS';
-        }
-        
-        // Falls wir in einer Mission sind, diese neu anzeigen
-        if (this.mission) {
-            this.displayMission();
-        }
-    }
-
-    /**
      * Wählt eine Story aus und lädt sie
      */
     async selectStory(storyId) {
@@ -217,9 +202,6 @@ class LogicStoryEngine {
      * Lädt eine spezifische Mission
      */
     loadMission(missionId) {
-        // Add story-mode class to hide footer
-        document.body.classList.add('story-mode');
-        
         this.mission = this.storyData.missions.find(m => m.id === missionId);
         
         if (!this.mission) {
@@ -255,13 +237,6 @@ class LogicStoryEngine {
     displayMission() {
         const container = document.getElementById('game-container');
         
-        // Story-Text basierend auf LRS-Modus wählen
-        let storyText = this.mission.text;
-        if (this.lrsMode && this.mission.lrs_support) {
-            // LRS-Modus: Originaler Text PLUS zusätzliche LRS-Information
-            storyText = this.mission.text + '\n\n---\n\n**📋 LRS-Unterstützung:** ' + this.mission.lrs_support;
-        }
-        
         let html = `
             <div class="mission-container">
                 <div class="mission-header">
@@ -272,7 +247,7 @@ class LogicStoryEngine {
                 <div class="mission-layout">
                     <div class="mission-left">
                         <div class="mission-text">
-                            ${this.formatText(storyText)}
+                            ${this.formatText(this.mission.text)}
                         </div>
                         
                         <div class="choices">
@@ -427,9 +402,6 @@ class LogicStoryEngine {
      * Zeigt Fehlermeldungen an
      */
     showError(message) {
-        // Add story-mode class to hide footer
-        document.body.classList.add('story-mode');
-        
         const container = document.getElementById('game-container');
         container.innerHTML = `
             <div class="error-container">
