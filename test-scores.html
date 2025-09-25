@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Score System Test</title>
+</head>
+<body>
+    <div id="test-results"></div>
+    
+    <script>
+        // Simple test for the score configurations
+        const scoreConfig = {
+            'mission-aurora': {
+                scoreName: 'Schiffsschadenindex',
+                scoreIcon: '🛡️',
+                scoreTitle: 'Schiffsstatus',
+                finalText: 'Finaler Schiffsschadenindex'
+            },
+            'krimi-mystery': {
+                scoreName: 'Hinweispunkte',
+                scoreIcon: '🔍',
+                scoreTitle: 'Ermittlungsstatus',
+                finalText: 'Finale Hinweispunkte'
+            },
+            'zeitreise-abenteuer': {
+                scoreName: 'Zeitmeterscore',
+                scoreIcon: '⏰',
+                scoreTitle: 'Zeitstrom-Status',
+                finalText: 'Finaler Zeitmeterscore'
+            }
+        };
+        
+        let testResults = '<h2>Score System Test Results</h2>';
+        
+        Object.keys(scoreConfig).forEach(storyId => {
+            const config = scoreConfig[storyId];
+            testResults += `
+                <div style="margin: 20px; padding: 15px; border: 1px solid #ccc; border-radius: 8px;">
+                    <h3>Story: ${storyId}</h3>
+                    <p><strong>Score Name:</strong> ${config.scoreName}</p>
+                    <p><strong>Score Icon:</strong> ${config.scoreIcon}</p>
+                    <p><strong>Score Title:</strong> ${config.scoreTitle}</p>
+                    <p><strong>Final Text:</strong> ${config.finalText}</p>
+                </div>
+            `;
+        });
+        
+        document.getElementById('test-results').innerHTML = testResults;
+    </script>
+</body>
+</html>
