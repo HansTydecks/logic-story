@@ -303,6 +303,216 @@
             text-align: right;
         }
 
+        /* Score Display Styles */
+        .score-display {
+            margin-top: 30px;
+        }
+
+        .score-display h3 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            font-size: 1.3em;
+            text-align: center;
+        }
+
+        .score-container {
+            display: grid;
+            gap: 15px;
+        }
+
+        .score-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px 15px;
+            border-radius: 12px;
+            font-family: 'Courier New', monospace;
+            font-size: 1.1em;
+            border-left: 6px solid;
+            display: grid;
+            gap: 8px;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 4px 12px var(--shadow-color);
+            transition: all 0.3s ease;
+        }
+
+        .score-item.excellent {
+            border-left-color: #4caf50;
+            background: rgba(76, 175, 80, 0.1);
+        }
+
+        .score-item.good {
+            border-left-color: #ffc107;
+            background: rgba(255, 193, 7, 0.1);
+        }
+
+        .score-item.warning {
+            border-left-color: #ff9800;
+            background: rgba(255, 152, 0, 0.1);
+        }
+
+        .score-item.danger {
+            border-left-color: #f44336;
+            background: rgba(244, 67, 54, 0.1);
+        }
+
+        .score-item.critical {
+            border-left-color: #9c27b0;
+            background: rgba(156, 39, 176, 0.15);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 4px 12px var(--shadow-color); }
+            50% { box-shadow: 0 6px 20px rgba(156, 39, 176, 0.4); }
+            100% { box-shadow: 0 4px 12px var(--shadow-color); }
+        }
+
+        .score-label {
+            color: var(--accent-color);
+            font-weight: bold;
+            font-size: 0.9em;
+        }
+
+        .score-value {
+            color: var(--text-color);
+            font-weight: bold;
+            font-size: 1.8em;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .score-status {
+            color: var(--secondary-color);
+            font-size: 0.8em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .score-info {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 10px;
+            border-radius: 6px;
+            text-align: center;
+        }
+
+        .score-info small {
+            color: var(--secondary-color);
+            font-size: 0.8em;
+        }
+
+        /* Score Update Animations */
+        .score-penalty {
+            background: rgba(244, 67, 54, 0.1);
+            border: 1px solid #f44336;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            text-align: center;
+        }
+
+        .penalty-info {
+            color: #f44336;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+
+        .score-display-inline {
+            color: var(--accent-color);
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+
+        /* Final Score Summary Styles */
+        .final-score-display {
+            background: var(--card-bg);
+            border-radius: 15px;
+            padding: 25px;
+            margin: 20px 0;
+            border: 2px solid var(--border-color);
+        }
+
+        .score-summary {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 20px;
+            padding: 20px;
+            border-radius: 12px;
+        }
+
+        .score-summary.gold {
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.2), rgba(255, 193, 7, 0.1));
+            border: 2px solid #ffc107;
+        }
+
+        .score-summary.silver {
+            background: linear-gradient(135deg, rgba(192, 192, 192, 0.2), rgba(158, 158, 158, 0.1));
+            border: 2px solid #9e9e9e;
+        }
+
+        .score-summary.bronze {
+            background: linear-gradient(135deg, rgba(205, 127, 50, 0.2), rgba(184, 115, 51, 0.1));
+            border: 2px solid #b87333;
+        }
+
+        .score-summary.red {
+            background: linear-gradient(135deg, rgba(244, 67, 54, 0.2), rgba(229, 57, 53, 0.1));
+            border: 2px solid #f44336;
+        }
+
+        .score-summary.darkred {
+            background: linear-gradient(135deg, rgba(136, 14, 79, 0.3), rgba(74, 20, 140, 0.2));
+            border: 2px solid #880e4f;
+        }
+
+        .final-score-icon {
+            font-size: 4em;
+        }
+
+        .final-score-text h3 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        .final-score-value {
+            font-size: 2.5em;
+            font-weight: bold;
+            color: var(--accent-color);
+            margin: 10px 0;
+        }
+
+        .final-performance {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: var(--text-color);
+        }
+
+        .mission-stats {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .mission-stats h4 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .mission-stats ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .mission-stats li {
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-color);
+        }
+
+        .mission-stats li:last-child {
+            border-bottom: none;
+        }
+
         /* Button Styles - Viel subtiler und weniger ablenkend */
         .button-container {
             display: grid;

@@ -10,21 +10,72 @@ class LogicStoryEngine {
         this.mission = null;
         this.currentTheme = 'default';
         this.lrsMode = false; // LRS-Unterstützung standardmäßig deaktiviert
+        
+        // Score tracking system - Story-specific scoring systems
+        this.shipDamageScore = 100; // Start with 100 points
+        this.consecutiveWrongAnswers = 0; // Track consecutive wrong answers for progressive penalty
+        this.currentStoryId = null; // Track wh                            <li>${config.scoreIcon} ${config.finalText}: ${this.shipDamageScore}/100</li>ch story we're playing
+        
+        // Story-specific score terminology and theming
+        this.scoreConfig = {
+            'mission-aurora': {
+                scoreName: 'Schiffsschadenindex',
+                scoreIcon: '🛡️',
+                scoreTitle: 'Schiffsstatus',
+                statusLabels: {
+                    excellent: 'Ausgezeichnet',
+                    good: 'Gut', 
+                    warning: 'Achtung',
+                    danger: 'Gefahr',
+                    critical: 'Kritisch'
+                },
+                penaltyText: 'Schiffsschaden',
+                finalText: 'Finaler Schiffsstatus'
+            },
+            'krimi-mystery': {
+                scoreName: 'Hinweispunkte',
+                scoreIcon: '🔍',
+                scoreTitle: 'Ermittlungsstatus',
+                statusLabels: {
+                    excellent: 'Brillant',
+                    good: 'Gut',
+                    warning: 'Unaufmerksam', 
+                    danger: 'Verwirrt',
+                    critical: 'Ratlos'
+                },
+                penaltyText: 'Hinweis verloren',
+                finalText: 'Finale Hinweispunkte'
+            },
+            'zeitreise-abenteuer': {
+                scoreName: 'Zeitmeterscore',
+                scoreIcon: '⏰',
+                scoreTitle: 'Zeitstrom-Status',
+                statusLabels: {
+                    excellent: 'Perfekt',
+                    good: 'Stabil',
+                    warning: 'Instabil',
+                    danger: 'Chaotisch', 
+                    critical: 'Kollaps'
+                },
+                penaltyText: 'Zeitstrom gestört',
+                finalText: 'Finaler Zeitmeterscore'
+            }
+        };
         this.availableStories = [
             {
                 id: 'mission-aurora',
                 title: 'Mission Aurora',
-                subtitle: 'Weltraum-Abenteuer',
-                description: 'Kommandiere ein Raumschiff und lerne Programmierlogik',
+                subtitle: 'Weltraumabenteuer',
+                description: 'Kommandiere ein Raumschiff',
                 image: 'images/mission-aurora.png',
                 file: 'stories/mission-aurora.json',
                 theme: 'space'
             },
             {
                 id: 'zeitreise-abenteuer', 
-                title: 'Zeitreise-Abenteuer',
+                title: 'Zeitreiseabenteuer',
                 subtitle: 'Durch die Jahrhunderte',
-                description: 'Reise durch die Zeit und löse logische Rätsel',
+                description: 'Reise durch die Zeit und löse Rätsel',
                 image: 'images/zeitreise-abenteuer.png',
                 file: 'stories/zeitreise-abenteuer.json',
                 theme: 'timetravel'
@@ -200,6 +251,10 @@ class LogicStoryEngine {
             return;
         }
 
+        // Reset score system for new story
+        this.resetScoreSystem();
+        this.currentStoryId = storyId;
+
         // Theme für die gewählte Story anwenden
         this.applyTheme(story.theme);
 
@@ -214,11 +269,68 @@ class LogicStoryEngine {
     }
 
     /**
+     * Resets the score system for a new story
+     */
+    resetScoreSystem() {
+        this.shipDamageScore = 100;
+        this.consecutiveWrongAnswers = 0;
+    }
+
+    /**
+     * Updates the ship damage score based on wrong answers
+     * Progressive penalty system: 1 point for first wrong answer, then 2 points per subsequent wrong answer
+     */
+    updateScoreOnWrongAnswer() {
+        this.consecutiveWrongAnswers++;
+        
+        if (this.consecutiveWrongAnswers === 1) {
+            // First wrong answer: lose 1 point
+            this.shipDamageScore = Math.max(0, this.shipDamageScore - 1);
+        } else {
+            // Subsequent wrong answers: lose 2 points each
+            this.shipDamageScore = Math.max(0, this.shipDamageScore - 2);
+        }
+    }
+
+    /**
+     * Resets consecutive wrong answers counter on correct answer
+     */
+    resetConsecutiveWrongAnswers() {
+        this.consecutiveWrongAnswers = 0;
+    }
+
+    /**
+     * Gets the score configuration for the current story
+     */
+    getCurrentScoreConfig() {
+        return this.scoreConfig[this.currentStoryId] || this.scoreConfig['mission-aurora'];
+    }
+
+    /**
+     * Restarts the current story with a fresh score
+     */
+    restartCurrentStory() {
+        if (this.currentStoryId) {
+            this.resetScoreSystem();
+            this.loadMission(1);
+        } else {
+            // Fallback to story selection if no current story
+            this.showStorySelection();
+        }
+    }
+
+    /**
      * Lädt eine spezifische Mission
      */
     loadMission(missionId) {
         // Add story-mode class to hide footer
         document.body.classList.add('story-mode');
+        
+        // If loading mission 1, this might be a restart, so reset score if specified
+        if (missionId === 1) {
+            // Only reset if explicitly restarting (can be enhanced later)
+            // For now, we keep score continuous across mission retries within the same story session
+        }
         
         this.mission = this.storyData.missions.find(m => m.id === missionId);
         
@@ -286,6 +398,11 @@ class LogicStoryEngine {
                             <h3>🔍 Variablen:</h3>
                             ${this.displayVariables()}
                         </div>
+                        
+                        <div class="score-display">
+                            <h3>${this.getCurrentScoreConfig().scoreIcon} ${this.getCurrentScoreConfig().scoreTitle}:</h3>
+                            ${this.displayShipDamageScore()}
+                        </div>
                     </div>
                 </div>
             </div>
@@ -330,6 +447,63 @@ class LogicStoryEngine {
     }
 
     /**
+     * Displays the ship damage score with visual status indication
+     */
+    displayShipDamageScore() {
+        const config = this.getCurrentScoreConfig();
+        
+        // Determine score status and color
+        let statusClass = 'excellent';
+        let statusIcon = '🟢';
+        let statusText = config.statusLabels.excellent;
+        
+        if (this.shipDamageScore >= 80) {
+            statusClass = 'excellent';
+            statusIcon = '🟢';
+            statusText = config.statusLabels.excellent;
+        } else if (this.shipDamageScore >= 60) {
+            statusClass = 'good';
+            statusIcon = '🟡';
+            statusText = config.statusLabels.good;
+        } else if (this.shipDamageScore >= 40) {
+            statusClass = 'warning';
+            statusIcon = '🟠';
+            statusText = config.statusLabels.warning;
+        } else if (this.shipDamageScore >= 20) {
+            statusClass = 'danger';
+            statusIcon = '🔴';
+            statusText = config.statusLabels.danger;
+        } else {
+            statusClass = 'critical';
+            statusIcon = '💀';
+            statusText = config.statusLabels.critical;
+        }
+
+        return `
+            <div class="score-container">
+                <div class="score-item ${statusClass}">
+                    <div class="score-label">
+                        ${statusIcon} ${config.scoreName}
+                    </div>
+                    <div class="score-value">
+                        ${this.shipDamageScore}/100
+                    </div>
+                    <div class="score-status">
+                        ${statusText}
+                    </div>
+                </div>
+                <div class="score-info">
+                    <small>
+                        ${this.consecutiveWrongAnswers > 0 ? 
+                          `⚠️ Nächster Fehler: -${this.consecutiveWrongAnswers === 0 ? 1 : 2} Punkte` : 
+                          '✅ Bereit für nächste Mission'}
+                    </small>
+                </div>
+            </div>
+        `;
+    }
+
+    /**
      * Zeigt die Antwort-Buttons an
      */
     displayButtons() {
@@ -358,6 +532,13 @@ class LogicStoryEngine {
             return;
         }
 
+        // Update score based on answer correctness
+        if (button.correct) {
+            this.resetConsecutiveWrongAnswers();
+        } else {
+            this.updateScoreOnWrongAnswer();
+        }
+
         this.showResult(button);
     }
 
@@ -378,6 +559,21 @@ class LogicStoryEngine {
                 </div>
         `;
 
+        // Show score update if answer was wrong
+        if (!button.correct) {
+            const config = this.getCurrentScoreConfig();
+            const pointsLost = this.consecutiveWrongAnswers === 1 ? 1 : 2;
+            html += `
+                <div class="score-penalty">
+                    <div class="penalty-info">
+                        ${config.scoreIcon} ${config.penaltyText}: -${pointsLost} Punkte
+                        <br>
+                        <small>Aktueller ${config.scoreTitle}: ${this.shipDamageScore}/100</small>
+                    </div>
+                </div>
+            `;
+        }
+
         if (button.correct) {
             html += `
                 <div class="success-message">
@@ -386,6 +582,10 @@ class LogicStoryEngine {
                 
                 <div class="progress-info">
                     <strong>Mission ${this.mission.id} von ${this.storyData.missions.length} abgeschlossen!</strong>
+                    <br>
+                    <span class="score-display-inline">
+                        ${this.getCurrentScoreConfig().scoreIcon} Aktueller ${this.getCurrentScoreConfig().scoreTitle}: ${this.shipDamageScore}/100
+                    </span>
                 </div>
             `;
 
@@ -396,20 +596,8 @@ class LogicStoryEngine {
                     </button>
                 `;
             } else {
-                html += `
-                    <div class="final-success">
-                        <h2>🎊 GESCHICHTE ABGESCHLOSSEN! 🎊</h2>
-                        <p>Du hast alle Missionen dieser Geschichte erfolgreich abgeschlossen!</p>
-                        <div class="final-buttons">
-                            <button class="restart-button" onclick="game.loadMission(1)">
-                                🔄 Geschichte wiederholen
-                            </button>
-                            <button class="new-story-button" onclick="game.showStorySelection()">
-                                📚 Neue Geschichte wählen
-                            </button>
-                        </div>
-                    </div>
-                `;
+                // Final mission completed - show comprehensive score summary
+                html += this.getFinalScoreSummary();
             }
         } else {
             html += `
@@ -421,6 +609,173 @@ class LogicStoryEngine {
 
         html += '</div>';
         container.innerHTML = html;
+    }
+
+    /**
+     * Generates the final score summary for story completion
+     */
+    getFinalScoreSummary() {
+        const config = this.getCurrentScoreConfig();
+        let performanceRating = '';
+        let performanceIcon = '';
+        let performanceColor = '';
+        
+        if (this.shipDamageScore >= 90) {
+            performanceRating = this.getStorySpecificPerfectRating();
+            performanceIcon = '🏆';
+            performanceColor = 'gold';
+        } else if (this.shipDamageScore >= 80) {
+            performanceRating = this.getStorySpecificExcellentRating();
+            performanceIcon = '🥇';
+            performanceColor = 'gold';
+        } else if (this.shipDamageScore >= 60) {
+            performanceRating = this.getStorySpecificGoodRating();
+            performanceIcon = '🥈';
+            performanceColor = 'silver';
+        } else if (this.shipDamageScore >= 40) {
+            performanceRating = this.getStorySpecificOkayRating();
+            performanceIcon = '🥉';
+            performanceColor = 'bronze';
+        } else if (this.shipDamageScore >= 20) {
+            performanceRating = this.getStorySpecificBadRating();
+            performanceIcon = '⚠️';
+            performanceColor = 'red';
+        } else {
+            performanceRating = this.getStorySpecificCriticalRating();
+            performanceIcon = '🚨';
+            performanceColor = 'darkred';
+        }
+
+        const storyTitle = this.getStorySpecificCompletionTitle();
+
+        return `
+            <div class="final-success">
+                <h2>🎊 ${storyTitle} 🎊</h2>
+                
+                <div class="final-score-display">
+                    <div class="score-summary ${performanceColor}">
+                        <div class="final-score-icon">${performanceIcon}</div>
+                        <div class="final-score-text">
+                            <h3>${config.finalText}</h3>
+                            <div class="final-score-value">${this.shipDamageScore}/100</div>
+                            <div class="final-performance">${performanceRating}</div>
+                        </div>
+                    </div>
+                    
+                    <div class="mission-stats">
+                        <h4>📊 Missions-Statistik:</h4>
+                        <ul>
+                            <li>✅ Alle ${this.storyData.missions.length} Missionen abgeschlossen</li>
+                            <li>�️ Finaler Schiffsstatus: ${this.shipDamageScore}/100</li>
+                            <li>🎯 ${this.consecutiveWrongAnswers === 0 ? 'Perfekte Abschluss-Serie!' : 'Letzte Antworten benötigten Übung'}</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="final-buttons">
+                    <button class="restart-button" onclick="game.restartCurrentStory()">
+                        🔄 Mission wiederholen
+                    </button>
+                    <button class="new-story-button" onclick="game.showStorySelection()">
+                        📚 Neue Geschichte wählen
+                    </button>
+                </div>
+            </div>
+        `;
+    }
+
+    /**
+     * Gets story-specific performance ratings and completion messages
+     */
+    getStorySpecificCompletionTitle() {
+        switch (this.currentStoryId) {
+            case 'mission-aurora':
+                return 'MISSION AURORA ABGESCHLOSSEN!';
+            case 'krimi-mystery':
+                return 'KRIMI-MYSTERY GELÖST!';
+            case 'zeitreise-abenteuer':
+                return 'ZEITREISE-ABENTEUER BEENDET!';
+            default:
+                return 'GESCHICHTE ABGESCHLOSSEN!';
+        }
+    }
+
+    getStorySpecificPerfectRating() {
+        switch (this.currentStoryId) {
+            case 'mission-aurora':
+                return 'PERFEKT! Kaum Schaden am Schiff!';
+            case 'krimi-mystery':
+                return 'PERFEKT! Alle Hinweise gefunden!';
+            case 'zeitreise-abenteuer':
+                return 'PERFEKT! Zeitstrom ungestört!';
+            default:
+                return 'PERFEKT!';
+        }
+    }
+
+    getStorySpecificExcellentRating() {
+        switch (this.currentStoryId) {
+            case 'mission-aurora':
+                return 'AUSGEZEICHNET! Minimaler Schiffschaden!';
+            case 'krimi-mystery':
+                return 'AUSGEZEICHNET! Brillante Ermittlung!';
+            case 'zeitreise-abenteuer':
+                return 'AUSGEZEICHNET! Stabiler Zeitstrom!';
+            default:
+                return 'AUSGEZEICHNET!';
+        }
+    }
+
+    getStorySpecificGoodRating() {
+        switch (this.currentStoryId) {
+            case 'mission-aurora':
+                return 'GUT! Moderater Schiffschaden';
+            case 'krimi-mystery':
+                return 'GUT! Solide Ermittlungsarbeit';
+            case 'zeitreise-abenteuer':
+                return 'GUT! Zeitstrom meist stabil';
+            default:
+                return 'GUT!';
+        }
+    }
+
+    getStorySpecificOkayRating() {
+        switch (this.currentStoryId) {
+            case 'mission-aurora':
+                return 'AKZEPTABEL - Erheblicher Schiffschaden';
+            case 'krimi-mystery':
+                return 'AKZEPTABEL - Viele Hinweise übersehen';
+            case 'zeitreise-abenteuer':
+                return 'AKZEPTABEL - Zeitstrom instabil';
+            default:
+                return 'AKZEPTABEL';
+        }
+    }
+
+    getStorySpecificBadRating() {
+        switch (this.currentStoryId) {
+            case 'mission-aurora':
+                return 'KRITISCH - Schwerer Schiffschaden!';
+            case 'krimi-mystery':
+                return 'KRITISCH - Ermittung mangelhaft!';
+            case 'zeitreise-abenteuer':
+                return 'KRITISCH - Zeitstrom chaotisch!';
+            default:
+                return 'KRITISCH!';
+        }
+    }
+
+    getStorySpecificCriticalRating() {
+        switch (this.currentStoryId) {
+            case 'mission-aurora':
+                return 'NOTFALL - Schiff fast zerstört!';
+            case 'krimi-mystery':
+                return 'NOTFALL - Fall ungelöst!';
+            case 'zeitreise-abenteuer':
+                return 'NOTFALL - Zeitparadox droht!';
+            default:
+                return 'NOTFALL!';
+        }
     }
 
     /**
