@@ -67,17 +67,17 @@
           },
           "buttons": [
             {
-              "label": "if verdaechtiger_glaubwuerdigkeit >= 85:",
+              "label": "if verdaechtiger_glaubwuerdigkeit >= 85:\n        hohe_prioritaet_setzen()",
               "correct": false,
               "explanation": "❌ **Falsch!** 70 >= 85 ist **false**. Computer geht zur nächsten Bedingung."
             },
             {
-              "label": "elif verdaechtiger_glaubwuerdigkeit >= 60:",
+              "label": "elif verdaechtiger_glaubwuerdigkeit >= 60:\n        weiter_beobachten()",
               "correct": true,
               "explanation": "✅ **Richtig!** 70 >= 60 ist **true**. Computer führt aus: 'Weiter beobachten' und stoppt hier."
             },
             {
-              "label": "else:",
+              "label": "else:\n        sofortige_festnahme()",
               "correct": false,
               "explanation": "❌ **Falsch!** Da elif bereits true war, wird else nie erreicht."
             }
@@ -98,17 +98,17 @@
           "variables_discovered": {},
           "buttons": [
             {
-              "label": "if detective_alter >= 30 and sicherheit_level >= 80:",
+              "label": "if detective_alter >= 30 and sicherheit_level >= 80:\n        standard_ermittlung_starten()",
               "correct": false,
               "explanation": "❌ **Falsch!** (28 >= 30) AND (65 >= 80) = false AND false = **false**. Zur nächsten Bedingung."
             },
             {
-              "label": "elif verdaechtiger_glaubwuerdigkeit >= 65:",
+              "label": "elif verdaechtiger_glaubwuerdigkeit >= 65:\n        serienmoerder_protokoll_aktivieren()",
               "correct": true,
               "explanation": "✅ **Richtig!** 70 >= 65 ist **true**. Computer führt aus: 'Serienmörder-Protokoll'."
             },
             {
-              "label": "else:",
+              "label": "else:\n        einzeltaeter_annahme()",
               "correct": false,
               "explanation": "❌ **Falsch!** elif war bereits true, else wird nicht erreicht."
             }
@@ -131,22 +131,22 @@
           },
           "buttons": [
             {
-              "label": "if verschluesselung >= 90:",
+              "label": "if verschluesselung >= 90:\n        experten_niveau_melden()",
               "correct": false,
               "explanation": "❌ **Falsch!** 85 >= 90 ist **false**. Computer geht weiter."
             },
             {
-              "label": "elif verschluesselung >= 80:",
+              "label": "elif verschluesselung >= 80:\n        fortgeschrittene_kenntnisse_vermerken()",
               "correct": true,
               "explanation": "✅ **Richtig!** 85 >= 80 ist **true**. Computer führt aus: 'Fortgeschrittene Kenntnisse' und stoppt."
             },
             {
-              "label": "elif verschluesselung >= 70:",
+              "label": "elif verschluesselung >= 70:\n        basis_kenntnisse_notieren()",
               "correct": false,
               "explanation": "❌ **Falsch!** elif war bereits true, else wird übersprungen."
             },
             {
-              "label": "else:",
+              "label": "else:\n        amateur_einstufen()",
               "correct": false,
               "explanation": "❌ **Falsch!** Eine elif-Bedingung war bereits true, else wird übersprungen."
             }
@@ -171,17 +171,17 @@
           },
           "buttons": [
             {
-              "label": "if spuren_match >= 70:",
+              "label": "if spuren_match >= 70:\n        hohe_uebereinstimmung_melden()",
               "correct": false,
               "explanation": "❌ **Falsch!** 55 >= 70 ist **false**. Computer geht zur nächsten Bedingung."
             },
             {
-              "label": "elif system_aktiv:",
+              "label": "elif system_aktiv:\n        live_ueberwachung_aktivieren()",
               "correct": true,
               "explanation": "✅ **Richtig!** system_aktiv ist **true**. Computer führt aus: 'Live-Überwachung aktiviert'."
             },
             {
-              "label": "else:",
+              "label": "else:\n        offline_analyse_starten()",
               "correct": false,
               "explanation": "❌ **Falsch!** elif war true, else wird nicht erreicht."
             }
@@ -207,17 +207,17 @@
           },
           "buttons": [
             {
-              "label": "if system_aktiv and verfolger_entfernung <= 2:",
+              "label": "if system_aktiv and verfolger_entfernung <= 2:\n        sofortiger_rueckzug()",
               "correct": false,
               "explanation": "❌ **Falsch!** true AND (3 <= 2) = true AND false = **false**. Computer geht weiter."
             },
             {
-              "label": "elif system_aktiv and sicherheit_level >= 60:",
+              "label": "elif system_aktiv and sicherheit_level >= 60:\n        verstaerkte_vorsicht_aktivieren()",
               "correct": true,
               "explanation": "✅ **Richtig!** true AND (65 >= 60) = true AND true = **true**. Computer führt aus: 'Verstärkte Vorsicht'."
             },
             {
-              "label": "else:",
+              "label": "else:\n        normale_verfolgung_fortsetzen()",
               "correct": false,
               "explanation": "❌ **Falsch!** elif war bereits true, else wird übersprungen."
             }
@@ -242,27 +242,27 @@
           "variables_discovered": {},
           "buttons": [
             {
-              "label": "if verdaechtiger_glaubwuerdigkeit >= 60:",
+              "label": "if verdaechtiger_glaubwuerdigkeit >= 60:\n        vertrauen_aufbauen()",
               "correct": false,
               "explanation": "❌ **Falsch!** 40 >= 60 ist **false**. Computer geht weiter."
             },
             {
-              "label": "elif verdaechtiger_glaubwuerdigkeit >= 50:",
+              "label": "elif verdaechtiger_glaubwuerdigkeit >= 50:\n        vorsichtige_zusammenarbeit()",
               "correct": false,
               "explanation": "❌ **Falsch!** 40 >= 50 ist **false**. Computer geht weiter."
             },
             {
-              "label": "elif verdaechtiger_glaubwuerdigkeit >= 30 and system_aktiv:",
+              "label": "elif verdaechtiger_glaubwuerdigkeit >= 30 and system_aktiv:\n        interne_ermittlung_starten()",
               "correct": true,
               "explanation": "✅ **Richtig!** (40 >= 30) AND true = true AND true = **true**. Computer führt aus: 'Interne Ermittlung'."
             },
             {
-              "label": "elif verdaechtiger_glaubwuerdigkeit >= 20:",
+              "label": "elif verdaechtiger_glaubwuerdigkeit >= 20:\n        schadens_begrenzung()",
               "correct": false,
               "explanation": "❌ **Falsch!** Die vorherige elif-Bedingung war bereits true, diese wird nicht erreicht."
             },
             {
-              "label": "else:",
+              "label": "else:\n        komplett_isolieren()",
               "correct": false,
               "explanation": "❌ **Falsch!** Eine elif-Bedingung war bereits true, else wird übersprungen."
             }
@@ -289,27 +289,27 @@
           },
           "buttons": [
             {
-              "label": "if sicherheit_level >= 85:",
+              "label": "if sicherheit_level >= 85:\n        maximaler_schutz_aktivieren()",
               "correct": false,
               "explanation": "❌ **Falsch!** 75 >= 85 ist **false**. Computer geht weiter."
             },
             {
-              "label": "elif sicherheit_level >= 70:",
+              "label": "elif sicherheit_level >= 70:\n        standard_schutz_gewaehren()",
               "correct": true,
               "explanation": "✅ **Richtig!** 75 >= 70 ist **true**. Computer führt aus: 'Standard-Schutz' und stoppt."
             },
             {
-              "label": "elif sicherheit_level >= 60 and informant_sicherheit == \"kritisch\":",
+              "label": "elif sicherheit_level >= 60 and informant_sicherheit == \"kritisch\":\n        notfall_schutz_aktivieren()",
               "correct": false,
               "explanation": "❌ **Falsch!** Die vorherige elif-Bedingung war bereits true, diese wird nicht erreicht."
             },
             {
-              "label": "elif sicherheit_level >= 50:",
+              "label": "elif sicherheit_level >= 50:\n        basis_schutz_anbieten()",
               "correct": false,
               "explanation": "❌ **Falsch!** Eine frühere elif-Bedingung war bereits true, diese wird übersprungen."
             },
             {
-              "label": "else:",
+              "label": "else:\n        schutz_verweigern()",
               "correct": false,
               "explanation": "❌ **Falsch!** Eine elif-Bedingung war bereits true, else wird übersprungen."
             }
@@ -337,22 +337,22 @@
           },
           "buttons": [
             {
-              "label": "if spuren_match >= 85 and informant_sicherheit == \"sicher\" and beweise_vollstaendig:",
+              "label": "if spuren_match >= 85 and informant_sicherheit == \"sicher\" and beweise_vollstaendig:\n        vollstaendige_anklage_vorbereiten()",
               "correct": false,
               "explanation": "❌ **Falsch!** (80 >= 85) AND (\"kritisch\" == \"sicher\") AND false = false AND false AND false = **false**."
             },
             {
-              "label": "elif spuren_match >= 75 and informant_sicherheit == \"kritisch\":",
+              "label": "elif spuren_match >= 75 and informant_sicherheit == \"kritisch\":\n        vorsichtige_weitere_ermittlung()",
               "correct": true,
               "explanation": "✅ **Richtig!** (80 >= 75) AND (\"kritisch\" == \"kritisch\") = true AND true = **true**. Computer führt aus: 'Vorsichtige Weitere Ermittlung'."
             },
             {
-              "label": "elif spuren_match >= 70:",
+              "label": "elif spuren_match >= 70:\n        basis_ermittlung_fortsetzen()",
               "correct": false,
               "explanation": "❌ **Falsch!** Die vorherige elif-Bedingung war bereits true, diese wird nicht erreicht."
             },
             {
-              "label": "else:",
+              "label": "else:\n        ermittlung_pausieren()",
               "correct": false,
               "explanation": "❌ **Falsch!** Eine elif-Bedingung war bereits true, else wird übersprungen."
             }
@@ -382,22 +382,22 @@
           },
           "buttons": [
             {
-              "label": "if not hauptsystem_kompromittiert and sicherheit_level >= 95:",
+              "label": "if not hauptsystem_kompromittiert and sicherheit_level >= 95:\n        volle_systemleistung_nutzen()",
               "correct": false,
               "explanation": "❌ **Falsch!** (not true) AND (90 >= 95) = false AND false = **false**."
             },
             {
-              "label": "elif hauptsystem_kompromittiert and backup_aktiv and sicherheit_level >= 85:",
+              "label": "elif hauptsystem_kompromittiert and backup_aktiv and sicherheit_level >= 85:\n        backup_ermittlung_starten()",
               "correct": true,
               "explanation": "✅ **Richtig!** true AND true AND (90 >= 85) = true AND true AND true = **true**. Computer führt aus: 'Backup-Ermittlung erfolgreich'."
             },
             {
-              "label": "elif backup_aktiv:",
+              "label": "elif backup_aktiv:\n        basis_backup_nutzen()",
               "correct": false,
               "explanation": "❌ **Falsch!** Die vorherige elif-Bedingung war bereits true, diese wird nicht erreicht."
             },
             {
-              "label": "else:",
+              "label": "else:\n        notfall_modus_aktivieren()",
               "correct": false,
               "explanation": "❌ **Falsch!** Eine elif-Bedingung war bereits true, else wird übersprungen."
             }
@@ -426,32 +426,32 @@
           "variables_discovered": {},
           "buttons": [
             {
-              "label": "if sicherheit_level >= 98 and verfolger_entfernung >= 8 and backup_aktiv:",
+              "label": "if sicherheit_level >= 98 and verfolger_entfernung >= 8 and backup_aktiv:\n        sichere_verhaftung_durchfuehren()",
               "correct": false,
               "explanation": "❌ **Falsch!** (95 >= 98) AND (6 >= 8) AND true = false AND false AND true = **false**."
             },
             {
-              "label": "elif sicherheit_level >= 90 and backup_aktiv and system_aktiv:",
+              "label": "elif sicherheit_level >= 90 and backup_aktiv and system_aktiv:\n        risiko_verhaftung_wagen()",
               "correct": true,
               "explanation": "✅ **Richtig!** (95 >= 90) AND true AND true = true AND true AND true = **true**. Computer führt aus: 'Risiko-Verhaftung möglich'."
             },
             {
-              "label": "elif sicherheit_level >= 85 and verfolger_entfernung >= 5:",
+              "label": "elif sicherheit_level >= 85 and verfolger_entfernung >= 5:\n        vorsichtige_annaeherung()",
               "correct": false,
               "explanation": "❌ **Falsch!** Die vorherige elif-Bedingung war bereits true, diese wird nicht erreicht."
             },
             {
-              "label": "elif verfolger_entfernung >= 4:",
+              "label": "elif verfolger_entfernung >= 4:\n        beobachtung_fortsetzen()",
               "correct": false,
               "explanation": "❌ **Falsch!** Eine frühere elif-Bedingung war bereits true, diese wird übersprungen."
             },
             {
-              "label": "elif sicherheit_level >= 80:",
+              "label": "elif sicherheit_level >= 80:\n        basis_sicherheit_halten()",
               "correct": false,
               "explanation": "❌ **Falsch!** Eine frühere elif-Bedingung war bereits true, diese wird übersprungen."
             },
             {
-              "label": "else:",
+              "label": "else:\n        falle_abbrechen()",
               "correct": false,
               "explanation": "❌ **Falsch!** Eine elif-Bedingung war bereits true, else wird nicht erreicht."
             }
@@ -480,27 +480,27 @@
           "variables_discovered": {},
           "buttons": [
             {
-              "label": "if verdaechtiger_glaubwuerdigkeit <= 20 and sicherheit_level >= 98 and verfolger_entfernung >= 8:",
+              "label": "if verdaechtiger_glaubwuerdigkeit <= 20 and sicherheit_level >= 98 and verfolger_entfernung >= 8:\n        sichere_gerechtigkeit_vollstrecken()",
               "correct": false,
               "explanation": "❌ **Falsch!** (25 <= 20) AND (95 >= 98) AND (6 >= 8) = false AND false AND false = **false**."
             },
             {
-              "label": "elif verdaechtiger_glaubwuerdigkeit <= 30 and backup_aktiv and (sicherheit_level >= 90 or verfolger_entfernung >= 5):",
+              "label": "elif verdaechtiger_glaubwuerdigkeit <= 30 and backup_aktiv and (sicherheit_level >= 90 or verfolger_entfernung >= 5):\n        gerechtigkeit_durch_backup_system()",
               "correct": true,
               "explanation": "✅ **Richtig!** (25 <= 30) AND true AND (95 >= 90 OR 6 >= 5) = true AND true AND (true OR true) = true AND true AND true = **true**. Computer führt aus: 'Gerechtigkeit durch Backup'."
             },
             {
-              "label": "elif backup_aktiv and verfolger_entfernung >= 5:",
+              "label": "elif backup_aktiv and verfolger_entfernung >= 5:\n        backup_verfolgung_starten()",
               "correct": false,
               "explanation": "❌ **Falsch!** Die vorherige elif-Bedingung war bereits true, diese wird nicht erreicht."
             },
             {
-              "label": "elif verfolger_entfernung >= 4:",
+              "label": "elif verfolger_entfernung >= 4:\n        standard_verfolgung_aktivieren()",
               "correct": false,
               "explanation": "❌ **Falsch!** Eine frühere elif-Bedingung war bereits true, diese wird übersprungen."
             },
             {
-              "label": "else:",
+              "label": "else:\n        verfolgung_aufgeben()",
               "correct": false,
               "explanation": "❌ **Falsch!** Eine elif-Bedingung war bereits true, else wird nicht erreicht."
             }
@@ -529,32 +529,32 @@
           "variables_discovered": {},
           "buttons": [
             {
-              "label": "if verfolger_entfernung <= 5 and sicherheit_level >= 98 and not verdaechtiger_glaubwuerdigkeit >= 30:",
+              "label": "if verfolger_entfernung <= 5 and sicherheit_level >= 98 and not verdaechtiger_glaubwuerdigkeit >= 30:\n        perfekte_verhaftung_durchfuehren()",
               "correct": false,
               "explanation": "❌ **Falsch!** (8 <= 5) AND (95 >= 98) AND (not 25 >= 30) = false AND false AND true = **false**."
             },
             {
-              "label": "elif verfolger_entfernung <= 10 and sicherheit_level >= 90 and beweise_vollstaendig:",
+              "label": "elif verfolger_entfernung <= 10 and sicherheit_level >= 90 and beweise_vollstaendig:\n        erfolgreiche_verfolgung_abschliessen()",
               "correct": true,
               "explanation": "✅ **Richtig!** (8 <= 10) AND (95 >= 90) AND true = true AND true AND true = **true**. Computer führt aus: 'Erfolgreiche Verfolgung'."
             },
             {
-              "label": "elif verfolger_entfernung <= 10 and backup_aktiv:",
+              "label": "elif verfolger_entfernung <= 10 and backup_aktiv:\n        backup_verfolgung_beenden()",
               "correct": false,
               "explanation": "❌ **Falsch!** Die vorherige elif-Bedingung war bereits true, diese wird nicht erreicht."
             },
             {
-              "label": "elif backup_aktiv and detective_alter >= 25:",
+              "label": "elif backup_aktiv and detective_alter >= 25:\n        erfahrene_detective_protokoll()",
               "correct": false,
               "explanation": "❌ **Falsch!** Eine frühere elif-Bedingung war bereits true, diese wird übersprungen."
             },
             {
-              "label": "elif spuren_match >= 70:",
+              "label": "elif spuren_match >= 70:\n        basis_erfolg_verbuchen()",
               "correct": false,
               "explanation": "❌ **Falsch!** Eine frühere elif-Bedingung war bereits true, diese wird übersprungen."
             },
             {
-              "label": "else:",
+              "label": "else:\n        teilweiser_erfolg()",
               "correct": false,
               "explanation": "❌ **Falsch!** Eine elif-Bedingung war bereits true, else wird nicht erreicht."
             }
@@ -583,37 +583,37 @@
           "variables_discovered": {},
           "buttons": [
             {
-              "label": "if verdaechtiger_glaubwuerdigkeit <= 20 and sicherheit_level >= 98 and spuren_match >= 85 and detective_alter >= 30:",
+              "label": "if verdaechtiger_glaubwuerdigkeit <= 20 and sicherheit_level >= 98 and spuren_match >= 85 and detective_alter >= 30:\n        perfekte_gerechtigkeit_vollstrecken()",
               "correct": false,
               "explanation": "❌ **Falsch!** (25 <= 20) AND (95 >= 98) AND (80 >= 85) AND (28 >= 30) = false AND false AND false AND false = **false**."
             },
             {
-              "label": "elif verdaechtiger_glaubwuerdigkeit <= 30 and sicherheit_level >= 90 and spuren_match >= 75 and verfolger_entfernung >= 10:",
+              "label": "elif verdaechtiger_glaubwuerdigkeit <= 30 and sicherheit_level >= 90 and spuren_match >= 75 and verfolger_entfernung >= 10:\n        vollstaendige_gerechtigkeit_erreichen()",
               "correct": true,
               "explanation": "✅ **LEGENDÄR!** (25 <= 30) AND (95 >= 90) AND (80 >= 75) AND (15 >= 10) = true AND true AND true AND true = **true**. Computer führt aus: 'Vollständige Gerechtigkeit' - Sarah wird zur jüngsten Detective Inspector befördert!"
             },
             {
-              "label": "elif verdaechtiger_glaubwuerdigkeit <= 35 and sicherheit_level >= 85 and verfolger_entfernung >= 12:",
+              "label": "elif verdaechtiger_glaubwuerdigkeit <= 35 and sicherheit_level >= 85 and verfolger_entfernung >= 12:\n        befriedigende_loesung_finden()",
               "correct": false,
               "explanation": "❌ **Falsch!** Die vorherige elif-Bedingung war bereits true, diese wird nicht erreicht."
             },
             {
-              "label": "elif sicherheit_level >= 90 and spuren_match >= 70:",
+              "label": "elif sicherheit_level >= 90 and spuren_match >= 70:\n        gute_detective_arbeit()",
               "correct": false,
               "explanation": "❌ **Falsch!** Eine frühere elif-Bedingung war bereits true, diese wird übersprungen."
             },
             {
-              "label": "elif spuren_match >= 70 and detective_alter >= 25:",
+              "label": "elif spuren_match >= 70 and detective_alter >= 25:\n        solide_ermittlung_abschliessen()",
               "correct": false,
               "explanation": "❌ **Falsch!** Eine frühere elif-Bedingung war bereits true, diese wird übersprungen."
             },
             {
-              "label": "elif spuren_match >= 75 and sicherheit_level >= 80:",
+              "label": "elif spuren_match >= 75 and sicherheit_level >= 80:\n        ausreichende_beweise_sammeln()",
               "correct": false,
               "explanation": "❌ **Falsch!** Eine frühere elif-Bedingung war bereits true, diese wird übersprungen."
             },
             {
-              "label": "else:",
+              "label": "else:\n        fall_ungeloest_lassen()",
               "correct": false,
               "explanation": "❌ **Falsch!** Eine elif-Bedingung war bereits true, else wird nicht erreicht."
             }
