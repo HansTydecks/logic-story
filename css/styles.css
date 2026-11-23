@@ -345,16 +345,6 @@ input.blank[readonly] { border-color: var(--good); background: rgba(104, 211, 14
 }
 .answer:focus { border-color: var(--primary-color); outline: none; }
 
-.legacy-options { display: grid; gap: 10px; }
-.code-option {
-    text-align: left; padding: 14px 18px; border-radius: 8px; border: 1px solid var(--border-color);
-    background: var(--code-bg); cursor: pointer; white-space: pre; overflow-x: auto; font-family: var(--mono);
-}
-.code-option code { font-weight: 600; }
-.code-option:hover:not(:disabled) { transform: translateX(3px); }
-.code-option.right { border-color: var(--good); background: rgba(104, 211, 145, 0.15); opacity: 1; }
-.code-option.wrong-perm { border-color: var(--bad); }
-
 /* Parsons */
 .parsons { list-style: none; display: grid; gap: 6px; padding: 8px; border-radius: 10px; background: var(--code-bg); min-height: 52px; border: 1px solid rgba(255, 255, 255, 0.08); }
 .parsons.trash { background: rgba(0, 0, 0, 0.2); border-style: dashed; }

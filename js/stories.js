@@ -10,22 +10,7 @@ export const STORIES = [
     },
     {
         id: 'zeitreise-abenteuer',
-        file: 'stories/zeitreise-abenteuer.json',
-        legacy: {
-            id: 'zeitreise-abenteuer',
-            title: 'Zeitreise-Abenteuer',
-            subtitle: 'Durch die Jahrhunderte',
-            description: 'Reise durch die Zeit und löse Rätsel.',
-            theme: 'timetravel',
-            cover: 'images/zeitreise-abenteuer.webp',
-            scoreName: 'Zeitstrom',
-            scoreIcon: '⏰',
-            endings: {
-                top: { title: 'Zeitstrom ungestört!', text: 'Perfekt navigiert – die Geschichte ist sicher, und niemand hat bemerkt, dass du da warst.' },
-                gut: { title: 'Zeitstrom stabil', text: 'Ein paar Wellen im Zeitstrom, aber nichts, was die Zukunft verändert. Gute Arbeit!' },
-                knapp: { title: 'Zeitparadox knapp verhindert', text: 'Puh! Der Zeitstrom war ziemlich chaotisch. Versuch es nochmal und lies die Bedingungen genauer.' }
-            }
-        }
+        file: 'stories/zeitreise-abenteuer.json'
     }
 ];
 

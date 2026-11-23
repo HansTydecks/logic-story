@@ -15,7 +15,8 @@ Statt trockener Übungen entscheiden die Lernenden in spannenden Geschichten, wa
 - **Fortschritt** wird im Browser gespeichert, **Direktlinks** gibt es für jedes Kapitel und jede Mission.
 - **LRS-Modus:** größere Schrift, mehr Abstand und kurze Zusammenfassungen.
 - **Krimi-Mystery „Der Codename-Fall“** ist ebenfalls neu gebaut: 6 Kapitel mit 29 Missionen. Das Analysesystem ARGUS des LKA versteht nur Python.
-- Die Zeitreise läuft als „Klassik“ weiter und wird später im neuen Format umgebaut.
+- **Zeitreise-Abenteuer „Die Chronos-Verschwörung“** ist ebenfalls neu gebaut: 6 Kapitel mit 29 Missionen in sechs Epochen. Die Zeitmaschinen-KI KAIROS versteht nur Python.
+- Alle drei Geschichten folgen derselben Konzept-Reihenfolge und sind deshalb im Unterricht austauschbar.
 
 ## Für Lehrkräfte
 
@@ -45,6 +46,19 @@ Gleiche Konzept-Reihenfolge wie Aurora, daher austauschbar (z. B. Kapitel 4 = Sc
 
 Drei Enden: *Fall gelöst – Hansen überführt*, *Gefasst – aber knapp*, *Spur verloren*.
 
+### Kapitel von Zeitreise-Abenteuer „Die Chronos-Verschwörung“
+
+| Kapitel | Konzept | Story |
+|---|---|---|
+| 1 · Der erste Sprung (2087) | Variablen & Zuweisung | Zielzeit mit `//` und `%`, Ringtausch der Koordinaten, Logbuch |
+| 2 · Florenz, 1455 | `if` / `elif` / `else` | Junior-Protokoll, Abstimmung im Team, Tarnregel |
+| 3 · Die Wächter (1347) | `and` / `or` / `not` | Flucht vor den Chronos-Wächtern, gieriger Zeitschild-Bug |
+| 4 · Rom im Zeitstrudel (73 v. Chr.) | Schleifen | Kristall laden, Endlosschleife als Zeitschleife, es gibt kein Jahr 0 |
+| 5 · Raumstation Chronos-Alpha (2156) | Listen | Sprungprotokolle, ältestes Diebesgut, Zeitanker-Marker |
+| 6 · Die Zeitschleife (2087) | Funktionen | Schleifen-Erkennung, Rücksprung-Koordinaten, Zeitsiegel im Finale |
+
+Drei Enden: *Die Zeitlinie ist gerettet*, *Gerettet – mit kleinen Narben*, *Gefangen im Paradox*.
+
 ### Aufgabentypen
 
 | | Typ | Was die Lernenden tun |
@@ -73,7 +87,7 @@ js/main.js              Start
 js/engine.js            Bildschirme, Ressourcen, Fortschritt, Enden, Routing (#/…)
 js/interpreter.js       Mini-Python: Tokenizer → Parser → Schritt-Interpreter (kein eval!)
 js/checks.js            Prüflogik aller Aufgabentypen (Oberfläche UND Tests nutzen dieselbe)
-js/tasks/*.js           ein Renderer pro Aufgabentyp (+ legacy.js für Klassik-Storys)
+js/tasks/*.js           ein Renderer pro Aufgabentyp
 js/ui/stepper.js        „Ablauf ansehen“
 js/ui/code.js           Code-Anzeige mit Syntaxfarben, klickbaren Zeilen, Lücken
 js/stories.js           Verzeichnis der Geschichten + Farbthemen
@@ -121,7 +135,7 @@ Siehe **[docs/STORY-FORMAT.md](docs/STORY-FORMAT.md)**. Kurz gesagt:
 
 ## Bilder
 
-Die Kapitel- und Endbilder von Mission Aurora und dem Krimi wurden mit fal.ai (Nano Banana 2.1) im Stil der vorhandenen Cover erzeugt und als WebP gespeichert.
+Die Kapitel- und Endbilder aller drei Geschichten wurden mit fal.ai (Nano Banana 2.1) im Stil der vorhandenen Cover erzeugt und als WebP gespeichert.
 
 ## Lizenz & Autor
 

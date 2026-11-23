@@ -17,16 +17,14 @@ import { renderTrace } from './tasks/trace.js';
 import { renderFill } from './tasks/fill.js';
 import { renderBug } from './tasks/bug.js';
 import { renderParsons } from './tasks/parsons.js';
-import { renderLegacy, convertLegacy } from './tasks/legacy.js';
 
-const RENDERERS = { choice: renderChoice, trace: renderTrace, fill: renderFill, bug: renderBug, parsons: renderParsons, legacy: renderLegacy };
+const RENDERERS = { choice: renderChoice, trace: renderTrace, fill: renderFill, bug: renderBug, parsons: renderParsons };
 const TYPE_INFO = {
     choice: { icon: '🔀', label: 'Zweig wählen' },
     trace: { icon: '🔎', label: 'Code verfolgen' },
     fill: { icon: '✍️', label: 'Code schreiben' },
     bug: { icon: '🐞', label: 'Bug-Jagd' },
-    parsons: { icon: '🧩', label: 'Code-Puzzle' },
-    legacy: { icon: '🎯', label: 'Auswahl' }
+    parsons: { icon: '🧩', label: 'Code-Puzzle' }
 };
 const MAX_PENALTIES = 3;
 
@@ -84,9 +82,8 @@ export class Game {
         const res = await fetch(entry.file);
         if (!res.ok) throw new Error('Geschichte konnte nicht geladen werden (' + res.status + ')');
         const raw = await res.json();
-        const story = entry.legacy ? convertLegacy(raw, entry.legacy) : raw;
-        this.cache[id] = story;
-        return story;
+        this.cache[id] = raw;
+        return raw;
     }
 
     stateKey(story) { return 'logicstory:v2:' + story.id; }
@@ -185,7 +182,7 @@ export class Game {
             const st = this.getState(story);
             const p = this.progress(story, st);
             const pct = Math.round(100 * p.done / Math.max(1, p.total));
-            const badge = story.legacy ? '<span class="badge muted">Klassik</span>' : `<span class="badge">${story.chapters.length} Kapitel · ${p.total} Missionen</span>`;
+            const badge = `<span class="badge">${story.chapters.length} Kapitel · ${p.total} Missionen</span>`;
             return `
                 <a class="story-card" href="#/${story.id}">
                     <div class="story-image"><img src="${esc(story.cover)}" alt="" loading="lazy"></div>
@@ -231,7 +228,7 @@ export class Game {
                 <article class="chapter-card ${doneCount === ch.missions.length ? 'complete' : ''}">
                     ${ch.image ? `<a class="ch-img" href="#/${story.id}/${ch.id}" tabindex="-1" aria-hidden="true"><img src="${esc(ch.image)}" alt="" loading="lazy"></a>` : ''}
                     <div class="ch-body">
-                        <div class="ch-kicker">${story.legacy ? '' : `Kapitel ${i + 1} · `}<span class="concept">${esc(ch.concept)}</span></div>
+                        <div class="ch-kicker">Kapitel ${i + 1} · <span class="concept">${esc(ch.concept)}</span></div>
                         <h3><a href="#/${story.id}/${ch.id}">${esc(ch.title)}</a> <small class="muted">${status}</small></h3>
                         <div class="dots">${dots}</div>
                     </div>
@@ -256,7 +253,7 @@ export class Game {
                         </div>
                     </div>
                 </header>
-                ${story.prolog && !story.legacy ? `<details class="prolog" ${st.seenProlog ? '' : 'open'}><summary>📜 Prolog</summary>${formatText(story.prolog)}</details>` : ''}
+                ${story.prolog ? `<details class="prolog" ${st.seenProlog ? '' : 'open'}><summary>📜 Prolog</summary>${formatText(story.prolog)}</details>` : ''}
                 <div class="ov-grid">
                     <section class="chapters" aria-label="Kapitel">${chapters}</section>
                     <aside class="ov-side">
@@ -266,7 +263,7 @@ export class Game {
                         ${endings}
                         <details class="teacher"><summary>Für Lehrkräfte</summary>
                             <p>Jedes Kapitel und jede Mission hat eine eigene Adresse – einfach aus der Browserzeile kopieren, z. B. <code>#/${esc(story.id)}/${esc(story.chapters[story.chapters.length - 1].id)}</code>. Der Fortschritt wird nur in diesem Browser gespeichert.</p>
-                            <ul class="legend">${Object.entries(TYPE_INFO).filter(([k]) => story.legacy ? k === 'legacy' : k !== 'legacy').map(([, t]) => `<li>${t.icon} ${t.label}</li>`).join('')}</ul>
+                            <ul class="legend">${Object.values(TYPE_INFO).map((t) => `<li>${t.icon} ${t.label}</li>`).join('')}</ul>
                         </details>
                         <button type="button" class="ghost small" data-reset>↺ Spielstand zurücksetzen</button>
                     </aside>
@@ -299,7 +296,7 @@ export class Game {
                 ${ch.image ? `<div class="ci-image"><img src="${esc(ch.image)}" alt=""></div>` : ''}
                 <div class="ci-body">
                     ${prevDone && this.justFinished === story.chapters[idx - 1].id ? `<p class="ci-done">✔ Kapitel ${idx} geschafft!</p>` : ''}
-                    <div class="ch-kicker">${story.legacy ? '' : `Kapitel ${idx + 1} von ${story.chapters.length} · `}<span class="concept">${esc(ch.concept)}</span></div>
+                    <div class="ch-kicker">Kapitel ${idx + 1} von ${story.chapters.length} · <span class="concept">${esc(ch.concept)}</span></div>
                     <h1>${esc(ch.title)}</h1>
                     <div class="story-text">${formatText(ch.intro)}</div>
                     <ul class="ci-missions">${ch.missions.map(m => `<li class="${st.done[m.id] ? 'done' : ''}"><a href="#/${story.id}/${ch.id}/${m.id}">${TYPE_INFO[m.type].icon} <span>${esc(m.title)}</span> <small>${TYPE_INFO[m.type].label}</small></a></li>`).join('')}</ul>
@@ -327,7 +324,7 @@ export class Game {
         this.render(`
             <div class="mission">
                 <header class="mission-header">
-                    <nav class="crumbs"><a href="#/${story.id}">${esc(story.title)}</a> › <a href="#/${story.id}/${ch.id}">${story.legacy ? '' : `Kapitel ${chIdx + 1}: `}${esc(ch.title)}</a></nav>
+                    <nav class="crumbs"><a href="#/${story.id}">${esc(story.title)}</a> › <a href="#/${story.id}/${ch.id}">Kapitel ${chIdx + 1}: ${esc(ch.title)}</a></nav>
                     <div class="mh-row">
                         <h2><span class="type-badge" title="${TYPE_INFO[m.type].label}">${TYPE_INFO[m.type].icon} ${TYPE_INFO[m.type].label}</span> ${esc(m.title)}</h2>
                         <div class="mh-dots" aria-label="Mission ${mIdx + 1} von ${ch.missions.length}">${ch.missions.map((x, i) => `<a href="#/${story.id}/${ch.id}/${x.id}" class="mdot ${st.done[x.id] ? 'done' : ''} ${x === m ? 'cur' : ''}" aria-label="Mission ${i + 1}${x === m ? ' (aktuell)' : ''}"></a>`).join('')}</div>
