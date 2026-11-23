@@ -80,7 +80,7 @@ export function openStepper(code, vars, opts = {}) {
                 : '<span class="good">✔ Programm beendet.</span>';
         } else {
             const what = s.event === 'cond' ? 'prüft die Bedingung in' : s.event === 'else' ? 'springt in den else-Zweig,' : 'führt aus:';
-            status = `ORION ${what} <strong>Zeile ${s.line}</strong>`;
+            status = `${esc(opts.computer || 'Der Computer')} ${what} <strong>Zeile ${s.line}</strong>`;
         }
         $('.stepper-status').innerHTML = status;
         renderVars($('.var-table tbody'), s.vars, prev && prev.vars);

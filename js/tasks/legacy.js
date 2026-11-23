@@ -55,6 +55,8 @@ export function convertLegacy(raw, meta) {
         subtitle: meta.subtitle,
         description: meta.description,
         theme: meta.theme,
+        statusTitle: 'Wertung',
+        computer: 'Der Computer',
         cover: meta.cover,
         prolog: raw.description || '',
         resources: [{ id: 'punkte', label: meta.scoreName, icon: meta.scoreIcon, start: 100 }],

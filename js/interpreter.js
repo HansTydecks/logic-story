@@ -377,7 +377,7 @@ class Parser {
             this.next();
             this.checkTarget(expr);
             const value = this.parseExpr();
-            if (this.isOp('=')) throw new PyError('Mehrfachzuweisungen wie `a = b = 1` kennt dieser Bordcomputer nicht.', tk.line, 'syntax');
+            if (this.isOp('=')) throw new PyError('Mehrfachzuweisungen wie `a = b = 1` kennt dieses Mini-Python nicht.', tk.line, 'syntax');
             return { type: 'Assign', target: expr, value, line: tk.line };
         }
         if (this.is('OP') && ['+=', '-=', '*=', '/=', '//=', '%='].includes(this.peek().value)) {
@@ -539,7 +539,7 @@ class Parser {
             case 'INDENT':
                 throw new PyError('Unerwartete Einrückung.', tk.line, 'syntax');
             default:
-                throw new PyError('Diese Zeile versteht der Bordcomputer nicht.', tk.line, 'syntax');
+                throw new PyError('Diese Zeile versteht der Computer nicht.', tk.line, 'syntax');
         }
     }
 }
@@ -595,7 +595,7 @@ class Interp {
         this.currentLine = line;
         this.lineHits[line] = (this.lineHits[line] || 0) + 1;
         if (this.steps > this.maxSteps) {
-            throw new PyError(`Endlosschleife? Der Bordcomputer hat nach ${this.maxSteps} Schritten abgebrochen. Prüfe, ob sich die Bedingung der Schleife irgendwann ändert.`, line, 'loop');
+            throw new PyError(`Endlosschleife? Der Computer hat nach ${this.maxSteps} Schritten abgebrochen. Prüfe, ob sich die Bedingung der Schleife irgendwann ändert.`, line, 'loop');
         }
         yield this.snapshot(line, event);
     }
@@ -744,7 +744,7 @@ class Interp {
             ...(this.frames.length ? Object.keys(this.frames[this.frames.length - 1].vars) : []),
             ...Object.keys(this.builtins)
         ]);
-        let msg = `Die Variable \`${name}\` kennt der Bordcomputer nicht.`;
+        let msg = `Die Variable \`${name}\` kennt der Computer nicht.`;
         if (name === 'true' || name === 'false') msg = `In Python schreibt man \`${name === 'true' ? 'True' : 'False'}\` mit großem Anfangsbuchstaben.`;
         else if (name === 'else' || name === 'elif') msg = `\`${name}\` steht hier an der falschen Stelle.`;
         else if (hint) msg += ` Meintest du \`${hint}\`?`;

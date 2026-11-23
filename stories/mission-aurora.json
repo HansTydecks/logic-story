@@ -5,6 +5,8 @@
   "subtitle": "Weltraumabenteuer",
   "description": "Ein Unfall, ein 15-jähriger Kapitän und ein Bordcomputer, der nur Python versteht.",
   "theme": "space",
+  "computer": "ORION",
+  "statusTitle": "Schiffsstatus",
   "cover": "images/mission-aurora.webp",
   "prolog": "Das Letzte, woran du dich erinnerst, ist ein greller Blitz in der Hypersprung-Kammer. Dann: Dunkelheit.\n\nAls du aufwachst, blinkt über deinem Bett ein rotes Licht. Dr. Chen, die Schiffsärztin, beugt sich über dich. \"Alex – endlich. Der Sprung ist schiefgegangen. Wir sind Lichtjahre vom Kurs abgekommen, irgendwo am Rand des Kepler-Gürtels. Und Kapitän Morrison …\" Sie schüttelt den Kopf.\n\nDie Bord-KI **ORION** meldet sich mit ruhiger Stimme: *\"Kommandokette unterbrochen. Nächste berechtigte Person: Alex, 15 Jahre. Hinweis: ORION führt nur Befehle in Python aus.\"*\n\nDu bist jetzt Kapitän der **Aurora**. Die Crew zählt auf dich – und darauf, dass du verstehst, was ORION tut.",
   "resources": [

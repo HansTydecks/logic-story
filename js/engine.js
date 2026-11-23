@@ -260,7 +260,7 @@ export class Game {
                 <div class="ov-grid">
                     <section class="chapters" aria-label="Kapitel">${chapters}</section>
                     <aside class="ov-side">
-                        <h3>${story.resources.length === 1 ? 'Wertung' : 'Schiffsstatus'}</h3>
+                        <h3>${esc(story.statusTitle || 'Status')}</h3>
                         ${this.resourceBars(story, st.res)}
                         <p class="muted small">${p.done} von ${p.total} Missionen gelöst.</p>
                         ${endings}
@@ -343,7 +343,7 @@ export class Game {
                     </section>
                     <aside class="mission-right">
                         <div class="panel">
-                            <h3>${story.resources.length === 1 ? 'Wertung' : 'Schiffsstatus'}</h3>
+                            <h3>${esc(story.statusTitle || 'Status')}</h3>
                             <div class="res-wrap">${this.resourceBars(story, st.res)}</div>
                         </div>
                         ${varRows ? `<div class="panel vars-panel"><h3>🔍 Variablen</h3><div class="var-list">${varRows}</div><p class="muted small">Startwerte, bevor der Code läuft.</p></div>` : ''}
@@ -351,7 +351,7 @@ export class Game {
                             <h3>🛟 Hilfe</h3>
                             ${(m.hints || []).map((hint, i) => `<button type="button" class="hint-btn" data-hint="${i}" ${i > 0 ? 'hidden' : ''}>💡 Tipp ${i + 1}</button><div class="hint" data-hint-text="${i}" hidden>${formatText(hint, textValues)}</div>`).join('')}
                             <button type="button" class="step-btn" data-step hidden>▶ Ablauf ansehen</button>
-                            <p class="muted small step-note" hidden>Zeigt Zeile für Zeile, was ORION tut.</p>
+                            <p class="muted small step-note" hidden>Zeigt Zeile für Zeile, was ${esc(story.computer || 'der Computer')} tut.</p>
                         </div>
                     </aside>
                 </div>
@@ -380,12 +380,13 @@ export class Game {
                 const next = this.root.querySelector(`[data-hint="${i + 1}"]`);
                 if (next) next.hidden = false;
             }
-            if (e.target.closest('[data-step]') && stepper) openStepper(stepper.code, stepper.vars, { title: stepper.title, note: stepper.note });
+            if (e.target.closest('[data-step]') && stepper) openStepper(stepper.code, stepper.vars, { title: stepper.title, note: stepper.note, computer: story.computer });
         });
 
         const ctx = {
             mission: m,
             vars,
+            computer: story.computer || 'Der Computer',
             el: left.querySelector('.task'),
             isSolved: () => solved,
             failCount: () => localFails,
@@ -436,7 +437,7 @@ export class Game {
                         </div>
                         ${alreadyDone ? '<p class="muted small">Du hattest diese Mission schon gelöst – Ressourcen bleiben unverändert.</p>' : ''}
                     </div>`;
-                feedback.querySelector('[data-step2]')?.addEventListener('click', () => openStepper(stepper.code, stepper.vars, { title: stepper.title, note: stepper.note }));
+                feedback.querySelector('[data-step2]')?.addEventListener('click', () => openStepper(stepper.code, stepper.vars, { title: stepper.title, note: stepper.note, computer: story.computer }));
                 feedback.querySelector('[data-next]').addEventListener('click', () => {
                     if (next.finishedChapter) this.justFinished = ch.id;
                 });

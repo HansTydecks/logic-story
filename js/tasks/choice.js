@@ -27,9 +27,9 @@ export function renderChoice(ctx) {
     const analysis = analyzeChoice(mission.code, vars);
     const headerLines = new Set(analysis.headers.map(h => h.line));
     ctx.el.innerHTML = `
-        <p class="task-q">👉 Klicke auf die Zeile (<code>if</code>, <code>elif</code> oder <code>else</code>), deren Zweig ORION ausführt.</p>
+        <p class="task-q">👉 Klicke auf die Zeile (<code>if</code>, <code>elif</code> oder <code>else</code>), deren Zweig ${ctx.computer} ausführt.</p>
         ${codeBlock(mission.code, { clickable: headerLines })}`;
-    ctx.setStepper({ code: mission.code, vars, title: 'So prüft ORION die Bedingungen' });
+    ctx.setStepper({ code: mission.code, vars, title: `So prüft ${ctx.computer} die Bedingungen` });
 
     ctx.el.addEventListener('click', (e) => {
         const btn = e.target.closest('button.code-line');
@@ -38,7 +38,7 @@ export function renderChoice(ctx) {
         if (line === analysis.correctLine) {
             btn.classList.add('right');
             ctx.el.querySelectorAll('button.code-line').forEach(b => { if (b !== btn) b.disabled = true; });
-            ctx.solved(`<h4>So hat ORION entschieden:</h4>${explainHeaders(analysis, vars)}`);
+            ctx.solved(`<h4>So hat ${ctx.computer} entschieden:</h4>${explainHeaders(analysis, vars)}`);
             return;
         }
         btn.classList.add('wrong');
@@ -54,9 +54,9 @@ export function renderChoice(ctx) {
             try { value = truthy(evalExpr(h.cond, vars)); } catch { value = false; }
             const parts = explainCondition(h.cond, vars).filter(p => !p.op).map(p => inlineCode(p.filled)).join(' … ');
             if (!value) {
-                msg = `Die Bedingung ${inlineCode(h.cond)} ist hier <b class="f">False</b> (${parts}). Diesen Zweig überspringt ORION.`;
+                msg = `Die Bedingung ${inlineCode(h.cond)} ist hier <b class="f">False</b> (${parts}). Diesen Zweig überspringt ${ctx.computer}.`;
             } else if (idx > correctIdx) {
-                msg = `Die Bedingung ${inlineCode(h.cond)} wäre zwar <b class="t">True</b> – aber ORION prüft <strong>von oben nach unten</strong> und nimmt nur den <strong>ersten</strong> passenden Zweig. Schau dir die Zeilen darüber an.`;
+                msg = `Die Bedingung ${inlineCode(h.cond)} wäre zwar <b class="t">True</b> – aber ${ctx.computer} prüft <strong>von oben nach unten</strong> und nimmt nur den <strong>ersten</strong> passenden Zweig. Schau dir die Zeilen darüber an.`;
             } else {
                 msg = 'Das ist nicht der Zweig, der läuft.';
             }
