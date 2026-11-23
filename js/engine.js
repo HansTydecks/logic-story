@@ -159,7 +159,7 @@ export class Game {
         return `<div class="resources">${story.resources.map(r => {
             const v = res[r.id];
             const ch = changes.find(c => c.res === r.id);
-            const level = v >= 70 ? 'ok' : v >= 40 ? 'warn' : 'crit';
+            const level = r.kind === 'progress' ? 'prog' : v >= 70 ? 'ok' : v >= 40 ? 'warn' : 'crit';
             return `<div class="res res-${level}${ch ? (ch.delta < 0 ? ' hit' : ' gain') : ''}">
                 <div class="res-top"><span>${r.icon} ${esc(r.label)}</span><span class="res-val">${v}${ch ? ` <small>(${ch.delta > 0 ? '+' : ''}${ch.delta})</small>` : ''}</span></div>
                 <div class="res-bar" role="progressbar" aria-label="${esc(r.label)}" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${v}"><span style="width:${v}%"></span></div>

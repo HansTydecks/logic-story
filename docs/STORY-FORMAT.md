@@ -11,12 +11,15 @@ Eine Geschichte ist **eine JSON-Datei** in `stories/`. Die richtigen Antworten w
   "title": "Mission Aurora",
   "subtitle": "Weltraumabenteuer",
   "theme": "space",                       // space | timetravel | mystery | default
+  "computer": "ORION",                    // Name des Computers in Feedback-Texten
+  "statusTitle": "Schiffsstatus",         // Überschrift der Ressourcen-Anzeige
   "cover": "images/mission-aurora.webp",
   "prolog": "Text vor Kapitel 1 …",
   "resources": [                          // Statusbalken rechts, Werte 0–100
     { "id": "huelle",  "label": "Hülle",      "icon": "🛡️", "start": 100 },
     { "id": "energie", "label": "Energie",    "icon": "⚡", "start": 80 },
     { "id": "moral",   "label": "Crew-Moral", "icon": "👥", "start": 50 }
+    // "kind": "progress" = Wert, der wächst (neutrale Farbe statt Ampel)
   ],
   "defaultPenalty": [{ "res": "huelle", "inc": -4 }],   // pro Fehlversuch (max. 3 pro Mission)
   "defaultReward":  [{ "res": "moral",  "inc": 2 }],    // pro gelöster Mission

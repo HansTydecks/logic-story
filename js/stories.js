@@ -5,6 +5,10 @@ export const STORIES = [
         file: 'stories/mission-aurora.json'
     },
     {
+        id: 'krimi-mystery',
+        file: 'stories/krimi-mystery.json'
+    },
+    {
         id: 'zeitreise-abenteuer',
         file: 'stories/zeitreise-abenteuer.json',
         legacy: {
@@ -20,25 +24,6 @@ export const STORIES = [
                 top: { title: 'Zeitstrom ungestört!', text: 'Perfekt navigiert – die Geschichte ist sicher, und niemand hat bemerkt, dass du da warst.' },
                 gut: { title: 'Zeitstrom stabil', text: 'Ein paar Wellen im Zeitstrom, aber nichts, was die Zukunft verändert. Gute Arbeit!' },
                 knapp: { title: 'Zeitparadox knapp verhindert', text: 'Puh! Der Zeitstrom war ziemlich chaotisch. Versuch es nochmal und lies die Bedingungen genauer.' }
-            }
-        }
-    },
-    {
-        id: 'krimi-mystery',
-        file: 'stories/krimi-mystery.json',
-        legacy: {
-            id: 'krimi-mystery',
-            title: 'Krimi-Mystery',
-            subtitle: 'Detektiv-Fall',
-            description: 'Löse einen spannenden Kriminalfall mit Logik.',
-            theme: 'mystery',
-            cover: 'images/krimi-mystery.webp',
-            scoreName: 'Hinweispunkte',
-            scoreIcon: '🔍',
-            endings: {
-                top: { title: 'Fall brillant gelöst!', text: 'Alle Hinweise gefunden, der Täter überführt. Die Kommissarin will dich sofort ins Team holen.' },
-                gut: { title: 'Fall gelöst', text: 'Solide Ermittlungsarbeit – ein paar Hinweise sind dir durch die Lappen gegangen, aber der Fall ist gelöst.' },
-                knapp: { title: 'Gerade noch gelöst', text: 'Viele Spuren wurden übersehen. Spiel den Fall nochmal und prüfe jede Bedingung genau.' }
             }
         }
     }

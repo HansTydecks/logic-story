@@ -198,6 +198,7 @@ body.lrs .code-block { font-size: 1.05em; }
 .res-bar span { display: block; height: 100%; border-radius: 4px; transition: width 0.6s ease; background: var(--good); }
 .res-warn .res-bar span { background: var(--warn); }
 .res-crit .res-bar span { background: var(--bad); }
+.res-prog .res-bar span { background: var(--accent-color); }
 .res.hit { animation: hit 0.6s ease; }
 .res.hit .res-val small { color: var(--bad); }
 .res.gain .res-val small { color: var(--good); }

@@ -14,7 +14,8 @@ Statt trockener Übungen entscheiden die Lernenden in spannenden Geschichten, wa
 - **Ressourcen statt Punkte:** Fehlversuche kosten Hülle. Am Ende berechnet ein `if/elif/else` mit den **eigenen Werten**, welches der drei Enden man erreicht.
 - **Fortschritt** wird im Browser gespeichert, **Direktlinks** gibt es für jedes Kapitel und jede Mission.
 - **LRS-Modus:** größere Schrift, mehr Abstand und kurze Zusammenfassungen.
-- Krimi und Zeitreise laufen als „Klassik“ weiter und werden später im neuen Format umgebaut.
+- **Krimi-Mystery „Der Codename-Fall“** ist ebenfalls neu gebaut: 6 Kapitel mit 29 Missionen. Das Analysesystem ARGUS des LKA versteht nur Python.
+- Die Zeitreise läuft als „Klassik“ weiter und wird später im neuen Format umgebaut.
 
 ## Für Lehrkräfte
 
@@ -28,6 +29,21 @@ Statt trockener Übungen entscheiden die Lernenden in spannenden Geschichten, wa
 | 4 · Durch das Asteroidenfeld | Schleifen (`while`, `for`/`range`) | 🔎 „Wie oft?“, 🐞 Endlosschleife & Off-by-one, ✍️ |
 | 5 · Der Frachtraum der Hephaistos | Listen (Index, `append`, Summe/Maximum von Hand) | 🔎, ✍️, 🐞, 🧩 |
 | 6 · Autopilot | Funktionen (`def`, Parameter, `return`) | 🔎, ✍️, 🐞, 🧩, Finale |
+
+### Kapitel von Krimi-Mystery „Der Codename-Fall“
+
+Gleiche Konzept-Reihenfolge wie Aurora, daher austauschbar (z. B. Kapitel 4 = Schleifen in beiden Geschichten).
+
+| Kapitel | Konzept | Story |
+|---|---|---|
+| 1 · Der erste Tatort | Variablen & Zuweisung | Zeitstempel mit `//` und `%`, Ringtausch, Fallakte |
+| 2 · Erste Verdächtige | `if` / `elif` / `else` | Junior-Modus, Durchsuchungsbeschluss, Profiling |
+| 3 · Alibis | `and` / `or` / `not` | Alibi-Regeln, Haftbefehl-Bug, der einen Unschuldigen träfe |
+| 4 · Die Überwachungsbänder | Schleifen | Videos durchsuchen, Kameras durchgehen, Schlüssel ausprobieren |
+| 5 · Die Zugangsprotokolle | Listen | Ausweis-Logs zählen, späteste Buchung, Verdächtige filtern |
+| 6 · Die Falle | Funktionen | Köder-Dateien, Prüffunktionen, Verfolgung im Finale |
+
+Drei Enden: *Fall gelöst – Hansen überführt*, *Gefasst – aber knapp*, *Spur verloren*.
 
 ### Aufgabentypen
 
@@ -105,7 +121,7 @@ Siehe **[docs/STORY-FORMAT.md](docs/STORY-FORMAT.md)**. Kurz gesagt:
 
 ## Bilder
 
-Die Kapitel- und Endbilder von Mission Aurora wurden mit fal.ai (Nano Banana 2.1) im Stil der vorhandenen Cover erzeugt und als WebP gespeichert.
+Die Kapitel- und Endbilder von Mission Aurora und dem Krimi wurden mit fal.ai (Nano Banana 2.1) im Stil der vorhandenen Cover erzeugt und als WebP gespeichert.
 
 ## Lizenz & Autor
 
