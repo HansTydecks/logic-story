@@ -2,7 +2,7 @@
   "id": "zeitreise-abenteuer",
   "title": "Zeitreise-Abenteuer - Die Chronos-Verschwörung",
   "description": "Lerne echte if/elif/else Programmierung durch 15 spannende Zeitreise-Missionen",
-  "image": "images/zeitreise-abenteuer.png",
+  "image": "images/zeitreise-abenteuer.webp",
   "missions": [
     {
       "id": 1,

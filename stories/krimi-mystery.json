@@ -2,7 +2,7 @@
   "id": "krimi-mystery",
   "title": "Krimi-Mystery - Der Codename-Mörder",
   "description": "Lerne echte if/elif/else Programmierung durch 15 spannende Krimi-Missionen",
-  "image": "images/krimi-mystery.png",
+  "image": "images/krimi-mystery.webp",
   "missions": [
         {
           "id": 1,
