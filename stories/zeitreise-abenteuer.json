@@ -1,636 +1,1532 @@
 {
+  "format": 2,
   "id": "zeitreise-abenteuer",
-  "title": "Zeitreise-Abenteuer - Die Chronos-Verschwörung",
-  "description": "Lerne echte if/elif/else Programmierung durch 15 spannende Zeitreise-Missionen",
-  "image": "images/zeitreise-abenteuer.png",
-  "missions": [
+  "title": "Zeitreise-Abenteuer",
+  "subtitle": "Die Chronos-Verschwörung",
+  "description": "Ein verschwundener Professor, eine Zeitmaschine mit eigenem Kopf – und Gegner, die die Geschichte umschreiben wollen.",
+  "theme": "timetravel",
+  "computer": "KAIROS",
+  "statusTitle": "Zeitstrom",
+  "cover": "images/zeitreise-abenteuer.webp",
+  "prolog": "Institut für Temporalphysik, 2087. Heute ist der Tag des ersten bemannten Zeitsprungs.\n\nDu bist **Dr. Maya Chen**, 23 Jahre alt, Assistentin von **Professor Viktor Steinberg**. Der Professor steigt in die Chronos-Kapsel, winkt dir zu – dann ein goldener Blitz. Als sich die Kapsel wieder öffnet, ist sie **leer**.\n\n\"Maya!\" Techniker Alex starrt auf seine Anzeigen. \"Die Kapsel ist zurück, aber der Professor nicht. Und das System … hat dich gerade als neue Hauptforscherin eingetragen.\"\n\nDie Steuer-KI der Zeitmaschine meldet sich: *\"Hier ist KAIROS. Ich berechne Zeitsprünge – in Python. Wer mich steuern will, muss meinen Code verstehen. Ein falsch gelesener Befehl, und die Geschichte bekommt Kratzer.\"*\n\nIrgendwo in der Vergangenheit ist der Professor. Und irgendwer will nicht, dass du ihn findest.",
+  "resources": [
     {
-      "id": 1,
-      "title": "Der erste Sprung",
-      "text": "Du bist Dr. Maya Chen, 23 Jahre alt, Assistentin von Professor Viktor Steinberg. Heute ist der Tag des ersten menschlichen Zeitsprungs. Aber etwas geht schief - Professor Steinberg verschwindet während des Tests spurlos, und die Zeitmaschine geht kaputt.\n\n\"Maya!\" ruft Techniker Alex aus dem Kontrollraum. \"Die Chronos-Kapsel ist zurückgekehrt, aber sie ist leer! Professor Steinberg ist weg, und das System zeigt dein Alter als neuen Hauptforscher an.\"\n\nAuf dem Bildschirm blinkt: \"NEUER HAUPTFORSCHER ERKANNT - ALTERSVERIFIKATION LÄUFT\"\n\n**Frage:** Welche Bedingung führt das Sicherheitssystem aus?",
-      "variables": {},
-      "variables_discovered": {
-        "forscher_alter": 23
-      },
-      "buttons": [
-        {
-          "label": "if forscher_alter >= 25:\n        vollzugriff_gewaehren()",
-          "correct": false,
-          "explanation": "❌ **Falsch!** 23 >= 25 ist **false**. Diese Bedingung wird übersprungen, der Computer geht zur nächsten."
-        },
-        {
-          "label": "else:\n        junior_protokoll_aktivieren()",
-          "correct": true,
-          "explanation": "✅ **Richtig!** Da die if-Bedingung false war, führt der Computer die else-Anweisung aus: 'Junior-Protokoll aktiviert'."
-        }
-      ],
-      "success_text": "🎉 **Level 1 geschafft!** Du verstehst jetzt wie Computer if/else von oben nach unten abarbeiten.",
-      "next_mission": 2,
-      "lrs_support": "**Systemlog:**Forscher-Alter: 23 Jahre"
+      "id": "stabilitaet",
+      "label": "Zeitstabilität",
+      "icon": "⏳",
+      "start": 100
     },
     {
-      "id": 2,
-      "title": "Energiekristall-Analyse",
-      "text": "\"Junior-Protokoll ist aktiv, aber das ist nur ein Notfallmodus,\" erklärt Dr. Chen. \"Wir müssen sofort die Zeitmaschine überprüfen. Der Hypersprung-Unfall könnte den Kristall beschädigt haben.\"\n\nPhysikerin Dr. Sarah Kim meldet sich: \"Maya, ich bin im Labor. Der Zeitkristall, der die Maschine antreibt, hat nur noch 70% Energie. Ohne mindestens 80% können wir keine sicheren Sprünge machen.\"\n\n**Frage:** Welche Anweisung führt das Energiesystem aus?",
-      "variables": {
-        "forscher_alter": 23
-      },
-      "variables_discovered": {
-        "energie_level": 70
-      },
-      "buttons": [
-        {
-          "label": "if energie_level >= 80:\n        sicheren_sprung_starten()",
-          "correct": false,
-          "explanation": "❌ **Falsch!** 70 >= 80 ist **false**. Computer springt zur else-Anweisung."
-        },
-        {
-          "label": "else:\n        energiesparmodus_aktivieren()",
-          "correct": true,
-          "explanation": "✅ **Richtig!** Da 70 < 80, führt der Computer die else-Anweisung aus: 'Energiesparmodus aktiviert'."
-        }
-      ],
-      "success_text": "🎉 **Level 2 geschafft!** Du verstehst wie Computer Zahlenvergleiche auswerten.",
-      "next_mission": 3,
-      "lrs_support": "**Kristall-Anzeige:**Energie-Level: 70%"
+      "id": "fragmente",
+      "label": "Zeitfragmente",
+      "icon": "💎",
+      "start": 10,
+      "kind": "progress"
     },
     {
-      "id": 3,
-      "title": "Crew-Vertrauen",
-      "text": "\"Gute Entscheidung mit dem Energiesparmodus,\" sagt Sarah erleichtert. \"Das kauft uns Zeit.\" Sie kommt ins Labor, ihr Kittel ist voller Kristallstaub. \"Aber wir haben ein anderes Problem.\"\n\nDie fünfköpfige Forschungsgruppe versammelt sich. Historiker Dr. James Wright und Linguistin Dr. Zara Okafor blicken Maya skeptisch an.\n\n\"Maya, du warst bisher nur Assistentin,\" sagt Dr. Wright vorsichtig. \"Kannst du wirklich eine Zeitrettungsmission leiten? Die Moral-Scanner zeigen 60% Teamvertrauen.\"\n\n**Frage:** Das Führungssystem prüft drei Stufen. Welche wird ausgeführt?",
-      "variables": {
-        "forscher_alter": 23,
-        "energie_level": 70
-      },
-      "variables_discovered": {
-        "team_vertrauen": 60
-      },
-      "buttons": [
-        {
-          "label": "if team_vertrauen >= 80:\n        expertenteam_fuehrung_aktivieren()",
-          "correct": false,
-          "explanation": "❌ **Falsch!** 60 >= 80 ist **false**. Computer geht zur nächsten Bedingung."
-        },
-        {
-          "label": "elif team_vertrauen >= 50:\n        standard_fuehrung_aktivieren()",
-          "correct": true,
-          "explanation": "✅ **Richtig!** 60 >= 50 ist **true**. Computer führt aus: 'Standard-Führung' und stoppt hier."
-        },
-        {
-          "label": "else:\n        basis_fuehrung_aktivieren()",
-          "correct": false,
-          "explanation": "❌ **Falsch!** Da elif bereits true war, wird else nie erreicht."
-        }
-      ],
-      "success_text": "🎉 **Level 3 geschafft!** Du verstehst jetzt if/elif/else - Computer stoppt bei der ersten wahren Bedingung!",
-      "next_mission": 4,
-      "lrs_support": "**Crew-Report:**Team-Vertrauen: 60%"
-    },
-    {
-      "id": 4,
-      "title": "Erste Zeitkoordinaten",
-      "text": "Drei Stunden später hat sich die Crew etwas beruhigt. \"Ich habe Professor Steinbergs letzte Aufzeichnungen gefunden,\" berichtet Dr. Okafor. \"Er ist ins Jahr 1455 gesprungen - mitten in die Renaissance. Aber warum?\"\n\nDas Navigationssystem muss alle aktuellen Parameter berücksichtigen: Mayas Alter (23), Energielevel (70%) und Teamvertrauen (60%) für die Sprungberechnung.\n\n**Frage:** Das Navigationssystem kombiniert mehrere Variablen. Welche Bedingung trifft zu?",
-      "variables": {
-        "forscher_alter": 23,
-        "energie_level": 70,
-        "team_vertrauen": 60
-      },
-      "variables_discovered": {},
-      "buttons": [
-        {
-          "label": "if forscher_alter >= 25 and energie_level >= 80:\n        direkter_verfolgungssprung_starten()",
-          "correct": false,
-          "explanation": "❌ **Falsch!** (23 >= 25) AND (70 >= 80) = false AND false = **false**. Zur nächsten Bedingung."
-        },
-        {
-          "label": "elif team_vertrauen >= 50:\n        kurzzeit_verfolgungssprung_starten()",
-          "correct": true,
-          "explanation": "✅ **Richtig!** 60 >= 50 ist **true**. Computer führt aus: 'Kurzzeit-Verfolgungssprung'."
-        },
-        {
-          "label": "else:\n        notfall_sprung_vorbereiten()",
-          "correct": false,
-          "explanation": "❌ **Falsch!** elif war bereits true, else wird nicht erreicht."
-        }
-      ],
-      "success_text": "🎉 **Level 4 geschafft!** Du kannst jetzt AND-Verknüpfungen und mehrere Variablen kombinieren!",
-      "next_mission": 5,
-      "lrs_support": "**Verfügbare Daten:**Forscher-Alter: 23, Energie-Level: 70%, Team-Vertrauen: 60%"
-    },
-    {
-      "id": 5,
-      "title": "Renaissance-Landung",
-      "text": "\"Route zur Renaissance gesetzt,\" bestätigt Dr. Wright mit einem anerkennenden Nicken. \"Du lernst schnell.\"\n\nDer erste Sprung gelingt! Maya materialisiert sich in einer engen Gasse im Renaissance-Florenz. Ihre Zeitanzeige zeigt 45 Stabilität.\n\nEin Mann in einem Umhang beobachtet sie - ist das Professor Steinberg? Er verschwindet, bevor sie ihn erreichen kann, aber hinterlässt einen Zettel: \"Die Kunstwerke sind der Schlüssel. Verhindere den Diebstahl.\"\n\n**Frage:** Das Stabilisierungssystem hat vier Stufen. Welche wird aktiviert?",
-      "variables": {
-        "forscher_alter": 23,
-        "energie_level": 70,
-        "team_vertrauen": 60
-      },
-      "variables_discovered": {
-        "stabilitat": 45
-      },
-      "buttons": [
-        {
-          "label": "if stabilitat >= 60:\n        vollstaendige_materialisation_starten()",
-          "correct": false,
-          "explanation": "❌ **Falsch!** 45 >= 60 ist **false**. Computer geht weiter."
-        },
-        {
-          "label": "elif stabilitat >= 50:\n        normale_materialisation_starten()",
-          "correct": false,
-          "explanation": "❌ **Falsch!** 45 >= 50 ist **false**. Computer geht weiter."
-        },
-        {
-          "label": "elif stabilitat >= 40:\n        minimale_aktivitaet_starten()",
-          "correct": true,
-          "explanation": "✅ **Richtig!** 45 >= 40 ist **true**. Computer führt aus: 'Minimale Aktivität' und stoppt."
-        },
-        {
-          "label": "else:\n        notfall_stabilisierung_starten()",
-          "correct": false,
-          "explanation": "❌ **Falsch!** elif war bereits true, else wird übersprungen."
-        }
-      ],
-      "success_text": "🎉 **Level 5 geschafft!** Du beherrschst jetzt mehrfache elif-Ketten!",
-      "next_mission": 6,
-      "lrs_support": "**Zeit-Status:**Stabilität: 45 Einheiten"
-    },
-    {
-      "id": 6,
-      "title": "Kommunikation durch Zeit",
-      "text": "Zurück in der Renaissance entdeckt Maya ein merkwürdiges Gerät - einen Chronos-Kommunikator mit 30% Signalstärke. Sie kann kurze Nachrichten in ihre Zeit senden, aber die Verschlüsselung funktioniert.\n\n\"Maya, bist du das?\" knistert Alex' Stimme durch das Gerät. \"Wir empfangen dich, aber sehr schwach. Hast du Professor Steinberg gefunden?\"\n\n**Frage:** Das Kommunikationssystem prüft Boolean-Werte. Welche Bedingung trifft zu?",
-      "variables": {
-        "forscher_alter": 23,
-        "energie_level": 70,
-        "team_vertrauen": 60,
-        "stabilitat": 45
-      },
-      "variables_discovered": {
-        "signal_staerke": 30,
-        "verschluesselung_aktiv": true
-      },
-      "buttons": [
-        {
-          "label": "if signal_staerke >= 50:\n        direkte_zukunfts_kommunikation_starten()",
-          "correct": false,
-          "explanation": "❌ **Falsch!** 30 >= 50 ist **false**. Computer geht zur nächsten Bedingung."
-        },
-        {
-          "label": "elif verschluesselung_aktiv:\n        sichere_schwach_kommunikation_starten()",
-          "correct": true,
-          "explanation": "✅ **Richtig!** verschluesselung_aktiv ist **true**. Computer führt aus: 'Sichere Kommunikation trotz schwachem Signal'."
-        },
-        {
-          "label": "else:\n        offene_notfall_kommunikation_senden()",
-          "correct": false,
-          "explanation": "❌ **Falsch!** elif war true, else wird nicht erreicht."
-        }
-      ],
-      "success_text": "🎉 **Level 6 geschafft!** Du verstehst jetzt Boolean-Werte (true/false) in Bedingungen!",
-      "next_mission": 7,
-      "lrs_support": "**Kom-System:**Signalstärke: 30%, Verschlüsselung: aktiv (true)"
-    },
-    {
-      "id": 7,
-      "title": "Feindkontakt im Mittelalter",
-      "text": "Plötzlich geht etwas schief - Maya wird ungewollt ins Jahr 1347 geschleudert, mitten in die Pest-Zeit. Schwarzgekleidete Gestalten mit futuristischen Geräten jagen sie durch die Straßen.\n\n\"Das sind die Chronos-Wächter!\" ruft eine vertraute Stimme. Professor Steinberg erscheint und zieht sie in ein Versteck. \"Sie versuchen, die Geschichte zu 'korrigieren' - aber ihre Version wird die Zukunft zerstören.\"\n\n**Frage:** Das Verteidigungssystem kombiniert Boolean und Zahlen. Welche Aktion wird ausgeführt?",
-      "variables": {
-        "forscher_alter": 23,
-        "energie_level": 70,
-        "team_vertrauen": 60,
-        "stabilitat": 45,
-        "signal_staerke": 30,
-        "verschluesselung_aktiv": true
-      },
-      "variables_discovered": {
-        "feindkontakt": true,
-        "entfernung": 12
-      },
-      "buttons": [
-        {
-          "label": "if feindkontakt and entfernung <= 8:\n        sofort_angriff_starten()",
-          "correct": false,
-          "explanation": "❌ **Falsch!** true AND (12 <= 8) = true AND false = **false**. Computer geht weiter."
-        },
-        {
-          "label": "elif feindkontakt and energie_level >= 60:\n        temporalschild_aktivieren()",
-          "correct": true,
-          "explanation": "✅ **Richtig!** true AND (70 >= 60) = true AND true = **true**. Computer führt aus: 'Temporalschild aktivieren'."
-        },
-        {
-          "label": "else:\n        flucht_vorbereiten()",
-          "correct": false,
-          "explanation": "❌ **Falsch!** elif war bereits true, else wird übersprungen."
-        }
-      ],
-      "success_text": "🎉 **Level 7 geschafft!** Du beherrschst AND-Verknüpfungen mit gemischten Datentypen!",
-      "next_mission": 8,
-      "lrs_support": "**Bedrohungsanalyse:**Feindkontakt: erkannt (true), Entfernung: 12 Blöcke"
-    },
-    {
-      "id": 8,
-      "title": "Zeitenergie-Krise",
-      "text": "\"Schilde sind aktiv,\" meldet Steinberg erleichtert. Die Chronos-Wächter verschwinden vorläufig. \"Aber wir haben ein Problem. Die Chronos-Wächter haben Zeitenergie-Blocker aufgestellt. Unsere Sprungkraft ist auf 35 gesunken.\"\n\nMaya checkt ihre Ausrüstung. Der Zeitkristall glimmt schwächer. Das System zeigt jetzt \"kritisch\" für den Effizienz-Modus.\n\n**Frage:** Das Energiemanagement-System hat fünf Stufen. Welche wird aktiviert?",
-      "variables": {
-        "forscher_alter": 23,
-        "energie_level": 70,
-        "team_vertrauen": 60,
-        "stabilitat": 45,
-        "signal_staerke": 30,
-        "verschluesselung_aktiv": true,
-        "feindkontakt": true,
-        "entfernung": 12
-      },
-      "variables_discovered": {
-        "sprungkraft": 35,
-        "effizienz_modus": "kritisch"
-      },
-      "buttons": [
-        {
-          "label": "if sprungkraft >= 50:\n        optimale_zeitenergie_nutzen()",
-          "correct": false,
-          "explanation": "❌ **Falsch!** 35 >= 50 ist **false**. Computer geht weiter."
-        },
-        {
-          "label": "elif sprungkraft >= 40:\n        erweiterte_zeitenergie_nutzen()",
-          "correct": false,
-          "explanation": "❌ **Falsch!** 35 >= 40 ist **false**. Computer geht weiter."
-        },
-        {
-          "label": "elif sprungkraft >= 30 and effizienz_modus == \"kritisch\":\n        notfall_energiesparmodus_starten()",
-          "correct": true,
-          "explanation": "✅ **Richtig!** (35 >= 30) AND (\"kritisch\" == \"kritisch\") = true AND true = **true**. Computer führt aus: 'Notfall-Energiesparmodus'."
-        },
-        {
-          "label": "elif sprungkraft >= 20:\n        basis_zeitenergie_nutzen()",
-          "correct": false,
-          "explanation": "❌ **Falsch!** Die vorherige elif-Bedingung war bereits true, diese wird nicht erreicht."
-        },
-        {
-          "label": "else:\n        minimale_zeitenergie_nutzen()",
-          "correct": false,
-          "explanation": "❌ **Falsch!** Eine elif-Bedingung war bereits true, else wird übersprungen."
-        }
-      ],
-      "success_text": "🎉 **Level 8 geschafft!** Du verstehst jetzt String-Vergleiche und komplexe elif-Ketten!",
-      "next_mission": 9,
-      "lrs_support": "**Energie-Status:**Sprungkraft: 35 Einheiten, Effizienz-Modus: \"kritisch\""
-    },
-    {
-      "id": 9,
-      "title": "Zeitkapsel-Problem",
-      "text": "Der Energiesparmodus zeigt Wirkung, aber Steinberg entdeckt ein neues Problem. \"Maya, wir haben ein Problem! Die Zeitkapsel ist beschädigt - wir verlieren Stabilität. 75% Kohärenz, aber die Temp-Regulierung ist auf 'kritisch', und der Zeitanker ist defekt.\"\n\n**Frage:** Das Zeitreise-System prüft alle drei Parameter. Welche Aktion wird ausgeführt?",
-      "variables": {
-        "forscher_alter": 23,
-        "energie_level": 70,
-        "team_vertrauen": 60,
-        "stabilitat": 45,
-        "signal_staerke": 30,
-        "verschluesselung_aktiv": true,
-        "feindkontakt": true,
-        "entfernung": 12,
-        "sprungkraft": 35,
-        "effizienz_modus": "kritisch"
-      },
-      "variables_discovered": {
-        "kohaerenz": 75,
-        "zeitanker_defekt": true
-      },
-      "buttons": [
-        {
-          "label": "if kohaerenz >= 85 and effizienz_modus == \"normal\" and not zeitanker_defekt:",
-          "correct": false,
-          "explanation": "❌ **Falsch!** (75 >= 85) AND (\"kritisch\" == \"normal\") AND (not true) = false AND false AND false = **false**."
-        },
-        {
-          "label": "elif kohaerenz >= 70 and effizienz_modus == \"kritisch\":",
-          "correct": true,
-          "explanation": "✅ **Richtig!** (75 >= 70) AND (\"kritisch\" == \"kritisch\") = true AND true = **true**. Computer führt aus: 'Notfall-Stabilisierung'."
-        },
-        {
-          "label": "elif kohaerenz >= 60:",
-          "correct": false,
-          "explanation": "❌ **Falsch!** Die vorherige elif-Bedingung war bereits true, diese wird nicht erreicht."
-        },
-        {
-          "label": "else:",
-          "correct": false,
-          "explanation": "❌ **Falsch!** Eine elif-Bedingung war bereits true, else wird übersprungen."
-        }
-      ],
-      "success_text": "🎉 **Level 9 geschafft!** Du beherrschst jetzt komplexe AND-Verknüpfungen und NOT-Operatoren!",
-      "next_mission": 10,
-      "lrs_support": "**Zeitkapsel-Status:**Kohärenz: 75%, Effizienz-Modus: \"kritisch\", Zeitanker defekt: true"
-    },
-    {
-      "id": 10,
-      "title": "Antikes Rom",
-      "text": "Die Zeitkapsel stürzt ins antike Rom, 73 v.Chr., mitten im Spartacus-Aufstand. Maya und Steinberg finden sich in einer gefährlichen historischen Situation wieder. Der neue Zeitdruck-Wert beträgt nur 0.6 - zu niedrig für sichere Arbeiten.\n\n\"Die Zeitschleuse ist verschlossen - das ist gut,\" bemerkt Steinberg. \"Aber wir müssen in dieser gefährlichen Zeit äußerst vorsichtig sein.\"\n\n**Frage:** Das System berücksichtigt wichtige Zeitparameter. Welche Aktion wird gewählt?",
-      "variables": {
-        "forscher_alter": 23,
-        "energie_level": 70,
-        "team_vertrauen": 0.6,
-        "stabilitat": 45,
-        "signal_staerke": 30,
-        "verschluesselung_aktiv": true,
-        "feindkontakt": true,
-        "entfernung": 12,
-        "sprungkraft": 35,
-        "effizienz_modus": "kritisch",
-        "kohaerenz": 75,
-        "zeitanker_defekt": true
-      },
-      "variables_discovered": {},
-      "buttons": [
-        {
-          "label": "if forscher_alter >= 25 and kohaerenz >= 80 and energie_level >= 80:",
-          "correct": false,
-          "explanation": "❌ **Falsch!** (23 >= 25) AND (75 >= 80) AND (70 >= 80) = false AND false AND false = **false**."
-        },
-        {
-          "label": "elif kohaerenz >= 70 and team_vertrauen >= 0.8:",
-          "correct": false,
-          "explanation": "❌ **Falsch!** (75 >= 70) AND (0.6 >= 0.8) = true AND false = **false**."
-        },
-        {
-          "label": "elif team_vertrauen >= 0.5 and verschluesselung_aktiv:",
-          "correct": true,
-          "explanation": "✅ **Richtig!** (0.6 >= 0.5) AND true = true AND true = **true**. Computer führt aus: 'Vorsichtige Antike-Navigation'."
-        },
-        {
-          "label": "else:",
-          "correct": false,
-          "explanation": "❌ **Falsch!** Die elif-Bedingung war bereits true, else wird nicht erreicht."
-        }
-      ],
-      "success_text": "🎉 **Level 10 geschafft!** Du kombinierst jetzt mühelos viele Variablen in komplexen Bedingungen!",
-      "next_mission": 11,
-      "lrs_support": "**Rom-Status:**Zeitdruck: 0.6 Bar, Verschlüsselung: aktiv"
-    },
-    {
-      "id": 11,
-      "title": "Zukunfts-Raumstation",
-      "text": "Ein ungewollter Sprung bringt sie in die nahe Zukunft auf Raumstation Chronos-Alpha, Jahr 2156. \"Die Hauptsensoren sind offline,\" meldet Maya. \"Aber die Backup-Systeme funktionieren mit 80% Reichweite.\"\n\nSteinberg ist besorgt: \"Wir sind nur ein Jahr vor der Zeit der Chronos-Wächter. Hier müssen wir extrem vorsichtig sein.\"\n\n**Frage:** Das Sensorsystem nutzt erweiterte NOT-Logik. Welche Konfiguration wird gewählt?",
-      "variables": {
-        "forscher_alter": 23,
-        "energie_level": 70,
-        "team_vertrauen": 0.6,
-        "stabilitat": 80,
-        "signal_staerke": 30,
-        "verschluesselung_aktiv": true,
-        "feindkontakt": true,
-        "entfernung": 12,
-        "sprungkraft": 35,
-        "effizienz_modus": "kritisch",
-        "kohaerenz": 75,
-        "sensor_offline": true
-      },
-      "variables_discovered": {},
-      "buttons": [
-        {
-          "label": "if not sensor_offline and stabilitat >= 90:",
-          "correct": false,
-          "explanation": "❌ **Falsch!** (not true) AND (80 >= 90) = false AND false = **false**."
-        },
-        {
-          "label": "elif sensor_offline and verschluesselung_aktiv and stabilitat >= 75:",
-          "correct": true,
-          "explanation": "✅ **Richtig!** true AND true AND (80 >= 75) = true AND true AND true = **true**. Computer führt aus: 'Backup-Sensoren ausreichend'."
-        },
-        {
-          "label": "elif verschluesselung_aktiv:",
-          "correct": false,
-          "explanation": "❌ **Falsch!** Die vorherige elif-Bedingung war bereits true, diese wird nicht erreicht."
-        },
-        {
-          "label": "else:",
-          "correct": false,
-          "explanation": "❌ **Falsch!** Eine elif-Bedingung war bereits true, else wird übersprungen."
-        }
-      ],
-      "success_text": "🎉 **Level 11 geschafft!** Du meisterst jetzt NOT-Operatoren und Dreifach-AND-Verknüpfungen!",
-      "next_mission": 12,
-      "lrs_support": "**Sensor-Status:**Hauptsensor offline: true, Verschlüsselung aktiv: true, Reichweite: 80%"
-    },
-    {
-      "id": 12,
-      "title": "Zeitwaffen-Arsenal",
-      "text": "\"Maya, schau dir das an,\" flüstert Steinberg. Sie entdecken ein Arsenal von Zeitwaffen: Chronos-Laser (80% geladen), 6 Temporal-Granaten, und ein aktives Zielsystem.\n\n\"Die Chronos-Wächter haben uns entdeckt,\" warnt Steinberg. \"Diese Waffen sind für Zeitkriege konzipiert - sie können Menschen aus der Timeline löschen.\"\n\n**Frage:** Das Waffensystem hat sechs Kampfbereitschaftsstufen. Welche wird aktiviert?",
-      "variables": {
-        "forscher_alter": 23,
-        "energie_level": 80,
-        "team_vertrauen": 0.6,
-        "stabilitat": 80,
-        "signal_staerke": 30,
-        "verschluesselung_aktiv": true,
-        "feindkontakt": true,
-        "entfernung": 6,
-        "sprungkraft": 35,
-        "effizienz_modus": "kritisch",
-        "kohaerenz": 75,
-        "zielsystem_aktiv": true
-      },
-      "variables_discovered": {},
-      "buttons": [
-        {
-          "label": "if energie_level >= 90 and entfernung >= 8 and zielsystem_aktiv:",
-          "correct": false,
-          "explanation": "❌ **Falsch!** (80 >= 90) AND (6 >= 8) AND true = false AND false AND true = **false**."
-        },
-        {
-          "label": "elif energie_level >= 75 and zielsystem_aktiv and feindkontakt:",
-          "correct": true,
-          "explanation": "✅ **Richtig!** (80 >= 75) AND true AND true = true AND true AND true = **true**. Computer führt aus: 'Zeitkampf-Bereitschaft'."
-        },
-        {
-          "label": "elif energie_level >= 70 and entfernung >= 5:",
-          "correct": false,
-          "explanation": "❌ **Falsch!** Die vorherige elif-Bedingung war bereits true, diese wird nicht erreicht."
-        },
-        {
-          "label": "elif entfernung >= 4:",
-          "correct": false,
-          "explanation": "❌ **Falsch!** Eine frühere elif-Bedingung war bereits true, diese wird übersprungen."
-        },
-        {
-          "label": "elif energie_level >= 60:",
-          "correct": false,
-          "explanation": "❌ **Falsch!** Eine frühere elif-Bedingung war bereits true, diese wird übersprungen."
-        },
-        {
-          "label": "else:",
-          "correct": false,
-          "explanation": "❌ **Falsch!** Eine elif-Bedingung war bereits true, else wird nicht erreicht."
-        }
-      ],
-      "success_text": "🎉 **Level 12 geschafft!** Du beherrschst jetzt sechs-stufige elif-Ketten mit komplexen Bedingungen!",
-      "next_mission": 13,
-      "lrs_support": "**Waffen-Status:**Laser-Energie: 80%, Granaten: 6 Stück, Zielsystem aktiv: true"
-    },
-    {
-      "id": 13,
-      "title": "Zeitriss-Notreparatur",
-      "text": "Während der Flucht von der Raumstation reißt ein Loch in die Zeit selbst auf. \"ZEITRISS!\" schreit Steinberg. \"15% Timeline-Schaden! Aber es ist reparabel - noch.\"\n\nMaya starrt in den wirbelnden Strudel von Vergangenheit und Zukunft. \"Wenn wir das nicht reparieren, könnte die gesamte Zeitlinie kollabieren.\"\n\n**Frage:** Das Notfallsystem wertet komplexe Parameter aus. Welches Protokoll wird aktiviert?",
-      "variables": {
-        "forscher_alter": 23,
-        "energie_level": 80,
-        "team_vertrauen": 15,
-        "stabilitat": 80,
-        "signal_staerke": 30,
-        "verschluesselung_aktiv": true,
-        "feindkontakt": true,
-        "entfernung": 6,
-        "sprungkraft": 35,
-        "effizienz_modus": "kritisch",
-        "kohaerenz": 75,
-        "sensor_offline": true
-      },
-      "variables_discovered": {},
-      "buttons": [
-        {
-          "label": "if team_vertrauen <= 10 and energie_level >= 85 and kohaerenz >= 80:",
-          "correct": false,
-          "explanation": "❌ **Falsch!** (15 <= 10) AND (80 >= 85) AND (75 >= 80) = false AND false AND false = **false**."
-        },
-        {
-          "label": "elif team_vertrauen <= 20 and sensor_offline and (energie_level >= 70 or sprungkraft >= 30):",
-          "correct": true,
-          "explanation": "✅ **Richtig!** (15 <= 20) AND true AND (80 >= 70 OR 35 >= 30) = true AND true AND (true OR true) = true AND true AND true = **true**. Computer führt aus: 'Notzeit-Reparatur'."
-        },
-        {
-          "label": "elif sensor_offline and kohaerenz >= 70:",
-          "correct": false,
-          "explanation": "❌ **Falsch!** Die vorherige elif-Bedingung war bereits true, diese wird nicht erreicht."
-        },
-        {
-          "label": "elif sprungkraft >= 25:",
-          "correct": false,
-          "explanation": "❌ **Falsch!** Eine frühere elif-Bedingung war bereits true, diese wird übersprungen."
-        },
-        {
-          "label": "else:",
-          "correct": false,
-          "explanation": "❌ **Falsch!** Eine elif-Bedingung war bereits true, else wird nicht erreicht."
-        }
-      ],
-      "success_text": "🎉 **Level 13 geschafft!** Du meisterst jetzt OR-Verknüpfungen in Klammern und komplexeste Logik!",
-      "next_mission": 14,
-      "lrs_support": "**Zeitriss-Status:**Timeline-Schaden: 15%, Reparatur möglich: true"
-    },
-    {
-      "id": 14,
-      "title": "Zeitschleifen-Rettung",
-      "text": "Ein Notsprung bringt sie zurück ins Jahr 2087 - aber etwas ist anders. In einer Zeitschleife gefangen sind 4 Wissenschaftler, die endlos denselben Tag wiederholen. Das Zeitfenster beträgt 8 Stunden.\n\n\"Maya!\" ruft die alternative Version von Dr. Kim. \"Wir sind seit Stunden hier gefangen! Die Chronos-Wächter haben eine Zeitfalle aufgestellt!\"\n\n**Frage:** Das Rettungsprotokoll hat sechs Prioritätsstufen. Welche wird gewählt?",
-      "variables": {
-        "forscher_alter": 23,
-        "energie_level": 80,
-        "team_vertrauen": 15,
-        "stabilitat": 80,
-        "signal_staerke": 8,
-        "verschluesselung_aktiv": true,
-        "feindkontakt": true,
-        "entfernung": 4,
-        "sprungkraft": 35,
-        "effizienz_modus": "kritisch",
-        "kohaerenz": 75,
-        "sensor_offline": true
-      },
-      "variables_discovered": {},
-      "buttons": [
-        {
-          "label": "if entfernung <= 2 and signal_staerke >= 10 and not team_vertrauen >= 20:",
-          "correct": false,
-          "explanation": "❌ **Falsch!** (4 <= 2) AND (8 >= 10) AND (not 15 >= 20) = false AND false AND true = **false**."
-        },
-        {
-          "label": "elif entfernung <= 5 and energie_level >= 70 and sprungkraft >= 30:",
-          "correct": true,
-          "explanation": "✅ **Richtig!** (4 <= 5) AND (80 >= 70) AND (35 >= 30) = true AND true AND true = **true**. Computer führt aus: 'Komplex-Rettung möglich'."
-        },
-        {
-          "label": "elif entfernung <= 5 and signal_staerke >= 5:",
-          "correct": false,
-          "explanation": "❌ **Falsch!** Die vorherige elif-Bedingung war bereits true, diese wird nicht erreicht."
-        },
-        {
-          "label": "elif signal_staerke >= 6 and forscher_alter >= 20:",
-          "correct": false,
-          "explanation": "❌ **Falsch!** Eine frühere elif-Bedingung war bereits true, diese wird übersprungen."
-        },
-        {
-          "label": "elif kohaerenz >= 70:",
-          "correct": false,
-          "explanation": "❌ **Falsch!** Eine frühere elif-Bedingung war bereits true, diese wird übersprungen."
-        },
-        {
-          "label": "else:",
-          "correct": false,
-          "explanation": "❌ **Falsch!** Eine elif-Bedingung war bereits true, else wird nicht erreicht."
-        }
-      ],
-      "success_text": "🎉 **Level 14 geschafft!** Du beherrschst jetzt sogar NOT-Operatoren mit Vergleichen in komplexen Ketten!",
-      "next_mission": 15,
-      "lrs_support": "**Rettungs-Status:**Gefangene: 4, Zeitfenster: 8 Stunden, Reparatur möglich: true"
-    },
-    {
-      "id": 15,
-      "title": "Finale Zeitentscheidung",
-      "text": "Alle Zeitlinien treffen in einem spektakulären Finale zusammen. Maya steht vor der ursprünglichen Zeitmaschine, umgeben von Chronos-Wächtern, alternativen Versionen ihrer Crew, und Professor Steinberg.\n\n\"Maya,\" spricht der Anführer der Chronos-Wächter, \"du hast 8 Timeline-Störungen verursacht und 12 Zeitparadoxe gelöst. Du bist sowohl die Gefahr als auch die Lösung.\"\n\nSteinberg fügt hinzu: \"Die Entscheidung liegt bei dir - zerstöre die Zeitmaschine und verhindere zukünftige Zeitkriege, oder vervollständige sie und ermögliche der Menschheit wahre Zeitherrschaft.\"\n\n**Frage:** Das finale Entscheidungssystem wertet ALLE 12 Variablen aus. Welche Strategie wird gewählt?",
-      "variables": {
-        "forscher_alter": 23,
-        "energie_level": 80,
-        "team_vertrauen": 15,
-        "stabilitat": 80,
-        "signal_staerke": 8,
-        "verschluesselung_aktiv": true,
-        "feindkontakt": true,
-        "entfernung": 15,
-        "sprungkraft": 35,
-        "effizienz_modus": "kritisch",
-        "kohaerenz": 75,
-        "sensor_offline": true
-      },
-      "variables_discovered": {},
-      "buttons": [
-        {
-          "label": "if team_vertrauen <= 10 and energie_level >= 85 and kohaerenz >= 80 and forscher_alter >= 25:",
-          "correct": false,
-          "explanation": "❌ **Falsch!** (15 <= 10) AND (80 >= 85) AND (75 >= 80) AND (23 >= 25) = false AND false AND false AND false = **false**."
-        },
-        {
-          "label": "elif team_vertrauen <= 20 and energie_level >= 70 and sprungkraft >= 30 and entfernung >= 10:",
-          "correct": true,
-          "explanation": "✅ **LEGENDÄR!** (15 <= 20) AND (80 >= 70) AND (35 >= 30) AND (15 >= 10) = true AND true AND true AND true = **true**. Computer führt aus: 'Zeitreise-Mission erfolgreich' - Maya wird zur Wächterin aller Zeiten!"
-        },
-        {
-          "label": "elif team_vertrauen <= 25 and energie_level >= 75 and entfernung >= 12:",
-          "correct": false,
-          "explanation": "❌ **Falsch!** Die vorherige elif-Bedingung war bereits true, diese wird nicht erreicht."
-        },
-        {
-          "label": "elif energie_level >= 80 and kohaerenz >= 70:",
-          "correct": false,
-          "explanation": "❌ **Falsch!** Eine frühere elif-Bedingung war bereits true, diese wird übersprungen."
-        },
-        {
-          "label": "elif sprungkraft >= 25 and forscher_alter >= 20:",
-          "correct": false,
-          "explanation": "❌ **Falsch!** Eine frühere elif-Bedingung war bereits true, diese wird übersprungen."
-        },
-        {
-          "label": "elif kohaerenz >= 70 and energie_level >= 60:",
-          "correct": false,
-          "explanation": "❌ **Falsch!** Eine frühere elif-Bedingung war bereits true, diese wird übersprungen."
-        },
-        {
-          "label": "else:",
-          "correct": false,
-          "explanation": "❌ **Falsch!** Eine elif-Bedingung war bereits true, else wird nicht erreicht."
-        }
-      ],
-      "success_text": "🎊 **ZEITREISE-MISSION ABGESCHLOSSEN!** Du bist jetzt ein Meister der Programmierlogik! Du verstehst wie Computer if/elif/else-Ketten von oben nach unten abarbeiten und bei der ersten wahren Bedingung stoppen. Du beherrschst Vergleiche, AND, OR, NOT und komplexe verschachtelte Bedingungen mit 12 Variablen! Maya ist zur Wächterin aller Zeiten geworden!",
-      "next_mission": null,
-      "lrs_support": "**Finale Bewertung:**Timeline-Störungen: 8, Zeitparadoxe gelöst: 12, Mission erfolgreich: true"
+      "id": "vertrauen",
+      "label": "Team-Vertrauen",
+      "icon": "🤝",
+      "start": 60
     }
-  ]
+  ],
+  "defaultPenalty": [
+    {
+      "res": "stabilitaet",
+      "inc": -2
+    }
+  ],
+  "defaultReward": [
+    {
+      "res": "fragmente",
+      "inc": 3
+    }
+  ],
+  "chapters": [
+    {
+      "id": "k1",
+      "title": "Der erste Sprung",
+      "concept": "Variablen & Zuweisung",
+      "image": "images/zeitreise/k1.webp",
+      "intro": "Im Labor riecht es nach verschmortem Kabel. Die Chronos-Kapsel steht offen da, leer bis auf Professor Steinbergs Lieblingsschal, der noch über der Lehne hängt. Dr. Sarah Kim prüft den Zeitkristall, Alex hämmert im Kontrollraum auf seine Tastatur. \"Gute Nachricht: KAIROS lebt. Schlechte Nachricht: Der Blitz hat sein ganzes Gedächtnis gelöscht.\"\n\n*\"Korrekt\"*, meldet KAIROS. *\"Ich speichere jede Information in einer **Variable** – einer Kiste mit Namen. Mit `=` lege ich einen Wert hinein. Kommt ein neuer Wert, fliegt der alte raus.\"*\n\nDr. Zara Okafor hält einen zerknitterten Zettel hoch, bedeckt mit Steinbergs krakeliger Handschrift. \"Das meiste ist unleserlich. Aber eine Zahl kann ich entziffern: **1455**.\"",
+      "missions": [
+        {
+          "id": "1-1",
+          "type": "trace",
+          "title": "Wie weit zurück?",
+          "text": "Dr. James Wright rückt seine Brille zurecht. \"1455! Hochrenaissance – nein, Frührenaissance, Verzeihung. Florenz, die Medici. Ich wette meine Krawatte, dass er dort ist.\"\n\n\"Du trägst gar keine Krawatte\", sagt Alex über Funk.\n\n\"Eben. So sicher bin ich mir.\"\n\nKAIROS braucht den Abstand in der Zeit. Der Zeitkristall springt in Etappen von je einem Jahrhundert, die übrigen Jahre erledigt die Feinsteuerung. *\"Mit `//` teile ich ohne Rest – das ergibt die ganzen Etappen\"*, erklärt KAIROS. *\"Und `%` liefert genau diesen Rest. Für Menschen erfahrungsgemäß der verwirrende Teil.\"*\n\n**Aufgabe:** Was gibt `print` aus?",
+          "lrs": "jetzt ist 2087, ziel ist 1455. Eine Etappe ist 100 Jahre lang.",
+          "vars": {},
+          "code": "jetzt = 2087\nziel = 1455\njahre_zurueck = jetzt - ziel\netappen = jahre_zurueck // 100\nfeinsteuerung = jahre_zurueck % 100\nprint(etappen, \"Etappen und\", feinsteuerung, \"Jahre\")",
+          "ask": {
+            "output": true
+          },
+          "options": [
+            "6 Etappen und 32 Jahre",
+            "6.32 Etappen und 32 Jahre",
+            "32 Etappen und 6 Jahre",
+            "6 Etappen und 632 Jahre"
+          ],
+          "hints": [
+            "Rechne zuerst `jahre_zurueck` aus: 2087 − 1455. Dann: Wie oft passt 100 *ganz* hinein – und was bleibt übrig?",
+            "2087 − 1455 = 632. Die 100 passt 6-mal ganz hinein (600), übrig bleiben 632 − 600 = …"
+          ],
+          "explain": "`jetzt - ziel` rechnet den Abstand aus: 632 Jahre. `//` ist die **ganzzahlige Division** – sie teilt und wirft alles hinter dem Komma weg, `632 // 100` ergibt 6. `%` (**Modulo**) liefert den Rest genau dieser Division: 632 − 6 · 100 = 32. Jedes Ergebnis landet per **Zuweisung** in einer eigenen Variable, mit der KAIROS danach weiterrechnen kann.",
+          "success": "*\"Sechs Etappen, 32 Jahre Feinsteuerung. Zielzeit gespeichert.\"* Dr. Wright nickt zufrieden, als hätte er das selbst ausgerechnet. Dann flackert der Hauptschirm rot: *\"Warnung. Zeitkoordinaten beschädigt.\"*"
+        },
+        {
+          "id": "1-2",
+          "type": "trace",
+          "title": "Verdrehte Zeitkoordinaten",
+          "text": "Auf dem Schirm stehen die Zielkoordinaten des Professors: Jahr **4**, Monat **15**, Tag **1455**.\n\n\"Monat 15? Tag 1455?\" Dr. Kim schüttelt den Kopf. \"Der Blitz hat die drei Werte im Kreis verschoben. Gemeint ist der 15. April 1455.\"\n\nAlex tippt schon. \"Ich mach einen Ringtausch. Mit der Hilfsvariable `puffer` – die merkt sich einen Wert, bevor er überschrieben wird. Hab ich mal in einem Tutorial gesehen. Ziemlich sicher. Also, halbwegs.\"\n\n*\"Ich führe die Zeilen von oben nach unten aus\"*, meldet KAIROS. *\"Eine nach der anderen. Auch die halbwegs sicheren.\"*\n\n**Aufgabe:** Welcher Wert steht am Ende in `monat`? Tippe die Zahl ein.",
+          "lrs": "Am Anfang: jahr ist 4, monat ist 15, tag ist 1455.",
+          "vars": {},
+          "code": "jahr = 4\nmonat = 15\ntag = 1455\npuffer = jahr\njahr = tag\ntag = monat\nmonat = puffer",
+          "ask": {
+            "var": "monat"
+          },
+          "hints": [
+            "Lege eine kleine Tabelle mit den Spalten `jahr`, `monat`, `tag` und `puffer` an. Trage nach jeder Zeile ein, was gerade in den Kisten liegt.",
+            "In Zeile 4 bekommt `puffer` die 4 aus `jahr` – und behält sie bis zum Schluss, auch wenn in `jahr` danach schon 1455 steht. Die letzte Zeile kopiert den Inhalt von `puffer`."
+          ],
+          "explain": "Beim **Ringtausch** rückt jeder Wert eine Kiste weiter. Weil jede **Zuweisung den alten Wert überschreibt**, rettet die **Hilfsvariable** `puffer` die 4, bevor `jahr = tag` sie verdrängt. Danach übernimmt `jahr` die 1455, `tag` die 15 – und ganz am Ende gibt `puffer` die gerettete 4 an `monat` weiter. Ohne `puffer` wäre die 4 nach Zeile 5 für immer verloren.",
+          "success": "*\"Zielzeit: 15. April 1455. Plausibel.\"* Alex reißt die Arme hoch. \"Tutorial-Wissen, Leute!\" Dr. Kim verdreht die Augen, lächelt aber. \"Dann schreib das bitte auch ins Logbuch. Ordentlich.\""
+        },
+        {
+          "id": "1-3",
+          "type": "trace",
+          "title": "Der Logbuch-Eintrag",
+          "text": "Jeder Zeitsprung gehört ins Logbuch, so will es das Institut. Der letzte Eintrag stammt vom Professor: *Sprung 1, Pilot: V. Steinberg.* Darunter ist noch Platz.\n\nAlex hat KAIROS ein Programm für den nächsten Eintrag geschrieben. \"Fast fertig. Nur meckert KAIROS jedes Mal, wenn ich Zahlen und Text mit `+` zusammenklebe.\"\n\n*\"Zu Recht\"*, meldet KAIROS. *\"Text plus Zahl ergibt bei mir einen Fehler. Erst `str()` macht aus einer Zahl einen Text.\"*\n\nDr. Okafor liest mit. \"Und `+` klebt ohne Leerzeichen. Bei `print` mit Komma kommt dagegen automatisch eins dazwischen. Sprache ist Präzisionsarbeit – auch für Maschinen.\"\n\n**Aufgabe:** Was gibt `print` genau aus?",
+          "lrs": "sprung_nr startet bei 1 und wird um 1 erhöht. Achte auf die Leerzeichen.",
+          "vars": {},
+          "code": "sprung_nr = 1\nsprung_nr = sprung_nr + 1\nziel = 1455\npilotin = \"M. Chen\"\neintrag = \"Sprung \" + str(sprung_nr) + \" nach \" + str(ziel)\neintrag = eintrag + \", Pilotin: \" + pilotin\nprint(\"LOG\", eintrag)",
+          "ask": {
+            "output": true
+          },
+          "options": [
+            "LOG Sprung 2 nach 1455, Pilotin: M. Chen",
+            "LOG Sprung 1 nach 1455, Pilotin: M. Chen",
+            "LOGSprung 2 nach 1455, Pilotin: M. Chen",
+            "LOG , Pilotin: M. Chen"
+          ],
+          "hints": [
+            "Welchen Wert hat `sprung_nr` nach Zeile 2? Und: Zeile 6 nimmt den *bisherigen* Inhalt von `eintrag` und hängt etwas hinten an.",
+            "`eintrag` enthält am Ende \"Sprung 2 nach 1455, Pilotin: M. Chen\". `print` setzt zwischen \"LOG\" und `eintrag` ein Leerzeichen."
+          ],
+          "explain": "`sprung_nr = sprung_nr + 1` **überschreibt** die 1 mit 2. `str()` wandelt die Zahlen in Text um, damit `+` sie mit anderen Texten **verketten** kann – ohne Leerzeichen, deshalb stecken die Leerzeichen schon in `\"Sprung \"` und `\" nach \"`. `eintrag = eintrag + …` hängt an den alten Text etwas an, statt ihn zu ersetzen. `print` mit Komma setzt zum Schluss ein Leerzeichen zwischen `\"LOG\"` und den Eintrag.",
+          "success": "Der Eintrag steht, direkt unter dem des Professors. Dr. Okafor fährt mit dem Finger über die Zeile. \"Sprung 2. Klingt wie ein Versprechen.\" Da ruft Dr. Kim aus dem Kristallraum: \"Bevor hier irgendwer springt, brauche ich eine Energierechnung!\""
+        },
+        {
+          "id": "1-4",
+          "type": "parsons",
+          "title": "Energie für den Sprung",
+          "text": "Der Zeitkristall schwebt in seiner Halterung und pulsiert in sanftem Violett. Dr. Kim tippt auf ihr Tablet. \"Die Regel ist simpel: 50 Einheiten pro Jahrhundert-Etappe. Dazu 100 Einheiten Grundenergie, um das Zeittor überhaupt zu öffnen. Die 32 Restjahre schafft die Feinsteuerung gratis.\"\n\n\"Gratis?\", fragt Alex. \"Seit wann ist in der Physik irgendwas gratis?\"\n\n\"Seit dem Kleingedruckten.\"\n\nDr. Kims Programm ist beim Blitz durcheinandergeraten – und eine Zeile gehört gar nicht dazu. *\"Ich rechne nur mit Variablen, die schon einen Wert haben\"*, erinnert KAIROS. *\"Ich reise durch die Zeit. Aber nicht durch mein eigenes Programm.\"*\n\n**Aufgabe:** Bringe die Zeilen in die richtige Reihenfolge und sortiere die falsche Zeile aus.",
+          "lrs": "632 Jahre zurück. 50 Einheiten pro volle 100 Jahre, dazu 100 Einheiten Grundenergie.",
+          "vars": {},
+          "solution": "jahre_zurueck = 2087 - 1455\netappen = jahre_zurueck // 100\npro_etappe = 50\nsprungenergie = etappen * pro_etappe\nsprungenergie = sprungenergie + 100\nprint(\"Sprungenergie:\", sprungenergie)",
+          "distractors": [
+            "etappen = jahre_zurueck % 100"
+          ],
+          "tests": [
+            {
+              "label": "KAIROS meldet: Sprungenergie: 400",
+              "output": [
+                "Sprungenergie: 400"
+              ]
+            }
+          ],
+          "hints": [
+            "Welche Variablen braucht die Zeile `sprungenergie = etappen * pro_etappe`? Die müssen vorher schon einen Wert haben. Die 100 Grundenergie kann erst dazukommen, wenn es `sprungenergie` schon gibt.",
+            "Reihenfolge: `jahre_zurueck` (632) → `etappen` (6) → `pro_etappe` → `sprungenergie` (300) → `+ 100` → `print`. Die Zeile mit `%` liefert die 32 Restjahre, nicht die Etappen."
+          ],
+          "explain": "Ein Programm läuft von oben nach unten: Eine Variable muss einen Wert haben, **bevor** man mit ihr rechnet. Deshalb zählt die **Reihenfolge der Zuweisungen** – erst die Zeitspanne, dann die Etappen, dann die Energie. `sprungenergie = sprungenergie + 100` klappt nur, wenn `sprungenergie` schon existiert, und muss vor dem `print` stehen. Der Ablenker mit `%` hätte mit den 32 Restjahren gerechnet: 32 · 50 + 100 = 1700 Einheiten – genug, um den Kristall zu sprengen.",
+          "success": "*\"Sprungenergie: 400 Einheiten. Kristall bereit.\"* Das Violett wird zu strahlendem Gold. Dr. Kim atmet tief durch. \"Bleibt nur eine Frage: Lässt KAIROS dich überhaupt fliegen?\""
+        }
+      ]
+    },
+    {
+      "id": "k2",
+      "title": "Florenz, 1455",
+      "concept": "Bedingungen: if / elif / else",
+      "image": "images/zeitreise/k2.webp",
+      "intro": "Die Energie ist berechnet, die Zielzeit gespeichert. Doch KAIROS rührt sich nicht.\n\n*\"Vor jedem Sprung prüfe ich Bedingungen\"*, erklärt die KI. *\"Ist eine Bedingung wahr, führe ich den eingerückten Block darunter aus. Ist sie falsch, schaue ich beim nächsten `elif` nach. Passt gar nichts, nehme ich den `else`-Zweig.\"*\n\nAlex lehnt sich im Kontrollraum zurück. \"Wenn – sonst wenn – sonst. Wie meine Oma beim Backen: Wenn keine Eier da sind, nimm Bananen. Sonst gibt's Kekse aus der Dose.\"\n\nDr. Wright seufzt. \"Ich hoffe inständig, dass Zeitreisen präziser ablaufen als das Backen deiner Großmutter.\"\n\nIrgendwo in Florenz wartet der Professor. Hoffentlich.",
+      "missions": [
+        {
+          "id": "2-1",
+          "type": "choice",
+          "title": "Das Junior-Protokoll",
+          "text": "Du setzt dich in die Chronos-Kapsel. Der Sitz ist noch warm vom Professor – oder du bildest dir das nur ein. Ein Scanner fährt über dein Gesicht, auf dem Display erscheint dein Alter: 23.\n\n*\"Sicherheitsprotokoll\"*, meldet KAIROS. *\"Vollzugriff auf alle Epochen erhalten nur Forschende ab 25 Jahren. Professor Steinberg hat diese Regel geschrieben. Er fand sie damals sehr klug.\"*\n\nAlex prustet über Funk. \"Und jetzt sperrt er damit seine eigene Rettung aus. Typisch Professor.\"\n\nDr. Kim beugt sich zum Mikrofon. \"Gibt es denn keinen Notfallmodus?\"\n\n**Aufgabe:** Welcher Zweig wird ausgeführt? Klicke die richtige Zeile an.",
+          "lrs": "forscher_alter ist 23.",
+          "vars": {
+            "forscher_alter": 23
+          },
+          "code": "if forscher_alter >= 25:\n    vollzugriff_gewaehren()\nelse:\n    junior_protokoll_aktivieren()",
+          "hints": [
+            "Setze 23 in die Bedingung ein: Ist `23 >= 25` wahr oder falsch?",
+            "`23 >= 25` ist False. Dann überspringt KAIROS den eingerückten Block unter `if` und nimmt den Zweig für „alle anderen Fälle“."
+          ],
+          "explain": "KAIROS wertet `forscher_alter >= 25` aus: `23 >= 25` ist **False**. Deshalb wird der Block unter `if` übersprungen und der **else-Zweig** ausgeführt. `else` hat keine eigene Bedingung – er fängt alle Fälle auf, in denen das `if` nicht passt. So gibt es für jedes Alter einen Plan.",
+          "success": "*\"Junior-Protokoll aktiv. Erlaubte Epochen: eine. Ziel: 1455.\"* Alex jubelt. \"Eine reicht doch!\" Auf dem Display erscheint die nächste Prüfung – diesmal geht es um die Zeitlinie selbst."
+        },
+        {
+          "id": "2-2",
+          "type": "choice",
+          "title": "Volle Kraft oder Sicherheitsnetz?",
+          "text": "Ein neues Diagramm leuchtet auf: eine goldene Linie, die sich durch die Jahrhunderte schlängelt – die **Zeitstabilität**. Sie steht bei **{stabilitaet}%**.\n\n\"Jeder Steuerfehler hinterlässt Kratzer in der Geschichte\", erklärt Dr. Kim. \"Ist die Linie ruhig, springt KAIROS mit voller Kraft. Ist sie unruhig, springt er vorsichtig – mit Sicherheitsnetz. Das dauert länger, aber es reißt nichts.\"\n\n\"Und ab wann wird's unruhig?\", fragt Alex.\n\n*\"Unter 90 Prozent\"*, antwortet KAIROS. *\"Panik ist in meiner Rechnung nicht vorgesehen. Nur Prozente.\"*\n\n**Aufgabe:** Die Zeitstabilität steht bei {stabilitaet}%. Welcher Zweig wird ausgeführt?",
+          "lrs": "Vergleiche deine aktuelle Zeitstabilität mit der Grenze 90.",
+          "useResources": [
+            "stabilitaet"
+          ],
+          "vars": {},
+          "code": "if stabilitaet >= 90:\n    sprung_mit_voller_kraft()\nelse:\n    sprung_mit_sicherheitsnetz()",
+          "hints": [
+            "Schau auf deinen aktuellen Wert bei der Zeitstabilität: Ist er mindestens 90?",
+            "Ist `stabilitaet >= 90` wahr, läuft der `if`-Zweig. Ist die Bedingung falsch – zum Beispiel bei 86 –, übernimmt der `else`-Zweig."
+          ],
+          "explain": "Die Bedingung vergleicht deine **aktuelle Zeitstabilität** mit der Grenze 90. `>=` heißt „größer oder gleich“ – auch genau 90 würde reichen. Weil es ein `else` gibt, hat KAIROS für **jeden** Wert zwischen 0 und 100 einen Plan: Entweder die Bedingung stimmt, oder der else-Zweig übernimmt. Ohne `else` würde KAIROS bei unruhiger Zeitlinie einfach gar nichts tun.",
+          "success": "KAIROS wählt den passenden Sprungmodus, der Kristall summt lauter. Doch bevor der Countdown startet, räuspert sich Dr. Wright im Kontrollraum. \"Einen Moment noch. Darüber sollte das Team abstimmen.\""
+        },
+        {
+          "id": "2-3",
+          "type": "choice",
+          "title": "Die Abstimmung",
+          "text": "Im Kontrollraum stehen vier Menschen vor dem Mikrofon. Das Institut verlangt vor jedem Sprung eine Abstimmung im Team.\n\nAlex: \"Ja. Logisch.\" Dr. Kim: \"Ja. Der Kristall ist bereit.\" Dr. Okafor: \"Ja. Ich will wissen, was in diesen Notizen steht.\"\n\nDr. Wright zögert. \"Maya, nichts gegen dich. Aber du warst bis heute Morgen Assistentin. Ich enthalte mich.\"\n\n*\"Drei von vier Stimmen\"*, meldet KAIROS. *\"Ich kenne drei Stufen. Ich prüfe von oben nach unten und nehme die erste, die passt. Danach höre ich auf zu suchen.\"*\n\n**Aufgabe:** Welcher Zweig wird ausgeführt?",
+          "lrs": "zustimmung ist 3.",
+          "vars": {
+            "zustimmung": 3
+          },
+          "code": "if zustimmung == 4:\n    volle_missionsleitung()\nelif zustimmung >= 2:\n    leitung_mit_funkberatung()\nelse:\n    sprung_abbrechen()",
+          "hints": [
+            "Prüfe die Bedingungen der Reihe nach mit 3. `==` fragt: Ist der Wert *genau gleich*? Ist `3 == 4` wahr?",
+            "`3 == 4` ist False, `3 >= 2` ist True – genau dort hört KAIROS auf zu suchen."
+          ],
+          "explain": "`==` prüft auf **Gleichheit** – nicht zu verwechseln mit `=`, der Zuweisung. Bei **if/elif/else** prüft KAIROS von oben nach unten und führt **nur den ersten wahren Zweig** aus: `3 == 4` ist False, `3 >= 2` ist True, also läuft der elif-Zweig. Das `else` käme nur dran, wenn höchstens eine Person zustimmt.",
+          "success": "*\"Missionsleitung: Dr. Maya Chen, mit Funkberatung.\"* Dr. Wright nickt dir knapp zu. \"Dann berate ich eben. Gründlich.\" Der Countdown läuft – drei, zwei, eins – und die Welt löst sich in goldenes Licht auf.",
+          "onSuccess": [
+            {
+              "res": "fragmente",
+              "inc": 3
+            },
+            {
+              "res": "vertrauen",
+              "inc": 5
+            }
+          ]
+        },
+        {
+          "id": "2-4",
+          "type": "trace",
+          "title": "Landung in der Gasse",
+          "text": "Kopfsteinpflaster. Der Geruch von Holzfeuer und Pferden. Über dir hängt Wäsche zwischen den Häusern. Florenz, 1455.\n\n\"Wir sind da!\", flüstert Alex. Dr. Wright ist kaum zu bremsen: \"Cosimo de' Medici regiert die Stadt, und ein paar Stunden von hier, in Vinci, spielt ein Dreijähriger namens Leonardo im Matsch!\"\n\nDer Kristall hatte 85 Einheiten, die Landung hat 20 gekostet. Jetzt wählt KAIROS dein Tarnfeld: Je mehr Energie übrig ist, desto höher die Stufe – und jede Stufe frisst 10 Einheiten.\n\n\"85 ist mehr als 70, also Stufe 3!\", ruft Alex.\n\nDr. Kim seufzt. \"Lies die zweite Zeile noch mal, Alex.\"\n\n**Aufgabe:** Welcher Wert steht am Ende in `kristall`? Tippe die Zahl ein.",
+          "lrs": "kristall ist am Anfang 85, die Landung kostet 20.",
+          "vars": {},
+          "code": "kristall = 85\nkristall = kristall - 20\nif kristall >= 70:\n    tarnstufe = 3\nelif kristall >= 50:\n    tarnstufe = 2\nelse:\n    tarnstufe = 1\nkristall = kristall - 10 * tarnstufe",
+          "ask": {
+            "var": "kristall"
+          },
+          "hints": [
+            "Welchen Wert hat `kristall` *nach* Zeile 2 – also in dem Moment, in dem KAIROS die Bedingungen prüft?",
+            "Nach der Landung sind es 65. `65 >= 70` ist False, `65 >= 50` ist True – also `tarnstufe = 2`. Die letzte Zeile ist nicht eingerückt und läuft immer: 65 − 10 · 2 = …"
+          ],
+          "explain": "KAIROS prüft die Bedingungen mit dem **aktuellen** Wert – und der ist nach der Landung schon 65, nicht mehr 85. `65 >= 70` ist False, `65 >= 50` ist True: Nur der elif-Zweig läuft, denn in einem if/elif/else-Block wird **höchstens ein Zweig** ausgeführt. Die letzte Zeile ist **nicht eingerückt**, gehört nicht mehr zum Block und läuft deshalb in jedem Fall: 65 − 20 = 45.",
+          "success": "*\"Tarnstufe 2. Restenergie: 45.\"* Da löst sich ein Mann im dunklen Umhang aus einem Torbogen, drückt dir einen Zettel in die Hand und verschwindet, bevor du ein Wort sagen kannst. In krakeliger Handschrift steht dort: *„Die Kunstwerke sind der Schlüssel. Verhindere den Diebstahl.“*"
+        },
+        {
+          "id": "2-5",
+          "type": "fill",
+          "title": "Die Tarnregel",
+          "text": "Diese Handschrift! War das der Professor? Du willst ihm nach, doch die Gasse mündet auf einen Platz voller Händler, Mönche und gackernder Hühner.\n\n\"Halt!\", zischt Dr. Wright. \"Eine Frau im Laborkittel, mitten in Florenz? Du brauchst eine Regel, wann du dich zeigen darfst!\"\n\nGemeinsam legt ihr fest: Sehen dich **mehr als 5** Menschen, bleibt das Tarnfeld an. Bei **1 bis 5** Menschen zeigst du dich – im Renaissance-Kostüm, das KAIROS über deinen Kittel projiziert. Ist **niemand** da, schaltet KAIROS alles ab und spart Energie.\n\n*\"Die erste Bedingung fehlt\"*, meldet KAIROS. *\"Bei Tarnung rate ich ungern.\"*\n\n**Aufgabe:** Schreibe die fehlende Bedingung für `menschen_in_sicht`.",
+          "lrs": "Mehr als 5 Menschen: Tarnfeld. 1 bis 5: Kostüm. 0: Energie sparen.",
+          "vars": {
+            "menschen_in_sicht": 12
+          },
+          "code": "if ___:\n    modus = \"tarnfeld\"\nelif menschen_in_sicht >= 1:\n    modus = \"kostuem\"\nelse:\n    modus = \"energie_sparen\"",
+          "solution": [
+            "menschen_in_sicht > 5"
+          ],
+          "tests": [
+            {
+              "label": "Marktplatz mit 12 Menschen → Tarnfeld",
+              "vars": {
+                "menschen_in_sicht": 12
+              },
+              "expect": {
+                "modus": "tarnfeld"
+              }
+            },
+            {
+              "label": "6 Menschen → Tarnfeld (Grenzfall)",
+              "vars": {
+                "menschen_in_sicht": 6
+              },
+              "expect": {
+                "modus": "tarnfeld"
+              }
+            },
+            {
+              "label": "genau 5 Menschen → Kostüm (Grenzfall)",
+              "vars": {
+                "menschen_in_sicht": 5
+              },
+              "expect": {
+                "modus": "kostuem"
+              }
+            },
+            {
+              "label": "1 Mensch → Kostüm",
+              "vars": {
+                "menschen_in_sicht": 1
+              },
+              "expect": {
+                "modus": "kostuem"
+              }
+            },
+            {
+              "label": "niemand in Sicht → Energie sparen",
+              "vars": {
+                "menschen_in_sicht": 0
+              },
+              "expect": {
+                "modus": "energie_sparen"
+              }
+            }
+          ],
+          "hints": [
+            "„Mehr als 5“ – welcher Vergleichsoperator passt? Prüfe deine Bedingung im Kopf mit den Grenzfällen 5 und 6.",
+            "Die Bedingung lautet `menschen_in_sicht > 5`. Mit `>= 5` bliebe das Tarnfeld schon bei genau 5 Menschen an – dann dürftest du dich dort nicht im Kostüm zeigen."
+          ],
+          "explain": "„Mehr als 5“ heißt **größer als**: `menschen_in_sicht > 5` (gleichwertig: `>= 6`). Auch die Reihenfolge ist entscheidend: Weil KAIROS **von oben nach unten** prüft, muss der strengste Fall zuerst kommen – stünde `menschen_in_sicht >= 1` oben, würde es auch den vollen Marktplatz abfangen. Die **Grenzfälle** 5 und 6 zeigen, ob `>` oder `>=` richtig ist.",
+          "success": "Im Kostüm schlenderst du über den Platz, niemand dreht sich nach dir um. Vor einer Werkstatt flüstert Dr. Wright: \"Donatello! Er arbeitet gerade an einer hölzernen Maria Magdalena!\" Doch im Halbdunkel greift eine schwarz gekleidete Gestalt nach einer Skizze – in der anderen Hand ein leuchtendes Gerät, das ganz sicher nicht aus dem 15. Jahrhundert stammt."
+        }
+      ]
+    },
+    {
+      "id": "k3",
+      "title": "Die Wächter",
+      "concept": "Logische Operatoren: and / or / not",
+      "image": "images/zeitreise/k3.webp",
+      "intro": "Die Gestalt hebt ihr Gerät. Ein greller Blitz, ein Sog wie von einem riesigen Staubsauger – und Florenz ist weg.\n\nNebel. Kalte, feuchte Luft. Fachwerkhäuser, schief wie schlechte Zähne. *\"Ungeplanter Sprung\"*, meldet KAIROS. *\"Jahr: 1347. Ich war das nicht.\"*\n\n\"1347?\", krächzt Dr. Wright im Kommunikator. \"Da gibt es noch nicht mal Buchdruck – Gutenberg wird erst in gut fünfzig Jahren geboren. Von Zeitmaschinen ganz zu schweigen.\"\n\nAus dem Nebel nähern sich Schritte. *\"Ab jetzt hängt alles zusammen\"*, sagt KAIROS. *\"`and`: beides muss stimmen. `or`: eins reicht. `not`: dreht wahr und falsch um.\"*",
+      "missions": [
+        {
+          "id": "3-1",
+          "type": "choice",
+          "title": "Schild oder Nebel?",
+          "text": "Drei Gestalten in schwarzen Mänteln tauchen am Ende der Gasse auf. Ihre Geräte surren, auf ihren Ärmeln glimmt eine Jahreszahl: **2157**.\n\n\"Chronos-Wächter!\", ruft Dr. Okafor. \"Das Wort steht in Steinbergs Notizen. Dreimal unterstrichen.\"\n\nKAIROS will den Zeitschild hochfahren. Der braucht mindestens 30 Einheiten Kristallenergie **und** Wächter in höchstens 20 Metern Entfernung – sonst verpufft er. Nach dem ungewollten Sprung hat der Kristall nur noch 25 Einheiten, die Wächter sind 15 Meter entfernt.\n\n\"Bei `and` müssen *beide* Teile stimmen\", erinnert dich Dr. Kim. \"Einer allein reicht nicht.\"\n\n**Aufgabe:** Welcher Zweig wird ausgeführt?",
+          "lrs": "kristall ist 25, waechter_entfernung ist 15.",
+          "vars": {
+            "kristall": 25,
+            "waechter_entfernung": 15
+          },
+          "code": "if kristall >= 30 and waechter_entfernung <= 20:\n    zeitschild_aktivieren()\nelif waechter_entfernung <= 50:\n    im_nebel_ducken()\nelse:\n    leise_weitergehen()",
+          "hints": [
+            "Prüfe beim `and` beide Seiten einzeln: Ist `25 >= 30` wahr? Ist `15 <= 20` wahr?",
+            "`25 >= 30` ist False – damit ist die ganze `and`-Bedingung False, obwohl die Wächter nah sind. Weiter mit dem `elif`: Ist `15 <= 50`?"
+          ],
+          "explain": "Eine **and-Verknüpfung** ist nur True, wenn **beide** Teile True sind. `waechter_entfernung <= 20` stimmt zwar, aber `kristall >= 30` ist False – also ist die gesamte erste Bedingung False, und der Schild bleibt aus. Danach prüft KAIROS das `elif`: `15 <= 50` ist True, deshalb duckst du dich in den Nebel.",
+          "success": "Du presst dich in einen Hauseingang, der Nebel schluckt deine Umrisse. Die Wächter ziehen vorbei, so nah, dass du ihre Geräte piepen hörst. Dann knistert es in deinem Ohr – Alex will dich sprechen. Ausgerechnet jetzt."
+        },
+        {
+          "id": "3-2",
+          "type": "choice",
+          "title": "Funkspruch im Nebel",
+          "text": "\"Maya? Maya!\" Alex' Stimme ist kaum mehr als ein Rauschen. \"Signalstärke 30 Prozent. Für ein Gespräch zu wenig. Aber die Verschlüsselung läuft!\"\n\n\"Ist das wichtig?\", flüsterst du.\n\n\"Total! Die Wächter haben Technik aus dem Jahr 2157. Unverschlüsselt hören die jedes Wort mit.\"\n\nKAIROS hat zwei Wahrheitswerte gespeichert: `verschluesselung_aktiv` und `entdeckt`. Beide stehen ganz ohne Vergleich in der Bedingung – sie enthalten selbst schon `True` oder `False`. Vor `entdeckt` steht ein `not`. Bisher haben die Wächter dich nicht entdeckt.\n\n**Aufgabe:** Welcher Zweig wird ausgeführt?",
+          "lrs": "signal_staerke ist 30, verschluesselung_aktiv ist True, entdeckt ist False.",
+          "vars": {
+            "signal_staerke": 30,
+            "verschluesselung_aktiv": true,
+            "entdeckt": false
+          },
+          "code": "if signal_staerke >= 60:\n    sprachverbindung_starten()\nelif verschluesselung_aktiv and not entdeckt:\n    kurznachricht_senden()\nelse:\n    funkstille_halten()",
+          "hints": [
+            "Ist `30 >= 60` wahr? Wenn nicht: Was steht in `verschluesselung_aktiv` – und was macht `not` aus `entdeckt`?",
+            "`entdeckt` ist False, also ist `not entdeckt` True. `True and True` ergibt True – welcher Zweig läuft also?"
+          ],
+          "explain": "`verschluesselung_aktiv` und `entdeckt` sind **Boolean-Variablen**: Sie speichern direkt True oder False und können allein als Bedingung stehen. `not` **dreht den Wahrheitswert um**: Aus `entdeckt = False` wird `not entdeckt` = True. Weil `30 >= 60` False ist, prüft KAIROS das elif: `True and True` ist True, also geht eine verschlüsselte Kurznachricht hinaus.",
+          "success": "*\"Kurznachricht gesendet: 1347. Wächter hier. Alles okay.\"* Das „okay“ war leicht übertrieben. Hinter dir knackt ein Ast – und eine schwarze Gestalt richtet ihr Gerät direkt auf dich."
+        },
+        {
+          "id": "3-3",
+          "type": "choice",
+          "title": "Flucht über die Dächer",
+          "text": "\"Da ist sie!\" Drei Wächter kommen auf dich zu. Du rennst.\n\nKAIROS rechnet im Laufen. Gegen höchstens zwei Wächter **oder** mit mindestens 50 Einheiten Kristallenergie könntest du einen Zeitimpuls abfeuern, der ihre Geräte kurz lahmlegt. Im Nebel verschwinden klappt nur, wenn der Nebel dicht ist **und** sie dich **nicht** schon entdeckt haben.\n\nDie Lage: drei Wächter, 25 Einheiten im Kristall, dichter Nebel – und entdeckt bist du leider auch.\n\nDr. Wright japst im Kommunikator, als würde er selbst rennen. \"Mittelalterliche Häuser stehen so eng, dass man von Dach zu Dach springen kann! Theoretisch!\"\n\n**Aufgabe:** Welchen Fluchtweg wählt KAIROS?",
+          "lrs": "waechter_anzahl ist 3, kristall ist 25, nebel_dicht ist True, entdeckt ist True.",
+          "vars": {
+            "waechter_anzahl": 3,
+            "kristall": 25,
+            "nebel_dicht": true,
+            "entdeckt": true
+          },
+          "code": "if waechter_anzahl <= 2 or kristall >= 50:\n    zeitimpuls_abfeuern()\nelif nebel_dicht and not entdeckt:\n    im_nebel_verschwinden()\nelse:\n    ueber_die_daecher_fliehen()",
+          "hints": [
+            "Beim `or` reicht eine wahre Seite. Ist `3 <= 2` wahr? Ist `25 >= 50` wahr?",
+            "Beide Seiten des `or` sind False – das `if` fällt weg. Beim `elif` ist `nebel_dicht` True, aber `entdeckt` ist True, also ist `not entdeckt` False. Was bleibt übrig?"
+          ],
+          "explain": "Die erste Bedingung ist eine **or-Verknüpfung**: Sie wäre schon True, wenn **eine** Seite stimmt – aber `3 <= 2` und `25 >= 50` sind beide False. Die zweite ist eine **and-Verknüpfung** mit `not`: `nebel_dicht` ist True, doch `not entdeckt` ist False, und bei `and` reicht ein einziges False, um alles zu kippen. Weil keine Bedingung passt, läuft der else-Zweig.",
+          "success": "Über ein Fass kletterst du auf ein Vordach, von dort aufs nächste Dach. Ziegel rutschen unter deinen Füßen weg, aber die Wächter kommen nicht hinterher. \"Theoretisch hat geklappt!\", jubelt Dr. Wright."
+        },
+        {
+          "id": "3-4",
+          "type": "bug",
+          "title": "Der gierige Zeitschild",
+          "text": "Auf dem Dach ist es still, kein Wächter weit und breit. Dr. Kim hat dir aus 2087 eine Notladung geschickt: 60 Einheiten.\n\nDoch kaum ist die Energie im Kristall, flammt der Zeitschild auf – ohne jeden Grund. \"Der Schild frisst 25 Einheiten pro Einsatz!\", ruft Dr. Kim. \"So ist der Kristall in Minuten leer!\"\n\nEigentlich soll die Regel lauten: Schild nur, wenn mindestens 30 Einheiten da sind **und** Wächter in der Nähe sind. KAIROS' Code sieht das offenbar anders.\n\n*\"Ich führe aus, was dasteht\"*, sagt KAIROS. *\"Mit großer Begeisterung.\"*\n\n**Aufgabe:** Finde die fehlerhafte Zeile und repariere sie.",
+          "lrs": "Schild nur an, wenn kristall mindestens 30 ist und waechter_nah True ist.",
+          "vars": {
+            "kristall": 60,
+            "waechter_nah": false
+          },
+          "code": "schild_an = False\nif kristall >= 30 or waechter_nah:\n    schild_an = True\n    kristall = kristall - 25\nprint(\"Kristall:\", kristall)",
+          "bugLine": 2,
+          "fix": "if kristall >= 30 and waechter_nah:",
+          "tests": [
+            {
+              "label": "60 Einheiten, Wächter nah → Schild an, Kristall 35",
+              "vars": {
+                "kristall": 60,
+                "waechter_nah": true
+              },
+              "expect": {
+                "schild_an": true,
+                "kristall": 35
+              }
+            },
+            {
+              "label": "60 Einheiten, keine Wächter → Schild bleibt aus, nichts verschwendet",
+              "vars": {
+                "kristall": 60,
+                "waechter_nah": false
+              },
+              "expect": {
+                "schild_an": false,
+                "kristall": 60
+              }
+            },
+            {
+              "label": "20 Einheiten, Wächter nah → zu wenig Energie, Schild bleibt aus",
+              "vars": {
+                "kristall": 20,
+                "waechter_nah": true
+              },
+              "expect": {
+                "schild_an": false,
+                "kristall": 20
+              }
+            },
+            {
+              "label": "20 Einheiten, keine Wächter → Schild bleibt aus",
+              "vars": {
+                "kristall": 20,
+                "waechter_nah": false
+              },
+              "expect": {
+                "schild_an": false,
+                "kristall": 20
+              }
+            },
+            {
+              "label": "genau 30 Einheiten, Wächter nah → Schild an (Grenzfall)",
+              "vars": {
+                "kristall": 30,
+                "waechter_nah": true
+              },
+              "expect": {
+                "schild_an": true,
+                "kristall": 5
+              }
+            }
+          ],
+          "hints": [
+            "Setze die Werte vom Dach ein: `kristall` ist 60, `waechter_nah` ist False. Wie viele Seiten müssen bei `or` stimmen, damit der Schild zündet?",
+            "Mit `or` reicht schon genug Energie – die Wächter sind egal. Und bei 20 Einheiten würde der Schild trotzdem zünden, sobald Wächter nah sind: 20 − 25 = −5. Beide Bedingungen müssen gelten: Ersetze `or` durch `and`."
+          ],
+          "explain": "`or` ist True, sobald **eine** Seite True ist: Genug Energie allein reichte, und der Schild zündete auch ohne Wächter. Umgekehrt hätte ein naher Wächter genügt, selbst bei fast leerem Kristall – der Wert wäre ins Minus gerutscht. `and` verlangt, dass **beide** Bedingungen True sind. Darum prüfen die Tests alle vier Kombinationen und den Grenzfall 30.",
+          "success": "*\"Schild-Regel korrigiert. Kristall: 60 Einheiten.\"* Dr. Kim lässt sich hörbar in ihren Stuhl fallen. \"Nie wieder `or`, wenn ich `and` meine.\" Unten in der Gasse leuchten wieder Geräte auf: Die Wächter sind an der Stadtmauer – genau dort, wo dein einziger Weg hinausführt."
+        },
+        {
+          "id": "3-5",
+          "type": "fill",
+          "title": "Der Weg hinaus",
+          "text": "Vor dir liegt die Stadtmauer, dahinter Felder und Wald – und irgendwo dort der Punkt, an dem KAIROS dich zurückholen kann.\n\nDr. Okafor hat aus Steinbergs Notizen und Alex' Messwerten eine Regel gebaut. \"Du kommst raus, wenn das Stadttor offen ist **und** dich **niemand** verfolgt. **Oder** wenn der Kristall mindestens 30 Einheiten hat – dann hüpfst du per Kurzsprung einfach über die Mauer.\"\n\nDr. Wright ergänzt: \"KAIROS rechnet `and` vor `or`. Wie Punkt vor Strich. Das ist übrigens keine historische Tatsache, sondern Mathematik.\"\n\n*\"Fluchtbedingung fehlt\"*, meldet KAIROS. *\"Die Wächter warten nicht.\"*\n\n**Aufgabe:** Schreibe die Bedingung mit `tor_offen`, `verfolgt` und `kristall`.",
+          "lrs": "Frei, wenn tor_offen True und verfolgt False ist – oder wenn kristall mindestens 30 ist.",
+          "vars": {
+            "tor_offen": true,
+            "verfolgt": true,
+            "kristall": 60
+          },
+          "code": "if ___:\n    fluchtweg = \"frei\"\nelse:\n    fluchtweg = \"versperrt\"\nprint(\"KAIROS: Fluchtweg\", fluchtweg)",
+          "solution": [
+            "tor_offen and not verfolgt or kristall >= 30"
+          ],
+          "tests": [
+            {
+              "label": "Tor offen, nicht verfolgt, 10 Einheiten → frei",
+              "vars": {
+                "tor_offen": true,
+                "verfolgt": false,
+                "kristall": 10
+              },
+              "expect": {
+                "fluchtweg": "frei"
+              }
+            },
+            {
+              "label": "Tor offen, verfolgt, 10 Einheiten → versperrt",
+              "vars": {
+                "tor_offen": true,
+                "verfolgt": true,
+                "kristall": 10
+              },
+              "expect": {
+                "fluchtweg": "versperrt"
+              }
+            },
+            {
+              "label": "Tor zu, nicht verfolgt, 10 Einheiten → versperrt",
+              "vars": {
+                "tor_offen": false,
+                "verfolgt": false,
+                "kristall": 10
+              },
+              "expect": {
+                "fluchtweg": "versperrt"
+              }
+            },
+            {
+              "label": "Tor zu, verfolgt, 10 Einheiten → versperrt",
+              "vars": {
+                "tor_offen": false,
+                "verfolgt": true,
+                "kristall": 10
+              },
+              "expect": {
+                "fluchtweg": "versperrt"
+              }
+            },
+            {
+              "label": "Tor offen, nicht verfolgt, 50 Einheiten → frei",
+              "vars": {
+                "tor_offen": true,
+                "verfolgt": false,
+                "kristall": 50
+              },
+              "expect": {
+                "fluchtweg": "frei"
+              }
+            },
+            {
+              "label": "Tor offen, verfolgt, 50 Einheiten → frei (Kurzsprung)",
+              "vars": {
+                "tor_offen": true,
+                "verfolgt": true,
+                "kristall": 50
+              },
+              "expect": {
+                "fluchtweg": "frei"
+              }
+            },
+            {
+              "label": "Tor zu, nicht verfolgt, 50 Einheiten → frei (Kurzsprung)",
+              "vars": {
+                "tor_offen": false,
+                "verfolgt": false,
+                "kristall": 50
+              },
+              "expect": {
+                "fluchtweg": "frei"
+              }
+            },
+            {
+              "label": "Tor zu, verfolgt, 50 Einheiten → frei (Kurzsprung)",
+              "vars": {
+                "tor_offen": false,
+                "verfolgt": true,
+                "kristall": 50
+              },
+              "expect": {
+                "fluchtweg": "frei"
+              }
+            },
+            {
+              "label": "Tor zu, verfolgt, genau 30 Einheiten → frei (Grenzfall)",
+              "vars": {
+                "tor_offen": false,
+                "verfolgt": true,
+                "kristall": 30
+              },
+              "expect": {
+                "fluchtweg": "frei"
+              }
+            }
+          ],
+          "require": [
+            {
+              "pattern": " and ",
+              "message": "Verknüpfe Tor und Verfolgung mit `and`."
+            },
+            {
+              "pattern": " or ",
+              "message": "Der Kurzsprung ist ein zweiter Weg – verbinde ihn mit `or`."
+            },
+            {
+              "pattern": "not ",
+              "message": "„Niemand verfolgt dich“ – prüfe `verfolgt` mit `not`."
+            }
+          ],
+          "hints": [
+            "Zerlege die Regel in zwei Wege: „Tor offen und nicht verfolgt“ – oder „genug Kristallenergie“. Welcher Operator verbindet die beiden Wege? Und wie schreibst du „nicht“?",
+            "Die Bedingung lautet `tor_offen and not verfolgt or kristall >= 30`. Weil `and` vor `or` gerechnet wird, brauchst du keine Klammern – mit `(tor_offen and not verfolgt) or kristall >= 30` wird es aber noch deutlicher."
+          ],
+          "explain": "Die Regel hat zwei Wege nach draußen: `tor_offen and not verfolgt` (beides muss stimmen) **oder** `kristall >= 30` (das allein reicht). `not` dreht `verfolgt` um, `and` verlangt beide Teile, `or` verbindet die beiden Wege. Weil Python `and` **vor** `or` auswertet, stimmt die Regel auch ohne Klammern – mit Klammern ist sie aber leichter zu lesen. Die Tests prüfen alle acht Kombinationen und den Grenzfall 30.",
+          "success": "*\"Fluchtweg frei. Kurzsprung bereit.\"* Doch bevor du springen kannst, packt dich eine Hand und zieht dich in einen dunklen Kellereingang: zerzauster grauer Bart, verbogene Brille – **Professor Steinberg**! \"Nicht springen, Maya! Die Wächter haben überall Zeitenergie-Blocker aufgestellt. Um hier rauszukommen, müssen wir den Kristall laden – Runde für Runde.\"",
+          "onSuccess": [
+            {
+              "res": "fragmente",
+              "inc": 3
+            },
+            {
+              "res": "vertrauen",
+              "inc": 5
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "k4",
+      "title": "Rom im Zeitstrudel",
+      "concept": "Schleifen (while & for)",
+      "image": "images/zeitreise/k4.webp",
+      "intro": "Das Versteck ist ein enger Gewölbekeller unter einer Mühle. Professor Steinberg – zerzaustes Haar, Laborkittel unter einem geliehenen Mönchsumhang – klopft auf den matt glimmenden Zeitkristall. \"Die Blocker der Wächter haben ihn fast leergesaugt. Wir laden ihn Runde für Runde auf, wie einen alten Akku.\"\n\nKAIROS meldet sich: *\"Wiederholung erkannt. Dafür gibt es Schleifen. Eine `while`-Schleife wiederholt ihren Körper, solange eine Bedingung wahr ist. Eine `for`-Schleife läuft eine feste Anzahl von Runden, zum Beispiel mit `range()`.\"*\n\nSteinberg strahlt. \"Siehst du, Maya? Die Maschine mag dich.\"\n\n*\"Die Maschine mag korrekte Abbruchbedingungen\"*, korrigiert KAIROS. *\"Ohne sie wird aus einer Schleife eine Zeitschleife.\"*",
+      "missions": [
+        {
+          "id": "4-1",
+          "type": "trace",
+          "title": "Runde für Runde",
+          "text": "Im Keller ist es still, nur der Zeitkristall summt leise. Steinberg hat ihn in eine Halterung aus Draht und Kerzenwachs gesteckt. \"Er nimmt Zeitenergie in Stößen auf\", erklärt er. \"Und weil er sich dabei einschwingt, wird jeder Stoß um 5 stärker als der vorige. Bei 80 Prozent springen wir.\"\n\nDraußen hallen Schritte über das Pflaster. Du hältst den Atem an. Wächter?\n\nAlex knistert aus dem Chronos-Kommunikator: \"Maya, sag mir bitte, dass das nicht ewig dauert. Ich bin hier schon beim dritten Kaffee.\"\n\nKAIROS: *\"Die Anzahl der Runden steht vor dem Start fest. Man muss sie nur ausrechnen.\"*\n\n**Aufgabe:** Wie oft läuft der Körper der `while`-Schleife?",
+          "lrs": "Start: ladung = 10, schub = 5. Jede Runde: ladung plus schub, dann schub plus 5. Die Schleife läuft, solange ladung < 80 ist.",
+          "vars": {},
+          "code": "ladung = 10\nschub = 5\nwhile ladung < 80:\n    ladung = ladung + schub\n    schub = schub + 5\nprint(\"Kristall bei\", ladung, \"Prozent\")",
+          "ask": {
+            "loops": true
+          },
+          "options": [
+            "4",
+            "5",
+            "6",
+            "Endlos – sie hört nie auf"
+          ],
+          "hints": [
+            "Schreib vor jeder Runde `ladung` und `schub` auf: Am Anfang sind es 10 und 5. Die Bedingung wird vor jeder Runde neu geprüft.",
+            "Die Ladung steigt so: 10 → 15 → 25 → 40 → 60 → 85. Zähle, wie oft addiert wurde."
+          ],
+          "explain": "Eine `while`-Schleife prüft ihre Bedingung **vor jedem Durchlauf**. Hier ändern sich in jeder Runde zwei Variablen: `ladung` wächst um `schub`, und `schub` wächst um 5. Bei 10, 15, 25, 40 und 60 ist `ladung < 80` wahr – das sind fünf Durchläufe. Danach steht die Ladung bei 85, die Bedingung ist `False`, und das Programm macht hinter der Schleife weiter.",
+          "success": "Der Kristall glüht golden auf, die Kellerwände beginnen zu flimmern. \"Festhalten!\", ruft Steinberg. Ein Ruck, ein Wirbel aus Farben – und plötzlich riecht es nach Olivenöl und Pferden. KAIROS: *\"Zielabweichung: 1419 Jahre. Willkommen im antiken Rom, 73 vor Christus.\"*"
+        },
+        {
+          "id": "4-2",
+          "type": "trace",
+          "title": "Die Zeitenwende",
+          "text": "Ihr steht in einer staubigen Gasse am Forum Romanum. Ein Händler mustert Steinbergs Laborkittel mit tiefem Misstrauen. \"Wir brauchen einen Zeitanker\", flüstert der Professor, \"eine Sonde, die vorausspringt und uns den Rückweg markiert. Vier Sprünge zu je 25 Jahren.\"\n\nKAIROS speichert Jahre vor Christus als negative Zahlen: 73 v. Chr. ist `-73`.\n\nDa meldet sich Dr. Wright aus dem Kontrollraum, hörbar empört: \"Halt! Ihr vergesst die Zeitenwende! Auf 1 v. Chr. folgt direkt 1 n. Chr. – ein Jahr 0 gibt es nicht!\"\n\nSteinberg seufzt. \"James hat recht. Leider. Wie immer.\"\n\n**Aufgabe:** Welchen Wert hat `jahr` nach der Schleife?",
+          "lrs": "Start: jahr = -73 (also 73 v. Chr.). Vier Sprünge um je 25 Jahre. Wer über die Zeitenwende springt, bekommt 1 dazu, weil es kein Jahr 0 gibt.",
+          "vars": {},
+          "code": "jahr = -73\nfor sprung in range(4):\n    neues_jahr = jahr + 25\n    if jahr < 0 and neues_jahr >= 0:\n        neues_jahr = neues_jahr + 1\n    jahr = neues_jahr\nprint(\"Die Sonde landet im Jahr\", jahr)",
+          "ask": {
+            "var": "jahr"
+          },
+          "hints": [
+            "`range(4)` liefert 0, 1, 2, 3 – die Schleife läuft also viermal. Rechne Sprung für Sprung: −73, −48, …",
+            "Beim dritten Sprung wird aus −23 rechnerisch 2. Weil dabei die Zeitenwende überquert wird, kommt 1 dazu: 3. Danach folgt noch ein Sprung um 25."
+          ],
+          "explain": "`range(4)` erzeugt die Zahlen 0, 1, 2, 3 – die `for`-Schleife läuft genau viermal. Die **Schleifenvariable** `sprung` wird hier gar nicht benutzt, sie zählt nur die Runden mit. Weil es kein Jahr 0 gibt, korrigiert das `if` im Schleifenkörper den Sprung über die Zeitenwende: −23 + 25 wäre 2, richtig ist aber 3 n. Chr. Am Ende steht `jahr` bei 28 – nicht bei 27, wie man beim schnellen Kopfrechnen denkt.",
+          "success": "Die Sonde verschwindet mit einem leisen *Plopp* und meldet sich brav aus dem Jahr 28. Der Rückweg ist markiert. Wright brummt zufrieden: \"Endlich rechnet mal jemand die Zeitenwende richtig.\""
+        },
+        {
+          "id": "4-3",
+          "type": "bug",
+          "title": "KAIROS in der Zeitschleife",
+          "text": "Die Zeitkapsel, versteckt zwischen zwei Weinfässern, hat beim Notsprung ihren eigenen Zeitanker verloren: Sie driftet um {start_abweichung} Minuten aus der Zeit. Steinberg tippt hastig ein Korrekturprogramm – jede Korrektur soll 8 Minuten Drift beseitigen.\n\nEr startet es. Dann: nichts. Der Bildschirm erstarrt.\n\n*\"Warnung\"*, meldet KAIROS gedehnt. *\"Ich – befinde – mich – in – einer – Zeitschleife. Korrektur Nummer 4000. Abweichung: unverändert.\"*\n\nAlex funkt: \"Das ist keine echte Zeitschleife, oder? ODER?\" Steinberg rauft sich die Haare. \"Ich wollte das Programm nur übersichtlicher machen …\"\n\n**Aufgabe:** Finde die Zeile, wegen der die Schleife nie endet, und repariere sie.",
+          "lrs": "Die Abweichung startet bei 40. Jede Korrektur soll 8 abziehen, bis die Abweichung 0 oder kleiner ist.",
+          "vars": {
+            "start_abweichung": 40
+          },
+          "code": "abweichung = start_abweichung\nkorrekturen = 0\nwhile abweichung > 0:\n    korrekturen = korrekturen + 1\n    rest = abweichung - 8\nprint(\"Zeitanker justiert nach\", korrekturen, \"Korrekturen\")",
+          "bugLine": 5,
+          "fix": "abweichung = abweichung - 8",
+          "tests": [
+            {
+              "label": "40 Minuten Drift → 5 Korrekturen",
+              "vars": {
+                "start_abweichung": 40
+              },
+              "expect": {
+                "korrekturen": 5,
+                "abweichung": 0
+              }
+            },
+            {
+              "label": "24 Minuten Drift → 3 Korrekturen",
+              "vars": {
+                "start_abweichung": 24
+              },
+              "expect": {
+                "korrekturen": 3,
+                "abweichung": 0
+              }
+            },
+            {
+              "label": "5 Minuten Drift → eine Korrektur reicht",
+              "vars": {
+                "start_abweichung": 5
+              },
+              "expect": {
+                "korrekturen": 1
+              }
+            },
+            {
+              "label": "Keine Drift → keine Korrektur",
+              "vars": {
+                "start_abweichung": 0
+              },
+              "expect": {
+                "korrekturen": 0,
+                "abweichung": 0
+              }
+            }
+          ],
+          "onFail": [
+            {
+              "res": "stabilitaet",
+              "inc": -3
+            }
+          ],
+          "hints": [
+            "Die Schleife endet erst, wenn `abweichung > 0` falsch wird. Welche Zeile müsste `abweichung` kleiner machen – und tut sie das wirklich?",
+            "`rest = abweichung - 8` speichert das Ergebnis in einer neuen Variable, `abweichung` selbst bleibt gleich. Schreibe `abweichung = abweichung - 8`."
+          ],
+          "explain": "Das ist eine **Endlosschleife**: Die Bedingung `abweichung > 0` hängt nur von `abweichung` ab – aber diese Variable ändert sich im Schleifenkörper nie. Das Ergebnis der Rechnung landet in `rest`, und `rest` prüft niemand. Erst mit `abweichung = abweichung - 8` wird der Wert kleiner, bis die Bedingung `False` ist. Faustregel: Im Körper einer `while`-Schleife muss sich etwas ändern, das in der Bedingung vorkommt.",
+          "success": "KAIROS erwacht mit einem Ruck. *\"Fünf Korrekturen. Zeitanker sitzt. Ich hatte kurz den Eindruck, jeder Dienstag sei ein Montag.\"* Steinberg tätschelt die Kapsel. \"Braves Gerät.\" – *\"Ich bin eine Steuer-KI, kein Haustier.\"*"
+        },
+        {
+          "id": "4-4",
+          "type": "bug",
+          "title": "Die Spur der Wächter",
+          "text": "Mitten in der Kalibrierung schlägt der Kristall aus: eine Zeitenergie-Signatur! Dr. Wright funkt aufgeregt: \"Das Planetarium des Archimedes steht hier in Rom – Cicero hat darüber geschrieben! Wenn die Wächter es gestohlen haben, dann zwischen 75 und 71 vor Christus.\"\n\nSteinberg lässt KAIROS jedes Jahr in diesem Zeitraum scannen, 71 v. Chr. eingeschlossen. Ergebnis: vier Jahre gescannt, keine Spur.\n\n\"Vier?\", ruft Wright. \"Von 75 bis 71 sind es fünf Jahre! Zählt doch mal mit den Fingern!\"\n\nKAIROS: *\"Ich habe keine Finger. Ich habe `range`.\"*\n\n**Aufgabe:** Finde die fehlerhafte Zeile und repariere sie, sodass jedes Jahr von `von_jahr` bis einschließlich `bis_jahr` gescannt wird.",
+          "lrs": "von_jahr = -75 und bis_jahr = -71. Gescannt werden sollen -75, -74, -73, -72 und -71. range(a, b) hört eins vor b auf.",
+          "vars": {
+            "von_jahr": -75,
+            "bis_jahr": -71
+          },
+          "code": "gescannt = 0\nfor jahr in range(von_jahr, bis_jahr):\n    print(\"Scanne das Jahr\", -jahr, \"v. Chr.\")\n    gescannt = gescannt + 1\nprint(gescannt, \"Jahre gescannt\")",
+          "bugLine": 2,
+          "fix": "for jahr in range(von_jahr, bis_jahr + 1):",
+          "tests": [
+            {
+              "label": "75 bis 71 v. Chr. → 5 Jahre",
+              "vars": {
+                "von_jahr": -75,
+                "bis_jahr": -71
+              },
+              "expect": {
+                "gescannt": 5
+              }
+            },
+            {
+              "label": "73 bis 72 v. Chr. → beide Jahre im Scan",
+              "vars": {
+                "von_jahr": -73,
+                "bis_jahr": -72
+              },
+              "output": [
+                "Scanne das Jahr 73 v. Chr.",
+                "Scanne das Jahr 72 v. Chr.",
+                "2 Jahre gescannt"
+              ]
+            },
+            {
+              "label": "Nur 71 v. Chr. → genau ein Jahr",
+              "vars": {
+                "von_jahr": -71,
+                "bis_jahr": -71
+              },
+              "expect": {
+                "gescannt": 1
+              }
+            }
+          ],
+          "hints": [
+            "Welche Zahlen liefert `range(-75, -71)`? Ist −71 dabei?",
+            "Der Stoppwert von `range` gehört nie dazu. Damit `bis_jahr` mitgescannt wird, muss der Stoppwert eins größer sein: `range(von_jahr, bis_jahr + 1)`."
+          ],
+          "explain": "`range(start, stopp)` hört **eins vor** dem Stoppwert auf – `range(-75, -71)` liefert −75, −74, −73, −72. Das letzte Jahr fehlt: ein **Off-by-one-Fehler** (eins daneben). Mit `bis_jahr + 1` als Stoppwert ist `bis_jahr` dabei. Übrigens zählt die Schleife von −75 aufwärts nach −71 – in „v. Chr.“ ausgedrückt läuft die Zeit also von 75 auf 71 herunter, genau wie in echt.",
+          "success": "*\"Treffer im Jahr 71 v. Chr.\"*, meldet KAIROS. Ein Zeitriss-Abdruck, frisch wie eine Fußspur im Schnee – und daneben die Zielkoordinate der Diebe: **2156**. Steinberg wird blass. \"Sie haben das Planetarium in die Zukunft geschafft. Zu ihrer Raumstation.\""
+        },
+        {
+          "id": "4-5",
+          "type": "fill",
+          "title": "Sprung in die Zukunft",
+          "text": "Die Spur ist heiß, aber der Kristall ist kalt: {start_ladung} Prozent. \"Für einen Sprung über mehr als zweitausend Jahre brauchen wir mindestens 100\", sagt Steinberg. \"Jede Laderunde bringt 15 – aber die Blocker der Wächter saugen in jeder Runde 5 wieder ab.\"\n\nAuf dem Forum wird es laut: Der Händler hat entdeckt, dass Steinbergs „Silbermünze“ ein Kugelschreiber ist. Viel Zeit bleibt euch nicht.\n\nKAIROS: *\"Ich lade, solange die Ladung unter 100 liegt. Keine Runde weniger, keine mehr. Bitte formuliere das in Python.\"*\n\nDiesmal schreibst du die Schleife selbst.\n\n**Aufgabe:** Ergänze die Kopfzeile der `while`-Schleife und die Zeile, die die Ladung in jeder Runde erhöht.",
+          "lrs": "Start: ladung = 35. Solange ladung kleiner als 100 ist: plus 15, minus 5. runden zählt mit.",
+          "vars": {
+            "start_ladung": 35
+          },
+          "code": "ladung = start_ladung\nrunden = 0\n___\n    ___\n    runden = runden + 1\nprint(\"Sprungladung\", ladung, \"nach\", runden, \"Runden\")",
+          "solution": [
+            "while ladung < 100:",
+            "ladung = ladung + 15 - 5"
+          ],
+          "tests": [
+            {
+              "label": "Kristall bei 35 → 7 Runden, Ladung 105",
+              "vars": {
+                "start_ladung": 35
+              },
+              "expect": {
+                "ladung": 105,
+                "runden": 7
+              }
+            },
+            {
+              "label": "Kristall bei 90 → eine Runde bis 100",
+              "vars": {
+                "start_ladung": 90
+              },
+              "expect": {
+                "ladung": 100,
+                "runden": 1
+              }
+            },
+            {
+              "label": "Kristall leer → 10 Runden",
+              "vars": {
+                "start_ladung": 0
+              },
+              "expect": {
+                "ladung": 100,
+                "runden": 10
+              }
+            },
+            {
+              "label": "Kristall schon voll → sofort springen",
+              "vars": {
+                "start_ladung": 100
+              },
+              "expect": {
+                "ladung": 100,
+                "runden": 0
+              }
+            }
+          ],
+          "require": [
+            "while "
+          ],
+          "onSuccess": [
+            {
+              "res": "fragmente",
+              "inc": 3
+            },
+            {
+              "res": "vertrauen",
+              "inc": 5
+            }
+          ],
+          "onFail": [
+            {
+              "res": "stabilitaet",
+              "inc": -3
+            }
+          ],
+          "hints": [
+            "Die Schleife soll weiterlaufen, **solange** die Ladung unter 100 liegt. Vergiss den Doppelpunkt nicht. Pro Runde kommen 15 dazu, und 5 gehen wieder weg.",
+            "Kopfzeile: `while ladung < 100:` – Körper: `ladung = ladung + 15 - 5` (oder kurz `ladung = ladung + 10`)."
+          ],
+          "explain": "Eine `while`-Schleife braucht eine **Kopfzeile** mit Bedingung und Doppelpunkt und einen eingerückten **Körper**. `ladung < 100` sagt, wann es weitergeht, und `ladung = ladung + 15 - 5` sorgt dafür, dass die Bedingung irgendwann falsch wird. Mit `<=` gäbe es bei genau 100 eine Runde zu viel. Und ist der Kristall schon voll, läuft der Körper kein einziges Mal – `runden` bleibt 0.",
+          "success": "\"Hundert Prozent!\" Steinberg packt deine Hand. Der Händler stürmt heran, die Kapsel leuchtet auf – und das Letzte, was Rom von euch sieht, ist ein goldener Blitz und ein liegengebliebener Kugelschreiber. KAIROS: *\"Ziel: Raumstation Chronos-Alpha, 2156. Hinweis: Diesen Kugelschreiber werden Historiker nie erklären können.\"*"
+        }
+      ]
+    },
+    {
+      "id": "k5",
+      "title": "Raumstation Chronos-Alpha, 2156",
+      "concept": "Listen",
+      "image": "images/zeitreise/k5.webp",
+      "intro": "Chronos-Alpha ist ein silberner Ring, der lautlos über der Erde des Jahres 2156 kreist – ein Jahr bevor die Chronos-Wächter überhaupt geboren sein dürften. Eure Kapsel landet in einem Wartungsschacht. Steinberg späht durch ein Gitter und pfeift leise: Hinter Glas hängen Gemälde, stehen Statuen, glänzen Maschinen. Hunderte gestohlene Schätze. \"Das Museum der Wächter\", flüstert er.\n\nKAIROS zapft das Stationsnetz an: *\"Die Wächter führen ihre Beute als Listen. Eine Liste speichert viele Werte unter einem Namen, zum Beispiel `jahre = [1503, 1889]`. Jedes Element hat einen Index – beginnend bei 0.\"*\n\nDr. Okafor meldet sich über Funk: \"Ich entschlüssle ihre Beschriftungen. Ihr zählt.\"",
+      "missions": [
+        {
+          "id": "5-1",
+          "type": "trace",
+          "title": "Das Sprungprotokoll",
+          "text": "Im Kontrollraum der Station flimmert das Sprungprotokoll der Wächter: eine Liste der Jahre, in die sie als Nächstes springen wollen. Dr. Okafor übersetzt: \"1503 – Florenz, Leonardo. 1889 – Südfrankreich, Van Gogh. 1665 – Delft, Vermeer.\" Während ihr zuseht, hängt jemand ein weiteres Ziel hinten an.\n\nDann ändert sich der erste Eintrag. Einfach so. Steinberg beugt sich vor. \"Moment … welche Zahl steht da jetzt?\"\n\nKAIROS: *\"Ich spiele das Protokoll Zeile für Zeile ab. Besondere Aufmerksamkeit für Index 0 wird empfohlen.\"*\n\n**Aufgabe:** Was gibt das Programm aus?",
+          "lrs": "Liste: [1503, 1889, 1665]. Dann wird 1455 hinten angehängt. Index 0 ist das erste Element, Index -1 das letzte. Danach wird Index 0 überschrieben.",
+          "vars": {},
+          "code": "sprungziele = [1503, 1889, 1665]\nsprungziele.append(1455)\nnaechstes = sprungziele[2]\nsprungziele[0] = 2087\nletztes = sprungziele[-1]\nprint(naechstes, letztes, len(sprungziele), sprungziele[0])",
+          "ask": {
+            "output": true
+          },
+          "options": [
+            "1665 1455 4 2087",
+            "1889 1455 4 2087",
+            "1665 1665 4 2087",
+            "1665 1455 3 1503"
+          ],
+          "hints": [
+            "Schreib die Liste nach jeder Zeile neu auf. `append` hängt hinten an, und der Index beginnt bei 0.",
+            "Nach `append` ist die Liste `[1503, 1889, 1665, 1455]`. Index 2 ist das dritte Element. Danach wird Index 0 überschrieben, und `-1` ist das letzte Element."
+          ],
+          "explain": "`append` hängt einen Wert **hinten** an: `[1503, 1889, 1665, 1455]`. Weil der **Index** bei 0 beginnt, ist `sprungziele[2]` das dritte Element (1665). Mit `sprungziele[0] = 2087` wird ein Element **überschrieben** – Listen lassen sich verändern. `sprungziele[-1]` zählt von hinten (1455), und `len` liefert die Anzahl der Elemente (4). Das Überschreiben ändert an der Länge nichts.",
+          "success": "„1665, 1455, vier Ziele – und das erste ist jetzt 2087.“ Deine Stimme klingt seltsam dünn. 2087 ist *euer* Jahr. Steinberg legt dir eine Hand auf die Schulter. \"Eins nach dem anderen, Maya. Erst finden wir heraus, was sie hier horten.\""
+        },
+        {
+          "id": "5-2",
+          "type": "fill",
+          "title": "Wrights Wette",
+          "text": "Dr. Wright ist über Funk kaum zu bremsen. \"Ich wette, die meisten Diebstähle fanden in der Renaissance statt! Das goldene Zeitalter der Kunst!\" Dr. Okafor seufzt hörbar. \"James, du wettest seit drei Tagen.\"\n\nDas komplette Sprungprotokoll der Wächter liegt jetzt offen. Steinberg will Wrights These prüfen: Wie viele Sprünge führten in die Renaissance? Ein Jahr zählt dazu, wenn es mindestens 1400 und kleiner als 1600 ist.\n\nKAIROS: *\"Die Methode `count` zählt nur exakt gleiche Werte. Für einen Zeitraum braucht es eine Schleife und einen Zähler. Und Geduld mit Historikern.\"*\n\n**Aufgabe:** Ergänze die Bedingung für einen Sprung in die Renaissance und die Zeile, die mitzählt.",
+          "lrs": "sprungprotokoll ist eine Liste von Jahreszahlen. Gezählt werden alle Jahre von 1400 bis 1599. Ohne .count().",
+          "vars": {
+            "sprungprotokoll": [
+              1503,
+              1889,
+              1455,
+              -73,
+              1665,
+              1347,
+              1508,
+              1599
+            ]
+          },
+          "code": "renaissance = 0\nfor jahr in sprungprotokoll:\n    if ___:\n        ___\nprint(\"Sprünge in die Renaissance:\", renaissance)",
+          "solution": [
+            "1400 <= jahr < 1600",
+            "renaissance = renaissance + 1"
+          ],
+          "tests": [
+            {
+              "label": "Das ganze Protokoll → 4 Renaissance-Sprünge",
+              "expect": {
+                "renaissance": 4
+              }
+            },
+            {
+              "label": "Nur Antike und Moderne → 0",
+              "vars": {
+                "sprungprotokoll": [
+                  1889,
+                  2087,
+                  -73
+                ]
+              },
+              "expect": {
+                "renaissance": 0
+              }
+            },
+            {
+              "label": "An den Grenzen: 1400 zählt, 1600 nicht → 2",
+              "vars": {
+                "sprungprotokoll": [
+                  1399,
+                  1400,
+                  1599,
+                  1600
+                ]
+              },
+              "expect": {
+                "renaissance": 2
+              }
+            },
+            {
+              "label": "Leeres Protokoll → 0",
+              "vars": {
+                "sprungprotokoll": []
+              },
+              "expect": {
+                "renaissance": 0
+              }
+            }
+          ],
+          "forbid": [
+            ".count("
+          ],
+          "hints": [
+            "Ein Jahr zählt, wenn es mindestens 1400 **und** kleiner als 1600 ist – Python erlaubt dafür einen Doppelvergleich. Und wenn es zählt, muss der Zähler um eins wachsen.",
+            "Bedingung: `1400 <= jahr < 1600`. Darunter: `renaissance = renaissance + 1`."
+          ],
+          "explain": "Das ist das **Zähl-Muster**: Ein Zähler startet bei 0, die `for`-Schleife geht jedes Element der Liste genau einmal durch, und nur wenn die Bedingung stimmt, wächst der Zähler um 1. `1400 <= jahr < 1600` ist ein **Doppelvergleich** – dasselbe wie `jahr >= 1400 and jahr < 1600`. Bei einer leeren Liste läuft die Schleife nie, und der Zähler bleibt 0.",
+          "success": "\"Vier!\", triumphiert Wright. \"Vier von acht! Die Hälfte!\" Okafor: \"Die Hälfte ist keine Mehrheit, James.\" Steinberg grinst – zum ersten Mal seit Rom."
+        },
+        {
+          "id": "5-3",
+          "type": "fill",
+          "title": "Das älteste Diebesgut",
+          "text": "Im Archiv reiht sich Vitrine an Vitrine. Zu jedem Stück speichern die Wächter das Jahr, in dem es entstanden ist. Steinberg will das älteste zuerst in Sicherheit bringen: \"Je älter ein Stück, desto mehr Geschichte hängt daran. Fehlt es, wackelt alles, was danach kam.\"\n\nDu willst `min(...)` tippen, doch KAIROS bremst dich: *\"Die Station blockiert `min` und `sorted`. Die Wächter mögen offenbar keine Ordnung, die sie nicht selbst gemacht haben.\"*\n\nSteinberg reibt sich die Hände. \"Dann wie früher: Wir merken uns das erste Stück als bisher ältestes und gehen alle durch. Ist eins älter, merken wir uns stattdessen das.\"\n\n**Aufgabe:** Ergänze den Startwert, die Bedingung und die Zeile, die sich das neue älteste Jahr merkt.",
+          "lrs": "beute_jahre ist eine Liste von Jahreszahlen. aeltestes soll am Ende die kleinste Zahl sein – ohne min() und sorted().",
+          "vars": {
+            "beute_jahre": [
+              1889,
+              1503,
+              -212,
+              1665,
+              1347
+            ]
+          },
+          "code": "aeltestes = ___\nfor jahr in beute_jahre:\n    if ___:\n        ___\nprint(\"Das älteste Stück stammt aus dem Jahr\", aeltestes)",
+          "solution": [
+            "beute_jahre[0]",
+            "jahr < aeltestes",
+            "aeltestes = jahr"
+          ],
+          "tests": [
+            {
+              "label": "Das ganze Archiv → Jahr -212",
+              "expect": {
+                "aeltestes": -212
+              }
+            },
+            {
+              "label": "Ältestes Stück ganz vorne → 1347",
+              "vars": {
+                "beute_jahre": [
+                  1347,
+                  1889,
+                  1503
+                ]
+              },
+              "expect": {
+                "aeltestes": 1347
+              }
+            },
+            {
+              "label": "Ältestes Stück ganz hinten → 1455",
+              "vars": {
+                "beute_jahre": [
+                  1665,
+                  1889,
+                  1455
+                ]
+              },
+              "expect": {
+                "aeltestes": 1455
+              }
+            },
+            {
+              "label": "Nur eine Vitrine → 1503",
+              "vars": {
+                "beute_jahre": [
+                  1503
+                ]
+              },
+              "expect": {
+                "aeltestes": 1503
+              }
+            }
+          ],
+          "forbid": [
+            "min(",
+            "sorted("
+          ],
+          "hints": [
+            "Älter heißt: kleinere Jahreszahl. Starte mit dem ersten Element der Liste – Index 0 – und vergleiche dann jedes Jahr mit dem bisher ältesten.",
+            "Startwert: `beute_jahre[0]`. Bedingung: `jahr < aeltestes`. Darunter: `aeltestes = jahr`."
+          ],
+          "explain": "So findet man das **Minimum von Hand**: Das erste Element ist der erste Kandidat, jedes weitere wird damit verglichen, und ein kleinerer Wert wird der neue Kandidat. Der Start mit `beute_jahre[0]` ist wichtig: Mit `aeltestes = 0` würde das Programm bei einer Liste ohne antike Stücke behaupten, das älteste stamme aus dem Jahr 0 – das es nicht einmal gibt. Negative Jahreszahlen (v. Chr.) sind kleiner als alle anderen und gewinnen deshalb automatisch.",
+          "success": "Die Vitrine mit der Nummer −212 öffnet sich zischend. Darin dreht sich, goldglänzend und winzig, das **Planetarium des Archimedes**. Wright schnappt über Funk nach Luft. Steinberg verstaut es behutsam in der Kapsel. \"Das kommt mit nach Hause.\""
+        },
+        {
+          "id": "5-4",
+          "type": "bug",
+          "title": "Der Sensorkorridor",
+          "text": "Zwischen Archiv und Hangar liegt ein Korridor voller Zeitenergie-Sensoren. Jeder misst, wie viel Zeitenergie gerade vorbeischwebt – ab 50 schlägt er Alarm. Bevor ihr mit dem Planetarium hindurchschleicht, müsst ihr wissen, wie viele Sensoren scharf sind.\n\nSteinberg hat schnell ein Programm geschrieben. Es stürzt ab. KAIROS: *\"IndexError. Du hast nach einem Sensor gefragt, den es nicht gibt. Auf dieser Station gilt das als verdächtig.\"*\n\nIrgendwo heult kurz eine Sirene auf und verstummt wieder. Steinberg schluckt. \"Ich zähle bis zur Länge der Liste. Das ist doch richtig … oder?\"\n\n**Aufgabe:** Finde die fehlerhafte Zeile und repariere sie, sodass jeder Sensor genau einmal geprüft wird.",
+          "lrs": "Eine Liste mit 4 Elementen hat die Indizes 0, 1, 2, 3. Gezählt werden alle Sensoren mit einem Wert ab 50.",
+          "vars": {
+            "sensoren": [
+              20,
+              90,
+              55,
+              10
+            ]
+          },
+          "code": "i = 0\naktiv = 0\nwhile i <= len(sensoren):\n    if sensoren[i] >= 50:\n        aktiv = aktiv + 1\n    i = i + 1\nprint(aktiv, \"Sensoren sind scharf\")",
+          "bugLine": 3,
+          "fix": "while i < len(sensoren):",
+          "tests": [
+            {
+              "label": "Sensoren 20, 90, 55, 10 → 2 scharf",
+              "vars": {
+                "sensoren": [
+                  20,
+                  90,
+                  55,
+                  10
+                ]
+              },
+              "expect": {
+                "aktiv": 2
+              }
+            },
+            {
+              "label": "Genau 50 zählt, 49 nicht → 1 scharf",
+              "vars": {
+                "sensoren": [
+                  50,
+                  49
+                ]
+              },
+              "expect": {
+                "aktiv": 1
+              }
+            },
+            {
+              "label": "Ein einzelner Sensor mit 75 → 1 scharf",
+              "vars": {
+                "sensoren": [
+                  75
+                ]
+              },
+              "expect": {
+                "aktiv": 1
+              }
+            },
+            {
+              "label": "Korridor ohne Sensoren → 0",
+              "vars": {
+                "sensoren": []
+              },
+              "expect": {
+                "aktiv": 0
+              }
+            }
+          ],
+          "hints": [
+            "Eine Liste mit 4 Elementen hat die Indizes 0 bis 3. Welchen Wert hat `i` im letzten Durchlauf, wenn die Bedingung `i <= len(sensoren)` lautet?",
+            "Bei `i = 4` gibt es kein `sensoren[4]`. Die Schleife darf nur laufen, solange `i < len(sensoren)` ist."
+          ],
+          "explain": "Eine Liste mit `len(sensoren)` Elementen hat die Indizes **0 bis `len(sensoren) - 1`**. Mit `<=` läuft die Schleife einmal zu oft und fragt nach `sensoren[4]` – das gibt es nicht, also kommt ein **IndexError**. Mit `i < len(sensoren)` endet die Schleife genau nach dem letzten Element, und bei einer leeren Liste läuft sie gar nicht. Wer keinen Index braucht, schreibt noch einfacher `for wert in sensoren:`.",
+          "success": "*\"Zwei Sensoren scharf. Positionen bekannt.\"* Du lotst Steinberg im Zickzack an ihnen vorbei, das Planetarium fest im Arm. Hinter euch bleibt der Korridor still. Fast zu still."
+        },
+        {
+          "id": "5-5",
+          "type": "parsons",
+          "title": "Zeitanker-Marker",
+          "text": "Im Herzen der Station liegt der Haupttresor. Dr. Okafor hat die Liste `diebesgut` entschlüsselt: alle Werke, die die Wächter zuletzt gestohlen haben. Der Tresor meldet seinen Inhalt als eigene Liste `tresor` – aber nicht alles Diebesgut liegt hier.\n\nSteinberg will jedes gestohlene Werk, das im Tresor liegt, mit einem Zeitanker-Marker versehen. \"Dann kann KAIROS es später nach Hause holen, egal wo wir gerade sind.\"\n\nDu hast das Programm schon geschrieben. Doch als die Tresortür entriegelt, jagt ein Zeitimpuls durch den Raum – und deine Zeilen sind durcheinandergewürfelt, die Einrückung ist weg, und zwei fremde Zeilen sind aufgetaucht.\n\n**Aufgabe:** Bring die Zeilen in die richtige Reihenfolge, stelle die Einrückung ein und sortiere die falschen Zeilen aus.",
+          "lrs": "Neue leere Liste markiert. Jedes Werk aus diebesgut, das auch in tresor steht, kommt mit append in markiert.",
+          "vars": {
+            "diebesgut": [
+              "Mona Lisa",
+              "Sternennacht",
+              "Gutenberg-Bibel",
+              "Das Mädchen mit dem Perlenohrring"
+            ],
+            "tresor": [
+              "Gutenberg-Bibel",
+              "Edisons Glühbirne",
+              "Mona Lisa"
+            ]
+          },
+          "solution": "markiert = []\nfor werk in diebesgut:\n    if werk in tresor:\n        markiert.append(werk)\nprint(\"Marker gesetzt:\", markiert)",
+          "distractors": [
+            "if werk not in tresor:",
+            "markiert.append(tresor)"
+          ],
+          "tests": [
+            {
+              "label": "Haupttresor → Mona Lisa und Gutenberg-Bibel",
+              "expect": {
+                "markiert": [
+                  "Mona Lisa",
+                  "Gutenberg-Bibel"
+                ]
+              }
+            },
+            {
+              "label": "Leerer Tresor → keine Marker",
+              "vars": {
+                "tresor": []
+              },
+              "expect": {
+                "markiert": []
+              }
+            },
+            {
+              "label": "Alles liegt im Tresor → alle markiert",
+              "vars": {
+                "diebesgut": [
+                  "Sternennacht",
+                  "Mona Lisa"
+                ],
+                "tresor": [
+                  "Mona Lisa",
+                  "Sternennacht"
+                ]
+              },
+              "expect": {
+                "markiert": [
+                  "Sternennacht",
+                  "Mona Lisa"
+                ]
+              }
+            },
+            {
+              "label": "Kein Diebesgut gemeldet → leere Liste",
+              "vars": {
+                "diebesgut": []
+              },
+              "expect": {
+                "markiert": []
+              }
+            }
+          ],
+          "onSuccess": [
+            {
+              "res": "fragmente",
+              "inc": 3
+            },
+            {
+              "res": "vertrauen",
+              "inc": 5
+            }
+          ],
+          "hints": [
+            "Die Liste `markiert` muss **vor** der Schleife leer angelegt werden. In der Schleife prüfst du jedes Werk mit `in`, ob es im Tresor liegt.",
+            "Reihenfolge: `markiert = []`, `for werk in diebesgut:`, eingerückt `if werk in tresor:`, darin `markiert.append(werk)`, zum Schluss ganz links `print`."
+          ],
+          "explain": "Das ist das **Sammel-Muster**: Vor der Schleife entsteht eine leere Liste `[]`, und in der Schleife hängt `append` nur die Elemente an, die die Bedingung erfüllen. `werk in tresor` prüft, ob ein Wert irgendwo in einer anderen Liste vorkommt. Die **Einrückung** zeigt, was wozu gehört: `append` steht im `if`, das `if` in der Schleife – und `print` ganz außen, damit es nur einmal am Ende läuft.",
+          "success": "Marker auf der Mona Lisa, Marker auf der Gutenberg-Bibel. Da springt auf dem Tresorbildschirm eine Nachricht auf, die nicht für euch bestimmt ist: *ZEITFALLE INSTITUT 2087 – AKTIV. ZIELPERSONEN: ALEX, KIM, WRIGHT, OKAFOR.* Der Funk nach Hause rauscht nur noch. Steinberg packt deinen Arm. \"Maya. Wir müssen sofort zurück.\""
+        }
+      ]
+    },
+    {
+      "id": "k6",
+      "title": "Die Zeitschleife",
+      "concept": "Funktionen (def, Parameter, return)",
+      "image": "images/zeitreise/k6.webp",
+      "intro": "Der Rücksprung ins Jahr 2087 gelingt – beinahe. Das Institut für Temporalphysik sieht aus wie immer. Nur begrüßt Alex euch an der Tür mit denselben Worten wie vor einer Dreiviertelstunde: \"Maya! Endlich! Kaffee?\" Und dann noch einmal. Und noch einmal.\n\nDie Wächter haben das Institut in eine **Zeitschleife** gesperrt: Alex, Dr. Kim, Dr. Wright und Dr. Okafor erleben denselben Vormittag immer wieder – und merken es kaum. Nur eure Kapsel läuft außerhalb der Schleife.\n\nKAIROS: *\"Für diese Lage braucht es Funktionen. Mit `def` gibst du einem Stück Code einen Namen. Beim Aufruf bekommt es Werte als **Parameter** und liefert mit `return` ein Ergebnis zurück. Einmal geschrieben, beliebig oft benutzbar. Wie dieser Vormittag.\"*",
+      "missions": [
+        {
+          "id": "6-1",
+          "type": "trace",
+          "title": "Zum wievielten Mal?",
+          "text": "Seit die Falle zugeschnappt ist, sind 130 Minuten vergangen – das zeigt die Uhr in eurer Kapsel. Aber die Schleife ist nicht überall gleich lang: Der Kontrollraum, in dem Alex sitzt, springt alle 45 Minuten zurück, Dr. Kims Kristalllabor schon alle 30.\n\n\"Wie oft haben sie diesen Vormittag schon erlebt?\", fragt Steinberg leise. KAIROS zeigt dir eine Funktion, die genau das berechnet: Sie bekommt die vergangenen Minuten und die Länge der Schleife.\n\nDurch die Glastür siehst du Dr. Kim denselben Kaffeebecher fallen lassen. Zum wievielten Mal eigentlich?\n\n**Aufgabe:** Was gibt das Programm aus?",
+          "lrs": "Die Funktion rechnet minuten // laenge + 1. // teilt ohne Rest. Erster Aufruf: 130 und 45. Zweiter Aufruf: 130 und 30.",
+          "vars": {},
+          "code": "def schleifen_runde(minuten, laenge):\n    runde = minuten // laenge + 1\n    return runde\n\nalex = schleifen_runde(130, 45)\nkim = schleifen_runde(130, 30)\nprint(\"Alex: Runde\", alex, \"- Dr. Kim: Runde\", kim)",
+          "ask": {
+            "output": true
+          },
+          "options": [
+            "Alex: Runde 3 - Dr. Kim: Runde 5",
+            "Alex: Runde 2 - Dr. Kim: Runde 4",
+            "Alex: Runde 3 - Dr. Kim: Runde 3",
+            "Alex: Runde 5 - Dr. Kim: Runde 3"
+          ],
+          "hints": [
+            "Beim Aufruf `schleifen_runde(130, 45)` ist `minuten` 130 und `laenge` 45. `//` teilt ganzzahlig: Wie oft passt 45 ganz in 130?",
+            "Alex: 130 // 45 = 2, plus 1 ergibt 3. Dr. Kim: 130 // 30 = 4, plus 1 ergibt 5."
+          ],
+          "explain": "Mit `def` wird die Funktion nur **definiert** – ausgeführt wird sie erst bei jedem **Aufruf**. Dabei bekommen die **Parameter** die Werte aus den Klammern: beim ersten Aufruf 130 und 45, beim zweiten 130 und 30. `return` gibt das Ergebnis an die Stelle des Aufrufs zurück, wo es in `alex` bzw. `kim` gespeichert wird. Dieselbe Funktion liefert also für verschiedene Werte verschiedene Ergebnisse.",
+          "success": "\"Runde drei für Alex, Runde fünf für Kim.\" Steinberg nickt grimmig. \"Je länger wir warten, desto tiefer rutschen sie hinein.\" Hinter der Glastür fällt der Becher. Schon wieder."
+        },
+        {
+          "id": "6-2",
+          "type": "fill",
+          "title": "Rücksprung-Koordinaten",
+          "text": "Bevor ihr die Schleife aufbrechen könnt, muss das Diebesgut aus Chronos-Alpha nach Hause – jedes Stück in das Jahr, aus dem es gestohlen wurde. KAIROS braucht dafür für jedes Ziel die **Sprungtiefe**: wie viele Jahre zurück von 2087.\n\nSteinberg kritzelt die Rechnung auf ein Whiteboard, das sich alle 45 Minuten von selbst wieder wischt. \"2087 minus Zieljahr. Und bei Jahren vor Christus ziehen wir eins ab, weil es kein Jahr 0 gibt. Das hat James uns in Rom eingebläut.\"\n\nKAIROS: *\"Ich soll das für jedes Werk einzeln rechnen? Dafür gibt es Funktionen. Bitte definiere `sprungtiefe` mit dem Parameter `ziel_jahr`.\"*\n\nErstes Ziel: das Planetarium, Jahr {ziel} – also 71 v. Chr.\n\n**Aufgabe:** Ergänze die Kopfzeile der Funktion und die Zeile, mit der sie ihr Ergebnis zurückgibt.",
+          "lrs": "Die Funktion heißt sprungtiefe und hat den Parameter ziel_jahr. Sie rechnet 2087 - ziel_jahr (vor Christus: noch minus 1) und gibt tiefe mit return zurück.",
+          "vars": {
+            "ziel": -71
+          },
+          "code": "___\n    tiefe = 2087 - ziel_jahr\n    if ziel_jahr < 0:\n        tiefe = tiefe - 1\n    ___\n\njahre = sprungtiefe(ziel)\nprint(\"Sprungtiefe:\", jahre, \"Jahre\")",
+          "solution": [
+            "def sprungtiefe(ziel_jahr):",
+            "return tiefe"
+          ],
+          "tests": [
+            {
+              "label": "Planetarium, 71 v. Chr. → 2157 Jahre zurück",
+              "vars": {
+                "ziel": -71
+              },
+              "expect": {
+                "jahre": 2157
+              }
+            },
+            {
+              "label": "Mona Lisa, Florenz 1503 → 584 Jahre",
+              "vars": {
+                "ziel": 1503
+              },
+              "expect": {
+                "jahre": 584
+              }
+            },
+            {
+              "label": "1 v. Chr. → genau 2087 Jahre",
+              "vars": {
+                "ziel": -1
+              },
+              "expect": {
+                "jahre": 2087
+              }
+            },
+            {
+              "label": "Ziel ist heute (2087) → 0 Jahre",
+              "vars": {
+                "ziel": 2087
+              },
+              "expect": {
+                "jahre": 0
+              },
+              "output": [
+                "Sprungtiefe: 0 Jahre"
+              ]
+            }
+          ],
+          "require": [
+            "def ",
+            "return"
+          ],
+          "hints": [
+            "Eine Funktionskopfzeile hat die Form `def name(parameter):` – mit Doppelpunkt. Name und Parameter verrät dir KAIROS. Und am Ende muss die Funktion `tiefe` zurückgeben.",
+            "Oben: `def sprungtiefe(ziel_jahr):`. Unten, eingerückt: `return tiefe`."
+          ],
+          "explain": "Die **Kopfzeile** `def sprungtiefe(ziel_jahr):` legt den Namen der Funktion und ihren **Parameter** fest. Beim Aufruf `sprungtiefe(ziel)` bekommt `ziel_jahr` den Wert von `ziel`. Mit `return tiefe` wird das Ergebnis zurückgegeben und in `jahre` gespeichert. Weil die Funktion nur mit ihrem Parameter rechnet, funktioniert sie für jedes Werk – einmal schreiben, beliebig oft benutzen.",
+          "success": "*\"Sprungtiefe 2157 Jahre. Planetarium unterwegs.\"* Ein Flimmern, und die Vitrine in der Kapsel ist leer. Im alten Rom dreht sich jetzt wieder ein kleines goldenes Wunderwerk. Steinberg wischt sich verstohlen über die Augen. \"Archimedes wäre stolz auf dich.\""
+        },
+        {
+          "id": "6-3",
+          "type": "bug",
+          "title": "Kapsel: None",
+          "text": "Als Nächstes die Mona Lisa. KAIROS wählt für jedes Werk eine Transportkapsel: über 500 Kilo die Schwerlastkapsel, über 50 Kilo die Standardkapsel, alles Leichtere reist in der Mini-Kapsel.\n\nSteinberg hat die Funktion geschrieben, und bei einer 900 Kilo schweren Bronzestatue hat alles geklappt. Doch jetzt meldet KAIROS: *\"Sende Mona Lisa in Kapsel: None. Ich weigere mich, das berühmteste Gemälde der Welt in einer Kapsel namens None zu verschicken.\"*\n\n\"Aber da steht doch `typ = \"Mini\"`!\", protestiert Steinberg. \"Schwarz auf weiß!\"\n\nIm Flur begrüßt Alex zum vierten Mal einen Paketboten.\n\n**Aufgabe:** Finde die Zeile, wegen der `kapsel` den Wert `None` bekommt, und repariere sie.",
+          "lrs": "Über 500 Kilo: \"Schwerlast\". Über 50 Kilo: \"Standard\". Sonst: \"Mini\". Die Mona Lisa wiegt 8 Kilo. Für leichte Werke gibt die Funktion gerade nichts zurück.",
+          "vars": {
+            "werk": "Mona Lisa",
+            "gewicht_kg": 8
+          },
+          "code": "def kapsel_typ(gewicht):\n    if gewicht > 500:\n        return \"Schwerlast\"\n    elif gewicht > 50:\n        return \"Standard\"\n    typ = \"Mini\"\n\nkapsel = kapsel_typ(gewicht_kg)\nprint(\"Sende\", werk, \"in Kapsel:\", kapsel)",
+          "bugLine": 6,
+          "fix": "return \"Mini\"",
+          "tests": [
+            {
+              "label": "Mona Lisa, 8 Kilo → Mini-Kapsel",
+              "vars": {
+                "werk": "Mona Lisa",
+                "gewicht_kg": 8
+              },
+              "expect": {
+                "kapsel": "Mini"
+              },
+              "output": [
+                "Sende Mona Lisa in Kapsel: Mini"
+              ]
+            },
+            {
+              "label": "Gutenberg-Bibel samt Pult, 120 Kilo → Standard",
+              "vars": {
+                "werk": "Gutenberg-Bibel",
+                "gewicht_kg": 120
+              },
+              "expect": {
+                "kapsel": "Standard"
+              }
+            },
+            {
+              "label": "Bronzestatue, 900 Kilo → Schwerlast",
+              "vars": {
+                "werk": "Bronzestatue",
+                "gewicht_kg": 900
+              },
+              "expect": {
+                "kapsel": "Schwerlast"
+              }
+            },
+            {
+              "label": "Genau 50 Kilo → noch Mini",
+              "vars": {
+                "werk": "Sternennacht",
+                "gewicht_kg": 50
+              },
+              "expect": {
+                "kapsel": "Mini"
+              }
+            }
+          ],
+          "hints": [
+            "Für schwere Werke erreicht die Funktion ein `return`. Was passiert bei 8 Kilo – welches `return` wird da erreicht?",
+            "`typ = \"Mini\"` speichert den Text nur in einer Variable innerhalb der Funktion, zurückgegeben wird er nicht. Schreibe `return \"Mini\"`."
+          ],
+          "explain": "Eine Funktion gibt nur dann etwas zurück, wenn sie auf ein `return` trifft. Für schwere Werke klappte das, für leichte nicht: Dort endet die Funktion nach `typ = \"Mini\"` ohne `return` und liefert automatisch `None` – „nichts“. Die Variable `typ` existiert nur **innerhalb** der Funktion und ist danach wieder weg. Darum gilt: Jeder Weg durch eine Funktion, der ein Ergebnis liefern soll, braucht sein eigenes `return`.",
+          "success": "*\"Sende Mona Lisa in Kapsel: Mini.\"* Ein leises Summen, und das berühmteste Lächeln der Welt reist zurück nach Florenz, 1503. Steinberg murmelt: \"Jeder Weg braucht ein `return`. Jeder Weg braucht ein `return` …\" KAIROS: *\"Ich sticke es dir auf den Laborkittel.\"*"
+        },
+        {
+          "id": "6-4",
+          "type": "parsons",
+          "title": "Der Rücksprung-Detektor",
+          "text": "Um die Schleife zu brechen, muss KAIROS genau den Moment erwischen, in dem sie zurückspringt. Dr. Okafor hat als Einzige etwas bemerkt: \"Diesen Satz habe ich schon gehört. Wortwörtlich. Und die Wanduhr – sie springt rückwärts!\"\n\nKAIROS misst die Institutsuhr in Minuten seit Mitternacht. Ist der neue Wert kleiner als der vorige, ist gerade ein Rücksprung passiert.\n\nDu tippst einen Detektor – da springt die Schleife zurück und reißt deinen Code mit: Die Zeilen sind durcheinander, die Einrückung ist weg, und zwei fremde Zeilen sind aufgetaucht.\n\nKAIROS: *\"Hinweis: Diese Funktion hat zwei Einrückungsebenen. Die Schleife hat keine Geduld.\"*\n\n**Aufgabe:** Setze die Funktion `zeitsprung_erkannt` und ihren Aufruf richtig zusammen. Achte auf die Einrückung und sortiere die falschen Zeilen aus.",
+          "lrs": "Die Funktion rechnet abstand = jetzt - vorher. Ist abstand kleiner als 0, gibt sie True zurück, sonst False. Danach wird sie mit uhr_jetzt und uhr_vorher aufgerufen.",
+          "vars": {
+            "uhr_jetzt": 480,
+            "uhr_vorher": 524
+          },
+          "solution": "def zeitsprung_erkannt(jetzt, vorher):\n    abstand = jetzt - vorher\n    if abstand < 0:\n        return True\n    else:\n        return False\nalarm = zeitsprung_erkannt(uhr_jetzt, uhr_vorher)",
+          "distractors": [
+            "if abstand > 0:",
+            "return abstand"
+          ],
+          "tests": [
+            {
+              "label": "Uhr springt von 8:44 auf 8:00 → Alarm",
+              "vars": {
+                "uhr_jetzt": 480,
+                "uhr_vorher": 524
+              },
+              "expect": {
+                "alarm": true
+              }
+            },
+            {
+              "label": "Uhr läuft normal von 8:44 auf 8:45 → kein Alarm",
+              "vars": {
+                "uhr_jetzt": 525,
+                "uhr_vorher": 524
+              },
+              "expect": {
+                "alarm": false
+              }
+            },
+            {
+              "label": "Uhr steht still → kein Rücksprung",
+              "vars": {
+                "uhr_jetzt": 524,
+                "uhr_vorher": 524
+              },
+              "expect": {
+                "alarm": false
+              }
+            }
+          ],
+          "hints": [
+            "Die `def`-Zeile steht ganz links. Der Funktionskörper ist einmal eingerückt, die `return`-Zeilen in `if` und `else` zweimal. Der Aufruf kommt zum Schluss – wieder ganz links.",
+            "Reihenfolge: `def …`, `abstand = jetzt - vorher`, `if abstand < 0:`, `return True`, `else:`, `return False`, dann `alarm = zeitsprung_erkannt(uhr_jetzt, uhr_vorher)`."
+          ],
+          "explain": "Die **Einrückung** zeigt die Ebenen: `abstand`, `if` und `else` gehören zum Funktionskörper (eine Ebene), die beiden `return`-Zeilen zu ihren Zweigen (zwei Ebenen). Eine Funktion kann auch `True` oder `False` zurückgeben – so beantwortet sie eine Ja-Nein-Frage. Der Aufruf steht außerhalb der Funktion und muss **nach** der Definition kommen, sonst kennt Python den Namen noch nicht.",
+          "success": "KAIROS lässt den Detektor mitlaufen. 8:43 Uhr … 8:44 Uhr … 8:00 Uhr. *\"Rücksprung erkannt. Alarm: True. Ich kenne jetzt den Takt der Falle.\"* Steinberg ballt die Faust. \"Dann schlagen wir beim nächsten Sprung zu.\""
+        },
+        {
+          "id": "6-5",
+          "type": "fill",
+          "title": "Die Zeitsiegel",
+          "text": "Jetzt oder nie. Die Wächter halten die Falle über fünf Zeitportale offen: Rom, das Mittelalter, Florenz, Südfrankreich und Chronos-Alpha. Versiegelst du die Portale, verliert die Schleife ihren Halt – und die Wächter sind ausgesperrt.\n\nKAIROS lädt deine echten Werte: Zeitstabilität {stabilitaet}, Zeitfragmente {fragmente}, Team-Vertrauen {vertrauen}. Daraus wird die Siegelenergie. Steinberg erklärt: \"Ein Siegel für ein Portal vor 1500 kostet 30, für jüngere Portale 15. Reicht die Energie für ein Portal nicht, überspringen wir es und versuchen das nächste.\"\n\nHinter der Glastür fällt Dr. Kims Becher. Hoffentlich zum letzten Mal.\n\n**Aufgabe:** Ergänze, was `siegel_kosten` für Portale ab 1500 zurückgibt, und die Bedingung, wann ein Siegel gesetzt werden kann.",
+          "lrs": "Portal vor 1500: Kosten 30. Sonst: Kosten 15. Ein Siegel wird gesetzt, wenn energie mindestens so groß ist wie die Kosten.",
+          "useResources": true,
+          "vars": {
+            "portale": [
+              -73,
+              1347,
+              1455,
+              1889,
+              2156
+            ]
+          },
+          "code": "def siegel_kosten(jahr):\n    if jahr < 1500:\n        return 30\n    ___\n\nenergie = (stabilitaet + fragmente) // 2 + vertrauen // 2\nversiegelt = 0\nfor jahr in portale:\n    if ___:\n        energie = energie - siegel_kosten(jahr)\n        versiegelt = versiegelt + 1\nprint(\"Versiegelt:\", versiegelt, \"von\", len(portale), \"Zeitportalen\")",
+          "solution": [
+            "return 15",
+            "energie >= siegel_kosten(jahr)"
+          ],
+          "tests": [
+            {
+              "label": "Alle Werte 100 → alle 5 Portale versiegelt",
+              "vars": {
+                "stabilitaet": 100,
+                "fragmente": 100,
+                "vertrauen": 100
+              },
+              "expect": {
+                "versiegelt": 5,
+                "energie": 30
+              }
+            },
+            {
+              "label": "Alle Werte 50 → 3 Portale, Florenz wird übersprungen",
+              "vars": {
+                "stabilitaet": 50,
+                "fragmente": 50,
+                "vertrauen": 50
+              },
+              "expect": {
+                "versiegelt": 3,
+                "energie": 0
+              }
+            },
+            {
+              "label": "Alle Werte 40 → Energie reicht genau für 2 Siegel",
+              "vars": {
+                "stabilitaet": 40,
+                "fragmente": 40,
+                "vertrauen": 40
+              },
+              "expect": {
+                "versiegelt": 2,
+                "energie": 0
+              }
+            },
+            {
+              "label": "Alles bei 0 → kein einziges Siegel",
+              "vars": {
+                "stabilitaet": 0,
+                "fragmente": 0,
+                "vertrauen": 0
+              },
+              "expect": {
+                "versiegelt": 0,
+                "energie": 0
+              }
+            }
+          ],
+          "require": [
+            "return",
+            "siegel_kosten(jahr)"
+          ],
+          "onSuccess": [
+            {
+              "res": "fragmente",
+              "inc": 3
+            },
+            {
+              "res": "vertrauen",
+              "inc": 5
+            }
+          ],
+          "onFail": [
+            {
+              "res": "stabilitaet",
+              "inc": -3
+            }
+          ],
+          "hints": [
+            "Die Funktion kennt bisher nur den Fall „vor 1500“ – für alle anderen Portale fehlt ein `return`. Und ein Siegel geht nur, wenn die Energie **mindestens** so groß ist wie seine Kosten.",
+            "Funktion: `return 15`. Bedingung: `energie >= siegel_kosten(jahr)`."
+          ],
+          "explain": "Im Finale arbeiten drei Bausteine zusammen: Die **Funktion** `siegel_kosten` entscheidet mit `if`, was ein Portal kostet, und gibt es mit `return` zurück – wird das erste `return` nicht erreicht, läuft sie weiter zum zweiten. Die **`for`-Schleife** geht die Liste der Portale durch, und das `if` darin ruft die Funktion auf und prüft, ob die Energie reicht. Mit `>=` statt `>` reicht auch die allerletzte Energie noch für ein Siegel. Und weil eine `for`-Schleife über eine Liste immer endet, funktioniert das für jeden Spielstand.",
+          "success": "Ein Portal nach dem anderen flackert, die Wanduhr springt ein letztes Mal – und läuft dann einfach weiter. 8:46 Uhr. Alex blinzelt dich verwirrt an. \"Maya? Wieso hab ich das Gefühl, dass ich dich heute schon zehnmal begrüßt habe?\" KAIROS meldet sich: *\"Zeitschleife durchbrochen. Ich berechne jetzt, wie die Zeitlinie die Reise überstanden hat – aus Stabilität, Fragmenten und Vertrauen, so wie du sie mir hinterlassen hast …\"*"
+        }
+      ]
+    }
+  ],
+  "endings": {
+    "code": "if stabilitaet >= 75 and fragmente >= 75:\n    ende = \"gerettet\"\nelif stabilitaet >= 25:\n    ende = \"narben\"\nelse:\n    ende = \"paradox\"",
+    "intro": "KAIROS berechnet, wie die Zeitlinie die Reise überstanden hat – mit deinen eigenen Werten:",
+    "list": {
+      "gerettet": {
+        "title": "Die Zeitlinie ist gerettet",
+        "text": "Ein goldener Blitz, dann Stille. Die Chronos-Kapsel öffnet sich – und Professor Steinberg steigt aus, zerzaust, aber lächelnd. \"Maya. Du hast es tatsächlich geschafft.\"\n\nDie Chronos-Wächter haben ihren Zugriff auf die Zeit verloren, jedes Kunstwerk hängt wieder dort, wo es hingehört, und die Geschichte ist genau so, wie sie sein soll. Alex, Dr. Kim, Dr. Wright und Dr. Okafor applaudieren im Kontrollraum.\n\nKAIROS: *\"Zeitlinie: unverändert. Paradoxe: null. Neue Hauptforscherin: bestätigt.\"*",
+        "image": "images/zeitreise/ende-gerettet.webp"
+      },
+      "narben": {
+        "title": "Gerettet – mit kleinen Narben",
+        "text": "Der Professor ist zurück, die Chronos-Wächter sind besiegt. Doch als ihr am nächsten Tag durch Berlin lauft, stutzt Dr. Wright. \"Seit wann ist der Fernsehturm grün?\" Und im Museum trägt ein Renaissance-Porträt plötzlich eine winzige Sonnenbrille.\n\nNiemand außer euch bemerkt es. Die Zeitlinie hat die Reise überstanden – mit ein paar Kratzern. Steinberg schmunzelt: \"Geschichte ist robuster, als man denkt. Aber beim nächsten Sprung lesen wir den Code genauer, ja?\"\n\nKAIROS: *\"Zeitlinie: leicht verändert. Kleine Paradoxe: mehrere. Lernkurve: erkennbar.\"*",
+        "image": "images/zeitreise/ende-narben.webp"
+      },
+      "paradox": {
+        "title": "Gefangen im Paradox",
+        "text": "Im letzten Moment gelingt es: Die Chronos-Wächter verlieren die Kontrolle, der Professor springt zurück ins Jahr 2087. Doch der Zeitstrom ist zu instabil, um noch eine zweite Person mitzunehmen.\n\nDu stehst allein auf einer Brücke in Florenz, 1455. Über dir dieselben Sterne wie zu Hause. In deiner Tasche summt das Notfunkgerät: *\"Hier KAIROS. Rettungssprung möglich – aber erst, wenn die Zeitlinie sich beruhigt hat.\"*\n\nVielleicht Tage. Vielleicht Jahre. Mission wiederholen – und diesmal jeden Befehl genau lesen?",
+        "image": "images/zeitreise/ende-paradox.webp"
+      }
+    }
+  }
 }

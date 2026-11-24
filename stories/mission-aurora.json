@@ -1,626 +1,1403 @@
 {
+  "format": 2,
   "id": "mission-aurora",
-  "title": "Mission Aurora - Weltraum-Rettung",
-  "description": "Lerne echte if/elif/else Programmierung durch 15 spannende Weltraum-Missionen",
-  "image": "images/mission-aurora.png",
-  "missions": [
+  "title": "Mission Aurora",
+  "subtitle": "Weltraumabenteuer",
+  "description": "Ein Unfall, ein 15-jähriger Kapitän und ein Bordcomputer, der nur Python versteht.",
+  "theme": "space",
+  "computer": "ORION",
+  "statusTitle": "Schiffsstatus",
+  "cover": "images/mission-aurora.webp",
+  "prolog": "Das Letzte, woran du dich erinnerst, ist ein greller Blitz in der Hypersprung-Kammer. Dann: Dunkelheit.\n\nAls du aufwachst, blinkt über deinem Bett ein rotes Licht. Dr. Chen, die Schiffsärztin, beugt sich über dich. \"Alex – endlich. Der Sprung ist schiefgegangen. Wir sind Lichtjahre vom Kurs abgekommen, irgendwo am Rand des Kepler-Gürtels. Und Kapitän Morrison …\" Sie schüttelt den Kopf.\n\nDie Bord-KI **ORION** meldet sich mit ruhiger Stimme: *\"Kommandokette unterbrochen. Nächste berechtigte Person: Alex, 15 Jahre. Hinweis: ORION führt nur Befehle in Python aus.\"*\n\nDu bist jetzt Kapitän der **Aurora**. Die Crew zählt auf dich – und darauf, dass du verstehst, was ORION tut.",
+  "resources": [
     {
-      "id": 1,
-      "title": "Erste Kommando-Übernahme",
-      "text": "Du erwachst langsam in der Kapitänskabine der Aurora. Dein Kopf brummt - was ist passiert? Dr. Chen steht besorgt neben deinem Bett.\n\n\"Alex, endlich wachst du auf! Es gab einen Unfall in der Hypersprung-Kammer. Kapitän Morrison... er hat es nicht geschafft.\" Dr. Chens Stimme zittert. \"Das Computersystem hat dich als Nachfolger designiert, aber du bist erst 15. Das System führt gerade eine Altersverifikation durch.\"\n\n**Frage:** Welche Bedingung führt das Sicherheitssystem aus?",
-      "lrs_support": "**Systemlog:** Kapitäns-Alter: 15 Jahre",
-      "variables": {},
-      "variables_discovered": {
-        "kapitaen_alter": 15
-      },
-      "buttons": [
-        {
-          "label": "if kapitaen_alter >= 18:\n        vollkommando_aktivieren()",
-          "correct": false,
-          "explanation": "❌ **Falsch!** 15 >= 18 ist **false**. Diese Bedingung wird übersprungen, der Computer geht zur nächsten."
-        },
-        {
-          "label": "else:\n        junior_kommando_aktivieren()",
-          "correct": true,
-          "explanation": "✅ **Richtig!** Da die if-Bedingung false war, führt der Computer die else-Anweisung aus: 'Junior-Kommando aktiviert'."
-        }
-      ],
-      "success_text": "🎉 **Level 1 geschafft!** Du verstehst jetzt wie Computer if/else von oben nach unten abarbeiten.",
-      "next_mission": 2
+      "id": "huelle",
+      "label": "Hülle",
+      "icon": "🛡️",
+      "start": 100
     },
     {
-      "id": 2,
-      "title": "Energiesystem-Check",
-      "text": "\"Junior-Kommando ist aktiv, aber das ist nur ein Notfallmodus,\" erklärt Dr. Chen. \"Wir müssen sofort die Energiesysteme überprüfen. Der Hypersprung-Unfall könnte die Hauptreaktoren beschädigt haben.\"\n\nIngenieurin Sarah Rodriguez meldet sich über Comm: \"Alex, ich bin im Maschinenraum. Die Energielevel sind instabil - wir haben nur 75% Leistung. Ohne mehr Energie können wir nicht navigieren oder die Lebenserhaltung aufrechterhalten.\"\n\n**Frage:** Welche Anweisung führt das Energiesystem aus?",
-      "lrs_support": "**Energie-Anzeige:** Energielevel: 75%",
-      "variables": {
-        "kapitaen_alter": 15
-      },
-      "variables_discovered": {
-        "energielevel": 75
-      },
-      "buttons": [
-        {
-          "label": "if energielevel >= 80:\n        normale_navigation_starten()",
-          "correct": false,
-          "explanation": "❌ **Falsch!** 75 >= 80 ist **false**. Computer springt zur else-Anweisung."
-        },
-        {
-          "label": "else:\n        energiesparmodus_aktivieren()",
-          "correct": true,
-          "explanation": "✅ **Richtig!** Da 75 < 80, führt der Computer die else-Anweisung aus: 'Energiesparmodus aktiviert'."
-        }
-      ],
-      "success_text": "🎉 **Level 2 geschafft!** Du verstehst wie Computer Zahlenvergleiche auswerten.",
-      "next_mission": 3
+      "id": "energie",
+      "label": "Energie",
+      "icon": "⚡",
+      "start": 80
     },
     {
-      "id": 3,
-      "title": "Crew-Status Bewertung",
-      "text": "\"Gute Entscheidung mit dem Energiesparmodus,\" sagt Sarah erleichtert. \"Das kauft uns Zeit.\" Sie kommt zur Brücke, ihr Overall ist voller Maschinenöl. \"Aber wir haben ein anderes Problem.\"\n\nCommunications Officer Kim Patel schaltet sich ein: \"Die Crew ist... nun ja, sie sind nervös. Ein 15-jähriger Kapitän? Manche bezweifeln, ob du uns nach Hause bringen kannst. Die Moral-Sensoren zeigen 65% Bereitschaft.\"\n\n**Frage:** Das Führungssystem prüft drei Stufen. Welche wird ausgeführt?",
-      "lrs_support": "**Crew-Report:** Crew-Bereitschaft: 65%",
-      "variables": {
-        "kapitaen_alter": 15,
-        "energielevel": 75
-      },
-      "variables_discovered": {
-        "crew_bereitschaft": 65
-      },
-      "buttons": [
-        {
-          "label": "if crew_bereitschaft >= 80:\n        elite_mission_starten()",
-          "correct": false,
-          "explanation": "❌ **Falsch!** 65 >= 80 ist **false**. Computer geht zur nächsten Bedingung."
-        },
-        {
-          "label": "elif crew_bereitschaft >= 50:\n        standard_vorbereitung_aktivieren()",
-          "correct": true,
-          "explanation": "✅ **Richtig!** 65 >= 50 ist **true**. Computer führt aus: 'Standard-Vorbereitung' und stoppt hier."
-        },
-        {
-          "label": "else:\n        notfall_protokoll_starten()",
-          "correct": false,
-          "explanation": "❌ **Falsch!** Da elif bereits true war, wird else nie erreicht."
-        }
-      ],
-      "success_text": "🎉 **Level 3 geschafft!** Du verstehst jetzt if/elif/else - Computer stoppt bei der ersten wahren Bedingung!",
-      "next_mission": 4
-    },
-    {
-      "id": 4,
-      "title": "Navigationskurs setzen",
-      "text": "Drei Stunden später hat sich die Crew etwas beruhigt. \"Ich habe die Navigationsdaten gecheckt,\" berichtet Kim. \"Wir sind 25 Lichtjahre von der Erde entfernt. Nicht schlecht für einen Notfall-Hypersprung.\"\n\nDas Navigationssystem muss alle aktuellen Parameter berücksichtigen: Alexs Alter (15), Energielevel (75%) und Crew-Bereitschaft (65%) für die Kursberechnung.\n\n**Frage:** Das Navigationssystem kombiniert mehrere Variablen. Welche Bedingung trifft zu?",
-      "lrs_support": "**Verfügbare Daten:** Kapitäns-Alter: 15, Energielevel: 75%, Crew-Bereitschaft: 65%",
-      "variables": {
-        "kapitaen_alter": 15,
-        "energielevel": 75,
-        "crew_bereitschaft": 65
-      },
-      "variables_discovered": {},
-      "buttons": [
-        {
-          "label": "if kapitaen_alter >= 18 and energielevel >= 80:\n        direkter_heimkurs_berechnen()",
-          "correct": false,
-          "explanation": "❌ **Falsch!** (15 >= 18) AND (75 >= 80) = false AND false = **false**. Zur nächsten Bedingung."
-        },
-        {
-          "label": "elif crew_bereitschaft >= 60:\n        sicherer_heimkurs_berechnen()",
-          "correct": true,
-          "explanation": "✅ **Richtig!** 65 >= 60 ist **true**. Computer führt aus: 'Heimkurs berechnet'."
-        },
-        {
-          "label": "else:\n        notfall_sammelpunkt_ansteuern()",
-          "correct": false,
-          "explanation": "❌ **Falsch!** elif war bereits true, else wird nicht erreicht."
-        }
-      ],
-      "success_text": "🎉 **Level 4 geschafft!** Du kannst jetzt AND-Verknüpfungen und mehrere Variablen kombinieren!",
-      "next_mission": 5
-    },
-    {
-      "id": 5,
-      "title": "Asteroiden-Navigation",
-      "text": "\"Kurs gesetzt,\" bestätigt Kim mit einem anerkennenden Nicken. \"Du lernst schnell, Kapitän.\"\n\nPlötzlich ertönt ein Alarm. \"Asteroiden-Feld voraus!\" ruft Sensor-Spezialist Dr. Martinez. \"Wir brauchen 1200 Einheiten Schubkraft, um durchzukommen. Aber bei unserem Energielevel sind nur 950 möglich.\"\n\n**Frage:** Das Schubsystem hat vier Stufen. Welche wird aktiviert?",
-      "lrs_support": "**Schub-Status:** Schubkraft: 950 Einheiten",
-      "variables": {
-        "kapitaen_alter": 15,
-        "energielevel": 75,
-        "crew_bereitschaft": 65
-      },
-      "variables_discovered": {
-        "schubkraft": 950
-      },
-      "buttons": [
-        {
-          "label": "if schubkraft >= 1200:\n        maximale_geschwindigkeit_aktivieren()",
-          "correct": false,
-          "explanation": "❌ **Falsch!** 950 >= 1200 ist **false**. Computer geht weiter."
-        },
-        {
-          "label": "elif schubkraft >= 1000:\n        normale_geschwindigkeit_setzen()",
-          "correct": false,
-          "explanation": "❌ **Falsch!** 950 >= 1000 ist **false**. Computer geht weiter."
-        },
-        {
-          "label": "elif schubkraft >= 800:\n        vorsichtige_navigation_starten()",
-          "correct": true,
-          "explanation": "✅ **Richtig!** 950 >= 800 ist **true**. Computer führt aus: 'Vorsichtige Navigation' und stoppt."
-        },
-        {
-          "label": "else:\n        antrieb_reparatur_starten()",
-          "correct": false,
-          "explanation": "❌ **Falsch!** elif war bereits true, else wird übersprungen."
-        }
-      ],
-      "success_text": "🎉 **Level 5 geschafft!** Du beherrschst jetzt mehrfache elif-Ketten!",
-      "next_mission": 6
-    },
-    {
-      "id": 6,
-      "title": "Kommunikation mit der Erde",
-      "text": "Die Aurora navigiert erfolgreich durch das Asteroidenfeld. \"Großartige Arbeit, Kapitän,\" sagt Dr. Martinez. \"Aber wir haben ein neues Problem.\"\n\nKim checkt das Kommunikationssystem: \"Ich kann die Erde erreichen, aber das Signal ist schwach - nur 45% Stärke. Immerhin funktioniert die Verschlüsselung noch.\"\n\n**Frage:** Das Kommunikationssystem prüft Boolean-Werte. Welche Bedingung trifft zu?",
-      "lrs_support": "**Kom-System:** Signalstärke: 45%, Verschlüsselung: aktiv (true)",
-      "variables": {
-        "kapitaen_alter": 15,
-        "energielevel": 75,
-        "crew_bereitschaft": 65,
-        "schubkraft": 950
-      },
-      "variables_discovered": {
-        "signal_staerke": 45,
-        "verschluesselung_aktiv": true
-      },
-      "buttons": [
-        {
-          "label": "if signal_staerke >= 70:\n        direkte_erd_kommunikation_starten()",
-          "correct": false,
-          "explanation": "❌ **Falsch!** 45 >= 70 ist **false**. Computer geht zur nächsten Bedingung."
-        },
-        {
-          "label": "elif verschluesselung_aktiv:\n        sichere_schwach_kommunikation_starten()",
-          "correct": true,
-          "explanation": "✅ **Richtig!** verschluesselung_aktiv ist **true**. Computer führt aus: 'Sichere Schwach-Kommunikation'."
-        },
-        {
-          "label": "else:\n        offene_notfall_kommunikation_senden()",
-          "correct": false,
-          "explanation": "❌ **Falsch!** elif war true, else wird nicht erreicht."
-        }
-      ],
-      "success_text": "🎉 **Level 6 geschafft!** Du verstehst jetzt Boolean-Werte (true/false) in Bedingungen!",
-      "next_mission": 7
-    },
-    {
-      "id": 7,
-      "title": "Feindkontakt",
-      "text": "\"Erdkontakt hergestellt,\" meldet Kim erleichtert. Aber plötzlich schrillen alle Alarme.\n\n\"UNBEKANNTE SCHIFFE!\" schreit Dr. Martinez. \"Drei Raumjäger, unbekannte Bauart! Sie nähern sich schnell - 8 Kilometer Entfernung und schließen auf!\"\n\nDas taktische Display zeigt rote Signale. \"Das sind keine irdischen Schiffe,\" flüstert Sarah.\n\n**Frage:** Das Verteidigungssystem kombiniert Boolean und Zahlen. Welche Aktion wird ausgeführt?",
-      "lrs_support": "**Bedrohungsanalyse:** Feindkontakt: erkannt (true), Entfernung: 8 Kilometer",
-      "variables": {
-        "kapitaen_alter": 15,
-        "energielevel": 75,
-        "crew_bereitschaft": 65,
-        "schubkraft": 950,
-        "signal_staerke": 45,
-        "verschluesselung_aktiv": true
-      },
-      "variables_discovered": {
-        "feindkontakt": true,
-        "entfernung": 8
-      },
-      "buttons": [
-        {
-          "label": "if feindkontakt and entfernung <= 5:\n        sofort_angriff_starten()",
-          "correct": false,
-          "explanation": "❌ **Falsch!** true AND (8 <= 5) = true AND false = **false**. Computer geht weiter."
-        },
-        {
-          "label": "elif feindkontakt and energielevel >= 70:\n        defensivschild_aktivieren()",
-          "correct": true,
-          "explanation": "✅ **Richtig!** true AND (75 >= 70) = true AND true = **true**. Computer führt aus: 'Defensivschild aktivieren'."
-        },
-        {
-          "label": "else:\n        flucht_vorbereiten()",
-          "correct": false,
-          "explanation": "❌ **Falsch!** elif war bereits true, else wird übersprungen."
-        }
-      ],
-      "success_text": "🎉 **Level 7 geschafft!** Du beherrschst AND-Verknüpfungen mit gemischten Datentypen!",
-      "next_mission": 8
-    },
-    {
-      "id": 8,
-      "title": "Sauerstoff-Krise",
-      "text": "\"Schilde sind oben,\" meldet Sarah erleichtert. Die feindlichen Schiffe verschwinden hinter einem Asteroiden. \"Aber wir haben ein neues Problem - die Schilde verbrauchen viel Energie und belasten die Lebenserhaltung.\"\n\nDr. Chen checkt die Lebenserhaltungssysteme: \"Sauerstofflevel bei 55%. Das reicht nur noch 6 Stunden. Die Temperatur ist auf 'kritisch' gestiegen.\"\n\n**Frage:** Das Lebenserhaltungs-System hat fünf Stufen. Welche wird aktiviert?",
-      "lrs_support": "**Lebenserhaltung:** Sauerstoff: 55%, Temperatur: \"kritisch\"",
-      "variables": {
-        "kapitaen_alter": 15,
-        "energielevel": 75,
-        "crew_bereitschaft": 65,
-        "schubkraft": 950,
-        "signal_staerke": 55,
-        "verschluesselung_aktiv": true,
-        "feindkontakt": true,
-        "entfernung": 8
-      },
-      "variables_discovered": {
-        "temperatur": "kritisch"
-      },
-      "buttons": [
-        {
-          "label": "if signal_staerke >= 70:\n        vollstaendige_kommunikation_starten()",
-          "correct": false,
-          "explanation": "❌ **Falsch!** 55 >= 70 ist **false**. Computer geht weiter."
-        },
-        {
-          "label": "elif signal_staerke >= 60:\n        erweiterte_lebenserhaltung_aktivieren()",
-          "correct": false,
-          "explanation": "❌ **Falsch!** 55 >= 60 ist **false**. Computer geht weiter."
-        },
-        {
-          "label": "elif signal_staerke >= 50 and temperatur == \"kritisch\":\n        notfall_lebenserhaltung_starten()",
-          "correct": true,
-          "explanation": "✅ **Richtig!** (55 >= 50) AND (\"kritisch\" == \"kritisch\") = true AND true = **true**. Computer führt aus: 'Notfall-Lebenserhaltung'."
-        },
-        {
-          "label": "elif signal_staerke >= 40:\n        basis_lebenserhaltung_starten()",
-          "correct": false,
-          "explanation": "❌ **Falsch!** Die vorherige elif-Bedingung war bereits true, diese wird nicht erreicht."
-        },
-        {
-          "label": "else:\n        minimale_ueberlebensfunktionen_aktivieren()",
-          "correct": false,
-          "explanation": "❌ **Falsch!** Eine elif-Bedingung war bereits true, else wird übersprungen."
-        }
-      ],
-      "success_text": "🎉 **Level 8 geschafft!** Du verstehst jetzt String-Vergleiche und komplexe elif-Ketten!",
-      "next_mission": 9
-    },
-    {
-      "id": 9,
-      "title": "Hüllenschaden-Analyse",
-      "text": "Die Lebenserhaltung stabilisiert sich, aber Dr. Martinez entdeckt ein neues Problem. \"Kapitän, wir haben Mikroschäden an der Hülle! Die feindlichen Schiffe haben uns anscheinend mit Energiewaffen beschossen. 80% Hüllenintegrität, aber die Reparaturen sind möglich - noch.\"\n\n**Frage:** Das Reparatursystem prüft alle drei Parameter. Welche Aktion wird ausgeführt?",
-      "variables": {
-        "kapitaen_alter": 15,
-        "energielevel": 75,
-        "crew_bereitschaft": 65,
-        "schubkraft": 950,
-        "signal_staerke": 55,
-        "verschluesselung_aktiv": true,
-        "feindkontakt": true,
-        "entfernung": 80,
-        "temperatur": "kritisch"
-      },
-      "variables_discovered": {
-        "reparatur_moeglich": true
-      },
-      "buttons": [
-        {
-          "label": "if entfernung >= 90 and temperatur == \"normal\" and not reparatur_moeglich:\n        langzeit_reparatur_starten()",
-          "correct": false,
-          "explanation": "❌ **Falsch!** (80 >= 90) AND (\"kritisch\" == \"normal\") AND (not true) = false AND false AND false = **false**."
-        },
-        {
-          "label": "elif entfernung >= 75 and temperatur == \"kritisch\":\n        schnell_reparatur_starten()",
-          "correct": true,
-          "explanation": "✅ **Richtig!** (80 >= 75) AND (\"kritisch\" == \"kritisch\") = true AND true = **true**. Computer führt aus: 'Schnell-Reparatur'."
-        },
-        {
-          "label": "elif entfernung >= 70:\n        standard_reparatur_starten()",
-          "correct": false,
-          "explanation": "❌ **Falsch!** Die vorherige elif-Bedingung war bereits true, diese wird nicht erreicht."
-        },
-        {
-          "label": "else:\n        notfall_reparatur_starten()",
-          "correct": false,
-          "explanation": "❌ **Falsch!** Eine elif-Bedingung war bereits true, else wird übersprungen."
-        }
-      ],
-      "success_text": "🎉 **Level 9 geschafft!** Du beherrschst jetzt komplexe AND-Verknüpfungen und NOT-Operatoren!",
-      "next_mission": 10,
-      "lrs_support": "**Hüllen-Status:**Hüllenintegrität: 80%, Temperatur: \"kritisch\", Reparatur möglich: true"
-    },
-    {
-      "id": 10,
-      "title": "Raumstation-Andocken",
-      "text": "Die Reparaturen laufen, aber das Schiff steuert auf eine verlassene Raumstation zu. \"Das ist Station Omega-7,\" meldet Kim. \"Sie wurde vor Jahren aufgegeben, aber der Andockcomputer ist noch aktiv. Andockdruck bei 0.8 Bar - das ist knapp.\"\n\n\"Die Luftschleuse ist geschlossen - das ist gut,\" bemerkt Dr. Chen. \"Wir können andocken und Vorräte holen.\"\n\n**Frage:** Das System berücksichtigt wichtige Andockparameter. Welche Aktion wird gewählt?",
-      "variables": {
-        "kapitaen_alter": 15,
-        "energielevel": 75,
-        "crew_bereitschaft": 0.8,
-        "schubkraft": 950,
-        "signal_staerke": 55,
-        "verschluesselung_aktiv": true,
-        "feindkontakt": true,
-        "entfernung": 80,
-        "temperatur": "kritisch",
-        "reparatur_moeglich": true
-      },
-      "variables_discovered": {},
-      "buttons": [
-        {
-          "label": "if kapitaen_alter >= 18 and entfernung >= 90 and energielevel >= 85:\n        vollautomatisches_andocken_starten()",
-          "correct": false,
-          "explanation": "❌ **Falsch!** (15 >= 18) AND (80 >= 90) AND (75 >= 85) = false AND false AND false = **false**."
-        },
-        {
-          "label": "elif entfernung >= 75 and crew_bereitschaft >= 0.9:\n        praezisions_andocken_starten()",
-          "correct": false,
-          "explanation": "❌ **Falsch!** (80 >= 75) AND (0.8 >= 0.9) = true AND false = **false**."
-        },
-        {
-          "label": "elif crew_bereitschaft >= 0.7 and verschluesselung_aktiv:\n        sicheres_andocken_starten()",
-          "correct": true,
-          "explanation": "✅ **Richtig!** (0.8 >= 0.7) AND true = true AND true = **true**. Computer führt aus: 'Sicheres Andocken'."
-        },
-        {
-          "label": "else:\n        notfall_andocken_versuchen()",
-          "correct": false,
-          "explanation": "❌ **Falsch!** Die elif-Bedingung war bereits true, else wird nicht erreicht."
-        }
-      ],
-      "success_text": "🎉 **Level 10 geschafft!** Du kombinierst jetzt mühelos viele Variablen in komplexen Bedingungen!",
-      "next_mission": 11,
-      "lrs_support": "**Andock-Status:**Andockdruck: 0.8 Bar, Verschlüsselung: aktiv"
-    },
-    {
-      "id": 11,
-      "title": "Backup-Systeme",
-      "text": "Das Andocken gelingt perfekt. Auf der Station entdeckt die Crew wichtige Vorräte. \"Die Hauptsensoren sind offline,\" meldet Dr. Martinez. \"Aber die Backup-Systeme funktionieren mit 85% Reichweite.\"\n\nSarah fügt hinzu: \"Das Backup-System ist aktiv - wir können alle wichtigen Funktionen aufrechterhalten.\"\n\n**Frage:** Das Sensorsystem nutzt erweiterte NOT-Logik. Welche Konfiguration wird gewählt?",
-      "variables": {
-        "kapitaen_alter": 15,
-        "energielevel": 75,
-        "crew_bereitschaft": 0.8,
-        "schubkraft": 950,
-        "signal_staerke": 55,
-        "verschluesselung_aktiv": true,
-        "feindkontakt": true,
-        "entfernung": 85,
-        "temperatur": "kritisch",
-        "reparatur_moeglich": true,
-        "backup_aktiv": true
-      },
-      "variables_discovered": {},
-      "buttons": [
-        {
-          "label": "if not backup_aktiv and entfernung >= 90:\n        hauptsensor_reparatur_starten()",
-          "correct": false,
-          "explanation": "❌ **Falsch!** (not true) AND (85 >= 90) = false AND false = **false**."
-        },
-        {
-          "label": "elif backup_aktiv and verschluesselung_aktiv and entfernung >= 80:\n        backup_sensoren_aktivieren()",
-          "correct": true,
-          "explanation": "✅ **Richtig!** true AND true AND (85 >= 80) = true AND true AND true = **true**. Computer führt aus: 'Backup-Sensoren ausreichend'."
-        },
-        {
-          "label": "elif verschluesselung_aktiv:\n        minimale_sensoren_aktivieren()",
-          "correct": false,
-          "explanation": "❌ **Falsch!** Die vorherige elif-Bedingung war bereits true, diese wird nicht erreicht."
-        },
-        {
-          "label": "else:\n        blind_navigation_aktivieren()",
-          "correct": false,
-          "explanation": "❌ **Falsch!** Eine elif-Bedingung war bereits true, else wird übersprungen."
-        }
-      ],
-      "success_text": "🎉 **Level 11 geschafft!** Du meisterst jetzt NOT-Operatoren und Dreifach-AND-Verknüpfungen!",
-      "next_mission": 12,
-      "lrs_support": "**Sensor-Status:**Hauptsensor offline: true, Verschlüsselung aktiv: true, entfernung: 85%"
-    },
-    {
-      "id": 12,
-      "title": "Waffenarsenal entdeckt",
-      "text": "\"Alex, schau dir das an,\" flüstert Sarah. Sie entdecken ein Arsenal von Schiffswaffen: Laser-Kanonen (85% geladen), 7 Quantentorpedos, und ein aktives Zielsystem.\n\n\"Die Aliens könnten zurückkommen,\" warnt Dr. Martinez. \"Diese Waffen könnten unser Leben retten.\"\n\n**Frage:** Das Waffensystem hat sechs Kampfbereitschaftsstufen. Welche wird aktiviert?",
-      "variables": {
-        "kapitaen_alter": 15,
-        "energielevel": 85,
-        "crew_bereitschaft": 0.8,
-        "schubkraft": 950,
-        "signal_staerke": 55,
-        "verschluesselung_aktiv": true,
-        "feindkontakt": true,
-        "entfernung": 7,
-        "temperatur": "kritisch",
-        "reparatur_moeglich": true,
-        "backup_aktiv": true
-      },
-      "variables_discovered": {},
-      "buttons": [
-        {
-          "label": "if energielevel >= 90 and entfernung >= 10 and backup_aktiv:\n        maximale_kampfkraft_aktivieren()",
-          "correct": false,
-          "explanation": "❌ **Falsch!** (85 >= 90) AND (7 >= 10) AND true = false AND false AND true = **false**."
-        },
-        {
-          "label": "elif energielevel >= 80 and backup_aktiv and feindkontakt:\n        vollstaendige_kampfbereitschaft_aktivieren()",
-          "correct": true,
-          "explanation": "✅ **Richtig!** (85 >= 80) AND true AND true = true AND true AND true = **true**. Computer führt aus: 'Vollständige Kampfbereitschaft'."
-        },
-        {
-          "label": "elif energielevel >= 75 and entfernung >= 5:\n        basis_verteidigung_aktivieren()",
-          "correct": false,
-          "explanation": "❌ **Falsch!** Die vorherige elif-Bedingung war bereits true, diese wird nicht erreicht."
-        },
-        {
-          "label": "elif entfernung >= 6:\n        praezisions_waffen_aktivieren()",
-          "correct": false,
-          "explanation": "❌ **Falsch!** Eine frühere elif-Bedingung war bereits true, diese wird übersprungen."
-        },
-        {
-          "label": "elif energielevel >= 70:\n        minimale_waffen_aktivieren()",
-          "correct": false,
-          "explanation": "❌ **Falsch!** Eine frühere elif-Bedingung war bereits true, diese wird übersprungen."
-        },
-        {
-          "label": "else:\n        defensive_haltung_aktivieren()",
-          "correct": false,
-          "explanation": "❌ **Falsch!** Eine elif-Bedingung war bereits true, else wird nicht erreicht."
-        }
-      ],
-      "success_text": "🎉 **Level 12 geschafft!** Du beherrschst jetzt sechs-stufige elif-Ketten mit komplexen Bedingungen!",
-      "next_mission": 13,
-      "lrs_support": "**Waffen-Status:**Laser-Energie: 85%, Torpedos: 7 Stück, Zielsystem aktiv: true"
-    },
-    {
-      "id": 13,
-      "title": "CO2-Filter Problem",
-      "text": "Während der Waffeninstallation entdeckt Dr. Chen ein kritisches Problem. \"Alex! Die CO2-Filter sind defekt - 20% Verschmutzung und steigend! Aber es ist reparabel - noch.\"\n\nAlex starrt auf die Warnanzeigen. \"Wenn wir das nicht reparieren, ersticken wir in unserer eigenen Atemluft.\"\n\n**Frage:** Das Lebenserhaltungssystem wertet komplexe Parameter aus. Welches Protokoll wird aktiviert?",
-      "variables": {
-        "kapitaen_alter": 15,
-        "energielevel": 85,
-        "crew_bereitschaft": 20,
-        "schubkraft": 950,
-        "signal_staerke": 55,
-        "verschluesselung_aktiv": true,
-        "feindkontakt": true,
-        "entfernung": 7,
-        "temperatur": "kritisch",
-        "reparatur_moeglich": true,
-        "backup_aktiv": true
-      },
-      "variables_discovered": {},
-      "buttons": [
-        {
-          "label": "if crew_bereitschaft <= 15 and energielevel >= 90 and schubkraft >= 1000:\n        vollautomatische_reparatur_starten()",
-          "correct": false,
-          "explanation": "❌ **Falsch!** (20 <= 15) AND (85 >= 90) AND (950 >= 1000) = false AND false AND false = **false**."
-        },
-        {
-          "label": "elif crew_bereitschaft <= 25 and backup_aktiv and (energielevel >= 80 or entfernung >= 5):\n        notfall_co2_reparatur_starten()",
-          "correct": true,
-          "explanation": "✅ **Richtig!** (20 <= 25) AND true AND (85 >= 80 OR 7 >= 5) = true AND true AND (true OR true) = true AND true AND true = **true**. Computer führt aus: 'Notfall-CO2-Reparatur'."
-        },
-        {
-          "label": "elif backup_aktiv and schubkraft >= 800:\n        backup_luftreinigung_aktivieren()",
-          "correct": false,
-          "explanation": "❌ **Falsch!** Die vorherige elif-Bedingung war bereits true, diese wird nicht erreicht."
-        },
-        {
-          "label": "elif entfernung >= 5:\n        minimale_filterreparatur_starten()",
-          "correct": false,
-          "explanation": "❌ **Falsch!** Eine frühere elif-Bedingung war bereits true, diese wird übersprungen."
-        },
-        {
-          "label": "else:\n        sauerstoff_recycling_notbetrieb()",
-          "correct": false,
-          "explanation": "❌ **Falsch!** Eine elif-Bedingung war bereits true, else wird nicht erreicht."
-        }
-      ],
-      "success_text": "🎉 **Level 13 geschafft!** Du meisterst jetzt OR-Verknüpfungen in Klammern und komplexeste Logik!",
-      "next_mission": 14,
-      "lrs_support": "**Filter-Status:**CO2-Filter defekt: true, Verschmutzung: 20%, Reparatur möglich: true"
-    },
-    {
-      "id": 14,
-      "title": "Kapsel-Evakuierung",
-      "text": "Ein Systemfehler zwingt zur Evakuierung in Rettungskapseln. \"Nur 6 Kapseln für 8 Crew-Mitglieder,\" meldet Kim panisch. \"Die Kapsel-Kapazität liegt bei 12 Stunden Lebenserhaltung.\"\n\n\"Alex, du musst entscheiden wer in die Kapseln geht,\" sagt Dr. Chen. \"Du bist der Kapitän.\"\n\n**Frage:** Das Evakuierungsprotokoll hat sechs Prioritätsstufen. Welche wird gewählt?",
-      "variables": {
-        "kapitaen_alter": 15,
-        "energielevel": 85,
-        "crew_bereitschaft": 20,
-        "schubkraft": 950,
-        "signal_staerke": 12,
-        "verschluesselung_aktiv": true,
-        "feindkontakt": true,
-        "entfernung": 6,
-        "temperatur": "kritisch",
-        "reparatur_moeglich": true,
-        "backup_aktiv": true
-      },
-      "variables_discovered": {},
-      "buttons": [
-        {
-          "label": "if entfernung <= 4 and signal_staerke >= 15 and not crew_bereitschaft >= 25:\n        risiko_rettung_versuchen()",
-          "correct": false,
-          "explanation": "❌ **Falsch!** (6 <= 4) AND (12 >= 15) AND (not 20 >= 25) = false AND false AND true = **false**."
-        },
-        {
-          "label": "elif entfernung <= 8 and energielevel >= 80 and schubkraft >= 900:\n        vollstaendige_rettung_durchfuehren()",
-          "correct": true,
-          "explanation": "✅ **Richtig!** (6 <= 8) AND (85 >= 80) AND (950 >= 900) = true AND true AND true = **true**. Computer führt aus: 'Alle können gerettet werden'."
-        },
-        {
-          "label": "elif entfernung <= 8 and signal_staerke >= 10:\n        standard_rettung_starten()",
-          "correct": false,
-          "explanation": "❌ **Falsch!** Die vorherige elif-Bedingung war bereits true, diese wird nicht erreicht."
-        },
-        {
-          "label": "elif signal_staerke >= 10 and kapitaen_alter >= 12:\n        junior_rettung_protokoll_aktivieren()",
-          "correct": false,
-          "explanation": "❌ **Falsch!** Eine frühere elif-Bedingung war bereits true, diese wird übersprungen."
-        },
-        {
-          "label": "elif schubkraft >= 800:\n        basis_rettung_versuchen()",
-          "correct": false,
-          "explanation": "❌ **Falsch!** Eine frühere elif-Bedingung war bereits true, diese wird übersprungen."
-        },
-        {
-          "label": "else:\n        notfall_rettung_aktivieren()",
-          "correct": false,
-          "explanation": "❌ **Falsch!** Eine elif-Bedingung war bereits true, else wird nicht erreicht."
-        }
-      ],
-      "success_text": "🎉 **Level 14 geschafft!** Du beherrschst jetzt sogar NOT-Operatoren mit Vergleichen in komplexen Ketten!",
-      "next_mission": 15,
-      "lrs_support": "**Kapsel-Status:**Kapseln: 6, Kapsel-Kapazität: 12 Stunden, Reparatur möglich: true"
-    },
-    {
-      "id": 15,
-      "title": "Heimkehr zur Erde",
-      "text": "Alle Systeme funktionieren wieder, und die Aurora nähert sich der Erde. Alex steht auf der Brücke, umgeben von seiner Crew, die ihn jetzt respektiert.\n\n\"Alex,\" sagt Dr. Chen stolz, \"du hast uns alle gerettet. Das Raumfahrt-Kommando wird nicht glauben, was ein 15-jähriger Kapitän alles geschafft hat.\"\n\nKim meldet: \"Erdkontakt hergestellt - sie empfangen uns! Mission erfolgreich!\"\n\n**Frage:** Das finale Missionssystem wertet ALLE 12 Variablen aus. Welcher Abschluss wird gewählt?",
-      "variables": {
-        "kapitaen_alter": 15,
-        "energielevel": 85,
-        "crew_bereitschaft": 20,
-        "schubkraft": 950,
-        "signal_staerke": 12,
-        "verschluesselung_aktiv": true,
-        "feindkontakt": true,
-        "entfernung": 15,
-        "temperatur": "kritisch",
-        "reparatur_moeglich": true,
-        "backup_aktiv": true
-      },
-      "variables_discovered": {},
-      "buttons": [
-        {
-          "label": "if crew_bereitschaft <= 15 and energielevel >= 90 and schubkraft >= 1000 and kapitaen_alter >= 18:\n        perfekte_heimkehr_mission_starten()",
-          "correct": false,
-          "explanation": "❌ **Falsch!** (20 <= 15) AND (85 >= 90) AND (950 >= 1000) AND (15 >= 18) = false AND false AND false AND false = **false**."
-        },
-        {
-          "label": "elif crew_bereitschaft <= 25 and energielevel >= 80 and schubkraft >= 900 and entfernung >= 10:\n        helden_heimkehr_mission_starten()",
-          "correct": true,
-          "explanation": "✅ **LEGENDÄR!** (20 <= 25) AND (85 >= 80) AND (950 >= 900) AND (15 >= 10) = true AND true AND true AND true = **true**. Computer führt aus: 'Weltraum-Mission erfolgreich' - Alex wird zum jüngsten Weltraum-Helden aller Zeiten!"
-        },
-        {
-          "label": "elif crew_bereitschaft <= 30 and energielevel >= 85 and entfernung >= 12:\n        erfolgreiche_heimkehr_mission_starten()",
-          "correct": false,
-          "explanation": "❌ **Falsch!** Die vorherige elif-Bedingung war bereits true, diese wird nicht erreicht."
-        },
-        {
-          "label": "elif energielevel >= 85 and schubkraft >= 800:\n        standard_heimkehr_mission_starten()",
-          "correct": false,
-          "explanation": "❌ **Falsch!** Eine frühere elif-Bedingung war bereits true, diese wird übersprungen."
-        },
-        {
-          "label": "elif schubkraft >= 700 and kapitaen_alter >= 12:\n        junior_heimkehr_mission_starten()",
-          "correct": false,
-          "explanation": "❌ **Falsch!** Eine frühere elif-Bedingung war bereits true, diese wird übersprungen."
-        },
-        {
-          "label": "elif schubkraft >= 800 and energielevel >= 70:\n        basis_heimkehr_mission_starten()",
-          "correct": false,
-          "explanation": "❌ **Falsch!** Eine frühere elif-Bedingung war bereits true, diese wird übersprungen."
-        },
-        {
-          "label": "else:\n        notfall_heimkehr_mission_starten()",
-          "correct": false,
-          "explanation": "❌ **Falsch!** Eine elif-Bedingung war bereits true, else wird nicht erreicht."
-        }
-      ],
-      "success_text": "🎊 **MISSION AURORA ABGESCHLOSSEN!** Du bist jetzt ein Meister der Programmierlogik! Du verstehst wie Computer if/elif/else-Ketten von oben nach unten abarbeiten und bei der ersten wahren Bedingung stoppen. Du beherrschst Vergleiche, AND, OR, NOT und komplexe verschachtelte Bedingungen mit 12 Variablen! Alex ist zum jüngsten Weltraum-Helden aller Zeiten geworden!",
-      "next_mission": null,
-      "lrs_support": "**Finale Bewertung:**Mission erfolgreich: true, Crew gerettet: 8, Alien-Kontakt überlebt: true"
+      "id": "moral",
+      "label": "Crew-Moral",
+      "icon": "👥",
+      "start": 50
     }
-  ]
+  ],
+  "defaultPenalty": [
+    {
+      "res": "huelle",
+      "inc": -2
+    }
+  ],
+  "defaultReward": [
+    {
+      "res": "moral",
+      "inc": 2
+    }
+  ],
+  "chapters": [
+    {
+      "id": "k1",
+      "title": "Systeme hochfahren",
+      "concept": "Variablen & Zuweisung",
+      "image": "images/aurora/k1.webp",
+      "intro": "Die Notbeleuchtung flackert, irgendwo zischt ein Ventil. Auf der Brücke ist es kalt. Sarah Rodriguez kriecht unter einer Konsole hervor, das Gesicht voller Ruß. \"Gute Nachricht: Der Reaktor lebt. Schlechte Nachricht: ORION hat beim Neustart sein Gedächtnis verloren.\"\n\nAuf dem Hauptschirm erscheint eine einzige Zeile: *\"ORION bereit. Speicher leer. Bitte Werte zuweisen.\"*\n\nFür ORION ist jede Information eine beschriftete Kiste – eine **Variable**. Mit `=` legt ORION einen Wert hinein. Kommt ein neuer Wert, fliegt der alte raus.\n\nKim Patel grinst nervös. \"Simpel ist gut. Simpel ist genau mein Level heute.\"\n\nBevor die Aurora irgendetwas tun kann, musst du verstehen, was in ORIONs Kisten liegt.",
+      "missions": [
+        {
+          "id": "1-1",
+          "type": "trace",
+          "title": "Energie verteilen",
+          "text": "\"Reaktor auf 80 Einheiten hochgefahren!\", ruft Sarah aus dem Maschinenraum. \"Jetzt verteile ich: erst der Antrieb, dann die Lebenserhaltung. Was übrig bleibt, geht in die Reserve.\"\n\nKim beugt sich über deine Schulter. \"Und wie viel bleibt übrig? Ich frage für einen Freund. Der Freund bin ich. Und ich hätte gern Licht.\"\n\nORION zeigt Sarahs Verteilungsprogramm. *\"Hinweis: Ich führe die Zeilen von oben nach unten aus. Eine nach der anderen. Ohne Ausnahme.\"*\n\n**Aufgabe:** Welcher Wert steht am Ende in `reaktor`?",
+          "lrs": "reaktor startet bei 80, dann werden 30 und danach 40 abgezogen.",
+          "vars": {},
+          "code": "reaktor = 80\nantrieb = 30\nreaktor = reaktor - antrieb\nlebenserhaltung = 40\nreaktor = reaktor - lebenserhaltung",
+          "ask": {
+            "var": "reaktor"
+          },
+          "options": [
+            "10",
+            "50",
+            "80",
+            "150"
+          ],
+          "hints": [
+            "Gehe Zeile für Zeile vor und notiere nach jeder Zeile, was gerade in `reaktor` steht.",
+            "Zeile 3: 80 − 30 = 50. Zeile 5 rechnet mit diesem *neuen* Wert weiter: 50 − 40 = …"
+          ],
+          "explain": "Eine **Zuweisung** wird von rechts nach links gelesen: Zuerst rechnet ORION `reaktor - antrieb` mit dem *aktuellen* Wert aus, dann landet das Ergebnis in `reaktor` – der alte Wert wird überschrieben. So wird aus 80 erst 50 und dann 10. `reaktor = reaktor - antrieb` ist also keine Gleichung, sondern ein Befehl: \"Nimm den alten Wert, rechne, speichere neu.\"",
+          "success": "\"10 Einheiten Reserve. Besser als nichts\", murmelt Sarah. Die Hauptbeleuchtung springt an, und Kim jubelt, als wäre gerade ein Lottogewinn eingetroffen. Dann piept eine Warnung: *\"Sensorwerte unplausibel.\"*",
+          "onSuccess": [
+            {
+              "res": "moral",
+              "inc": 2
+            },
+            {
+              "res": "energie",
+              "inc": 5
+            }
+          ]
+        },
+        {
+          "id": "1-2",
+          "type": "trace",
+          "title": "Vertauschte Sensoren",
+          "text": "ORION meldet: *\"Kabinentemperatur 98 Grad. Kabinendruck 21 Prozent.\"*\n\nDr. Chen hebt eine Augenbraue. \"Bei 98 Grad wären wir gekocht. Und bei 21 Prozent Druck könnten wir kaum atmen. Uns geht es aber gut.\"\n\nSarah winkt ab. \"Kabel vertauscht. Beim Neustart sind die beiden Werte in der falschen Variable gelandet. Kim, tausch sie einfach um.\"\n\nKim tippt hastig zwei Zeilen ein und lehnt sich zurück. \"Erledigt. Ich bin ein Genie.\" ORION antwortet nicht sofort. Bei einer KI ist das selten ein gutes Zeichen.\n\n**Aufgabe:** Kim tauscht ohne Hilfsvariable. Welcher Wert steht danach in `druck`?",
+          "lrs": "Am Anfang: temperatur ist 98, druck ist 21.",
+          "vars": {},
+          "code": "temperatur = 98\ndruck = 21\ntemperatur = druck\ndruck = temperatur",
+          "ask": {
+            "var": "druck"
+          },
+          "options": [
+            "98",
+            "21",
+            "119",
+            "0"
+          ],
+          "hints": [
+            "Was steht in `temperatur`, nachdem Zeile 3 ausgeführt wurde? Ist die 98 dann noch irgendwo gespeichert?",
+            "Nach Zeile 3 enthält `temperatur` schon 21 – die 98 ist weg. Zeile 4 kopiert also diese 21 zurück in `druck`."
+          ],
+          "explain": "Jede **Zuweisung überschreibt** den alten Wert. Nach `temperatur = druck` ist die 98 verloren, deshalb kopiert `druck = temperatur` nur die 21 zurück – beide Variablen enthalten jetzt 21. Zum Tauschen braucht man eine **Hilfsvariable**, die den alten Wert rettet: `alt = temperatur`, dann `temperatur = druck`, dann `druck = alt`.",
+          "success": "*\"Temperatur 21 Grad, Druck 21 Prozent\"*, meldet ORION trocken. *\"Wir ersticken also bei angenehmer Zimmertemperatur.\"* Kim läuft rot an und baut den Tausch mit einer Hilfsvariable neu – diesmal stimmen beide Werte. Im selben Moment erwacht das Funkgerät knisternd zum Leben."
+        },
+        {
+          "id": "1-3",
+          "type": "trace",
+          "title": "Der erste Funkspruch",
+          "text": "\"Das Funkgerät läuft!\" Kim richtet die Antenne Richtung Flottenbasis aus, obwohl niemand weiß, ob dort jemand zuhört. \"Okay. Erster Notruf. Kurz, klar, professionell. Nicht so wie meine Sprachnachrichten.\"\n\nORION baut den Funkspruch aus Variablen zusammen. Mit `+` klebt ORION Texte direkt aneinander. Stehen in `print` mehrere Teile mit Kommas, setzt ORION jeweils ein Leerzeichen dazwischen.\n\nDr. Chen schaut Kim über die Schulter. \"Bevor das ins All geht, will ich genau wissen, was drinsteht. Ein peinlicher Notruf, und keiner nimmt uns mehr ernst.\"\n\n**Aufgabe:** Was gibt `print` genau aus?",
+          "lrs": "schiff ist \"Aurora\", crew ist 23. Achte auf Leerzeichen.",
+          "vars": {},
+          "code": "schiff = \"Aurora\"\ncrew = 23\nnachricht = \"Hier \" + schiff + \", Notfall!\"\nprint(nachricht, \"Crew:\", crew)",
+          "ask": {
+            "output": true
+          },
+          "options": [
+            "Hier Aurora, Notfall! Crew: 23",
+            "Hier schiff, Notfall! Crew: crew",
+            "nachricht Crew: 23",
+            "Hier Aurora, Notfall!Crew:23"
+          ],
+          "hints": [
+            "Ein Name *ohne* Anführungszeichen ist eine Variable – ORION setzt ihren Inhalt ein. Mit Anführungszeichen ist es fester Text.",
+            "`nachricht` enthält \"Hier Aurora, Notfall!\". `print` mit Kommas setzt zwischen die drei Teile je ein Leerzeichen."
+          ],
+          "explain": "Text in Anführungszeichen ist fester Text, ein Name ohne Anführungszeichen ist eine **Variable** – ORION setzt ihren Inhalt ein. `+` **verkettet** Texte ohne Leerzeichen, deshalb steht das Leerzeichen in `\"Hier \"` schon mit drin. `print` mit Kommas gibt mehrere Werte nacheinander aus und setzt automatisch ein Leerzeichen dazwischen – auch eine Zahl wie 23 klappt dort ohne `str()`.",
+          "success": "Der Notruf geht hinaus ins Dunkel. Keine Antwort – noch nicht. Dr. Chen legt die Stirn in Falten: \"Bis jemand kommt, müssen wir durchhalten. Wie lange reicht eigentlich unser Sauerstoff?\"",
+          "onFail": [
+            {
+              "res": "moral",
+              "inc": -3
+            }
+          ]
+        },
+        {
+          "id": "1-4",
+          "type": "parsons",
+          "title": "Sauerstoff für 23",
+          "text": "Dr. Chen hat die Tanks geprüft: 920 Einheiten Sauerstoff. Jede der 23 Personen an Bord verbraucht 2 Einheiten pro Tag. \"Ich brauche eine Zahl\", sagt sie ruhig. \"Wie viele Tage haben wir?\"\n\nSarah hat ORIONs Rechenprogramm schon geschrieben – aber beim Neustart sind die Zeilen durcheinandergeraten. Und eine Zeile gehört gar nicht dazu.\n\n*\"Hinweis\"*, sagt ORION. *\"Ich kann nur mit Variablen rechnen, die bereits einen Wert haben. Ich bin eine KI, kein Orakel.\"*\n\nMit `//` teilt ORION ohne Rest – es zählen nur ganze Tage.\n\n**Aufgabe:** Bringe die Zeilen in die richtige Reihenfolge und sortiere die falsche Zeile aus.",
+          "lrs": "920 Einheiten Sauerstoff, 23 Personen, 2 Einheiten pro Person und Tag.",
+          "vars": {},
+          "solution": "sauerstoff = 920\ncrew = 23\nverbrauch_pro_person = 2\nverbrauch = crew * verbrauch_pro_person\ntage = sauerstoff // verbrauch\nprint(tage)",
+          "distractors": [
+            "tage = sauerstoff // crew"
+          ],
+          "tests": [
+            {
+              "label": "ORION meldet 20 Tage",
+              "output": [
+                "20"
+              ]
+            }
+          ],
+          "hints": [
+            "Welche Variablen braucht die Zeile `verbrauch = …`? Die müssen vorher schon einen Wert bekommen haben.",
+            "Erst die drei Startwerte, dann `verbrauch` (23 · 2 = 46), dann `tage`, zum Schluss `print`. Die Zeile `tage = sauerstoff // crew` vergisst den Verbrauch pro Person."
+          ],
+          "explain": "Ein Programm läuft von oben nach unten: Eine Variable muss einen Wert haben, **bevor** man mit ihr rechnet – sonst meldet ORION einen Fehler. Darum zählt die **Reihenfolge der Zuweisungen**: Startwerte → Zwischenergebnis `verbrauch` → Ergebnis `tage` → Ausgabe. `920 // 46` ergibt 20, denn `//` teilt und lässt den Rest weg.",
+          "success": "\"Zwanzig Tage\", sagt Dr. Chen leise. \"Nicht viel – aber ein Plan.\" Da meldet ORION: *\"Grunddaten vollständig. Bereit für Entscheidungen. Frage: Wer entscheidet hier eigentlich?\"* Alle Blicke richten sich auf dich."
+        }
+      ]
+    },
+    {
+      "id": "k2",
+      "title": "Kommando-Entscheidungen",
+      "concept": "Bedingungen: if / elif / else",
+      "image": "images/aurora/k2.webp",
+      "intro": "Daten hat ORION jetzt genug. Was fehlt, sind Entscheidungen.\n\n*\"Ich prüfe Bedingungen\"*, erklärt die KI. *\"Ist eine Bedingung wahr, führe ich den eingerückten Block darunter aus. Ist sie falsch, überspringe ich ihn und schaue beim nächsten `elif` oder beim `else` nach.\"*\n\nSarah wischt sich die öligen Hände an der Hose ab. \"Übersetzt: ORION fragt immer *wenn – sonst wenn – sonst*. Und nimmt den ersten Weg, der passt.\"\n\nKim seufzt. \"Ich wünschte, mein Leben hätte auch ein `else` für Notfälle.\"\n\nDie Crew versammelt sich auf der Brücke. Zum ersten Mal wartet sie auf deine Befehle.",
+      "missions": [
+        {
+          "id": "2-1",
+          "type": "choice",
+          "title": "Junior-Kommando",
+          "text": "Bevor ORION Befehle von dir annimmt, läuft eine Sicherheitsprüfung. Auf dem Schirm erscheint dein Gesicht – und daneben dein Alter: 15.\n\n\"Morrison hätte gewollt, dass du übernimmst\", sagt Dr. Chen leise. \"Aber die Regeln der Flotte sind streng. Volles Kommando gibt es erst ab 18.\"\n\nKim kaut auf einem Stift herum. \"Und unter 18? Gibt's dann ein Kinderkommando mit Malbuch?\"\n\n*\"Ich prüfe das Alter\"*, sagt ORION. *\"Von oben nach unten. Wie immer.\"*\n\n**Aufgabe:** Welcher Zweig wird ausgeführt? Klicke die richtige Zeile an.",
+          "lrs": "kapitaen_alter ist 15.",
+          "vars": {
+            "kapitaen_alter": 15
+          },
+          "code": "if kapitaen_alter >= 18:\n    vollkommando_aktivieren()\nelse:\n    junior_kommando_aktivieren()",
+          "hints": [
+            "Setze 15 in die Bedingung ein: Ist `15 >= 18` wahr oder falsch?",
+            "`15 >= 18` ist falsch (False). Dann springt ORION zu dem Zweig, der immer dann läuft, wenn das `if` nicht passt."
+          ],
+          "explain": "ORION wertet die Bedingung `kapitaen_alter >= 18` aus: `15 >= 18` ist **False**. Deshalb wird der eingerückte Block unter `if` übersprungen und der **else-Zweig** ausgeführt. `else` braucht keine eigene Bedingung – er ist der Weg für \"alle anderen Fälle\".",
+          "success": "*\"Junior-Kommando aktiviert. Kapitän: Alex.\"* Kim salutiert übertrieben, und Dr. Chen lächelt zum ersten Mal seit dem Unfall. Dann knackt Sarahs Stimme im Lautsprecher: \"Kapitän? Wir müssen über die Energie reden.\""
+        },
+        {
+          "id": "2-2",
+          "type": "choice",
+          "title": "Energiesparmodus",
+          "text": "Sarah steht vor der großen Energieanzeige, die Arme verschränkt. Der Balken zeigt **{energie}%**.\n\n\"Für die volle Navigation brauchen wir mindestens 90 Prozent\", erklärt sie. \"Darunter muss ORION Licht, Heizung und Antrieb drosseln. Sonst geht uns mitten im Flug der Saft aus.\"\n\nKim starrt auf die Zahl. \"Ist das viel? Das klingt viel. Sag mir, dass das viel ist.\"\n\n*\"Ich vergleiche den aktuellen Wert mit der Grenze\"*, meldet ORION. *\"Gefühle werden nicht berücksichtigt.\"*\n\n**Aufgabe:** Die Energie steht bei {energie}%. Welcher Zweig wird ausgeführt?",
+          "lrs": "Vergleiche deine aktuelle Energie mit der Grenze 90.",
+          "useResources": [
+            "energie"
+          ],
+          "vars": {},
+          "code": "if energie >= 90:\n    normale_navigation_starten()\nelse:\n    energiesparmodus_aktivieren()",
+          "hints": [
+            "Schau auf deinen Energiewert: Ist er mindestens 90?",
+            "Ist `energie >= 90` wahr, läuft der `if`-Zweig. Ist die Bedingung falsch – zum Beispiel bei 85 –, läuft der `else`-Zweig."
+          ],
+          "explain": "Die Bedingung `energie >= 90` vergleicht deinen **aktuellen Energiewert** mit der Grenze 90. `>=` heißt \"größer oder gleich\" – auch genau 90 würde reichen. Weil es ein `else` gibt, hat ORION für **jeden** möglichen Wert einen Plan: Entweder die Bedingung stimmt, oder der else-Zweig übernimmt.",
+          "success": "ORION schaltet in den passenden Modus, die Lichter in den Gängen passen sich an. Sarah nickt. \"Das kauft uns Zeit.\" Doch Kim räuspert sich: \"Äh, Kapitän? Die Crew ist … nicht ganz so überzeugt wie wir.\""
+        },
+        {
+          "id": "2-3",
+          "type": "choice",
+          "title": "Crew-Bereitschaft",
+          "text": "In der Messe sitzen fast zwanzig müde Gesichter. Manche flüstern, andere starren in ihren Kaffee. Kim schiebt dir ein Tablet hin: \"Die Moral-Sensoren messen 65 Prozent Bereitschaft. Viele fragen sich, ob eine 15-jährige Person uns nach Hause bringen kann.\"\n\nSarah zuckt mit den Schultern. \"Ich hab mit 15 meinen ersten Motor zerlegt. Und wieder zusammengebaut. Fast vollständig.\"\n\nORION hat drei Pläne vorbereitet – je nachdem, wie bereit die Crew ist. *\"Ich prüfe die Stufen von oben nach unten und nehme die erste, die passt. Danach höre ich auf zu suchen.\"*\n\n**Aufgabe:** Welcher Zweig wird ausgeführt?",
+          "lrs": "crew_bereitschaft ist 65.",
+          "vars": {
+            "crew_bereitschaft": 65
+          },
+          "code": "if crew_bereitschaft >= 80:\n    elite_mission_starten()\nelif crew_bereitschaft >= 50:\n    standard_vorbereitung_aktivieren()\nelse:\n    notfall_protokoll_starten()",
+          "hints": [
+            "Prüfe die Bedingungen der Reihe nach mit 65: Ist `65 >= 80` wahr? Wenn nicht, weiter zur nächsten.",
+            "`65 >= 80` ist False, `65 >= 50` ist True – genau dort hört ORION auf zu suchen."
+          ],
+          "explain": "Bei **if/elif/else** prüft ORION die Bedingungen von oben nach unten und führt **nur den ersten wahren Zweig** aus. `65 >= 80` ist False, `65 >= 50` ist True – also läuft der elif-Zweig, der Rest wird übersprungen. Der else-Zweig käme nur dran, wenn alle Bedingungen davor falsch wären.",
+          "success": "*\"Standard-Vorbereitung aktiv. Schichtpläne verteilt.\"* Klare Aufgaben beruhigen die Crew sichtlich. Da ruft Dr. Chen über Funk: \"Alex, hier in der Krankenstation ist es heiß wie in einer Sauna!\""
+        },
+        {
+          "id": "2-4",
+          "type": "trace",
+          "title": "Hitze in der Krankenstation",
+          "text": "Das Thermometer in der Krankenstation zeigt 31 Grad. Dr. Chen hat die Ärmel hochgekrempelt. \"Die Medikamente vertragen keine Hitze. Und ich übrigens auch nicht.\"\n\nSarah hat ORION eine Kühlregel geschrieben: Je heißer es ist, desto stärker wird gekühlt. Kim liest mit und rechnet laut: \"31 ist über 30 *und* über 25 – dann kühlt ORION doch beides, oder? Fünf plus zwei …\"\n\nDr. Chen schüttelt den Kopf. \"Rechne lieber noch mal nach. Ich will hier kein Eiszimmer.\"\n\n**Aufgabe:** Welcher Wert steht am Ende in `temperatur`? Tippe die Zahl ein.",
+          "lrs": "temperatur ist am Anfang 31.",
+          "vars": {},
+          "code": "temperatur = 31\nkuehlung = 0\nif temperatur > 30:\n    kuehlung = kuehlung + 5\nelif temperatur > 25:\n    kuehlung = kuehlung + 2\nelse:\n    print(\"Temperatur ok\")\ntemperatur = temperatur - kuehlung",
+          "ask": {
+            "var": "temperatur"
+          },
+          "hints": [
+            "31 ist größer als 30 *und* größer als 25. Aber wie viele Zweige eines if/elif/else-Blocks führt ORION höchstens aus?",
+            "Nur der erste wahre Zweig läuft: `kuehlung` wird 5. Die letzte Zeile ist nicht eingerückt und läuft immer: 31 − 5 = …"
+          ],
+          "explain": "Obwohl auch `temperatur > 25` wahr wäre, kommt der elif-Zweig nicht mehr dran: In einem **if/elif/else-Block läuft höchstens ein Zweig** – der erste, dessen Bedingung stimmt. Also wird `kuehlung` 5. Die letzte Zeile ist nicht eingerückt, gehört nicht mehr zum Block und läuft deshalb in jedem Fall: 31 − 5 = 26.",
+          "success": "*\"Temperatur: 26 Grad.\"* Dr. Chen atmet auf. Kurz darauf meldet sich Sarah: \"Alex, kommst du mal zur Luftschleuse? Ich muss bald raus an die Antenne – und ORIONs Schleusenprogramm hat beim Neustart eine Lücke bekommen.\""
+        },
+        {
+          "id": "2-5",
+          "type": "fill",
+          "title": "Die Luftschleusen-Regel",
+          "text": "An der Luftschleuse riecht es nach Metall. Sarah zieht ihren Raumanzug aus dem Spind. \"Bald muss ich raus an die Antenne. Vorher will ich, dass dieses Ding sicher ist.\"\n\nSie zeigt auf die Innentür zwischen Schleusenkammer und Schiff. \"Die Regel ist einfach: Die Innentür darf nur aufgehen, wenn in der Kammer **mindestens 50 Prozent** Druck herrschen. Sonst zischt uns die Schiffsluft davon. Liegt der Druck darunter, bleibt die Tür zu und die Pumpe füllt nach.\"\n\n*\"Mir fehlt die Bedingung\"*, meldet ORION. *\"Ich rate ungern bei Türen, hinter denen das Vakuum wartet.\"*\n\n**Aufgabe:** Schreibe die fehlende Bedingung, die den Kammerdruck `druck` prüft.",
+          "lrs": "Innentür offen bei druck 50 oder mehr, sonst zu.",
+          "vars": {
+            "druck": 80
+          },
+          "code": "pumpe = \"aus\"\nif ___:\n    innentuer = \"offen\"\nelse:\n    innentuer = \"zu\"\n    pumpe = \"an\"",
+          "solution": [
+            "druck >= 50"
+          ],
+          "tests": [
+            {
+              "label": "Druck 80 → Innentür öffnet",
+              "vars": {
+                "druck": 80
+              },
+              "expect": {
+                "innentuer": "offen",
+                "pumpe": "aus"
+              }
+            },
+            {
+              "label": "Druck genau 50 → Innentür öffnet (Grenzfall)",
+              "vars": {
+                "druck": 50
+              },
+              "expect": {
+                "innentuer": "offen",
+                "pumpe": "aus"
+              }
+            },
+            {
+              "label": "Druck 49 → Tür bleibt zu, Pumpe läuft",
+              "vars": {
+                "druck": 49
+              },
+              "expect": {
+                "innentuer": "zu",
+                "pumpe": "an"
+              }
+            },
+            {
+              "label": "Druck 0 → Tür bleibt zu, Pumpe läuft",
+              "vars": {
+                "druck": 0
+              },
+              "expect": {
+                "innentuer": "zu",
+                "pumpe": "an"
+              }
+            }
+          ],
+          "hints": [
+            "Welcher Vergleichsoperator bedeutet \"mindestens\"? Denk daran: Genau 50 soll auch reichen.",
+            "Die Bedingung lautet `druck >= 50`. Mit `>` allein würde die Tür bei genau 50 zu bleiben."
+          ],
+          "explain": "\"Mindestens 50\" heißt **größer oder gleich**: `druck >= 50`. Der **Grenzfall** genau 50 entscheidet, welchen Operator du brauchst – mit `druck > 50` bliebe die Tür bei 50 fälschlich zu. Deshalb testet man Bedingungen immer auch mit dem Wert genau auf der Grenze.",
+          "success": "ORION testet die Schleuse viermal – jedes Mal korrekt. Sarah klopft dir auf die Schulter: \"Damit kann ich arbeiten.\" Auf der Brücke blinkt schon die nächste Meldung: *\"Kursberechnung bereit. Mehrere Bedingungen gleichzeitig erforderlich.\"*",
+          "onSuccess": [
+            {
+              "res": "moral",
+              "inc": 2
+            },
+            {
+              "res": "energie",
+              "inc": 5
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "k3",
+      "title": "Logik-Gatter",
+      "concept": "Logische Operatoren: and / or / not",
+      "image": "images/aurora/k3.webp",
+      "intro": "Einzelne Bedingungen reichen nicht mehr. Hier draußen im Kepler-Gürtel hängt alles zusammen: Energie *und* Kurs, Signal *oder* Verschlüsselung, Tür auf – aber *nicht*, solange jemand draußen ist.\n\n*\"Ich verbinde Bedingungen mit Logik-Gattern\"*, erklärt ORION. *\"`and`: beides muss stimmen. `or`: eins reicht. `not`: dreht wahr und falsch um.\"*\n\nKim nickt langsam. \"Also wie zu Hause: Ich darf raus, wenn das Zimmer aufgeräumt ist **und** die Hausaufgaben fertig sind.\"\n\n\"Und *nicht*, wenn du wieder Kekse in die Lüftung gestopft hast\", ergänzt Sarah.\n\nDie Aurora braucht einen Kurs. Zeit, ORIONs Gatter zu verstehen.",
+      "missions": [
+        {
+          "id": "3-1",
+          "type": "choice",
+          "title": "Navigationskurs",
+          "text": "Kim legt die Sternkarten auf den Hauptschirm. \"Wir sind 25 Lichtjahre von zu Hause weg. Nicht schlecht für einen Unfall. Also – schlecht. Aber beeindruckend schlecht.\"\n\nORION schlägt drei Kurse vor. Den direkten Heimkurs gibt es nur mit vollem Kommando *und* viel Energie. Sonst entscheidet die Crew-Bereitschaft.\n\nDie Daten: Kapitän 15 Jahre, Energie **{energie}%**, Crew-Bereitschaft 65 Prozent.\n\nSarah tippt auf die erste Zeile. \"Da steht `and`. Das heißt: *Beide* Teile müssen stimmen. Einer allein reicht nicht.\"\n\n**Aufgabe:** Welcher Zweig wird ausgeführt?",
+          "lrs": "kapitaen_alter ist 15, crew_bereitschaft ist 65, energie ist dein aktueller Wert.",
+          "useResources": [
+            "energie"
+          ],
+          "vars": {
+            "kapitaen_alter": 15,
+            "crew_bereitschaft": 65
+          },
+          "code": "if kapitaen_alter >= 18 and energie >= 80:\n    direkten_heimkurs_berechnen()\nelif crew_bereitschaft >= 60:\n    sicheren_kurs_berechnen()\nelse:\n    notfall_sammelpunkt_ansteuern()",
+          "hints": [
+            "Prüfe beim `and` zuerst den linken Teil: Ist `kapitaen_alter >= 18` wahr?",
+            "`15 >= 18` ist False – damit ist die ganze `and`-Bedingung False, egal wie viel Energie da ist. Weiter mit dem `elif`: Ist `65 >= 60`?"
+          ],
+          "explain": "Eine **and-Verknüpfung** ist nur True, wenn **beide** Teile True sind. Weil `kapitaen_alter >= 18` schon False ist, ist die gesamte erste Bedingung False – die Energie spielt keine Rolle mehr. Danach prüft ORION das `elif`: `65 >= 60` ist True, also wird der sichere Kurs berechnet.",
+          "success": "*\"Sicherer Kurs berechnet. Reisezeit: unbekannt. Treibstoff: knapp.\"* Sarah verzieht das Gesicht: \"Knapp ist mein Lieblingswort.\" Kim setzt die Kopfhörer auf: \"Dann versuche ich noch mal, die Flotte zu erreichen.\""
+        },
+        {
+          "id": "3-2",
+          "type": "choice",
+          "title": "Verschlüsselter Funk",
+          "text": "Kim dreht an den Reglern, bis es in den Kopfhörern rauscht. \"Signalstärke 45 Prozent. Für ein echtes Gespräch zu schwach. Aber die Verschlüsselung läuft noch!\"\n\n\"Ist das wichtig?\", fragt Dr. Chen.\n\n\"Total! Ohne Verschlüsselung hört jeder mit, der im Gürtel eine Antenne hat. Mit Verschlüsselung können wir wenigstens eine kurze, sichere Nachricht schicken.\"\n\nIn ORIONs Code steht eine Bedingung ganz ohne Vergleich – nur der Name `verschluesselung_aktiv`. Die Variable enthält selbst schon einen Wahrheitswert: `True` oder `False`.\n\n**Aufgabe:** Welcher Zweig wird ausgeführt?",
+          "lrs": "signal_staerke ist 45, verschluesselung_aktiv ist True.",
+          "vars": {
+            "signal_staerke": 45,
+            "verschluesselung_aktiv": true
+          },
+          "code": "if signal_staerke >= 70:\n    direkte_verbindung_starten()\nelif verschluesselung_aktiv:\n    sichere_kurznachricht_senden()\nelse:\n    offenen_notruf_senden()",
+          "hints": [
+            "Ist `45 >= 70` wahr? Wenn nicht: Was steht in `verschluesselung_aktiv`?",
+            "`verschluesselung_aktiv` ist `True` – und eine Bedingung, die True ist, lässt ihren Zweig laufen. Ein `== True` braucht es dafür nicht."
+          ],
+          "explain": "`verschluesselung_aktiv` ist eine **Boolean-Variable**: Sie speichert direkt `True` oder `False`. Darum kann sie allein als Bedingung stehen – `elif verschluesselung_aktiv:` bedeutet dasselbe wie `elif verschluesselung_aktiv == True:`, nur kürzer. Da `45 >= 70` False ist und die Verschlüsselung True, läuft der elif-Zweig.",
+          "success": "Die verschlüsselte Kurznachricht geht hinaus. Kim lehnt sich zurück – und erstarrt. \"Äh, Leute? Da ist was auf dem Radar. Etwas *Großes*. Und es kommt näher.\""
+        },
+        {
+          "id": "3-3",
+          "type": "choice",
+          "title": "Unbekanntes Schiff",
+          "text": "Alarm! Rote Lichter zucken über die Brücke. Auf dem Radar: ein unbekanntes Objekt, groß wie ein Frachter, 8 Kilometer entfernt. Es antwortet auf keinen Funkruf.\n\n\"Das ist kein Schiff der Flotte\", flüstert Sarah.\n\nKim krallt sich in die Armlehnen. \"Okay. Ich bleibe ganz ruhig. Ich bin die Ruhe selbst. Ich bin ein See. Ein sehr nervöser See.\"\n\nORIONs Schutzprotokoll kombiniert einen Wahrheitswert mit Zahlen: `kontakt` ist `True`, die Entfernung beträgt 8 Kilometer, die Schildenergie 72 Prozent.\n\n**Aufgabe:** Welche Aktion führt ORION aus?",
+          "lrs": "kontakt ist True, entfernung ist 8, schildenergie ist 72.",
+          "vars": {
+            "kontakt": true,
+            "entfernung": 8,
+            "schildenergie": 72
+          },
+          "code": "if kontakt and entfernung <= 5:\n    ausweichmanoever_fliegen()\nelif kontakt and schildenergie >= 90:\n    vollen_schutzschirm_aufbauen()\nelif kontakt and schildenergie >= 50:\n    schutzschild_hochfahren()\nelse:\n    kurs_halten()",
+          "hints": [
+            "Bei `and` müssen beide Seiten stimmen. `kontakt` ist True – aber ist `8 <= 5` wahr?",
+            "Die erste Bedingung scheitert an der Entfernung, die zweite an `72 >= 90`. Bei der dritten sind `kontakt` und `72 >= 50` beide True."
+          ],
+          "explain": "Jede **and-Bedingung** wird als Ganzes bewertet: In der ersten ist `kontakt` zwar True, aber `entfernung <= 5` ist False – also ist alles False. In der zweiten scheitert `72 >= 90`. Erst in der dritten sind beide Teile True, deshalb fährt ORION den normalen Schild hoch. Wahrheitswerte und Zahlenvergleiche lassen sich mit `and` beliebig kombinieren.",
+          "success": "Der Schild summt auf. Dann endlich eine Antwort: *\"AUTOMATISCHE BERGBAU-DROHNE M-7. BITTE ABSTAND HALTEN. SCHÖNEN TAG NOCH.\"* Kim sackt zusammen: \"Wir hatten Panik vor einem fliegenden Staubsauger.\" Sarah grinst und greift nach ihrem Helm: \"Wenn es hier so friedlich ist – Zeit für meinen Ausflug zur Antenne.\""
+        },
+        {
+          "id": "3-4",
+          "type": "bug",
+          "title": "Sarah ist noch draußen",
+          "text": "Sarah schwebt draußen an der Hauptantenne, nur ein Halteseil verbindet sie mit der Aurora. \"Antenne justiert! Ich komme rein.\"\n\nDa piept Kims Konsole. \"Äh … ORION hat gerade die Innentür der Schleuse entriegelt. Aber Sarah ist noch *draußen*!\"\n\nDas ist gefährlich: Solange die Innentür offen ist, bleibt die Außentür aus Sicherheitsgründen verriegelt – Sarah käme nicht mehr herein. Die Regel muss lauten: Die Innentür öffnet nur, wenn Sarah **in der Kammer** ist **und** die Außentür **zu** ist.\n\n*\"Ich habe exakt ausgeführt, was dasteht\"*, sagt ORION. *\"Wie immer.\"*\n\n**Aufgabe:** Finde die fehlerhafte Zeile und repariere sie.",
+          "lrs": "Innentür nur öffnen, wenn sarah_drinnen True ist und aussentuer_zu True ist.",
+          "vars": {
+            "sarah_drinnen": false,
+            "aussentuer_zu": true
+          },
+          "code": "innentuer_offen = False\nif sarah_drinnen or aussentuer_zu:\n    innentuer_offen = True\n    print(\"ORION: Innentür öffnet.\")",
+          "bugLine": 2,
+          "fix": "if sarah_drinnen and aussentuer_zu:",
+          "tests": [
+            {
+              "label": "Sarah in der Kammer, Außentür zu → Innentür öffnet",
+              "vars": {
+                "sarah_drinnen": true,
+                "aussentuer_zu": true
+              },
+              "expect": {
+                "innentuer_offen": true
+              }
+            },
+            {
+              "label": "Sarah noch draußen, Außentür zu → Innentür bleibt zu",
+              "vars": {
+                "sarah_drinnen": false,
+                "aussentuer_zu": true
+              },
+              "expect": {
+                "innentuer_offen": false
+              }
+            },
+            {
+              "label": "Sarah in der Kammer, Außentür offen → bleibt zu (sonst entweicht Luft)",
+              "vars": {
+                "sarah_drinnen": true,
+                "aussentuer_zu": false
+              },
+              "expect": {
+                "innentuer_offen": false
+              }
+            },
+            {
+              "label": "Sarah draußen, Außentür offen → bleibt zu",
+              "vars": {
+                "sarah_drinnen": false,
+                "aussentuer_zu": false
+              },
+              "expect": {
+                "innentuer_offen": false
+              }
+            }
+          ],
+          "hints": [
+            "Lies die Bedingung laut vor. Reicht es bei `or`, wenn nur *eine* Seite stimmt?",
+            "Mit `or` öffnet die Tür schon, wenn nur die Außentür zu ist – auch wenn Sarah draußen ist. Beide Bedingungen müssen gelten: Ersetze `or` durch `and`."
+          ],
+          "explain": "`or` ist schon True, wenn **eine** Seite True ist: Außentür zu genügt, und die Innentür öffnet – obwohl Sarah draußen ist. `and` verlangt, dass **beide** Seiten True sind. Bei Sicherheitsregeln, bei denen *alle* Voraussetzungen erfüllt sein müssen, ist `and` das richtige Logik-Gatter.",
+          "success": "ORION verriegelt die Innentür, die Außentür gleitet auf. Sekunden später steht Sarah in der Kammer, den Helm unterm Arm: \"Wer das repariert hat, kriegt einen Kaffee von mir.\" Draußen hat die Drohne inzwischen gewendet – und hält direkt auf die Andockluke zu."
+        },
+        {
+          "id": "3-5",
+          "type": "fill",
+          "title": "Andockfreigabe",
+          "text": "\"Die Drohne will andocken!\", meldet Kim. \"Sie sendet ein uraltes Protokoll – und bietet uns ihre Sternkarten an. Die ganze Gegend, kartiert über Jahre!\"\n\nSarah ist sofort dabei. \"Karten wären Gold wert. Aber Andocken nur, wenn sie **langsamer als 5 Meter pro Sekunde** ist. Und unser Schild muss **aus** sein – sonst brutzeln wir ihr die Elektronik weg.\"\n\nDer Schild läuft noch seit dem Alarm. `schild_aktiv` ist ein Wahrheitswert. Mit `not` drehst du ihn um: `not schild_aktiv` ist True, wenn der Schild aus ist.\n\n*\"Freigabe-Bedingung fehlt\"*, meldet ORION. *\"Empfehlung: `and`. Und `not`.\"*\n\n**Aufgabe:** Schreibe die Bedingung für die Andockfreigabe mit `geschwindigkeit` und `schild_aktiv`.",
+          "lrs": "Frei nur, wenn geschwindigkeit kleiner als 5 ist und der Schild aus ist.",
+          "vars": {
+            "geschwindigkeit": 3,
+            "schild_aktiv": true
+          },
+          "code": "if ___:\n    andocken = \"frei\"\nelse:\n    andocken = \"gesperrt\"",
+          "solution": [
+            "geschwindigkeit < 5 and not schild_aktiv"
+          ],
+          "tests": [
+            {
+              "label": "3 m/s, Schild aus → frei",
+              "vars": {
+                "geschwindigkeit": 3,
+                "schild_aktiv": false
+              },
+              "expect": {
+                "andocken": "frei"
+              }
+            },
+            {
+              "label": "3 m/s, Schild an → gesperrt",
+              "vars": {
+                "geschwindigkeit": 3,
+                "schild_aktiv": true
+              },
+              "expect": {
+                "andocken": "gesperrt"
+              }
+            },
+            {
+              "label": "8 m/s, Schild aus → gesperrt",
+              "vars": {
+                "geschwindigkeit": 8,
+                "schild_aktiv": false
+              },
+              "expect": {
+                "andocken": "gesperrt"
+              }
+            },
+            {
+              "label": "8 m/s, Schild an → gesperrt",
+              "vars": {
+                "geschwindigkeit": 8,
+                "schild_aktiv": true
+              },
+              "expect": {
+                "andocken": "gesperrt"
+              }
+            },
+            {
+              "label": "genau 5 m/s, Schild aus → gesperrt (Grenzfall)",
+              "vars": {
+                "geschwindigkeit": 5,
+                "schild_aktiv": false
+              },
+              "expect": {
+                "andocken": "gesperrt"
+              }
+            }
+          ],
+          "require": [
+            {
+              "pattern": " and ",
+              "message": "Verknüpfe die beiden Bedingungen mit `and`."
+            },
+            {
+              "pattern": "not ",
+              "message": "Prüfe den Schild mit `not`."
+            }
+          ],
+          "hints": [
+            "Du brauchst zwei Teile: einen Vergleich für die Geschwindigkeit und einen für den Schild. Welches Gatter verlangt, dass beide stimmen?",
+            "\"Langsamer als 5\" heißt `geschwindigkeit < 5`, \"Schild aus\" heißt `not schild_aktiv`. Verbinde beides mit `and`."
+          ],
+          "explain": "`not` dreht einen Wahrheitswert um: Ist `schild_aktiv` True, ist `not schild_aktiv` False. Mit `and` verbunden gibt es die Freigabe nur, wenn **beide** Teile True sind – langsam genug **und** Schild aus. Die Tests prüfen alle vier Kombinationen und den Grenzfall 5, denn bei `< 5` zählt genau 5 nicht mehr als \"langsamer\".",
+          "success": "Der Schild fährt herunter, die Drohne klinkt sich sanft an. Während ORION die Karten lädt, reißt Kim die Kopfhörer vom Kopf: \"Ein Signal! Ganz schwach – eine alte Raumstation, und laut Kennung lagert dort Treibstoff!\" Auf der Karte liegt zwischen der Aurora und der Station ein dichtes Asteroidenfeld. Du atmest tief durch: \"Wir müssen durch das Feld.\""
+        }
+      ]
+    },
+    {
+      "id": "k4",
+      "title": "Durch das Asteroidenfeld",
+      "concept": "Schleifen (while & for)",
+      "image": "images/aurora/k4.webp",
+      "intro": "Kims Signal ist schwach, aber eindeutig: Hinter dem Asteroidenfeld treibt die alte Station **Hephaistos** – und dort lagert Treibstoff. Der Weg führt mitten durch Tausende taumelnder Felsbrocken. Sarah verschränkt die Arme. \"Von Hand steuern? Vergiss es. Da müssen wir hundertmal dasselbe tun: ausweichen, kühlen, Schild nachladen.\"\n\nORION meldet sich: *\"Wiederholung erkannt. Empfehlung: Schleifen. Eine `while`-Schleife wiederholt ihren Körper, solange eine Bedingung wahr ist. Eine `for`-Schleife läuft eine feste Zahl von Runden, zum Beispiel mit `range()`.\"*\n\nKim schluckt. \"Und wenn so eine Schleife nie aufhört?\"\n\n*\"Dann\"*, sagt ORION, *\"fliegen wir sehr lange im Kreis.\"*",
+      "missions": [
+        {
+          "id": "4-1",
+          "type": "trace",
+          "title": "Kühlzyklen",
+          "text": "Schon beim ersten Schub ins Feld glüht der Reaktor. Sarah schlägt auf die Konsole. \"95 Grad! Über 60 darf er nicht bleiben, sonst schaltet er sich ab – mitten zwischen den Felsen.\"\n\nSie tippt ein Kühlprogramm ein. Jeder Kühlzyklus pumpt flüssigen Stickstoff durch die Leitungen und senkt die Temperatur um 10 Grad. Dr. Chen behält den Radar im Blick. \"Wie lange dauert das? Vor uns treibt ein Brocken, so groß wie ein Hochhaus.\"\n\nORION: *\"Die Anzahl der Zyklen ist vor dem Start berechenbar. Auch für Menschen mit Bleistift.\"*\n\n**Aufgabe:** Wie oft läuft der Körper der `while`-Schleife?",
+          "lrs": "Start: temperatur = 95. Jede Runde: minus 10. Die Schleife läuft, solange temperatur > 60 ist.",
+          "vars": {},
+          "code": "temperatur = 95\nzyklen = 0\nwhile temperatur > 60:\n    temperatur = temperatur - 10\n    zyklen = zyklen + 1\nprint(\"Reaktor stabil bei\", temperatur, \"Grad\")",
+          "ask": {
+            "loops": true
+          },
+          "options": [
+            "3",
+            "4",
+            "5",
+            "Endlos – sie hört nie auf"
+          ],
+          "hints": [
+            "Schreib die Temperatur vor jedem Durchlauf auf: 95, 85, … Vor jeder Runde wird die Bedingung neu geprüft.",
+            "Nach drei Runden steht die Temperatur bei 65 – und 65 > 60 ist immer noch wahr. Erst bei 55 ist Schluss."
+          ],
+          "explain": "Eine `while`-Schleife prüft ihre Bedingung **vor jedem Durchlauf**. Bei 95, 85, 75 und 65 ist `temperatur > 60` wahr – das sind vier Durchläufe. Danach ist `temperatur` 55, die Bedingung ist `False`, und das Programm macht nach der Schleife weiter. Endlos läuft sie nicht, weil `temperatur` in jeder Runde kleiner wird.",
+          "success": "Die Reaktoranzeige springt von Rot auf Grün. Sarah atmet aus. \"Stabil. Und sag ORION, er soll sich den Bleistift-Witz sparen.\""
+        },
+        {
+          "id": "4-2",
+          "type": "trace",
+          "title": "Schubimpulse",
+          "text": "Vor der Aurora öffnet sich eine Lücke zwischen zwei Asteroiden – aber sie schließt sich schnell. \"Wir brauchen Tempo, jetzt!\", ruft Kim. Sarah programmiert eine Schubfolge: Die Triebwerke feuern mehrere Impulse hintereinander, und jeder Impuls ist stärker als der vorige.\n\nIm Code steht `range(1, 5)`. Kim runzelt die Stirn. \"Heißt das: 1 bis 5? Also fünf Impulse?\" Sarah zuckt mit den Schultern. \"Frag ORION.\"\n\n*\"Frage nicht im Python-Format gestellt\"*, antwortet ORION.\n\nDie Lücke wird enger. Ihr müsst wissen, wie schnell die Aurora am Ende ist.\n\n**Aufgabe:** Welchen Wert hat `geschwindigkeit` nach der Schleife?",
+          "lrs": "Start: geschwindigkeit = 20. range(1, 5) liefert die Zahlen 1, 2, 3, 4. Jede Runde kommt impuls * 10 dazu.",
+          "vars": {},
+          "code": "geschwindigkeit = 20\nfor impuls in range(1, 5):\n    geschwindigkeit = geschwindigkeit + impuls * 10\nprint(\"Tempo:\", geschwindigkeit)",
+          "ask": {
+            "var": "geschwindigkeit"
+          },
+          "hints": [
+            "`range(1, 5)` zählt ab 1, aber die 5 ist **nicht** mehr dabei. Welche Werte nimmt `impuls` nacheinander an?",
+            "`impuls` ist 1, 2, 3 und 4. Rechne: 20 + 10 + 20 + 30 + 40."
+          ],
+          "explain": "`range(start, stopp)` erzeugt die Zahlen von `start` bis **eins vor** `stopp` – hier also 1, 2, 3, 4. Die `for`-Schleife läuft genau viermal, und die **Schleifenvariable** `impuls` bekommt jedes Mal den nächsten Wert. 20 + 10 + 20 + 30 + 40 = 120.",
+          "success": "Mit 120 Einheiten schießt die Aurora durch die Lücke. Hinter euch krachen die beiden Brocken zusammen – lautlos, wie alles im All. Kim klammert sich an die Konsole. \"Ich will nie wieder das Wort 'eng' hören.\""
+        },
+        {
+          "id": "4-3",
+          "type": "bug",
+          "title": "Der Bordcomputer friert ein",
+          "text": "Ein Steinhagel prasselt auf die Aurora. \"Schild hoch!\", ruft Dr. Chen. Sarah startet ihr Ladeprogramm – und plötzlich erstarren alle Bildschirme. Der Cursor blinkt. Sonst nichts.\n\n*\"Warnung\"*, meldet ORION mit leicht verzerrter Stimme. *\"Schleife läuft seit 4000 Durchläufen. Ende nicht absehbar. Rechenkapazität für Navigation: gering.\"*\n\nSarah wird blass. \"Das Schild steht bei {schild} Prozent und bewegt sich nicht. Jede Ladung sollte 15 Prozent bringen, bis wir bei 90 sind!\" Kim starrt auf den Code. \"Irgendwas zählt hier hoch – aber das Falsche.\"\n\n**Aufgabe:** Finde die Zeile, wegen der die Schleife nie endet, und repariere sie.",
+          "lrs": "Das Schild startet bei schild = 30. Jede Ladung soll 15 dazugeben, bis schild mindestens 90 ist.",
+          "vars": {
+            "schild": 30
+          },
+          "code": "ladungen = 0\nwhile schild < 90:\n    ladungen = ladungen + 1\n    schild + 15\nprint(\"Schild bereit:\", schild)",
+          "bugLine": 4,
+          "fix": "schild = schild + 15",
+          "tests": [
+            {
+              "label": "Schild 30 → nach 4 Ladungen bei 90",
+              "vars": {
+                "schild": 30
+              },
+              "expect": {
+                "schild": 90,
+                "ladungen": 4
+              }
+            },
+            {
+              "label": "Schild 85 → eine Ladung, dann 100",
+              "vars": {
+                "schild": 85
+              },
+              "expect": {
+                "schild": 100,
+                "ladungen": 1
+              }
+            },
+            {
+              "label": "Schild 95 → schon voll, keine Ladung",
+              "vars": {
+                "schild": 95
+              },
+              "expect": {
+                "schild": 95,
+                "ladungen": 0
+              }
+            }
+          ],
+          "onFail": [
+            {
+              "res": "huelle",
+              "inc": -3
+            }
+          ],
+          "hints": [
+            "Die Schleife endet erst, wenn `schild < 90` falsch wird. Welche Zeile müsste `schild` dafür verändern – und tut sie das wirklich?",
+            "`schild + 15` rechnet zwar, speichert das Ergebnis aber nirgends. Du brauchst eine Zuweisung: `schild = …`"
+          ],
+          "explain": "Das ist eine **Endlosschleife**: Die Bedingung `schild < 90` bleibt für immer wahr, weil sich `schild` im Schleifenkörper nie ändert. `schild + 15` berechnet zwar einen Wert, wirft ihn aber sofort weg. Erst mit `schild = schild + 15` (oder `schild += 15`) wächst das Schild, und die Bedingung wird irgendwann `False`. Faustregel: Im Körper einer `while`-Schleife muss sich etwas ändern, das in der Bedingung vorkommt.",
+          "success": "Die Bildschirme flackern zurück. Das Schild baut sich summend auf – gerade rechtzeitig, bevor der nächste Steinhagel einschlägt. ORION: *\"Rechenkapazität wiederhergestellt. Ich hatte kurz das Gefühl, die Ewigkeit zu sehen.\"*"
+        },
+        {
+          "id": "4-4",
+          "type": "bug",
+          "title": "Ausweichmanöver",
+          "text": "Jetzt wird es richtig eng. Kim liest vom Radar ab: \"{anzahl} Brocken direkt auf Kurs! Wir müssen jedem einzeln ausweichen – abwechselnd nach links und nach rechts.\"\n\nSarah hat das Manöverprogramm vorbereitet. Es soll die Manöver von 1 bis `anzahl` durchnummerieren. Doch im Testlauf zählt ORION nur bis 4. *\"Hinweis: Fünf Asteroiden, vier Ausweichmanöver. Die Differenz trifft uns.\"*\n\n\"Das ist der klassische Eins-daneben-Fehler\", murmelt Sarah. \"Hat mich in der Ausbildung schon mal ein Modellschiff gekostet.\"\n\n**Aufgabe:** Finde die fehlerhafte Zeile und repariere sie, sodass die Aurora genau `anzahl` Manöver fliegt – nummeriert ab 1.",
+          "lrs": "anzahl = 5. Es sollen Manöver 1, 2, 3, 4, 5 geflogen werden. range(a, b) hört eins vor b auf.",
+          "vars": {
+            "anzahl": 5
+          },
+          "code": "manoever = 0\nfor nummer in range(1, anzahl):\n    if nummer % 2 == 1:\n        print(\"Manöver\", nummer, \"nach links\")\n    else:\n        print(\"Manöver\", nummer, \"nach rechts\")\n    manoever = manoever + 1",
+          "bugLine": 2,
+          "fix": "for nummer in range(1, anzahl + 1):",
+          "tests": [
+            {
+              "label": "5 Asteroiden → 5 Manöver",
+              "vars": {
+                "anzahl": 5
+              },
+              "expect": {
+                "manoever": 5
+              }
+            },
+            {
+              "label": "3 Asteroiden → links, rechts, links",
+              "vars": {
+                "anzahl": 3
+              },
+              "output": [
+                "Manöver 1 nach links",
+                "Manöver 2 nach rechts",
+                "Manöver 3 nach links"
+              ]
+            },
+            {
+              "label": "1 Asteroid → genau ein Manöver",
+              "vars": {
+                "anzahl": 1
+              },
+              "expect": {
+                "manoever": 1
+              },
+              "output": [
+                "Manöver 1 nach links"
+              ]
+            }
+          ],
+          "onFail": [
+            {
+              "res": "huelle",
+              "inc": -3
+            }
+          ],
+          "hints": [
+            "Welche Zahlen liefert `range(1, anzahl)` bei `anzahl = 5`? Ist die 5 dabei?",
+            "Der Stoppwert von `range` ist nicht mehr dabei. Er muss also um eins größer sein als die letzte gewünschte Nummer: `range(1, anzahl + 1)`."
+          ],
+          "explain": "`range(1, anzahl)` zählt von 1 bis `anzahl - 1` – das letzte Manöver fehlt. Diesen Fehler nennt man **Off-by-one-Fehler** (eins daneben). Mit `range(1, anzahl + 1)` ist der Stoppwert eins größer, und die Nummern laufen von 1 bis `anzahl`. `range(anzahl)` würde zwar auch fünfmal laufen, aber bei 0 anfangen – dann stimmen die Nummern nicht.",
+          "success": "Links. Rechts. Links. Rechts. Links. Fünf Felsbrocken rauschen an den Fenstern vorbei, der letzte so nah, dass Kim die Augen zukneift. Dann: freier Raum."
+        },
+        {
+          "id": "4-5",
+          "type": "fill",
+          "title": "Anflug auf die Hephaistos",
+          "text": "Das Feld lichtet sich – und da ist sie: die **Hephaistos**, eine rostige Ringstation, die sich langsam um sich selbst dreht. Ein Fenster leuchtet noch schwach. \"Unheimlich\", flüstert Kim.\n\nDie Aurora ist viel zu schnell zum Andocken: Tempo {tempo}. Sarah erklärt den Plan: \"Wir feuern Bremsimpulse. Jeder senkt das Tempo um 15. Solange das Tempo über 10 liegt, muss noch ein Impuls kommen. Bei 10 oder weniger docken wir an.\" Dr. Chen nickt. \"Und kein Impuls zu viel – sonst fliegen wir rückwärts.\"\n\nDiesmal schreibst du die Schleife selbst.\n\n**Aufgabe:** Ergänze die Bedingung der `while`-Schleife und die Zeile, die das Tempo senkt.",
+          "lrs": "Start: tempo = 100. Solange tempo größer als 10 ist: tempo um 15 senken. impulse zählt mit.",
+          "vars": {
+            "tempo": 100
+          },
+          "code": "impulse = 0\nwhile ___:\n    ___\n    impulse = impulse + 1\nprint(\"Andocktempo erreicht:\", tempo)",
+          "solution": [
+            "tempo > 10",
+            "tempo = tempo - 15"
+          ],
+          "tests": [
+            {
+              "label": "Tempo 100 → 6 Impulse, Andocken bei 10",
+              "vars": {
+                "tempo": 100
+              },
+              "expect": {
+                "tempo": 10,
+                "impulse": 6
+              }
+            },
+            {
+              "label": "Tempo 50 → 3 Impulse, Andocken bei 5",
+              "vars": {
+                "tempo": 50
+              },
+              "expect": {
+                "tempo": 5,
+                "impulse": 3
+              }
+            },
+            {
+              "label": "Tempo 8 → schon langsam genug, kein Impuls",
+              "vars": {
+                "tempo": 8
+              },
+              "expect": {
+                "tempo": 8,
+                "impulse": 0
+              }
+            }
+          ],
+          "require": [
+            "while "
+          ],
+          "onFail": [
+            {
+              "res": "huelle",
+              "inc": -3
+            }
+          ],
+          "hints": [
+            "Die Bedingung beschreibt, wann die Schleife **weiterlaufen** soll: solange das Tempo über 10 liegt. Im Körper muss sich `tempo` ändern – sonst hast du wieder eine Endlosschleife.",
+            "Bedingung: `tempo > 10`. Körper: `tempo = tempo - 15`."
+          ],
+          "explain": "Eine `while`-Schleife besteht aus einer **Bedingung** und einem **Körper**, der sich wiederholt. Die Bedingung `tempo > 10` sagt, wann es weitergeht, und `tempo = tempo - 15` sorgt dafür, dass sie irgendwann falsch wird. Achte auf die Grenze: Mit `tempo >= 10` gäbe es bei Tempo 10 einen Impuls zu viel. Ist die Bedingung schon zu Beginn falsch, läuft der Körper kein einziges Mal.",
+          "success": "Mit einem sanften Ruck rasten die Andockklammern ein. Stille. Dann zischt die Luftschleuse auf, und kalte, abgestandene Luft strömt herein. \"Willkommen auf der Hephaistos\", sagt Sarah und schaltet ihre Helmlampe an. \"Mal sehen, was die hier vergessen haben.\""
+        }
+      ]
+    },
+    {
+      "id": "k5",
+      "title": "Der Frachtraum der Hephaistos",
+      "concept": "Listen",
+      "image": "images/aurora/k5.webp",
+      "intro": "Der Frachtraum der Hephaistos ist riesig und eiskalt. Im Licht eurer Helmlampen glänzen Regale voller Kisten, Kanister und Treibstoffzellen – manche intakt, manche verbeult, manche seit Jahren leer. Sarah pfeift leise. \"Das ist entweder unsere Rettung oder der größte Schrottplatz im Kepler-Gürtel.\"\n\nZum Glück ist das Lagersystem noch online. ORION verbindet sich: *\"Bestand wird als Liste geführt. Eine Liste speichert viele Werte unter einem Namen, zum Beispiel `zellen = [40, 75, 20]`. Jeder Wert hat einen Index – beginnend bei 0. Hinweis: Menschen beginnen gern bei 1. Das ist die häufigste Fehlerquelle in diesem Raum.\"*\n\nKim leuchtet in die Dunkelheit. \"Okay. Dann zählen wir mal.\"",
+      "missions": [
+        {
+          "id": "5-1",
+          "type": "trace",
+          "title": "Das Lagerverzeichnis",
+          "text": "Am Eingang des Frachtraums hängt ein Terminal mit dem Lagerverzeichnis. Kim wischt den Staub vom Bildschirm. Die Ladestände der Treibstoffzellen im ersten Regal stehen in einer Liste. Sarah hat gerade noch eine weitere Zelle aus einer Kiste gezogen und sie mit `append` hinten angehängt.\n\n\"Gib mir die zweite Zelle, die letzte und die Gesamtzahl\", sagt sie. Kim tippt einen Befehl und murmelt: \"Die zweite ist Index 1, oder? Oder 2? Und was soll bitte Index minus eins sein?\"\n\nORION: *\"Minus eins ist das letzte Element. Sehr praktisch. Sehr verwirrend.\"*\n\n**Aufgabe:** Was gibt das Programm aus?",
+          "lrs": "Liste: [40, 75, 20, 90]. Dann wird 60 hinten angehängt. Index 0 ist das erste Element, Index -1 das letzte.",
+          "vars": {},
+          "code": "zellen = [40, 75, 20, 90]\nzellen.append(60)\nzweite = zellen[1]\nletzte = zellen[-1]\nanzahl = len(zellen)\nprint(zweite, letzte, anzahl)",
+          "ask": {
+            "output": true
+          },
+          "options": [
+            "75 60 5",
+            "40 90 4",
+            "75 90 5",
+            "40 60 5"
+          ],
+          "hints": [
+            "Mach es Schritt für Schritt: Wie sieht die Liste nach `append(60)` aus? Und denk daran: Der Index beginnt bei 0.",
+            "Nach `append` ist die Liste `[40, 75, 20, 90, 60]`. Index 1 ist das zweite Element, `-1` das letzte, und `len` zählt alle Elemente."
+          ],
+          "explain": "`append` hängt einen Wert **hinten** an die Liste an – danach ist sie `[40, 75, 20, 90, 60]`. Der **Index** beginnt bei 0, also ist `zellen[1]` das zweite Element (75). Ein negativer Index zählt von hinten: `zellen[-1]` ist das letzte Element (60). `len(zellen)` gibt die Anzahl der Elemente zurück (5).",
+          "success": "\"75, 60, fünf Stück\", liest Kim vor. Sarah nickt zufrieden. \"Na also. Und das ist nur das erste von zwanzig Regalen.\""
+        },
+        {
+          "id": "5-2",
+          "type": "fill",
+          "title": "Treibstoff zählen",
+          "text": "Sarah hat die Treibstoffzellen aus dem ersten Gang auf einen Rollwagen geladen. Jede Zelle hat einen anderen Füllstand. \"Für die Heimreise brauchen wir eine Menge Treibstoff\", sagt sie. \"Ich will wissen, wie viel wir insgesamt haben – nicht wie viele Zellen.\"\n\nKim will schon `sum(...)` tippen, aber ORION protestiert: *\"Funktion `sum` im Lagersystem der Hephaistos nicht installiert. Bitte von Hand addieren. Ich empfehle eine for-Schleife.\"*\n\n\"Diese Station ist älter als meine Oma\", seufzt Kim.\n\nDie Schleife geht jede Zelle der Liste einmal durch. Du musst nur noch dafür sorgen, dass die Werte zusammengezählt werden.\n\n**Aufgabe:** Ergänze den Startwert von `gesamt` und die Zeile im Schleifenkörper.",
+          "lrs": "treibstoff_zellen ist eine Liste von Zahlen. gesamt soll am Ende die Summe aller Zahlen sein – ohne sum().",
+          "vars": {
+            "treibstoff_zellen": [
+              90,
+              90,
+              90
+            ]
+          },
+          "code": "gesamt = ___\nfor zelle in treibstoff_zellen:\n    ___\nprint(\"Treibstoff gesamt:\", gesamt)",
+          "solution": [
+            "0",
+            "gesamt = gesamt + zelle"
+          ],
+          "tests": [
+            {
+              "label": "3 volle Zellen → 270 Einheiten",
+              "vars": {
+                "treibstoff_zellen": [
+                  90,
+                  90,
+                  90
+                ]
+              },
+              "expect": {
+                "gesamt": 270
+              }
+            },
+            {
+              "label": "4 gemischte Zellen → 120 Einheiten",
+              "vars": {
+                "treibstoff_zellen": [
+                  15,
+                  40,
+                  5,
+                  60
+                ]
+              },
+              "expect": {
+                "gesamt": 120
+              }
+            },
+            {
+              "label": "Leerer Rollwagen → 0 Einheiten",
+              "vars": {
+                "treibstoff_zellen": []
+              },
+              "expect": {
+                "gesamt": 0
+              }
+            }
+          ],
+          "forbid": [
+            "sum("
+          ],
+          "require": [
+            "for "
+          ],
+          "onSuccess": [
+            {
+              "res": "moral",
+              "inc": 2
+            },
+            {
+              "res": "energie",
+              "inc": 5
+            }
+          ],
+          "hints": [
+            "Bevor du etwas zählst, steht der Zähler auf null. In jeder Runde hat `zelle` den Wert der aktuellen Zelle – der muss zu `gesamt` dazukommen.",
+            "Startwert `0`, im Körper: `gesamt = gesamt + zelle`."
+          ],
+          "explain": "Das ist das **Akkumulator-Muster**: Eine Variable startet bei 0 und sammelt in jeder Runde einen Wert ein. `for zelle in treibstoff_zellen:` geht die Liste Element für Element durch – `zelle` ist nacheinander jeder einzelne Wert. Bei einer leeren Liste läuft die Schleife gar nicht, und `gesamt` bleibt 0. Genau so arbeitet auch `sum()` im Inneren.",
+          "success": "\"270 Einheiten allein im ersten Gang!\" Sarah strahlt. Sie schließt eine Zelle probeweise an – die Energieanzeige der Aurora klettert ein Stück nach oben."
+        },
+        {
+          "id": "5-3",
+          "type": "fill",
+          "title": "Der beste Filter",
+          "text": "Plötzlich hustet Dr. Chen. \"Alex, die CO₂-Werte an Bord steigen. Unsere Luftfilter sind nach dem Hypersprung fast hinüber.\" Im Frachtraum finden sich zum Glück Ersatzfilter – aber die meisten sind alt. Das Lagersystem speichert für jeden Filter, wie viel Prozent Leistung er noch hat.\n\n\"Wir haben nur Zeit, einen einzigen einzubauen\", sagt Dr. Chen. \"Also den besten.\"\n\nORION: *\"Funktion `max` ebenfalls nicht installiert. Diese Station hatte offenbar ein sehr knappes Budget.\"*\n\nDie Idee: Merke dir den ersten Filter als bisher besten. Geh dann alle durch – findest du einen besseren, merkst du dir stattdessen den.\n\n**Aufgabe:** Ergänze die Bedingung und die Zeile, die sich den neuen Bestwert merkt.",
+          "lrs": "filter_werte ist eine Liste von Zahlen. beste soll am Ende die größte Zahl sein – ohne max().",
+          "vars": {
+            "filter_werte": [
+              40,
+              95,
+              70
+            ]
+          },
+          "code": "beste = filter_werte[0]\nfor wert in filter_werte:\n    if ___:\n        ___\nprint(\"Bester Filter:\", beste, \"Prozent\")",
+          "solution": [
+            "wert > beste",
+            "beste = wert"
+          ],
+          "tests": [
+            {
+              "label": "Filter 40, 95, 70 → 95 Prozent",
+              "vars": {
+                "filter_werte": [
+                  40,
+                  95,
+                  70
+                ]
+              },
+              "expect": {
+                "beste": 95
+              }
+            },
+            {
+              "label": "Bester Filter ganz vorne → 30 Prozent",
+              "vars": {
+                "filter_werte": [
+                  30,
+                  20,
+                  10
+                ]
+              },
+              "expect": {
+                "beste": 30
+              }
+            },
+            {
+              "label": "Bester Filter ganz hinten → 99 Prozent",
+              "vars": {
+                "filter_werte": [
+                  55,
+                  60,
+                  99
+                ]
+              },
+              "expect": {
+                "beste": 99
+              }
+            },
+            {
+              "label": "Nur ein Filter → 12 Prozent",
+              "vars": {
+                "filter_werte": [
+                  12
+                ]
+              },
+              "expect": {
+                "beste": 12
+              }
+            }
+          ],
+          "forbid": [
+            "max(",
+            "sorted("
+          ],
+          "hints": [
+            "Wann ist ein Filter besser als der bisher beste? Und was musst du dann mit `beste` machen?",
+            "Bedingung: `wert > beste`. Darunter: `beste = wert`."
+          ],
+          "explain": "So sucht man das **Maximum von Hand**: Man startet mit dem ersten Element als Kandidat und vergleicht jedes weitere damit. Ist ein Wert größer, wird er der neue Kandidat. Am Ende steht in `beste` der größte Wert. Wichtig ist der Start mit `filter_werte[0]` statt mit 0 – so funktioniert es mit jeder Liste, die mindestens ein Element hat.",
+          "success": "Der 95-Prozent-Filter rastet mit einem Klicken ein. Ein frischer Luftzug geht durch die Aurora, und Dr. Chen atmet tief durch. \"Viel besser. Danke, Kapitän.\""
+        },
+        {
+          "id": "5-4",
+          "type": "bug",
+          "title": "Index außer Reichweite",
+          "text": "Sarah hat ein Programm geschrieben, das beschädigte Treibstoffzellen zählt: Alles unter 25 Prozent ist undicht und darf nicht an Bord. \"Ich gehe die Plätze 1 bis zum Ende durch\", erklärt sie stolz. \"Wie man halt zählt.\"\n\nDoch das Programm stürzt ab. ORION meldet einen **Index-Fehler**. Kim sieht auf den Wagen: \"Und die allererste Zelle ist doch total verbeult – die hat dein Programm gar nicht angeschaut!\"\n\nSarah verschränkt die Arme. \"Ich hasse es, dass Computer bei null anfangen.\" ORION: *\"Und ich hasse undichte Treibstoffzellen.\"*\n\n**Aufgabe:** Finde die fehlerhafte Zeile und repariere sie, sodass jede Zelle genau einmal geprüft wird.",
+          "lrs": "Eine Liste mit 3 Elementen hat die Indizes 0, 1, 2. Gezählt werden alle Zellen unter 25.",
+          "vars": {
+            "zellen": [
+              10,
+              80,
+              15
+            ]
+          },
+          "code": "beschaedigt = 0\nfor i in range(1, len(zellen) + 1):\n    if zellen[i] < 25:\n        beschaedigt = beschaedigt + 1\nprint(beschaedigt, \"Zellen sind undicht\")",
+          "bugLine": 2,
+          "fix": "for i in range(len(zellen)):",
+          "tests": [
+            {
+              "label": "Zellen 10, 80, 15 → 2 undicht",
+              "vars": {
+                "zellen": [
+                  10,
+                  80,
+                  15
+                ]
+              },
+              "expect": {
+                "beschaedigt": 2
+              }
+            },
+            {
+              "label": "Zellen 70, 90 → alle dicht",
+              "vars": {
+                "zellen": [
+                  70,
+                  90
+                ]
+              },
+              "expect": {
+                "beschaedigt": 0
+              }
+            },
+            {
+              "label": "Eine einzelne Zelle mit 20 → 1 undicht",
+              "vars": {
+                "zellen": [
+                  20
+                ]
+              },
+              "expect": {
+                "beschaedigt": 1
+              }
+            },
+            {
+              "label": "Leerer Wagen → 0",
+              "vars": {
+                "zellen": []
+              },
+              "expect": {
+                "beschaedigt": 0
+              }
+            }
+          ],
+          "hints": [
+            "Eine Liste mit 3 Elementen hat die Indizes 0, 1 und 2. Welche Werte erzeugt `range(1, len(zellen) + 1)`?",
+            "Die Indizes müssen bei 0 beginnen und bei `len(zellen) - 1` enden. Genau das macht `range(len(zellen))`."
+          ],
+          "explain": "Listen-Indizes beginnen bei **0** und enden bei `len(liste) - 1`. `range(1, len(zellen) + 1)` erzeugt aber 1, 2, 3: Die erste Zelle (Index 0) wird übersprungen, und Index 3 gibt es gar nicht – das ist der **Index-Fehler** (in Python: `IndexError`). `range(len(zellen))` erzeugt genau die passenden Indizes 0, 1, 2. Noch einfacher wäre `for zelle in zellen:` – dann braucht man gar keinen Index.",
+          "success": "Zwei undichte Zellen wandern in den Schrottcontainer, die guten auf den Wagen. Sarah murmelt: \"Null, eins, zwei. Null, eins, zwei.\" Kim grinst. \"Klingt wie ein Mantra.\""
+        },
+        {
+          "id": "5-5",
+          "type": "parsons",
+          "title": "Kritische Zellen",
+          "text": "Die Aurora ist fast vollgetankt. Doch beim Einladen fällt Dr. Chen etwas auf: Einige Zellen sind zwar dicht, aber ziemlich schwach. \"Die sollten wir zuerst verbrauchen, bevor sie ganz leer laufen\", sagt sie.\n\nSarah will eine neue Liste `kritisch` mit allen Zellen, deren Ladung **unter** dem Grenzwert `grenze` liegt. Die übrigen Zellen bleiben, wo sie sind.\n\nKim hat den Code schon geschrieben – aber beim Kopieren aufs Lagerterminal sind die Zeilen durcheinandergeraten, und die Einrückung ist weg. Außerdem haben sich zwei Zeilen eingeschlichen, die nicht dazugehören.\n\n**Aufgabe:** Bring die Zeilen in die richtige Reihenfolge, stelle die Einrückung ein und sortiere die falschen Zeilen aus.",
+          "lrs": "Neue leere Liste kritisch. Jede Zelle, die kleiner als grenze ist, wird mit append in kritisch eingefügt.",
+          "vars": {
+            "zellen": [
+              12,
+              80,
+              8,
+              45
+            ],
+            "grenze": 30
+          },
+          "solution": "kritisch = []\nfor zelle in zellen:\n    if zelle < grenze:\n        kritisch.append(zelle)\nprint(\"Kritisch:\", kritisch)",
+          "distractors": [
+            "kritisch = 0",
+            "if zelle > grenze:"
+          ],
+          "tests": [
+            {
+              "label": "12, 80, 8, 45 bei Grenze 30 → [12, 8]",
+              "vars": {
+                "zellen": [
+                  12,
+                  80,
+                  8,
+                  45
+                ],
+                "grenze": 30
+              },
+              "expect": {
+                "kritisch": [
+                  12,
+                  8
+                ]
+              }
+            },
+            {
+              "label": "Alle Zellen stark → leere Liste",
+              "vars": {
+                "zellen": [
+                  50,
+                  60
+                ],
+                "grenze": 30
+              },
+              "expect": {
+                "kritisch": []
+              }
+            },
+            {
+              "label": "Genau auf der Grenze zählt nicht → [29]",
+              "vars": {
+                "zellen": [
+                  29,
+                  30,
+                  31
+                ],
+                "grenze": 30
+              },
+              "expect": {
+                "kritisch": [
+                  29
+                ]
+              }
+            }
+          ],
+          "onSuccess": [
+            {
+              "res": "moral",
+              "inc": 2
+            },
+            {
+              "res": "energie",
+              "inc": 5
+            }
+          ],
+          "hints": [
+            "Die neue Liste muss **vor** der Schleife leer angelegt werden. In der Schleife wird jede Zelle geprüft, und nur die schwachen kommen dazu.",
+            "Reihenfolge: `kritisch = []`, dann `for`, darin eingerückt das `if` mit `<`, darin noch einmal eingerückt `append`. Das `print` steht ganz links am Ende."
+          ],
+          "explain": "Das ist das **Filter-Muster**: Eine leere Liste `[]` wird vor der Schleife angelegt, und in der Schleife hängt `append` nur die Elemente an, die die Bedingung erfüllen. `kritisch = 0` wäre eine Zahl, keine Liste – darauf gibt es kein `append`. Die **Einrückung** entscheidet, was wozu gehört: `append` steht im `if`, das `if` steht in der `for`-Schleife.",
+          "success": "Die schwachen Zellen werden mit rotem Klebeband markiert und ganz vorn eingeladen. Sarah klopft auf die Tankanzeige: voll. \"Genug für den Heimweg.\" Doch ORION rechnet nach: *\"Reisedauer bis zur Erde: 41 Tage. Kurskorrekturen nötig: 312. Empfehlung: Der Kapitän schreibt mir Autopilot-Routinen, damit nicht jede Korrektur von Hand erfolgt.\"*"
+        }
+      ]
+    },
+    {
+      "id": "k6",
+      "title": "Autopilot",
+      "concept": "Funktionen (def, Parameter, return)",
+      "image": "images/aurora/k6.webp",
+      "intro": "Die Aurora löst sich von der Hephaistos. Die Tanks sind voll, die Luft ist frisch – aber vor euch liegen 41 Tage Flug. Sarah gähnt schon beim Gedanken daran. \"Dreihundert Kurskorrekturen von Hand? Ich schlafe am Steuer ein.\"\n\nORION erklärt: *\"Lösung: Funktionen. Mit `def` gibst du einem Stück Code einen Namen. Beim Aufruf bekommt die Funktion Werte als **Parameter** und liefert mit `return` ein Ergebnis zurück. Einmal geschrieben, beliebig oft benutzbar.\"*\n\nKim grinst. \"Also bringen wir ORION bei, selbst zu fliegen.\" Dr. Chen lächelt zum ersten Mal seit Tagen. \"Dann bring ihm etwas Ordentliches bei, Alex. Du bist der Kapitän.\"",
+      "missions": [
+        {
+          "id": "6-1",
+          "type": "trace",
+          "title": "Die erste Routine",
+          "text": "ORION zeigt dir eine Routine, die noch Kapitän Morrison geschrieben hat: Sie berechnet, wie stark die Steuerdüsen bei einem bestimmten Abweichungswinkel gegensteuern müssen. Dr. Chen wird still, als sie seinen Namen im Code-Kommentar liest.\n\n\"Er hat immer gesagt: Was man zweimal braucht, schreibt man einmal als Funktion\", sagt sie leise.\n\nDer Kurs der Aurora steht bei 10. Die Sensoren melden eine Abweichung von 7 Grad, und die Routine wird damit aufgerufen.\n\nKim liest mit. \"Moment. `winkel` – wo kommt der Wert her? Den setzt doch niemand!\"\n\n**Aufgabe:** Welchen Wert hat `kurs` am Ende?",
+          "lrs": "Die Funktion rechnet winkel * 2 - 5 und gibt das Ergebnis zurück. Aufruf mit 7. kurs startet bei 10.",
+          "vars": {},
+          "code": "def kurs_korrektur(winkel):\n    korrektur = winkel * 2 - 5\n    return korrektur\n\nkurs = 10\nkurs = kurs + kurs_korrektur(7)\nprint(\"Neuer Kurs:\", kurs)",
+          "ask": {
+            "var": "kurs"
+          },
+          "options": [
+            "19",
+            "9",
+            "14",
+            "10"
+          ],
+          "hints": [
+            "Beim Aufruf `kurs_korrektur(7)` bekommt der Parameter `winkel` den Wert 7. Was gibt die Funktion dann mit `return` zurück?",
+            "Die Funktion liefert 7 * 2 - 5 = 9. Dieser Wert wird zu `kurs` addiert."
+          ],
+          "explain": "Mit `def` wird die Funktion nur **definiert** – ausgeführt wird sie erst beim **Aufruf** `kurs_korrektur(7)`. Dabei bekommt der **Parameter** `winkel` den Wert 7. Die Funktion rechnet 7 * 2 - 5 = 9 und gibt das mit `return` zurück. An der Stelle des Aufrufs steht dann quasi die 9: `kurs = 10 + 9`.",
+          "success": "Die Steuerdüsen zischen kurz, die Sterne vor dem Fenster rücken ein Stück zur Seite. Kurs 19. Dr. Chen legt die Hand auf den Bildschirm. \"Danke, Morrison.\""
+        },
+        {
+          "id": "6-2",
+          "type": "fill",
+          "title": "Treibstoffrechner",
+          "text": "Sarah sitzt mit Tablet und Kaffeebecher im Maschinenraum. \"Vor jedem Flugabschnitt will ich wissen, wie viel Treibstoff wir brauchen. Die Regel ist einfach: 3 Einheiten pro Lichtminute Strecke, plus 20 Einheiten Grundlast für Lebenserhaltung und Licht.\"\n\nSie hat schon angefangen, eine Funktion zu schreiben. \"Den Rest überlasse ich dem Kapitän. Ich muss Kaffee nachfüllen.\"\n\nORION: *\"Hinweis: Eine Funktion, die nichts zurückgibt, ist wie eine Tankanzeige ohne Zeiger.\"*\n\nDer nächste Abschnitt ist {strecke} Lichtminuten lang.\n\n**Aufgabe:** Ergänze die Zeile, mit der die Funktion `treibstoff_bedarf` ihr Ergebnis zurückgibt.",
+          "lrs": "Bedarf = strecke mal 3 plus grundlast (20). Die Funktion muss den Bedarf mit return zurückgeben.",
+          "vars": {
+            "strecke": 10
+          },
+          "code": "def treibstoff_bedarf(strecke):\n    grundlast = 20\n    ___\n\nbedarf = treibstoff_bedarf(strecke)\nprint(\"Benötigt:\", bedarf, \"Einheiten\")",
+          "solution": [
+            "return strecke * 3 + grundlast"
+          ],
+          "tests": [
+            {
+              "label": "10 Lichtminuten → 50 Einheiten",
+              "vars": {
+                "strecke": 10
+              },
+              "expect": {
+                "bedarf": 50
+              }
+            },
+            {
+              "label": "25 Lichtminuten → 95 Einheiten",
+              "vars": {
+                "strecke": 25
+              },
+              "expect": {
+                "bedarf": 95
+              }
+            },
+            {
+              "label": "Stillstand (0) → nur die Grundlast: 20",
+              "vars": {
+                "strecke": 0
+              },
+              "expect": {
+                "bedarf": 20
+              }
+            }
+          ],
+          "require": [
+            "return"
+          ],
+          "hints": [
+            "Wie rechnest du den Bedarf aus `strecke` und `grundlast` aus? Und mit welchem Schlüsselwort gibt eine Funktion ein Ergebnis zurück?",
+            "Schreibe `return strecke * 3 + grundlast`."
+          ],
+          "explain": "Mit `return` gibt eine Funktion ihren **Rückgabewert** an die Stelle des Aufrufs zurück – dort wird er in `bedarf` gespeichert. Der Parameter `strecke` hat bei jedem Aufruf den Wert, der in den Klammern übergeben wird. Weil die Funktion nur mit ihrem Parameter rechnet, funktioniert sie für jede Strecke: Sie ist **wiederverwendbar**.",
+          "success": "Sarah kommt mit vollem Becher zurück und lässt die Funktion für die nächsten zehn Abschnitte laufen. \"Zehn Rechnungen in einer Sekunde. Ich könnte mich daran gewöhnen.\""
+        },
+        {
+          "id": "6-3",
+          "type": "bug",
+          "title": "Anflugwinkel: None",
+          "text": "Tag 39. Die Erde ist schon als blauer Punkt zu sehen. Kim hat eine Funktion für den Anflugwinkel geschrieben: Ist die Aurora schneller als 300, braucht sie einen steileren Winkel von 6 Grad, sonst reichen 4 Grad.\n\nIm Testlauf erscheint der richtige Winkel sogar auf dem Bildschirm. Doch dann meldet ORION: *\"Anflugwinkel: None Grad. Ich fliege ungern mit None Grad.\"*\n\n\"Aber die Zahl wird doch angezeigt!\", protestiert Kim. \"Ich hab sie mit eigenen Augen gesehen!\" Sarah grinst. \"Angezeigt ist nicht zurückgegeben, Kim.\"\n\n**Aufgabe:** Finde die Zeile, wegen der `anflug` den Wert `None` bekommt, und repariere sie.",
+          "lrs": "geschwindigkeit = 400. Die Funktion soll 6 zurückgeben (über 300) oder sonst 4. Gerade gibt sie nichts zurück.",
+          "vars": {
+            "geschwindigkeit": 400
+          },
+          "code": "def landewinkel(tempo):\n    if tempo > 300:\n        winkel = 6\n    else:\n        winkel = 4\n    print(winkel)\n\nanflug = landewinkel(geschwindigkeit)\nprint(\"Anflugwinkel:\", anflug, \"Grad\")",
+          "bugLine": 6,
+          "fix": "return winkel",
+          "tests": [
+            {
+              "label": "Tempo 400 → steiler Anflug, 6 Grad",
+              "vars": {
+                "geschwindigkeit": 400
+              },
+              "expect": {
+                "anflug": 6
+              }
+            },
+            {
+              "label": "Tempo 250 → flacher Anflug, 4 Grad",
+              "vars": {
+                "geschwindigkeit": 250
+              },
+              "expect": {
+                "anflug": 4
+              }
+            },
+            {
+              "label": "Tempo genau 300 → 4 Grad",
+              "vars": {
+                "geschwindigkeit": 300
+              },
+              "expect": {
+                "anflug": 4
+              },
+              "output": [
+                "Anflugwinkel: 4 Grad"
+              ]
+            }
+          ],
+          "hints": [
+            "`print` zeigt einen Wert nur an. Was bekommt `anflug`, wenn die Funktion nie `return` erreicht?",
+            "Ersetze `print(winkel)` durch `return winkel`."
+          ],
+          "explain": "`print` und `return` sehen ähnlich aus, tun aber Verschiedenes: `print` **zeigt** einen Wert auf dem Bildschirm, `return` **gibt** ihn an den Aufrufer zurück. Eine Funktion ohne `return` liefert automatisch `None` – „nichts“. Deshalb stand in `anflug` kein Winkel. Mit `return winkel` landet der Wert dort, wo die Funktion aufgerufen wurde.",
+          "success": "*\"Anflugwinkel: 6 Grad. Viel besser\"*, meldet ORION. Kim wird ein bisschen rot. \"Okay, okay. Angezeigt ist nicht zurückgegeben. Ich lasse mir das auf ein T-Shirt drucken.\""
+        },
+        {
+          "id": "6-4",
+          "type": "parsons",
+          "title": "Schildmodus",
+          "text": "Für den Wiedereintritt in die Atmosphäre braucht ORION eine Funktion, die den richtigen Modus für den Hitzeschild wählt. Sarah diktiert die Regeln: \"Ist die Ladung unter 30, heißt der Modus `sparen`. Unter 70 heißt er `normal`. Sonst `voll`.\"\n\nDu tippst die Funktion – doch dann rüttelt ein Sonnenwindstoß an der Aurora, und dein Tablet fällt auf den Boden. Als du es aufhebst, sind die Zeilen durcheinander, die Einrückung ist weg, und zwei fremde Zeilen sind dazugekommen.\n\nORION: *\"Hinweis: In dieser Funktion gibt es zwei Einrückungsebenen. Ich zähle mit.\"*\n\n**Aufgabe:** Setze die Funktion `schild_modus` und ihren Aufruf richtig zusammen. Achte auf die Einrückung und sortiere die falschen Zeilen aus.",
+          "lrs": "Ladung unter 30 → \"sparen\", unter 70 → \"normal\", sonst → \"voll\". Danach wird die Funktion mit stand aufgerufen.",
+          "vars": {
+            "stand": 50
+          },
+          "solution": "def schild_modus(ladung):\n    if ladung < 30:\n        return \"sparen\"\n    elif ladung < 70:\n        return \"normal\"\n    else:\n        return \"voll\"\nmodus = schild_modus(stand)",
+          "distractors": [
+            "if ladung > 30:",
+            "return ladung"
+          ],
+          "tests": [
+            {
+              "label": "Ladung 20 → sparen",
+              "vars": {
+                "stand": 20
+              },
+              "expect": {
+                "modus": "sparen"
+              }
+            },
+            {
+              "label": "Ladung 50 → normal",
+              "vars": {
+                "stand": 50
+              },
+              "expect": {
+                "modus": "normal"
+              }
+            },
+            {
+              "label": "Ladung 90 → voll",
+              "vars": {
+                "stand": 90
+              },
+              "expect": {
+                "modus": "voll"
+              }
+            },
+            {
+              "label": "Ladung genau 30 → normal",
+              "vars": {
+                "stand": 30
+              },
+              "expect": {
+                "modus": "normal"
+              }
+            }
+          ],
+          "hints": [
+            "Die `def`-Zeile steht oben ganz links. Alles, was zur Funktion gehört, ist einmal eingerückt – und was in einem `if`-Zweig passiert, noch einmal mehr.",
+            "Reihenfolge: `def`, `if ladung < 30:`, `return \"sparen\"`, `elif`, `return \"normal\"`, `else:`, `return \"voll\"` – zum Schluss ganz links der Aufruf `modus = schild_modus(stand)`."
+          ],
+          "explain": "Die **Einrückung** zeigt, was zusammengehört: `if`, `elif` und `else` stehen eine Ebene tief im Funktionskörper, die `return`-Zeilen zwei Ebenen tief in ihren Zweigen. Sobald ein `return` ausgeführt wird, ist die Funktion sofort beendet – die übrigen Zweige werden übersprungen. Der Aufruf steht ganz links, außerhalb der Funktion, und muss nach der Definition kommen.",
+          "success": "ORION testet die Funktion mit allen Ladeständen. *\"Schildmodus-Routine akzeptiert. Hitzeschild bereit.\"* Unter euch wird die Erde größer und größer. Kim flüstert: \"Ich kann Wolken sehen.\""
+        },
+        {
+          "id": "6-5",
+          "type": "fill",
+          "title": "Wiedereintritt",
+          "text": "Jetzt gilt es. Die Aurora rast mit Tempo 2800 auf die Atmosphäre zu. Die Hülle beginnt zu glühen. ORION lädt eure echten Bordwerte: Hülle {huelle} %, Energie {energie} %, Crew-Moral {moral} %.\n\nSarah erklärt den Bremsplan: \"Jede Zündung der Bremsdüsen kostet 10 Energie. Über Tempo 1000 bremst eine Zündung um 600, darunter nur noch um 300 – sonst zerreißt es uns. Wir zünden, solange das Tempo über 200 liegt **und** noch mindestens 10 Energie da sind.\"\n\nDr. Chen schnallt sich an. Kim hält die Luft an. Alle sehen dich an.\n\n**Aufgabe:** Ergänze, was `bremsschub` bei Tempo 1000 oder weniger zurückgibt, und die Bedingung der `while`-Schleife.",
+          "lrs": "Über 1000: Tempo minus 600. Sonst: Tempo minus 300. Zünden, solange tempo > 200 und energie >= 10.",
+          "useResources": true,
+          "vars": {},
+          "code": "def bremsschub(tempo):\n    if tempo > 1000:\n        return tempo - 600\n    ___\n\ntempo = 2800\nzuendungen = 0\nwhile ___:\n    tempo = bremsschub(tempo)\n    energie = energie - 10\n    zuendungen = zuendungen + 1\nprint(\"Aufsetzen mit Tempo\", tempo, \"nach\", zuendungen, \"Zündungen\")",
+          "solution": [
+            "return tempo - 300",
+            "tempo > 200 and energie >= 10"
+          ],
+          "tests": [
+            {
+              "label": "Energie 100 → 6 Zündungen, Aufsetzen mit Tempo 100",
+              "vars": {
+                "huelle": 80,
+                "energie": 100,
+                "moral": 70
+              },
+              "expect": {
+                "tempo": 100,
+                "zuendungen": 6,
+                "energie": 40
+              }
+            },
+            {
+              "label": "Energie 30 → nur 3 Zündungen, Tempo 1000",
+              "vars": {
+                "huelle": 50,
+                "energie": 30,
+                "moral": 50
+              },
+              "expect": {
+                "tempo": 1000,
+                "zuendungen": 3,
+                "energie": 0
+              }
+            },
+            {
+              "label": "Energie genau 10 → noch eine Zündung",
+              "vars": {
+                "huelle": 40,
+                "energie": 10,
+                "moral": 40
+              },
+              "expect": {
+                "tempo": 2200,
+                "zuendungen": 1
+              }
+            },
+            {
+              "label": "Energie 5 → keine Zündung möglich",
+              "vars": {
+                "huelle": 20,
+                "energie": 5,
+                "moral": 30
+              },
+              "expect": {
+                "tempo": 2800,
+                "zuendungen": 0,
+                "energie": 5
+              }
+            }
+          ],
+          "require": [
+            "return",
+            "and"
+          ],
+          "hints": [
+            "In der Funktion fehlt der Fall „Tempo 1000 oder weniger“: Was soll sie dann zurückgeben? In der Schleifenbedingung müssen **beide** Bedingungen gleichzeitig gelten.",
+            "Funktion: `return tempo - 300`. Schleife: `while tempo > 200 and energie >= 10:`."
+          ],
+          "explain": "Hier arbeitet alles zusammen: Die **Funktion** `bremsschub` entscheidet mit `if`, wie stark gebremst wird, und gibt das neue Tempo mit `return` zurück. Erreicht sie das erste `return` nicht, geht es mit der nächsten Zeile weiter – deshalb braucht man hier nicht einmal `else`. Die **`while`-Schleife** ruft die Funktion so oft auf, wie die Bedingung mit `and` erlaubt. Mit `energie >= 10` statt `> 10` reicht auch die allerletzte Ladung noch für eine Zündung.",
+          "success": "Die Bremsdüsen donnern, Flammen hüllen die Fenster ein, die Aurora bebt – und dann wird es plötzlich ruhig. Blauer Himmel. Wolken. Die Erde. ORION meldet sich ein letztes Mal: *\"Wiedereintritt abgeschlossen. Ich berechne jetzt den Ausgang der Mission – aus Hülle, Energie und Crew-Moral, so wie du sie mir hinterlassen hast …\"*"
+        }
+      ]
+    }
+  ],
+  "endings": {
+    "code": "if huelle >= 75 and moral >= 75:\n    ende = \"triumph\"\nelif huelle >= 25:\n    ende = \"knapp\"\nelse:\n    ende = \"notlandung\"",
+    "intro": "ORION berechnet den Ausgang der Mission – mit deinen eigenen Werten:",
+    "list": {
+      "triumph": {
+        "title": "Triumphale Heimkehr",
+        "text": "Die Aurora gleitet in den Erdorbit, als wäre nie etwas gewesen. Auf dem Hauptbildschirm erscheint die Flottenkommandantin. \"Aurora, hier Erde. Wir hatten euch abgeschrieben.\" Sarah grinst, Kim schickt ein Victory-Zeichen in die Kamera, und Dr. Chen legt dir die Hand auf die Schulter.\n\nORION meldet: *\"Kapitän Alex: 0 kritische Fehler im Kommandolog. Empfehlung: Beförderung.\"*\n\nDu hast nicht nur ein Schiff gerettet – du hast verstanden, wie es denkt.",
+        "image": "images/aurora/ende-triumph.webp"
+      },
+      "knapp": {
+        "title": "Knapp, aber zu Hause",
+        "text": "Funken sprühen aus der Hüllenverkleidung, als die Aurora in den Orbit eintritt. Es war knapp – ein paar Mal sogar sehr knapp. Aber alle sind an Bord, alle leben.\n\nSarah klopft auf die verbeulte Konsole. \"Die alte Lady hat einiges eingesteckt. Genau wie wir.\" ORION ergänzt: *\"Kommandolog enthält Fehlentscheidungen. Lernkurve: positiv.\"*\n\nVielleicht schaffst du es beim nächsten Mal ohne Kratzer?",
+        "image": "images/aurora/ende-knapp.webp"
+      },
+      "notlandung": {
+        "title": "Notlandung",
+        "text": "Die Hülle hält nicht mehr. Mit dem letzten Rest Energie steuerst du die Aurora auf die Rettungsplattform Luna-7 zu – eine harte Landung, Staub, Alarm, dann Stille.\n\nNiemand ist ernsthaft verletzt. Aber die Aurora wird nie wieder fliegen. Dr. Chen sieht dich an: \"Du hast uns rausgebracht. Das zählt.\"\n\nORION: *\"Analyse: zu viele ausgeführte Fehlbefehle. Empfehlung: Mission wiederholen und Code genauer lesen.\"*",
+        "image": "images/aurora/ende-notlandung.webp"
+      }
+    }
+  }
 }

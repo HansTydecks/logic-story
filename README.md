@@ -1,324 +1,142 @@
-# Logic Adventure - Interaktive Logik-Abenteuergeschichte
+# 🧠 Logik-Geschichten
 
-Eine leichte, sichere und erweiterbare Web-Applikation für den Unterricht, die Schülerinnen und Schülern (Sek I/II) Programmierlogik und logische Operatoren auf spielerische Weise beibringt.
+Ein Story-Lernspiel für Programmierlogik in Python, gedacht für Schülerinnen und Schüler **ab Klasse 9**.
+Statt trockener Übungen entscheiden die Lernenden in spannenden Geschichten, was der Bordcomputer tut. Sie verfolgen Code, schreiben ihn selbst, jagen Bugs und puzzeln Programme zusammen.
 
-## 🎯 Überblick
+**Live:** [lories.tinfo.space](https://lories.tinfo.space)  ·  Weitere Tools: [tinfo.space](https://tinfo.space/teachers/Digitale_Tools/)
 
-**Logic Adventure** ist eine statische Web-App, die komplexe logische Konzepte durch spannende Weltraum-Geschichten vermittelt. Schülerinnen und Schüler navigieren durch eine Story, indem sie die richtigen logischen Bedingungen (`if`, `elif`, `else`, `and`, `or`, `not`) auswählen.
+## Was ist neu (Version 2)?
 
-### 🚀 Hauptfeatures
+- **Mission Aurora** wurde komplett neu gebaut: 6 Kapitel mit 29 Missionen, die die Konzepte nacheinander aufbauen.
+- **Fünf Aufgabentypen** statt nur „Welcher Zweig läuft?“.
+- **Eigener Mini-Python-Interpreter:** Alle Antworten werden ausgerechnet, nicht von Hand eingetragen. Fehlermeldungen kommen auf Deutsch.
+- **„Ablauf ansehen“:** Jedes Programm lässt sich Zeile für Zeile abspielen, mit Variablentabelle und Ausgabe.
+- **Ressourcen statt Punkte:** Fehlversuche kosten Hülle. Am Ende berechnet ein `if/elif/else` mit den **eigenen Werten**, welches der drei Enden man erreicht.
+- **Fortschritt** wird im Browser gespeichert, **Direktlinks** gibt es für jedes Kapitel und jede Mission.
+- **LRS-Modus:** größere Schrift, mehr Abstand und kurze Zusammenfassungen.
+- **Krimi-Mystery „Der Codename-Fall“** ist ebenfalls neu gebaut: 6 Kapitel mit 29 Missionen. Das Analysesystem ARGUS des LKA versteht nur Python.
+- **Zeitreise-Abenteuer „Die Chronos-Verschwörung“** ist ebenfalls neu gebaut: 6 Kapitel mit 29 Missionen in sechs Epochen. Die Zeitmaschinen-KI KAIROS versteht nur Python.
+- Alle drei Geschichten folgen derselben Konzept-Reihenfolge und sind deshalb im Unterricht austauschbar.
 
-- ✅ **Vollständig statisch** - Deploybar auf GitHub Pages ohne Backend
-- ✅ **Sicher** - Keine `eval()` Funktionen, sichere Expression-Evaluierung
-- ✅ **Responsive** - Mobile-first Design, touch-friendly Interface
-- ✅ **Barrierefrei** - ARIA-Labels, Tastatur-Navigation, hoher Kontrast
-- ✅ **Dark Mode** - Angenehme dunkle Oberfläche
-- ✅ **Erweiterbar** - Neue Geschichten einfach als JSON hinzufügbar
-- ✅ **Persistenz** - Fortschritt wird lokal gespeichert
+## Für Lehrkräfte
 
-## 🎓 Lernziele
+### Kapitel von Mission Aurora
 
-- Verständnis von Vergleichsoperatoren (`==`, `!=`, `<`, `<=`, `>`, `>=`)
-- Logische Operatoren (`and`, `or`, `not`)
-- Verschachtelte Bedingungen und Mehrfachverzweigungen
-- If-elif-else Strukturen
-- Zustandsänderungen und Variablen-Management
+| Kapitel | Konzept | Aufgabentypen |
+|---|---|---|
+| 1 · Systeme hochfahren | Variablen & Zuweisung | 🔎 Verfolgen, 🧩 Puzzle |
+| 2 · Kommando-Entscheidungen | `if` / `elif` / `else` | 🔀 Zweig wählen, 🔎, ✍️ Lückencode |
+| 3 · Logik-Gatter | `and` / `or` / `not` | 🔀, 🐞 Bug-Jagd, ✍️ |
+| 4 · Durch das Asteroidenfeld | Schleifen (`while`, `for`/`range`) | 🔎 „Wie oft?“, 🐞 Endlosschleife & Off-by-one, ✍️ |
+| 5 · Der Frachtraum der Hephaistos | Listen (Index, `append`, Summe/Maximum von Hand) | 🔎, ✍️, 🐞, 🧩 |
+| 6 · Autopilot | Funktionen (`def`, Parameter, `return`) | 🔎, ✍️, 🐞, 🧩, Finale |
 
-## 🏗️ Projekt-Struktur
+### Kapitel von Krimi-Mystery „Der Codename-Fall“
+
+Gleiche Konzept-Reihenfolge wie Aurora, daher austauschbar (z. B. Kapitel 4 = Schleifen in beiden Geschichten).
+
+| Kapitel | Konzept | Story |
+|---|---|---|
+| 1 · Der erste Tatort | Variablen & Zuweisung | Zeitstempel mit `//` und `%`, Ringtausch, Fallakte |
+| 2 · Erste Verdächtige | `if` / `elif` / `else` | Junior-Modus, Durchsuchungsbeschluss, Profiling |
+| 3 · Alibis | `and` / `or` / `not` | Alibi-Regeln, Haftbefehl-Bug, der einen Unschuldigen träfe |
+| 4 · Die Überwachungsbänder | Schleifen | Videos durchsuchen, Kameras durchgehen, Schlüssel ausprobieren |
+| 5 · Die Zugangsprotokolle | Listen | Ausweis-Logs zählen, späteste Buchung, Verdächtige filtern |
+| 6 · Die Falle | Funktionen | Köder-Dateien, Prüffunktionen, Verfolgung im Finale |
+
+Drei Enden: *Fall gelöst – Hansen überführt*, *Gefasst – aber knapp*, *Spur verloren*.
+
+### Kapitel von Zeitreise-Abenteuer „Die Chronos-Verschwörung“
+
+| Kapitel | Konzept | Story |
+|---|---|---|
+| 1 · Der erste Sprung (2087) | Variablen & Zuweisung | Zielzeit mit `//` und `%`, Ringtausch der Koordinaten, Logbuch |
+| 2 · Florenz, 1455 | `if` / `elif` / `else` | Junior-Protokoll, Abstimmung im Team, Tarnregel |
+| 3 · Die Wächter (1347) | `and` / `or` / `not` | Flucht vor den Chronos-Wächtern, gieriger Zeitschild-Bug |
+| 4 · Rom im Zeitstrudel (73 v. Chr.) | Schleifen | Kristall laden, Endlosschleife als Zeitschleife, es gibt kein Jahr 0 |
+| 5 · Raumstation Chronos-Alpha (2156) | Listen | Sprungprotokolle, ältestes Diebesgut, Zeitanker-Marker |
+| 6 · Die Zeitschleife (2087) | Funktionen | Schleifen-Erkennung, Rücksprung-Koordinaten, Zeitsiegel im Finale |
+
+Drei Enden: *Die Zeitlinie ist gerettet*, *Gerettet – mit kleinen Narben*, *Gefangen im Paradox*.
+
+### Aufgabentypen
+
+| | Typ | Was die Lernenden tun |
+|---|---|---|
+| 🔀 | **Zweig wählen** | die `if`/`elif`/`else`-Zeile anklicken, die ausgeführt wird. Das Feedback rechnet jede Bedingung vor (`15 >= 18 → False`). |
+| 🔎 | **Code verfolgen** | den Wert einer Variable, die Ausgabe oder die Anzahl der Schleifendurchläufe vorhersagen |
+| ✍️ | **Lückencode** | Bedingungen, Schleifen oder `return` selbst schreiben. Der Code läuft gegen mehrere Testfälle, inklusive Grenzfällen. |
+| 🐞 | **Bug-Jagd** | die fehlerhafte Zeile finden und reparieren |
+| 🧩 | **Code-Puzzle** | Zeilen ordnen, einrücken und Ablenker aussortieren |
+
+### Im Unterricht
+
+- **Direktlink auf ein Kapitel**, z. B. `https://lories.tinfo.space/#/mission-aurora/k4` für Schleifen. Jede Mission hat eine eigene Adresse wie `#/mission-aurora/k4/4-3`.
+- **Fortschritt:** Er wird nur im jeweiligen Browser gespeichert. Es gibt kein Konto und keinen Server, und es werden keine Daten erhoben. Über „Spielstand zurücksetzen“ in der Kapitelübersicht fängt man neu an.
+- **Hilfen:** Jede Mission hat zwei gestufte Tipps. Nach zwei Fehlversuchen wird „Ablauf ansehen“ freigeschaltet, bei Lückencode nach drei Fehlversuchen „Lösung zeigen“.
+- **Bewertung:** Fehlversuche kosten die Ressource „Hülle“, höchstens drei Mal pro Mission. Mit ungefähr einem Fehler pro Mission erreicht man „Knapp, aber zu Hause“, fehlerfrei die „Triumphale Heimkehr“.
+
+## Technik
+
+Eine statische Seite ohne Build-Schritt und ohne Abhängigkeiten. Sie läuft auf GitHub Pages.
 
 ```
-logic-story/
-├── index.html              # Haupt-HTML-Datei
-├── styles.css              # CSS-Styling (Dark Mode)
-├── app.js                  # JavaScript-Engine
-├── stories/                # Story-JSON-Dateien
-│   └── mission-aurora.json # Beispiel-Geschichte
-└── README.md              # Diese Dokumentation
+index.html              Gerüst + Footer
+css/styles.css          Gestaltung (Farben je Geschichte über CSS-Variablen)
+js/main.js              Start
+js/engine.js            Bildschirme, Ressourcen, Fortschritt, Enden, Routing (#/…)
+js/interpreter.js       Mini-Python: Tokenizer → Parser → Schritt-Interpreter (kein eval!)
+js/checks.js            Prüflogik aller Aufgabentypen (Oberfläche UND Tests nutzen dieselbe)
+js/tasks/*.js           ein Renderer pro Aufgabentyp
+js/ui/stepper.js        „Ablauf ansehen“
+js/ui/code.js           Code-Anzeige mit Syntaxfarben, klickbaren Zeilen, Lücken
+js/stories.js           Verzeichnis der Geschichten + Farbthemen
+stories/*.json          Geschichten
+docs/STORY-FORMAT.md    Format für neue Geschichten/Missionen
+tests/                  Interpreter-Tests + Story-Validator
 ```
 
-## 🚀 Installation & Deployment
+### Lokal starten
 
-### Lokale Entwicklung
+ES-Module brauchen einen lokalen Server, ein Doppelklick auf `index.html` reicht nicht.
 
-1. **Repository klonen oder Dateien herunterladen**
-   ```bash
-   git clone <repository-url>
-   cd logic-story
-   ```
-
-2. **Lokalen Server starten** (empfohlen)
-   ```bash
-   # Mit Python 3
-   python -m http.server 8000
-   
-   # Mit Node.js (http-server)
-   npx http-server
-   
-   # Mit Live Server (VS Code Extension)
-   # Rechtsklick auf index.html → "Open with Live Server"
-   ```
-
-3. **Im Browser öffnen**
-   ```
-   http://localhost:8000
-   ```
-
-### GitHub Pages Deployment
-
-1. **Repository auf GitHub erstellen**
-   ```bash
-   git init
-   git add .
-   git commit -m "Initial commit"
-   git branch -M main
-   git remote add origin https://github.com/USERNAME/REPOSITORY.git
-   git push -u origin main
-   ```
-
-2. **GitHub Pages aktivieren**
-   - GitHub Repository öffnen
-   - **Settings** → **Pages**
-   - **Source**: Deploy from a branch
-   - **Branch**: main / (root)
-   - **Save** klicken
-
-3. **Seite aufrufen**
-   ```
-   https://USERNAME.github.io/REPOSITORY/
-   ```
-
-## 📖 Benutzung
-
-### Für Schülerinnen und Schüler
-
-1. **Geschichte auswählen** aus dem Dropdown-Menü
-2. **Story lesen** und die Situation verstehen
-3. **Richtige Bedingung wählen** aus den Code-Buttons
-4. **Feedback erhalten** mit Erklärungen
-5. **Weiter navigieren** durch die Geschichte
-
-### Für Lehrkräfte
-
-#### Debug-Modus aktivieren
-- Checkbox "Debug-Modus (für Lehrende)" aktivieren
-- Zeigt zusätzliche technische Informationen
-- Erklärt Expressions und Variablenwerte
-
-#### Fortschritt verfolgen
-- Variablen-Anzeige unten zeigt aktuellen Spielzustand
-- LocalStorage speichert Fortschritt automatisch
-
-#### Neue Geschichten hinzufügen
-Siehe Abschnitt "Neue Geschichten erstellen"
-
-## 📝 Neue Geschichten erstellen
-
-### JSON-Struktur
-
-Erstelle eine neue `.json`-Datei im `stories/` Ordner:
-
-```json
-{
-  "id": "meine-geschichte",
-  "title": "Meine Logik-Geschichte", 
-  "author": "Ihr Name",
-  "language": "de",
-  "variables": {
-    "variable_name": "initial_value"
-  },
-  "levels": [
-    {
-      "id": "level-1",
-      "title": "Level-Titel",
-      "start_node": "startknoten-id"
-    }
-  ],
-  "nodes": [
-    {
-      "id": "startknoten-id",
-      "title": "Szenen-Titel",
-      "text": "Erzähltext der Szene...",
-      "branches": [
-        {
-          "type": "if",
-          "label": "if bedingung:",
-          "expression": "variable_name > 10",
-          "on_true": {
-            "goto": "next-node-id",
-            "effects": [
-              {"type": "set", "var": "variable_name", "value": 20}
-            ]
-          },
-          "on_false": {
-            "goto": "failure-node-id",
-            "effects": []
-          }
-        }
-      ]
-    }
-  ]
-}
+```bash
+python3 -m http.server 8000
 ```
 
-### Erlaubte Expressions
+Danach `http://localhost:8000` öffnen.
 
-Die folgenden Operatoren sind sicher und erlaubt:
+### Tests
 
-**Vergleichsoperatoren:**
-- `==` (gleich)
-- `!=` (ungleich)  
-- `<` (kleiner)
-- `<=` (kleiner oder gleich)
-- `>` (größer)
-- `>=` (größer oder gleich)
-
-**Logische Operatoren:**
-- `and` (UND)
-- `or` (ODER)
-- `not` (NICHT)
-
-**Beispiele:**
-```javascript
-"alter >= 18"
-"treibstoff > 50 and schild_ok"
-"not system_defekt"
-"punkte <= 100 or bonus_aktiv"
+```bash
+node --test tests/
 ```
 
-### Effekt-Typen
+- **`interpreter.test.mjs`** vergleicht den Mini-Interpreter mit echtem Python 3 (falls installiert). Außerdem prüft es Fehlermeldungen, Endlosschleifen-Schutz und Sicherheit.
+- **`validate-stories.test.mjs`** prüft jede Mission jeder Story:
+  - Lösungen bestehen die Tests.
+  - Fehlerhafter Bug-Code fällt durch.
+  - Bei Optionen ist genau eine richtig.
+  - Missionen, die Ressourcen nutzen, funktionieren bei jedem Spielstand.
+  - Fehlerfrei → bestes Ende, viele Fehler → schlechtestes Ende.
 
-**Variable setzen:**
-```json
-{"type": "set", "var": "variablen_name", "value": 42}
-```
+### Was der Mini-Interpreter kann
 
-**Variable erhöhen/verringern:**
-```json
-{"type": "inc", "var": "punkte", "value": 10}
-{"type": "inc", "var": "leben", "value": -1}
-```
+`int`, `float`, `str`, `bool`, `None`, Listen · `+ - * / // % **` · Vergleiche (auch verkettet) · `and or not` · `in` · `=`, `+=` usw. · `if/elif/else` · `while` · `for … in range()/Liste` · `break`, `continue`, `pass` · `def`/`return` · `print len range str int float abs round min max sum sorted` · Listenmethoden `append pop insert remove index count`.
+Nach 5000 Schritten bricht er mit dem Hinweis „Endlosschleife?“ ab. Fehlermeldungen sind auf Deutsch, mit Zeilennummer und Tippfehler-Vorschlag („Meintest du `treibstoff`?“).
 
-**Boolean umschalten:**
-```json
-{"type": "toggle", "var": "schalter_an"}
-```
+## Neue Geschichte oder Mission schreiben
 
-## 🛠️ Technische Details
+Siehe **[docs/STORY-FORMAT.md](docs/STORY-FORMAT.md)**. Kurz gesagt:
 
-### Sicherheit
+1. Die JSON-Datei in `stories/` anlegen und in `js/stories.js` eintragen.
+2. Missionen als `choice`, `trace`, `fill`, `bug` oder `parsons` schreiben. Richtige Antworten trägt man nicht ein, sondern schreibt Code und Testfälle.
+3. `node --test tests/` ausführen. Der Validator meldet unlösbare oder mehrdeutige Missionen.
 
-Die App verwendet **keine** `eval()` Funktionen. Stattdessen:
+## Bilder
 
-1. **Tokenisierung** - Expressions werden in sichere Tokens zerlegt
-2. **Validierung** - Nur erlaubte Operatoren und Variablen werden akzeptiert
-3. **Sichere Evaluierung** - Kontrollierte Ausführung ohne Code-Injection
+Die Kapitel- und Endbilder aller drei Geschichten wurden mit fal.ai (Nano Banana 2.1) im Stil der vorhandenen Cover erzeugt und als WebP gespeichert.
 
-### Browser-Kompatibilität
+## Lizenz & Autor
 
-- **Modern Browsers**: Chrome 60+, Firefox 60+, Safari 12+, Edge 79+
-- **Features**: ES6+, Fetch API, LocalStorage
-- **Fallbacks**: Graceful degradation für ältere Browser
-
-### Performance
-
-- **Bundle-Größe**: < 50 KB (HTML + CSS + JS)
-- **Assets**: Keine externen Abhängigkeiten
-- **Loading**: Lazy Loading für Story-JSONs
-
-## 🎨 Anpassungen
-
-### Styling anpassen
-
-Bearbeite `styles.css` und ändere die CSS-Variablen:
-
-```css
-:root {
-  --bg-primary: #1a1a1a;        /* Haupthintergrund */
-  --text-primary: #ffffff;       /* Haupttext */
-  --accent-primary: #4a9eff;     /* Akzentfarbe */
-  /* ... weitere Variablen */
-}
-```
-
-### Neue Sprachen hinzufügen
-
-1. Übersetze die UI-Texte in `index.html`
-2. Passe JavaScript-Strings in `app.js` an
-3. Erstelle Stories in der neuen Sprache
-
-## 🐛 Fehlerbehebung
-
-### Häufige Probleme
-
-**"Geschichten laden nicht"**
-- Überprüfe, ob ein lokaler Server läuft
-- Browser-Konsole auf Fehler prüfen
-- CORS-Probleme bei file:// URLs
-
-**"Expression-Fehler"**
-- Syntax in JSON überprüfen
-- Nur erlaubte Operatoren verwenden
-- Variablennamen müssen existieren
-
-**"Buttons reagieren nicht"**
-- JavaScript-Konsole auf Fehler prüfen
-- Browser-Cache leeren
-- Seite neu laden
-
-### Debug-Informationen
-
-Aktiviere den Debug-Modus für detaillierte Informationen:
-- Expression-Evaluierung
-- Variablen-Zustände
-- Branch-Auswahl-Details
-
-## 🤝 Beitrag leisten
-
-### Code-Beitrag
-
-1. Fork des Repositories erstellen
-2. Feature-Branch erstellen (`git checkout -b feature/neue-funktion`)
-3. Änderungen committen (`git commit -am 'Neue Funktion hinzugefügt'`)
-4. Branch pushen (`git push origin feature/neue-funktion`)
-5. Pull Request erstellen
-
-### Story-Beitrag
-
-Neue Geschichten können als JSON-Dateien beigesteuert werden:
-- Folge der JSON-Struktur
-- Teste die Geschichte gründlich
-- Dokumentiere Lernziele
-- Füge Beispiel-Lösungen hinzu
-
-## 📚 Weitere Ressourcen
-
-### Für Lehrkräfte
-
-- **Didaktische Hinweise**: Wie integriert man Logic Adventure in den Unterricht
-- **Beispiel-Lektionen**: Fertige Unterrichtsstunden mit der App
-- **Assessment**: Bewertungskriterien für Schülerleistungen
-
-### Für Entwickler
-
-- **API-Dokumentation**: Detaillierte Beschreibung der JavaScript-API
-- **Extension-Guide**: Wie erweitert man die App um neue Features
-- **Testing**: Automatisierte Tests für Stories schreiben
-
-## 📄 Lizenz
-
-Dieses Projekt steht unter der MIT-Lizenz - siehe die [LICENSE](LICENSE) Datei für Details.
-
-## 👥 Autoren
-
-- **Logic Adventure Team** - Initial development
-- **Community Contributors** - Siehe [CONTRIBUTORS.md](CONTRIBUTORS.md)
-
-## 🙏 Danksagungen
-
-- Inspiration durch moderne Lernspiele
-- Feedback von Lehrkräften und Schülern
-- Open Source Community für Tools und Bibliotheken
-
----
-
-**Viel Spaß beim Lehren und Lernen von Programmierlogik! 🚀**
+© 2025–2026 Hans Tydecks · [tinfo.space](https://tinfo.space) · [GitHub](https://github.com/HansTydecks)

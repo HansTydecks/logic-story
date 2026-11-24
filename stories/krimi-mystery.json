@@ -1,626 +1,1483 @@
 {
+  "format": 2,
   "id": "krimi-mystery",
-  "title": "Krimi-Mystery - Der Codename-Mörder",
-  "description": "Lerne echte if/elif/else Programmierung durch 15 spannende Krimi-Missionen",
-  "image": "images/krimi-mystery.png",
-  "missions": [
+  "title": "Krimi-Mystery",
+  "subtitle": "Der Codename-Fall",
+  "description": "Ein Täter, der in Variablen spricht, ein Polizeicomputer, der nur Python versteht – und ein Verräter im eigenen Team.",
+  "theme": "mystery",
+  "computer": "ARGUS",
+  "statusTitle": "Ermittlungsstand",
+  "cover": "images/krimi-mystery.webp",
+  "prolog": "Berlin, November. Es regnet seit drei Tagen.\n\nDu bist **Detective Sarah Müller**, 28 Jahre alt, seit genau einer Woche bei der Mordkommission. Um 23:40 Uhr klingelt dein Telefon. Kommissar Herzog klingt müde. \"Hinterhof an der Spree. Ein Programmierer von CyberTech, Dr. Klaus Weber. Tot. Und Müller – der Täter hat uns eine Nachricht hinterlassen.\"\n\nAuf einem nassen Zettel neben dem Opfer steht nur eine Zeile: `Variable_1 = True. Das Spiel beginnt.`\n\nIm Revier fährt **ARGUS** hoch, das neue Analysesystem des LKA. *\"ARGUS bereit. Hinweis: ARGUS verarbeitet ausschließlich Python. Bauchgefühl wird nicht unterstützt.\"*\n\nWer auch immer das hier ist – er denkt in Code. Also musst du es auch.",
+  "resources": [
+    {
+      "id": "ruf",
+      "label": "Glaubwürdigkeit",
+      "icon": "🎖️",
+      "start": 100
+    },
+    {
+      "id": "hinweise",
+      "label": "Hinweise",
+      "icon": "🔍",
+      "start": 10,
+      "kind": "progress"
+    },
+    {
+      "id": "vertrauen",
+      "label": "Team-Vertrauen",
+      "icon": "🤝",
+      "start": 60
+    }
+  ],
+  "defaultPenalty": [
+    {
+      "res": "ruf",
+      "inc": -2
+    }
+  ],
+  "defaultReward": [
+    {
+      "res": "hinweise",
+      "inc": 3
+    }
+  ],
+  "chapters": [
+    {
+      "id": "k1",
+      "title": "Der erste Tatort",
+      "concept": "Variablen & Zuweisung",
+      "image": "images/krimi/k1.webp",
+      "intro": "Hinterhof an der Spree, kurz nach Mitternacht. Blaulicht spiegelt sich in den Pfützen, ein weißes Zelt schützt die Spurensicherung vor dem Regen. Kommissar Herzog drückt dir einen Pappbecher Kaffee in die Hand. \"Willkommen bei der Mordkommission, Müller. Schlechtes Wetter, schlechte Nachrichten – daran gewöhnt man sich.\"\n\nUnter dem Zeltdach hockt Tom Richter von der Forensik vor seinem Laptop. \"ARGUS läuft! Er speichert jede Information in einer **Variable** – einer Kiste mit Namen. Mit `=` legt er einen Wert hinein. Kommt ein neuer Wert, fliegt der alte raus.\"\n\n*\"Korrekt\"*, meldet ARGUS. *\"Ich vergesse nichts. Außer, man überschreibt es.\"*\n\nZeit, die ersten Fakten zu sichern.",
+      "missions": [
         {
-          "id": 1,
-          "title": "Der erste Mord",
-          "text": "Du bist Detective Sarah Müller, 28 Jahre alt, frisch befördert zur Mordkommission. Dein erstes echter Fall: Ein Toter im Regen, Dr. Klaus Weber, Programmierer bei CyberTech. Kein Raub - seine Brieftasche ist unberührt.\n\n\"Sarah,\" ruft Kommissar Herzog durch den Regen, \"sieh dir das an.\" Neben der Leiche liegt ein Zettel: \"Variable_1 = true. Das Spiel beginnt.\"\n\nDas Polizeisystem führt eine Altersverifikation für die Fallübernahme durch.\n\n**Frage:** Welche Bedingung führt das Sicherheitssystem aus?",
-          "variables": {},
-          "variables_discovered": {
-            "detective_alter": 28
+          "id": "1-1",
+          "type": "trace",
+          "title": "Der letzte Scan",
+          "text": "Tom dreht sein Display zu dir. \"Webers Zugangskarte. Der letzte Scan war am Ausgang von CyberTech. Danach – nichts mehr.\"\n\nAuf dem Bildschirm steht nur eine Zahl: `1307`.\n\n\"Dreizehn Uhr sieben?\", fragst du.\n\nTom schüttelt den Kopf und grinst schief. \"Das denkt jeder. ARGUS speichert Uhrzeiten als *Minuten seit Mitternacht*. Mit `//` teilt er ohne Rest – das gibt die vollen Stunden. Und `%` liefert genau diesen Rest, also die Minuten.\"\n\n*\"Simple Arithmetik\"*, ergänzt ARGUS. *\"Für mich jedenfalls.\"*\n\nHerzog wischt sich den Regen aus dem Gesicht. \"Ich will eine Uhrzeit, die ich auch ohne Taschenrechner verstehe.\"\n\n**Aufgabe:** Was gibt `print` aus?",
+          "lrs": "letzter_scan ist 1307 Minuten nach Mitternacht. Eine Stunde hat 60 Minuten.",
+          "vars": {},
+          "code": "letzter_scan = 1307\nstunden = letzter_scan // 60\nminuten = letzter_scan % 60\nprint(stunden, \"Uhr\", minuten)",
+          "ask": {
+            "output": true
           },
-          "buttons": [
-            {
-              "label": "if detective_alter >= 30:\n        vollzugriff_gewaehren()",
-              "correct": false,
-              "explanation": "❌ **Falsch!** 28 >= 30 ist **false**. Diese Bedingung wird übersprungen, der Computer geht zur nächsten."
-            },
-            {
-              "label": "else:\n        junior_detective_modus_aktivieren()",
-              "correct": true,
-              "explanation": "✅ **Richtig!** Da die if-Bedingung false war, führt der Computer die else-Anweisung aus: 'Junior-Detective mit Unterstützung'."
-            }
+          "options": [
+            "21 Uhr 47",
+            "13 Uhr 7",
+            "21 Uhr 7",
+            "47 Uhr 21"
           ],
-          "success_text": "🎉 **Level 1 geschafft!** Du verstehst jetzt wie Computer if/else von oben nach unten abarbeiten.",
-          "next_mission": 2,
-          "lrs_support": "**Systemlog:**Detective-Alter: 28 Jahre"
+          "hints": [
+            "`1307 // 60` fragt: Wie oft passt 60 *ganz* in 1307? `1307 % 60` fragt: Was bleibt dabei übrig?",
+            "60 · 21 = 1260 passt noch, 60 · 22 = 1320 ist schon zu viel. Also 21 volle Stunden – und der Rest ist 1307 − 1260 = …"
+          ],
+          "explain": "`//` ist die **ganzzahlige Division**: Sie teilt und wirft alles hinter dem Komma weg, `1307 // 60` ergibt 21. `%` (**Modulo**) liefert den Rest genau dieser Division: 1307 − 21 · 60 = 47. Zusammen verwandeln die beiden Operatoren „Minuten seit Mitternacht“ in eine lesbare Uhrzeit – 21:47 Uhr.",
+          "success": "\"21:47 Uhr\", notierst du. \"Weber hat das Büro also spät verlassen.\" Herzog nickt anerkennend. Da hebt ein Kollege der Spurensicherung drei nasse Beweisbeutel hoch – und runzelt die Stirn."
         },
         {
-          "id": 2,
-          "title": "Erste Hinweise",
-          "text": "\"Junior-Detective-Modus ist aktiv,\" erklärt Herzog. \"Aber du führst den Fall.\" Im Büro des Opfers findest du merkwürdige Code-Schnipsel. Dr. Webers Kollege Marc Fischer wirkt nervös.\n\n\"Klaus arbeitete an einem geheimen Projekt,\" flüstert Marc. \"Etwas mit künstlicher Intelligenz. Die Serversicherheit war nur bei 65% - viel zu niedrig für so ein Projekt.\"\n\n**Frage:** Welche Anweisung führt das Sicherheitssystem aus?",
-          "variables": {
-            "detective_alter": 28
+          "id": "1-2",
+          "type": "trace",
+          "title": "Verrutschte Etiketten",
+          "text": "Drei Beweisbeutel liegen auf dem Klapptisch: der Zettel, Webers Handy, sein Schlüsselbund. In ARGUS hat jedes Beweisstück eine Nummer. Doch im strömenden Regen sind die Etiketten verrutscht – jede Nummer klebt am falschen Beutel, alle im Kreis versetzt.\n\nTom tippt einen **Ringtausch** ein. \"Der Trick ist die Hilfsvariable `ablage`. Sie merkt sich einen Wert, bevor er überschrieben wird. Ohne sie wäre eine Nummer für immer weg.\"\n\nHerzog brummt: \"Am Ende muss jede Nummer genau einmal vorkommen. Vor Gericht zählt so was.\"\n\n*\"Ich führe die Zeilen von oben nach unten aus\"*, meldet ARGUS. *\"Eine nach der anderen. Ohne Ausnahme.\"*\n\n**Aufgabe:** Welche Nummer steht am Ende in `schluessel`? Tippe die Zahl ein.",
+          "lrs": "Am Anfang: zettel ist 3, handy ist 1, schluessel ist 2.",
+          "vars": {},
+          "code": "zettel = 3\nhandy = 1\nschluessel = 2\nablage = zettel\nzettel = handy\nhandy = schluessel\nschluessel = ablage",
+          "ask": {
+            "var": "schluessel"
           },
-          "variables_discovered": {
-            "sicherheit_level": 65
-          },
-          "buttons": [
-            {
-              "label": "if sicherheit_level >= 80:\n        sichere_datenzugriff_gewaehren()",
-              "correct": false,
-              "explanation": "❌ **Falsch!** 65 >= 80 ist **false**. Computer springt zur else-Anweisung."
-            },
-            {
-              "label": "else:\n        verdaechtige_sicherheitsluecke_melden()",
-              "correct": true,
-              "explanation": "✅ **Richtig!** Da 65 < 80, führt der Computer die else-Anweisung aus: 'Verdächtige Sicherheitslücke'."
-            }
+          "hints": [
+            "Mach dir eine kleine Tabelle mit vier Spalten: `zettel`, `handy`, `schluessel`, `ablage`. Trage nach jeder Zeile ein, was gerade in den Kisten liegt.",
+            "`ablage` bekommt in Zeile 4 die 3 von `zettel` – und behält sie bis zum Schluss, auch wenn in `zettel` danach schon die 1 steht. Die letzte Zeile kopiert den Inhalt von `ablage`."
           ],
-          "success_text": "🎉 **Level 2 geschafft!** Du verstehst wie Computer Zahlenvergleiche auswerten.",
-          "next_mission": 3,
-          "lrs_support": "**Sicherheits-Anzeige:**Sicherheitslevel: 65%"
+          "explain": "Beim **Ringtausch** wird jeder Wert eine Position weitergereicht. Weil jede Zuweisung den alten Wert **überschreibt**, rettet die **Hilfsvariable** `ablage` die erste Nummer, bevor `zettel` überschrieben wird. Ganz am Ende gibt `ablage` die gerettete 3 an `schluessel` weiter. Für drei Werte reicht eine einzige Hilfsvariable – entscheidend ist, dass man mit dem Wert anfängt, der zuerst verloren ginge.",
+          "success": "Zettel 1, Handy 2, Schlüssel 3 – jede Nummer genau einmal. \"Ordnung bei den Beweisen ist die halbe Ermittlung\", sagt Herzog und klappt seinen Schirm zu. \"Ab ins Revier. Ich will eine Fallakte, bevor die Presse aufwacht.\""
         },
         {
-          "id": 3,
-          "title": "Verdächtigen-Profiling",
-          "text": "Zurück im Revier analysierst du die ersten Verdächtigen. Marc Fischer scheint 70% glaubwürdig - er war nervös, aber kooperativ. Seine Geschichte hat keine großen Widersprüche.\n\n\"Sarah,\" sagt Psychologin Dr. Emma Klein, \"das Verdächtigen-Profiling-System zeigt interessante Muster. Fischer könnte unschuldig sein.\"\n\n**Frage:** Das Profiling-System prüft drei Stufen. Welche wird ausgeführt?",
-          "variables": {
-            "detective_alter": 28,
-            "sicherheit_level": 65
+          "id": "1-3",
+          "type": "trace",
+          "title": "Die Fallakte",
+          "text": "Im Revier riecht es nach altem Kaffee und nassen Jacken. Detective Hansen, dein neuer Partner, stellt dir einen frischen Becher hin. \"Erste Woche, und gleich so ein Fall. Wenn du Hilfe brauchst – ich sitz direkt gegenüber.\"\n\nARGUS legt die Fallakte an. Die Fallnummer ist eine Zahl, alles andere ist Text. *\"Hinweis: Text und Zahl lassen sich nicht mit `+` verbinden\"*, meldet ARGUS. *\"Erst `str()` macht aus der Zahl einen Text.\"*\n\nHansen beugt sich vor. \"Und `+` klebt alles ohne Leerzeichen aneinander. Bei `print` mit Kommas kommt dagegen automatisch eins dazwischen. Hab ich am Anfang ständig verwechselt.\"\n\n**Aufgabe:** Was gibt `print` genau aus?",
+          "lrs": "fall_nr startet bei 417. Achte auf Leerzeichen und auf str().",
+          "vars": {},
+          "code": "fall_nr = 417\nfall_nr = fall_nr + 1\nopfer = \"Dr. Klaus Weber\"\nort = \"Spree-Hinterhof\"\nakte = \"Fall \" + str(fall_nr) + \": \" + opfer\nprint(akte, \"/\", ort)",
+          "ask": {
+            "output": true
           },
-          "variables_discovered": {
-            "verdaechtiger_glaubwuerdigkeit": 70
-          },
-          "buttons": [
-            {
-              "label": "if verdaechtiger_glaubwuerdigkeit >= 85:\n        hohe_prioritaet_setzen()",
-              "correct": false,
-              "explanation": "❌ **Falsch!** 70 >= 85 ist **false**. Computer geht zur nächsten Bedingung."
-            },
-            {
-              "label": "elif verdaechtiger_glaubwuerdigkeit >= 60:\n        weiter_beobachten()",
-              "correct": true,
-              "explanation": "✅ **Richtig!** 70 >= 60 ist **true**. Computer führt aus: 'Weiter beobachten' und stoppt hier."
-            },
-            {
-              "label": "else:\n        sofortige_festnahme()",
-              "correct": false,
-              "explanation": "❌ **Falsch!** Da elif bereits true war, wird else nie erreicht."
-            }
+          "options": [
+            "Fall 418: Dr. Klaus Weber / Spree-Hinterhof",
+            "Fall 417: Dr. Klaus Weber / Spree-Hinterhof",
+            "Fall418:Dr. Klaus Weber/Spree-Hinterhof",
+            "Fall str(fall_nr): opfer / ort"
           ],
-          "success_text": "🎉 **Level 3 geschafft!** Du verstehst jetzt if/elif/else - Computer stoppt bei der ersten wahren Bedingung!",
-          "next_mission": 4,
-          "lrs_support": "**Profiling-Report:**Verdächtiger-Glaubwürdigkeit: 70%"
+          "hints": [
+            "Welchen Wert hat `fall_nr` nach Zeile 2? Und: Ein Name *ohne* Anführungszeichen ist eine Variable – ARGUS setzt ihren Inhalt ein.",
+            "`akte` enthält \"Fall 418: Dr. Klaus Weber\" – die Leerzeichen stecken schon in `\"Fall \"` und `\": \"`. `print` setzt zwischen `akte`, `\"/\"` und `ort` je ein Leerzeichen."
+          ],
+          "explain": "`fall_nr = fall_nr + 1` **überschreibt** die 417 mit 418. `str(fall_nr)` wandelt die Zahl in den Text \"418\" um, damit `+` sie mit anderen Texten **verketten** kann – `+` klebt dabei ohne Leerzeichen, deshalb stehen die Leerzeichen schon in `\"Fall \"` und `\": \"`. `print` mit Kommas setzt dagegen automatisch ein Leerzeichen zwischen die Teile.",
+          "success": "Die Akte steht. Hansen klopft dir auf die Schulter. \"Sauber. Daran erkennt man die Neue, die was kann.\" Hinter euch heftet Herzog zwei Uhrzeiten an die Pinnwand."
         },
         {
-          "id": 4,
-          "title": "Der zweite Mord",
-          "text": "Schlechte Nachrichten: Ein zweites Opfer. Lisa Hoffmann, 32, ebenfalls Programmiererin. Dieselbe Methode, derselbe rätselhafte Zettel: \"Variable_2 = false. Das Spiel wird komplexer.\"\n\nDas Analysesystem muss alle bekannten Parameter berücksichtigen: Sarahs Alter (28), Sicherheitslevel (65%) und Fischers Glaubwürdigkeit (70%) für die Muster-Erkennung.\n\n**Frage:** Das Kriminalanalyse-System kombiniert mehrere Variablen. Welche Bewertung trifft zu?",
-          "variables": {
-            "detective_alter": 28,
-            "sicherheit_level": 65,
-            "verdaechtiger_glaubwuerdigkeit": 70
-          },
-          "variables_discovered": {},
-          "buttons": [
+          "id": "1-4",
+          "type": "parsons",
+          "title": "Das Tatzeitfenster",
+          "text": "Herzog tippt auf die Pinnwand. \"21:47 Uhr – Weber verlässt CyberTech. 23:20 Uhr – ein Anwohner findet ihn im Hinterhof und ruft uns. Irgendwo dazwischen ist es passiert. Wie groß ist das Zeitfenster?\"\n\nTom hat das Programm schon geschrieben, aber ARGUS hat beim Speichern die Zeilen durcheinandergewürfelt. Und eine Zeile gehört gar nicht dazu.\n\n*\"Hinweis\"*, sagt ARGUS. *\"Ich rechne nur mit Variablen, die schon einen Wert haben. Ich bin ein Analysesystem, kein Hellseher.\"*\n\nTom ergänzt: \"Die Uhrzeiten rechnet ARGUS erst in Minuten seit Mitternacht um. Am Ende zerlegen `//` und `%` das Ergebnis wieder in Stunden und Minuten.\"\n\n**Aufgabe:** Bringe die Zeilen in die richtige Reihenfolge und sortiere die falsche Zeile aus.",
+          "lrs": "Zuletzt gesehen: 21:47 Uhr. Gefunden: 23:20 Uhr. Gesucht: die Zeit dazwischen.",
+          "vars": {},
+          "solution": "zuletzt_gesehen = 21 * 60 + 47\ngefunden = 23 * 60 + 20\nfenster = gefunden - zuletzt_gesehen\nstunden = fenster // 60\nminuten = fenster % 60\nprint(stunden, \"h\", minuten, \"min\")",
+          "distractors": [
+            "fenster = zuletzt_gesehen - gefunden"
+          ],
+          "tests": [
             {
-              "label": "if detective_alter >= 30 and sicherheit_level >= 80:\n        standard_ermittlung_starten()",
-              "correct": false,
-              "explanation": "❌ **Falsch!** (28 >= 30) AND (65 >= 80) = false AND false = **false**. Zur nächsten Bedingung."
-            },
-            {
-              "label": "elif verdaechtiger_glaubwuerdigkeit >= 65:\n        serienmoerder_protokoll_aktivieren()",
-              "correct": true,
-              "explanation": "✅ **Richtig!** 70 >= 65 ist **true**. Computer führt aus: 'Serienmörder-Protokoll'."
-            },
-            {
-              "label": "else:\n        einzeltaeter_annahme()",
-              "correct": false,
-              "explanation": "❌ **Falsch!** elif war bereits true, else wird nicht erreicht."
+              "label": "ARGUS meldet: 1 h 33 min",
+              "output": [
+                "1 h 33 min"
+              ]
             }
           ],
-          "success_text": "🎉 **Level 4 geschafft!** Du kannst jetzt AND-Verknüpfungen und mehrere Variablen kombinieren!",
-          "next_mission": 5,
-          "lrs_support": "**Verfügbare Daten:**Detective-Alter: 28, Sicherheit: 65%, Glaubwürdigkeit: 70%"
-        },
-        {
-          "id": 5,
-          "title": "Code-Entschlüsselung",
-          "text": "\"Ein Serienmörder mit System,\" bestätigt Dr. Klein düster. Im Forensik-Labor entdeckt Experte Tom Richter verschlüsselte Dateien auf beiden Opfer-Computern. Der Verschlüsselungsgrad liegt bei 85%.\n\n\"Sarah, das ist hochprofessionell,\" warnt Tom. \"Wer auch immer das macht, versteht sich auf Computer-Sicherheit.\"\n\n**Frage:** Das Verschlüsselungssystem hat vier Stufen. Welche wird aktiviert?",
-          "variables": {
-            "detective_alter": 28,
-            "sicherheit_level": 65,
-            "verdaechtiger_glaubwuerdigkeit": 70
-          },
-          "variables_discovered": {
-            "verschluesselung": 85
-          },
-          "buttons": [
-            {
-              "label": "if verschluesselung >= 90:\n        experten_niveau_melden()",
-              "correct": false,
-              "explanation": "❌ **Falsch!** 85 >= 90 ist **false**. Computer geht weiter."
-            },
-            {
-              "label": "elif verschluesselung >= 80:\n        fortgeschrittene_kenntnisse_vermerken()",
-              "correct": true,
-              "explanation": "✅ **Richtig!** 85 >= 80 ist **true**. Computer führt aus: 'Fortgeschrittene Kenntnisse' und stoppt."
-            },
-            {
-              "label": "elif verschluesselung >= 70:\n        basis_kenntnisse_notieren()",
-              "correct": false,
-              "explanation": "❌ **Falsch!** elif war bereits true, else wird übersprungen."
-            },
-            {
-              "label": "else:\n        amateur_einstufen()",
-              "correct": false,
-              "explanation": "❌ **Falsch!** Eine elif-Bedingung war bereits true, else wird übersprungen."
-            }
+          "hints": [
+            "Welche Variablen braucht die Zeile `fenster = …`? Und welche braucht `stunden = …`? Die müssen vorher schon einen Wert bekommen haben.",
+            "Erst die beiden Uhrzeiten, dann `fenster = gefunden - zuletzt_gesehen` (1400 − 1307 = 93 Minuten), dann `stunden` und `minuten`, zum Schluss `print`. Die umgedrehte Subtraktion ergibt eine negative Zeit."
           ],
-          "success_text": "🎉 **Level 5 geschafft!** Du beherrschst jetzt mehrfache elif-Ketten!",
-          "next_mission": 6,
-          "lrs_support": "**Forensik-Status:**Verschlüsselung: 85%"
-        },
-        {
-          "id": 6,
-          "title": "Digitale Spur",
-          "text": "Die Entschlüsselung führt zu einem versteckten Server. Die Spurensicherung zeigt 55% Übereinstimmung mit bekannten Hacker-Methoden. Überraschend: Das System ist noch aktiv und beobachtet euch.\n\n\"Vorsicht,\" flüstert Tom, \"wer auch immer das ist - er weiß, dass wir hier sind.\"\n\n**Frage:** Das Überwachungssystem prüft Boolean-Werte. Welche Bedingung trifft zu?",
-          "variables": {
-            "detective_alter": 28,
-            "sicherheit_level": 65,
-            "verdaechtiger_glaubwuerdigkeit": 70,
-            "verschluesselung": 85
-          },
-          "variables_discovered": {
-            "spuren_match": 55,
-            "system_aktiv": true
-          },
-          "buttons": [
-            {
-              "label": "if spuren_match >= 70:\n        hohe_uebereinstimmung_melden()",
-              "correct": false,
-              "explanation": "❌ **Falsch!** 55 >= 70 ist **false**. Computer geht zur nächsten Bedingung."
-            },
-            {
-              "label": "elif system_aktiv:\n        live_ueberwachung_aktivieren()",
-              "correct": true,
-              "explanation": "✅ **Richtig!** system_aktiv ist **true**. Computer führt aus: 'Live-Überwachung aktiviert'."
-            },
-            {
-              "label": "else:\n        offline_analyse_starten()",
-              "correct": false,
-              "explanation": "❌ **Falsch!** elif war true, else wird nicht erreicht."
-            }
-          ],
-          "success_text": "🎉 **Level 6 geschafft!** Du verstehst jetzt Boolean-Werte (true/false) in Bedingungen!",
-          "next_mission": 7,
-          "lrs_support": "**Server-System:**Spuren-Match: 55%, System aktiv: true"
-        },
-        {
-          "id": 7,
-          "title": "Gefährliche Verfolgung",
-          "text": "Die Live-Überwachung führt zu einem verlassenen Lagerhaus. Sarah folgt der digitalen Spur, aber es ist eine Falle. Plötzlich sind Verfolger da - 3 Kilometer entfernt und schnell näher kommend.\n\n\"Das ist kein Zufall,\" denkt Sarah, während sie sich versteckt. \"Er hat uns hierher gelockt.\"\n\n**Frage:** Das Sicherheitssystem kombiniert Boolean und Zahlen. Welche Aktion wird ausgeführt?",
-          "variables": {
-            "detective_alter": 28,
-            "sicherheit_level": 65,
-            "verdaechtiger_glaubwuerdigkeit": 70,
-            "verschluesselung": 85,
-            "spuren_match": 55,
-            "system_aktiv": true
-          },
-          "variables_discovered": {
-            "verfolger_entfernung": 3
-          },
-          "buttons": [
-            {
-              "label": "if system_aktiv and verfolger_entfernung <= 2:\n        sofortiger_rueckzug()",
-              "correct": false,
-              "explanation": "❌ **Falsch!** true AND (3 <= 2) = true AND false = **false**. Computer geht weiter."
-            },
-            {
-              "label": "elif system_aktiv and sicherheit_level >= 60:\n        verstaerkte_vorsicht_aktivieren()",
-              "correct": true,
-              "explanation": "✅ **Richtig!** true AND (65 >= 60) = true AND true = **true**. Computer führt aus: 'Verstärkte Vorsicht'."
-            },
-            {
-              "label": "else:\n        normale_verfolgung_fortsetzen()",
-              "correct": false,
-              "explanation": "❌ **Falsch!** elif war bereits true, else wird übersprungen."
-            }
-          ],
-          "success_text": "🎉 **Level 7 geschafft!** Du beherrschst AND-Verknüpfungen mit gemischten Datentypen!",
-          "next_mission": 8,
-          "lrs_support": "**Bedrohungsanalyse:**System aktiv: true, Verfolger-Entfernung: 3 km"
-        },
-        {
-          "id": 8,
-          "title": "Innenspiel entdeckt",
-          "text": "Sarah erreicht sicher das Revier, aber die Erkenntnis ist schockierend: \"Jemand in unseren eigenen Reihen hilft ihm,\" erklärt sie Herzog. Das interne Vertrauenslevel ist auf 40% gefallen - zu niedrig für normale Ermittlungen.\n\n\"Verdammt,\" flucht Herzog. \"Ein korrupter Cop. Das erklärt, warum er uns immer einen Schritt voraus ist.\"\n\n**Frage:** Das Korruptionserkennungs-System hat fünf Stufen. Welche wird aktiviert?",
-          "variables": {
-            "detective_alter": 28,
-            "sicherheit_level": 65,
-            "verdaechtiger_glaubwuerdigkeit": 40,
-            "verschluesselung": 85,
-            "spuren_match": 55,
-            "system_aktiv": true,
-            "verfolger_entfernung": 3
-          },
-          "variables_discovered": {},
-          "buttons": [
-            {
-              "label": "if verdaechtiger_glaubwuerdigkeit >= 60:\n        vertrauen_aufbauen()",
-              "correct": false,
-              "explanation": "❌ **Falsch!** 40 >= 60 ist **false**. Computer geht weiter."
-            },
-            {
-              "label": "elif verdaechtiger_glaubwuerdigkeit >= 50:\n        vorsichtige_zusammenarbeit()",
-              "correct": false,
-              "explanation": "❌ **Falsch!** 40 >= 50 ist **false**. Computer geht weiter."
-            },
-            {
-              "label": "elif verdaechtiger_glaubwuerdigkeit >= 30 and system_aktiv:\n        interne_ermittlung_starten()",
-              "correct": true,
-              "explanation": "✅ **Richtig!** (40 >= 30) AND true = true AND true = **true**. Computer führt aus: 'Interne Ermittlung'."
-            },
-            {
-              "label": "elif verdaechtiger_glaubwuerdigkeit >= 20:\n        schadens_begrenzung()",
-              "correct": false,
-              "explanation": "❌ **Falsch!** Die vorherige elif-Bedingung war bereits true, diese wird nicht erreicht."
-            },
-            {
-              "label": "else:\n        komplett_isolieren()",
-              "correct": false,
-              "explanation": "❌ **Falsch!** Eine elif-Bedingung war bereits true, else wird übersprungen."
-            }
-          ],
-          "success_text": "🎉 **Level 8 geschafft!** Du verstehst jetzt komplexe elif-Ketten mit AND-Verknüpfungen!",
-          "next_mission": 9,
-          "lrs_support": "**Internes System:**Team-Vertrauen: 40%, System aktiv: true"
-        },
-        {
-          "id": 9,
-          "title": "Der Informant",
-          "text": "Ein anonymer Informant meldet sich - er will 75% der Wahrheit preisgeben, aber nur gegen Zusicherung von Schutz. Das System zeigt \"kritisch\" für die Informanten-Sicherheit an.\n\n\"Der Mörder ist näher, als Sie denken,\" flüstert der Mann mit Sonnenbrille. \"Er kennt jeden Ihrer Schritte.\"\n\n**Frage:** Das Informantenschutz-System prüft alle Parameter. Welche Aktion wird ausgeführt?",
-          "variables": {
-            "detective_alter": 28,
-            "sicherheit_level": 75,
-            "verdaechtiger_glaubwuerdigkeit": 40,
-            "verschluesselung": 85,
-            "spuren_match": 55,
-            "system_aktiv": true,
-            "verfolger_entfernung": 3
-          },
-          "variables_discovered": {
-            "informant_sicherheit": "kritisch"
-          },
-          "buttons": [
-            {
-              "label": "if sicherheit_level >= 85:\n        maximaler_schutz_aktivieren()",
-              "correct": false,
-              "explanation": "❌ **Falsch!** 75 >= 85 ist **false**. Computer geht weiter."
-            },
-            {
-              "label": "elif sicherheit_level >= 70:\n        standard_schutz_gewaehren()",
-              "correct": true,
-              "explanation": "✅ **Richtig!** 75 >= 70 ist **true**. Computer führt aus: 'Standard-Schutz' und stoppt."
-            },
-            {
-              "label": "elif sicherheit_level >= 60 and informant_sicherheit == \"kritisch\":\n        notfall_schutz_aktivieren()",
-              "correct": false,
-              "explanation": "❌ **Falsch!** Die vorherige elif-Bedingung war bereits true, diese wird nicht erreicht."
-            },
-            {
-              "label": "elif sicherheit_level >= 50:\n        basis_schutz_anbieten()",
-              "correct": false,
-              "explanation": "❌ **Falsch!** Eine frühere elif-Bedingung war bereits true, diese wird übersprungen."
-            },
-            {
-              "label": "else:\n        schutz_verweigern()",
-              "correct": false,
-              "explanation": "❌ **Falsch!** Eine elif-Bedingung war bereits true, else wird übersprungen."
-            }
-          ],
-          "success_text": "🎉 **Level 9 geschafft!** Du beherrschst jetzt String-Vergleiche und komplexe elif-Ketten!",
-          "next_mission": 10,
-          "lrs_support": "**Informant-Status:**Sicherheitslevel: 75%, Informanten-Sicherheit: \"kritisch\""
-        },
-        {
-          "id": 10,
-          "title": "Die Wendung",
-          "text": "Der Informant führt zu schockierenden Enthüllungen: Der Mörder arbeitet im Polizeigebäude. Sarah durchsucht heimlich alte Fälle. 80% Übereinstimmung mit ungelösten Fällen der letzten Jahre - aber die Informanten-Sicherheit ist \"kritisch\" und die digitalen Beweise sind unvollständig.\n\n\"Mein Gott,\" flüstert Sarah, \"er tötet schon seit Jahren.\"\n\n**Frage:** Das Beweissystem prüft alle drei Parameter. Welche Aktion wird ausgeführt?",
-          "variables": {
-            "detective_alter": 28,
-            "sicherheit_level": 80,
-            "verdaechtiger_glaubwuerdigkeit": 40,
-            "verschluesselung": 85,
-            "spuren_match": 80,
-            "system_aktiv": true,
-            "verfolger_entfernung": 3,
-            "informant_sicherheit": "kritisch"
-          },
-          "variables_discovered": {
-            "beweise_vollstaendig": false
-          },
-          "buttons": [
-            {
-              "label": "if spuren_match >= 85 and informant_sicherheit == \"sicher\" and beweise_vollstaendig:\n        vollstaendige_anklage_vorbereiten()",
-              "correct": false,
-              "explanation": "❌ **Falsch!** (80 >= 85) AND (\"kritisch\" == \"sicher\") AND false = false AND false AND false = **false**."
-            },
-            {
-              "label": "elif spuren_match >= 75 and informant_sicherheit == \"kritisch\":\n        vorsichtige_weitere_ermittlung()",
-              "correct": true,
-              "explanation": "✅ **Richtig!** (80 >= 75) AND (\"kritisch\" == \"kritisch\") = true AND true = **true**. Computer führt aus: 'Vorsichtige Weitere Ermittlung'."
-            },
-            {
-              "label": "elif spuren_match >= 70:\n        basis_ermittlung_fortsetzen()",
-              "correct": false,
-              "explanation": "❌ **Falsch!** Die vorherige elif-Bedingung war bereits true, diese wird nicht erreicht."
-            },
-            {
-              "label": "else:\n        ermittlung_pausieren()",
-              "correct": false,
-              "explanation": "❌ **Falsch!** Eine elif-Bedingung war bereits true, else wird übersprungen."
-            }
-          ],
-          "success_text": "🎉 **Level 10 geschafft!** Du kombinierst jetzt mühelos viele Variablen mit komplexen AND-Verknüpfungen!",
-          "next_mission": 11,
-          "lrs_support": "**Enthüllungs-Status:**Spuren-Match: 80%, Informanten-Sicherheit: \"kritisch\", Beweise vollständig: false"
-        },
-        {
-          "id": 11,
-          "title": "Backup-Plan aktiviert",
-          "text": "Sarah arbeitet von zuhause - das Hauptsystem im Revier ist kompromittiert, aber ihre Backup-Systeme funktionieren mit 90% Effizienz. Sie hat endlich ein klares Verdächtigen-Profil erstellt.\n\n\"Ich weiß, wer du bist,\" flüstert sie in die Dunkelheit, während sie die Daten analysiert.\n\n**Frage:** Das Backup-System nutzt erweiterte NOT-Logik. Welche Konfiguration wird gewählt?",
-          "variables": {
-            "detective_alter": 28,
-            "sicherheit_level": 90,
-            "verdaechtiger_glaubwuerdigkeit": 40,
-            "verschluesselung": 85,
-            "spuren_match": 80,
-            "system_aktiv": true,
-            "verfolger_entfernung": 3,
-            "informant_sicherheit": "kritisch",
-            "beweise_vollstaendig": false
-          },
-          "variables_discovered": {
-            "backup_aktiv": true,
-            "hauptsystem_kompromittiert": true
-          },
-          "buttons": [
-            {
-              "label": "if not hauptsystem_kompromittiert and sicherheit_level >= 95:\n        volle_systemleistung_nutzen()",
-              "correct": false,
-              "explanation": "❌ **Falsch!** (not true) AND (90 >= 95) = false AND false = **false**."
-            },
-            {
-              "label": "elif hauptsystem_kompromittiert and backup_aktiv and sicherheit_level >= 85:\n        backup_ermittlung_starten()",
-              "correct": true,
-              "explanation": "✅ **Richtig!** true AND true AND (90 >= 85) = true AND true AND true = **true**. Computer führt aus: 'Backup-Ermittlung erfolgreich'."
-            },
-            {
-              "label": "elif backup_aktiv:\n        basis_backup_nutzen()",
-              "correct": false,
-              "explanation": "❌ **Falsch!** Die vorherige elif-Bedingung war bereits true, diese wird nicht erreicht."
-            },
-            {
-              "label": "else:\n        notfall_modus_aktivieren()",
-              "correct": false,
-              "explanation": "❌ **Falsch!** Eine elif-Bedingung war bereits true, else wird übersprungen."
-            }
-          ],
-          "success_text": "🎉 **Level 11 geschafft!** Du meisterst jetzt NOT-Operatoren und Dreifach-AND-Verknüpfungen!",
-          "next_mission": 12,
-          "lrs_support": "**Backup-Status:**Hauptsystem kompromittiert: true, Backup aktiv: true, Sicherheitslevel: 90%"
-        },
-        {
-          "id": 12,
-          "title": "Die Falle",
-          "text": "Sarah stellt eine Falle für den Mörder - sie hat 95% Gewissheit über seine Identität und 6 Beweise gesammelt. Das Zielsystem ist aktiv, aber es ist gefährlich.\n\n\"Komm schon,\" murmelt sie in ihr Funkgerät. \"Zeig dich endlich.\"\n\n**Frage:** Das Fangoperations-System hat sechs Risikoabwägungsstufen. Welche wird aktiviert?",
-          "variables": {
-            "detective_alter": 28,
-            "sicherheit_level": 95,
-            "verdaechtiger_glaubwuerdigkeit": 40,
-            "verschluesselung": 85,
-            "spuren_match": 80,
-            "system_aktiv": true,
-            "verfolger_entfernung": 6,
-            "informant_sicherheit": "kritisch",
-            "beweise_vollstaendig": false,
-            "backup_aktiv": true,
-            "hauptsystem_kompromittiert": true
-          },
-          "variables_discovered": {},
-          "buttons": [
-            {
-              "label": "if sicherheit_level >= 98 and verfolger_entfernung >= 8 and backup_aktiv:\n        sichere_verhaftung_durchfuehren()",
-              "correct": false,
-              "explanation": "❌ **Falsch!** (95 >= 98) AND (6 >= 8) AND true = false AND false AND true = **false**."
-            },
-            {
-              "label": "elif sicherheit_level >= 90 and backup_aktiv and system_aktiv:\n        risiko_verhaftung_wagen()",
-              "correct": true,
-              "explanation": "✅ **Richtig!** (95 >= 90) AND true AND true = true AND true AND true = **true**. Computer führt aus: 'Risiko-Verhaftung möglich'."
-            },
-            {
-              "label": "elif sicherheit_level >= 85 and verfolger_entfernung >= 5:\n        vorsichtige_annaeherung()",
-              "correct": false,
-              "explanation": "❌ **Falsch!** Die vorherige elif-Bedingung war bereits true, diese wird nicht erreicht."
-            },
-            {
-              "label": "elif verfolger_entfernung >= 4:\n        beobachtung_fortsetzen()",
-              "correct": false,
-              "explanation": "❌ **Falsch!** Eine frühere elif-Bedingung war bereits true, diese wird übersprungen."
-            },
-            {
-              "label": "elif sicherheit_level >= 80:\n        basis_sicherheit_halten()",
-              "correct": false,
-              "explanation": "❌ **Falsch!** Eine frühere elif-Bedingung war bereits true, diese wird übersprungen."
-            },
-            {
-              "label": "else:\n        falle_abbrechen()",
-              "correct": false,
-              "explanation": "❌ **Falsch!** Eine elif-Bedingung war bereits true, else wird nicht erreicht."
-            }
-          ],
-          "success_text": "🎉 **Level 12 geschafft!** Du beherrschst jetzt sechs-stufige elif-Ketten mit komplexen Bedingungen!",
-          "next_mission": 13,
-          "lrs_support": "**Falle-Status:**Sicherheitslevel: 95%, Beweise: 6, Zielsystem aktiv: true"
-        },
-        {
-          "id": 13,
-          "title": "Verrat aufgedeckt",
-          "text": "Die Falle funktioniert - aber der Verräter im Team ist Detective Hansen, Sarahs eigener Partner! 25% Team-Vertrauen bleibt, aber die Beweise sind zwingend. Das Reparatur-System der Gerechtigkeit kann noch funktionieren.\n\n\"Du warst es die ganze Zeit,\" sagt Sarah fassungslos. \"Mein eigener Partner.\"\n\nHansen lächelt kalt: \"Nichts Persönliches, Sarah. Nur Geschäfte.\"\n\n**Frage:** Das Gerechtigkeitssystem wertet komplexe Parameter aus. Welches Protokoll wird aktiviert?",
-          "variables": {
-            "detective_alter": 28,
-            "sicherheit_level": 95,
-            "verdaechtiger_glaubwuerdigkeit": 25,
-            "verschluesselung": 85,
-            "spuren_match": 80,
-            "system_aktiv": true,
-            "verfolger_entfernung": 6,
-            "informant_sicherheit": "kritisch",
-            "beweise_vollstaendig": false,
-            "backup_aktiv": true,
-            "hauptsystem_kompromittiert": true
-          },
-          "variables_discovered": {},
-          "buttons": [
-            {
-              "label": "if verdaechtiger_glaubwuerdigkeit <= 20 and sicherheit_level >= 98 and verfolger_entfernung >= 8:\n        sichere_gerechtigkeit_vollstrecken()",
-              "correct": false,
-              "explanation": "❌ **Falsch!** (25 <= 20) AND (95 >= 98) AND (6 >= 8) = false AND false AND false = **false**."
-            },
-            {
-              "label": "elif verdaechtiger_glaubwuerdigkeit <= 30 and backup_aktiv and (sicherheit_level >= 90 or verfolger_entfernung >= 5):\n        gerechtigkeit_durch_backup_system()",
-              "correct": true,
-              "explanation": "✅ **Richtig!** (25 <= 30) AND true AND (95 >= 90 OR 6 >= 5) = true AND true AND (true OR true) = true AND true AND true = **true**. Computer führt aus: 'Gerechtigkeit durch Backup'."
-            },
-            {
-              "label": "elif backup_aktiv and verfolger_entfernung >= 5:\n        backup_verfolgung_starten()",
-              "correct": false,
-              "explanation": "❌ **Falsch!** Die vorherige elif-Bedingung war bereits true, diese wird nicht erreicht."
-            },
-            {
-              "label": "elif verfolger_entfernung >= 4:\n        standard_verfolgung_aktivieren()",
-              "correct": false,
-              "explanation": "❌ **Falsch!** Eine frühere elif-Bedingung war bereits true, diese wird übersprungen."
-            },
-            {
-              "label": "else:\n        verfolgung_aufgeben()",
-              "correct": false,
-              "explanation": "❌ **Falsch!** Eine elif-Bedingung war bereits true, else wird nicht erreicht."
-            }
-          ],
-          "success_text": "🎉 **Level 13 geschafft!** Du meisterst jetzt OR-Verknüpfungen in Klammern und komplexeste Logik!",
-          "next_mission": 14,
-          "lrs_support": "**Verrats-Status:**Team-Vertrauen: 25%, Backup aktiv: true, Gerechtigkeit reparierbar: true"
-        },
-        {
-          "id": 14,
-          "title": "Finale Verfolgung",
-          "text": "Hansen flieht, aber Sarah folgt ihm. In einer dramatischen Verfolgungsjagd durch Berlin muss sie 8 kritische Entscheidungen treffen, während ihr Auto bei 120 km/h rast. Ihr Navigationssystem zeigt \"Reparatur möglich\" für das gesamte korrupte System.\n\n\"Das ist für alle Opfer,\" schreit Sarah, während sie um die Kurven rast.\n\n**Frage:** Das Verfolgungsprotokoll hat sechs Prioritätsstufen. Welche wird gewählt?",
-          "variables": {
-            "detective_alter": 28,
-            "sicherheit_level": 95,
-            "verdaechtiger_glaubwuerdigkeit": 25,
-            "verschluesselung": 85,
-            "spuren_match": 80,
-            "system_aktiv": true,
-            "verfolger_entfernung": 8,
-            "informant_sicherheit": "kritisch",
-            "beweise_vollstaendig": true,
-            "backup_aktiv": true,
-            "hauptsystem_kompromittiert": true
-          },
-          "variables_discovered": {},
-          "buttons": [
-            {
-              "label": "if verfolger_entfernung <= 5 and sicherheit_level >= 98 and not verdaechtiger_glaubwuerdigkeit >= 30:\n        perfekte_verhaftung_durchfuehren()",
-              "correct": false,
-              "explanation": "❌ **Falsch!** (8 <= 5) AND (95 >= 98) AND (not 25 >= 30) = false AND false AND true = **false**."
-            },
-            {
-              "label": "elif verfolger_entfernung <= 10 and sicherheit_level >= 90 and beweise_vollstaendig:\n        erfolgreiche_verfolgung_abschliessen()",
-              "correct": true,
-              "explanation": "✅ **Richtig!** (8 <= 10) AND (95 >= 90) AND true = true AND true AND true = **true**. Computer führt aus: 'Erfolgreiche Verfolgung'."
-            },
-            {
-              "label": "elif verfolger_entfernung <= 10 and backup_aktiv:\n        backup_verfolgung_beenden()",
-              "correct": false,
-              "explanation": "❌ **Falsch!** Die vorherige elif-Bedingung war bereits true, diese wird nicht erreicht."
-            },
-            {
-              "label": "elif backup_aktiv and detective_alter >= 25:\n        erfahrene_detective_protokoll()",
-              "correct": false,
-              "explanation": "❌ **Falsch!** Eine frühere elif-Bedingung war bereits true, diese wird übersprungen."
-            },
-            {
-              "label": "elif spuren_match >= 70:\n        basis_erfolg_verbuchen()",
-              "correct": false,
-              "explanation": "❌ **Falsch!** Eine frühere elif-Bedingung war bereits true, diese wird übersprungen."
-            },
-            {
-              "label": "else:\n        teilweiser_erfolg()",
-              "correct": false,
-              "explanation": "❌ **Falsch!** Eine elif-Bedingung war bereits true, else wird nicht erreicht."
-            }
-          ],
-          "success_text": "🎉 **Level 14 geschafft!** Du beherrschst jetzt sogar NOT-Operatoren mit Vergleichen in komplexen Ketten!",
-          "next_mission": 15,
-          "lrs_support": "**Verfolgung-Status:**Verfolger-Entfernung: 8, Geschwindigkeit: 120 km/h, Gerechtigkeit reparierbar: true"
-        },
-        {
-          "id": 15,
-          "title": "Gerechtigkeit triumphiert",
-          "text": "Hansen ist gefasst und verurteilt. Sarah sitzt im Gerichtssaal, umgeben von den Familien der Opfer, die endlich Frieden finden. Der Fall ist gelöst, die Gerechtigkeit hat gesiegt.\n\n\"Detective Müller,\" sagt der Richter, \"Ihr Mut und Ihre Beharrlichkeit haben Gerechtigkeit gebracht. Berlin kann stolz auf Sie sein.\"\n\nDer Serienmörder-Fall ist abgeschlossen: 8 Beweise gesammelt, korruptes System aufgedeckt, Gerechtigkeit wiederhergestellt.\n\n**Frage:** Das finale Gerechtigkeitssystem wertet ALLE 12 Variablen aus. Welcher Abschluss wird gewählt?",
-          "variables": {
-            "detective_alter": 28,
-            "sicherheit_level": 95,
-            "verdaechtiger_glaubwuerdigkeit": 25,
-            "verschluesselung": 85,
-            "spuren_match": 80,
-            "system_aktiv": true,
-            "verfolger_entfernung": 15,
-            "informant_sicherheit": "kritisch",
-            "beweise_vollstaendig": true,
-            "backup_aktiv": true,
-            "hauptsystem_kompromittiert": true
-          },
-          "variables_discovered": {},
-          "buttons": [
-            {
-              "label": "if verdaechtiger_glaubwuerdigkeit <= 20 and sicherheit_level >= 98 and spuren_match >= 85 and detective_alter >= 30:\n        perfekte_gerechtigkeit_vollstrecken()",
-              "correct": false,
-              "explanation": "❌ **Falsch!** (25 <= 20) AND (95 >= 98) AND (80 >= 85) AND (28 >= 30) = false AND false AND false AND false = **false**."
-            },
-            {
-              "label": "elif verdaechtiger_glaubwuerdigkeit <= 30 and sicherheit_level >= 90 and spuren_match >= 75 and verfolger_entfernung >= 10:\n        vollstaendige_gerechtigkeit_erreichen()",
-              "correct": true,
-              "explanation": "✅ **LEGENDÄR!** (25 <= 30) AND (95 >= 90) AND (80 >= 75) AND (15 >= 10) = true AND true AND true AND true = **true**. Computer führt aus: 'Vollständige Gerechtigkeit' - Sarah wird zur jüngsten Detective Inspector befördert!"
-            },
-            {
-              "label": "elif verdaechtiger_glaubwuerdigkeit <= 35 and sicherheit_level >= 85 and verfolger_entfernung >= 12:\n        befriedigende_loesung_finden()",
-              "correct": false,
-              "explanation": "❌ **Falsch!** Die vorherige elif-Bedingung war bereits true, diese wird nicht erreicht."
-            },
-            {
-              "label": "elif sicherheit_level >= 90 and spuren_match >= 70:\n        gute_detective_arbeit()",
-              "correct": false,
-              "explanation": "❌ **Falsch!** Eine frühere elif-Bedingung war bereits true, diese wird übersprungen."
-            },
-            {
-              "label": "elif spuren_match >= 70 and detective_alter >= 25:\n        solide_ermittlung_abschliessen()",
-              "correct": false,
-              "explanation": "❌ **Falsch!** Eine frühere elif-Bedingung war bereits true, diese wird übersprungen."
-            },
-            {
-              "label": "elif spuren_match >= 75 and sicherheit_level >= 80:\n        ausreichende_beweise_sammeln()",
-              "correct": false,
-              "explanation": "❌ **Falsch!** Eine frühere elif-Bedingung war bereits true, diese wird übersprungen."
-            },
-            {
-              "label": "else:\n        fall_ungeloest_lassen()",
-              "correct": false,
-              "explanation": "❌ **Falsch!** Eine elif-Bedingung war bereits true, else wird nicht erreicht."
-            }
-          ],
-          "success_text": "🎊 **KRIMI-MYSTERY ABGESCHLOSSEN!** Du bist jetzt ein Meister der Programmierlogik! Du verstehst wie Computer if/elif/else-Ketten von oben nach unten abarbeiten und bei der ersten wahren Bedingung stoppen. Du beherrschst Vergleiche, AND, OR, NOT und komplexe verschachtelte Bedingungen mit 12 Variablen! Sarah ist zur jüngsten Detective Inspector aller Zeiten befördert worden!",
-          "next_mission": null,
-          "lrs_support": "**Finale Bewertung:**Fall gelöst: true, Korruption aufgedeckt: true, Gerechtigkeit hergestellt: true"
+          "explain": "Eine Variable muss einen Wert haben, **bevor** man mit ihr rechnet – deshalb zählt die **Reihenfolge der Zuweisungen**. `21 * 60 + 47` rechnet die Uhrzeit in Minuten seit Mitternacht um (1307), genauso wird 23:20 zu 1400. Die Differenz von 93 Minuten zerlegen `//` und `%` in 1 Stunde und 33 Minuten. Der Ablenker `zuletzt_gesehen - gefunden` liefert −93: Bei Zeitspannen gilt immer *spät minus früh*.",
+          "success": "\"Gut anderthalb Stunden\", sagt Herzog und kreist das Fenster rot ein. \"Wer für diese Zeit kein Alibi hat, ist ab jetzt interessant.\" Draußen dämmert es. Auf ARGUS' Schirm blinkt: *\"Fallübernahme angefordert. Berechtigung wird geprüft.\"*"
         }
-  ]
+      ]
+    },
+    {
+      "id": "k2",
+      "title": "Erste Verdächtige",
+      "concept": "Bedingungen: if / elif / else",
+      "image": "images/krimi/k2.webp",
+      "intro": "Der nächste Morgen. Auf deinem Schreibtisch stapeln sich Akten, vor dem Eingang warten Reporter. Herzog wirft eine Zeitung auf den Tisch: **„Code-Killer in Berlin?“** \"Wir brauchen Ergebnisse, Müller. Schnell – aber sauber.\"\n\nDie Fakten hat ARGUS gespeichert. Jetzt muss er entscheiden. *\"Ich prüfe Bedingungen\"*, erklärt er. *\"Ist eine Bedingung wahr, führe ich den eingerückten Block darunter aus. Ist sie falsch, schaue ich beim nächsten `elif` nach. Passt gar nichts, nehme ich den `else`-Zweig.\"*\n\nTom grinst über seinen Monitor hinweg. \"Wenn – sonst wenn – sonst. Wie ein Verhör. Nur ohne Rumschreien.\"\n\nBei CyberTech warten die ersten Verdächtigen.",
+      "missions": [
+        {
+          "id": "2-1",
+          "type": "choice",
+          "title": "Junior-Modus",
+          "text": "Bevor ARGUS dir die Ermittlungsakten öffnet, läuft eine Berechtigungsprüfung. Auf dem Schirm erscheint dein Dienstausweis, daneben dein Alter: 28.\n\nHerzog liest mit und seufzt. \"Neue Vorschrift von oben. Vollen Datenzugriff bekommt nur, wer mindestens 30 ist. Alle anderen arbeiten im Junior-Modus – mit Rückfrage bei mir.\"\n\nHansen rollt mit seinem Stuhl heran. \"Mach dir nichts draus. Ich hab Vollzugriff. Wenn dir eine Akte fehlt, sag Bescheid, dann schau ich für dich nach.\"\n\n*\"Prüfung startet\"*, meldet ARGUS. *\"Ich bewerte Zahlen. Keine Sympathie.\"*\n\n**Aufgabe:** Welcher Zweig wird ausgeführt? Klicke die richtige Zeile an.",
+          "lrs": "detective_alter ist 28.",
+          "vars": {
+            "detective_alter": 28
+          },
+          "code": "if detective_alter >= 30:\n    vollzugriff_gewaehren()\nelse:\n    junior_modus_aktivieren()",
+          "hints": [
+            "Setze 28 in die Bedingung ein: Ist `28 >= 30` wahr oder falsch?",
+            "`28 >= 30` ist False. Dann überspringt ARGUS den eingerückten Block unter `if` und nimmt den Zweig für „alle anderen Fälle“."
+          ],
+          "explain": "ARGUS wertet die Bedingung `detective_alter >= 30` aus: `28 >= 30` ist **False**. Deshalb wird der Block unter `if` übersprungen und der **else-Zweig** ausgeführt. `else` braucht keine eigene Bedingung – er fängt alle Fälle auf, in denen das `if` nicht passt.",
+          "success": "*\"Junior-Modus aktiv. Fallleitung: Det. Müller.\"* Herzog nickt dir zu. \"Junior heißt nicht zweite Reihe. Du führst den Fall.\" Dann zeigt er auf die Pinnwand: \"Also – was haben wir?\""
+        },
+        {
+          "id": "2-2",
+          "type": "choice",
+          "title": "Der Durchsuchungsbeschluss",
+          "useResources": [
+            "hinweise"
+          ],
+          "text": "Mittags im Besprechungsraum. An der Wand hängt deine Spurenliste: Zugangskarte, Zettel, Tatzeitfenster – inzwischen **{hinweise}** Hinweise.\n\n\"Ich will in Webers Büro bei CyberTech\", sagst du. \"Mit einem Durchsuchungsbeschluss dürfen wir alles mitnehmen: Rechner, Notizen, Serverprotokolle.\"\n\nHerzog schüttelt langsam den Kopf. \"Die Richterin unterschreibt nichts auf Verdacht. Unter 20 Hinweisen schickt sie dich wieder weg – dann heißt es: weiter Spuren sammeln.\"\n\n*\"Ich vergleiche den aktuellen Stand mit der Grenze\"*, meldet ARGUS. *\"Hoffnung fließt nicht in die Rechnung ein.\"*\n\n**Aufgabe:** Du hast {hinweise} Hinweise. Reichen sie für einen Durchsuchungsbeschluss? Welcher Zweig wird ausgeführt?",
+          "lrs": "Vergleiche deine aktuellen Hinweise mit der Grenze 20.",
+          "vars": {},
+          "code": "if hinweise >= 20:\n    durchsuchungsbeschluss_beantragen()\nelse:\n    weitere_spuren_sammeln()",
+          "hints": [
+            "Schau auf deinen Hinweis-Wert im Ermittlungsstand: Ist er mindestens 20?",
+            "Ist `hinweise >= 20` wahr, läuft der `if`-Zweig. Ist die Bedingung falsch – zum Beispiel bei 15 –, läuft der `else`-Zweig."
+          ],
+          "explain": "Die Bedingung `hinweise >= 20` vergleicht deinen **aktuellen Hinweis-Stand** mit der Grenze 20. `>=` heißt „größer oder gleich“ – auch genau 20 Hinweise würden reichen. Weil es ein `else` gibt, hat ARGUS für **jeden** möglichen Wert einen Plan: Entweder die Bedingung stimmt, oder der else-Zweig übernimmt.",
+          "success": "Ob mit Beschluss oder ohne – am Nachmittag stehst du in der gläsernen Lobby von CyberTech. Ein Mann in zerknittertem Hemd eilt dir entgegen: Marc Fischer, Webers engster Kollege. Seine Hände zittern, als er dir die Tür aufhält."
+        },
+        {
+          "id": "2-3",
+          "type": "choice",
+          "title": "Profil: Marc Fischer",
+          "text": "Marc Fischer redet schnell, viel zu schnell. \"Klaus hat an etwas Geheimem gearbeitet. Eine KI, die Sicherheitslücken aufspürt. Und ausgerechnet unsere eigenen Server waren schlecht geschützt – das hab ich ihm hundertmal gesagt!\"\n\nSpäter im Revier wertet Dr. Emma Klein, die Polizeipsychologin, das Gespräch aus und trägt ihre Einschätzung in ARGUS ein: Glaubwürdigkeit 70 von 100. \"Nervös, ja. Aber kooperativ. Und seine Geschichte hat keine großen Widersprüche.\"\n\nARGUS kennt drei Stufen. *\"Ich prüfe von oben nach unten und nehme die erste Stufe, die passt. Danach höre ich auf zu suchen.\"*\n\n**Aufgabe:** Welcher Zweig wird ausgeführt?",
+          "lrs": "glaubwuerdigkeit ist 70.",
+          "vars": {
+            "glaubwuerdigkeit": 70
+          },
+          "code": "if glaubwuerdigkeit >= 85:\n    als_zeugen_einstufen()\nelif glaubwuerdigkeit >= 60:\n    weiter_beobachten()\nelse:\n    als_verdaechtigen_vorladen()",
+          "hints": [
+            "Prüfe die Bedingungen der Reihe nach mit 70: Ist `70 >= 85` wahr? Wenn nicht, weiter zur nächsten.",
+            "`70 >= 85` ist False, `70 >= 60` ist True – genau dort hört ARGUS auf zu suchen."
+          ],
+          "explain": "Bei **if/elif/else** prüft ARGUS die Bedingungen von oben nach unten und führt **nur den ersten wahren Zweig** aus. `70 >= 85` ist False, `70 >= 60` ist True – also läuft der elif-Zweig, der Rest wird übersprungen. Der else-Zweig käme nur dran, wenn alle Bedingungen davor falsch wären.",
+          "success": "*\"Marc Fischer: weiter beobachten.\"* Dr. Klein nickt. \"Nervosität ist kein Geständnis.\" Da klingelt dein Telefon. Tom, aus dem Serverraum von CyberTech: \"Sarah? Komm mal her. Fischer hat nicht übertrieben.\""
+        },
+        {
+          "id": "2-4",
+          "type": "trace",
+          "title": "Das Fahrradschloss",
+          "text": "Im Serverraum von CyberTech summen die Lüfter. Tom hat sich in das Sicherheitssystem eingeklinkt. \"Sicherheitslevel 65 von 100. Für ein geheimes KI-Projekt ist das, als würde man einen Tresor mit einem Fahrradschloss sichern.\"\n\nARGUS berechnet daraus einen Risikowert: Wie leicht hätte ein Fremder an Webers Daten kommen können?\n\nHerzog, der Computern grundsätzlich misstraut, liest den Code mit. \"65 ist kleiner als 80 – also läuft das `elif`. Und das `else` darunter doch auch gleich mit, oder?\"\n\nTom hebt eine Augenbraue. \"Chef. Bitte.\"\n\n**Aufgabe:** Welcher Wert steht am Ende in `risiko`? Tippe die Zahl ein.",
+          "lrs": "sicherheit ist 65, risiko startet bei 10.",
+          "vars": {},
+          "code": "sicherheit = 65\nrisiko = 10\nif sicherheit >= 80:\n    risiko = risiko + 5\nelif sicherheit >= 50:\n    risiko = risiko * 3\nelse:\n    risiko = risiko * 5\nrisiko = risiko + 20",
+          "ask": {
+            "var": "risiko"
+          },
+          "hints": [
+            "Prüfe die Bedingungen von oben: `65 >= 80`? `65 >= 50`? Und wie viele Zweige eines if/elif/else-Blocks laufen höchstens?",
+            "Nur der elif-Zweig läuft: `risiko` wird 10 · 3 = 30. Die letzte Zeile ist nicht eingerückt – sie läuft in jedem Fall: 30 + 20 = …"
+          ],
+          "explain": "In einem **if/elif/else-Block läuft höchstens ein Zweig** – der erste, dessen Bedingung stimmt. `65 >= 80` ist False, `65 >= 50` ist True, also wird `risiko` 30 und der else-Zweig übersprungen. Die letzte Zeile ist **nicht eingerückt**: Sie gehört nicht mehr zum Block und läuft deshalb immer – 30 + 20 = 50.",
+          "success": "*\"Risikowert 50: Zugriff von außen möglich.\"* Tom pfeift leise. \"Jeder halbwegs gute Hacker wäre hier reingekommen.\" Er packt Webers Laptop ein. \"Den nehm ich mit ins Labor. Aber Vorsicht: Da unten gibt's neue Zugangsregeln – und das Programm dafür ist noch nicht fertig.\""
+        },
+        {
+          "id": "2-5",
+          "type": "fill",
+          "title": "Die Labortür",
+          "text": "Das Forensiklabor des LKA liegt im Keller, hinter einer Stahltür mit Kartenleser. Auf dem Tisch dahinter: Webers Laptop, versiegelt in einer Plastikhülle.\n\nTom tippt auf den Kartenleser. \"Neue Regel aus der Chefetage: Ab Freigabestufe 4 gibt's vollen Zugang. Wer Stufe **2 oder 3** hat, darf die Beweisstücke ansehen, aber nichts anfassen. Darunter bleibt die Tür zu.\"\n\nEr kratzt sich verlegen am Kopf. \"Die mittlere Bedingung hab ich noch nicht eingetragen. Dein Junior-Ausweis hat übrigens Stufe 2.\"\n\n*\"Bedingung fehlt\"*, bestätigt ARGUS. *\"Bei Sicherheitstüren rate ich nicht.\"*\n\n**Aufgabe:** Schreibe die fehlende Bedingung für die Freigabestufe `stufe`.",
+          "lrs": "Stufe 4 oder mehr: voll. Stufe 2 oder 3: ansehen. Darunter: gesperrt.",
+          "vars": {
+            "stufe": 2
+          },
+          "code": "if stufe >= 4:\n    zugang = \"voll\"\nelif ___:\n    zugang = \"ansehen\"\nelse:\n    zugang = \"gesperrt\"",
+          "solution": [
+            "stufe >= 2"
+          ],
+          "tests": [
+            {
+              "label": "Stufe 5 → voller Zugang",
+              "vars": {
+                "stufe": 5
+              },
+              "expect": {
+                "zugang": "voll"
+              }
+            },
+            {
+              "label": "Stufe 3 → darf ansehen",
+              "vars": {
+                "stufe": 3
+              },
+              "expect": {
+                "zugang": "ansehen"
+              }
+            },
+            {
+              "label": "Stufe 2 (dein Ausweis) → darf ansehen (Grenzfall)",
+              "vars": {
+                "stufe": 2
+              },
+              "expect": {
+                "zugang": "ansehen"
+              }
+            },
+            {
+              "label": "Stufe 1 → Tür bleibt zu",
+              "vars": {
+                "stufe": 1
+              },
+              "expect": {
+                "zugang": "gesperrt"
+              }
+            }
+          ],
+          "hints": [
+            "Ab welcher Stufe darf man ansehen? Die Stufen ab 4 hat das `if` schon abgefangen – das `elif` muss sich nur noch um die untere Grenze kümmern.",
+            "Die Bedingung lautet `stufe >= 2`. Mit `stufe > 2` bliebe die Tür bei genau Stufe 2 zu – also auch für dich."
+          ],
+          "explain": "Weil ARGUS die Bedingungen **von oben nach unten** prüft, kommen beim `elif` nur noch Stufen unter 4 an. Deshalb genügt `stufe >= 2` – die obere Grenze hat das `if` schon erledigt. Der **Grenzfall** Stufe 2 entscheidet, ob `>` oder `>=` richtig ist: „2 oder 3“ schließt die 2 mit ein.",
+          "success": "Die Tür summt, das Schloss klickt. Tom hält dir die Tür auf. \"Willkommen im Nerd-Keller, Kollegin. Hier unten gibt's schlechten Kaffee, aber gute Daten.\" Herzog steckt den Kopf herein: \"Gute Arbeit. Jetzt brauchen wir Alibis – von allen, die Weber kannten.\"",
+          "onSuccess": [
+            {
+              "res": "hinweise",
+              "inc": 3
+            },
+            {
+              "res": "vertrauen",
+              "inc": 5
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "k3",
+      "title": "Alibis",
+      "concept": "Logische Operatoren: and / or / not",
+      "image": "images/krimi/k3.webp",
+      "intro": "Zwei Tage nach der Tat. Die Pinnwand im Revier ist voller Fotos, Pfeile und Fragezeichen. Dr. Emma Klein tippt auf das rot eingekreiste Tatzeitfenster. \"Wer zwischen 21:47 und 23:20 Uhr nachweislich woanders war, scheidet aus. Bei allen anderen schauen wir genauer hin.\"\n\nDoch ein Alibi ist selten nur *eine* Sache. Zeugen, Kameras, Widersprüche – alles hängt zusammen.\n\n*\"Ich verknüpfe Bedingungen mit logischen Operatoren\"*, erklärt ARGUS. *\"`and`: beides muss stimmen. `or`: eins reicht. `not`: dreht wahr und falsch um.\"*\n\nTom nickt. \"Wie beim Mittagessen: Pizza **or** Döner – aber **not** Salat.\"\n\nGanz oben auf der Liste steht Marc Fischer.",
+      "missions": [
+        {
+          "id": "3-1",
+          "type": "choice",
+          "title": "Ein halbes Alibi",
+          "text": "Marc Fischer sitzt im Vernehmungsraum und knetet seine Hände. \"Ich war in einer Bar am Ostkreuz. Den ganzen Abend! Fragen Sie meine Freunde!\"\n\nDas hast du schon getan: Zwei Freunde bestätigen seine Geschichte. Aber die Überwachungskamera der Bar war an diesem Abend defekt – null Minuten Aufnahme.\n\nDr. Klein steht neben dir hinter der Scheibe. \"Für ein *bestätigtes* Alibi verlangt ARGUS mindestens einen Zeugen **und** mindestens 30 Minuten Kamerabild. Freunde allein sind nicht neutral.\"\n\n*\"Ich prüfe beide Teile\"*, meldet ARGUS. *\"Ein halbes Alibi ist kein ganzes.\"*\n\n**Aufgabe:** Welcher Zweig wird ausgeführt?",
+          "lrs": "zeugen ist 2, kamera_minuten ist 0.",
+          "vars": {
+            "zeugen": 2,
+            "kamera_minuten": 0
+          },
+          "code": "if zeugen >= 1 and kamera_minuten >= 30:\n    alibi_bestaetigen()\nelif zeugen >= 1:\n    alibi_vorlaeufig_akzeptieren()\nelse:\n    als_verdaechtigen_fuehren()",
+          "hints": [
+            "Prüfe beim `and` beide Seiten einzeln: Ist `2 >= 1` wahr? Ist `0 >= 30` wahr?",
+            "`0 >= 30` ist False – damit ist die ganze `and`-Bedingung False, obwohl es Zeugen gibt. Weiter mit dem `elif`: Ist `2 >= 1`?"
+          ],
+          "explain": "Eine **and-Verknüpfung** ist nur True, wenn **beide** Teile True sind. `zeugen >= 1` stimmt zwar, aber `kamera_minuten >= 30` ist False – also ist die gesamte erste Bedingung False. Danach prüft ARGUS das `elif`: `2 >= 1` ist True, deshalb wird das Alibi nur vorläufig akzeptiert.",
+          "success": "*\"Alibi vorläufig akzeptiert.\"* Fischer atmet hörbar aus. Dr. Klein notiert etwas. \"Vorläufig heißt: Wir bleiben dran.\" In diesem Moment stürmt Tom herein, das Gesicht blass. \"Leute! Webers Laptop funkt. Da läuft noch was!\""
+        },
+        {
+          "id": "3-2",
+          "type": "choice",
+          "title": "Der versteckte Server",
+          "text": "Im Labor flackert Webers Bildschirm. Tom zeigt auf ein winziges Symbol in der Ecke. \"Ein versteckter Server. Weber hat ihn nicht abgeschaltet – und jemand anderes offenbar auch nicht. Das System ist noch aktiv.\"\n\nARGUS hat die Spuren auf dem Server mit bekannten Hacker-Methoden verglichen: 55 Prozent Übereinstimmung.\n\n\"Wenn das Ding noch läuft\", sagst du langsam, \"dann sieht uns vielleicht gerade jemand zu.\"\n\nTom schluckt. \"Danke. Genau das wollte ich heute nicht denken.\"\n\nIn ARGUS' Code steht `system_aktiv` ganz ohne Vergleich – die Variable enthält selbst schon `True` oder `False`. Und davor steht ein `not`.\n\n**Aufgabe:** Welcher Zweig wird ausgeführt?",
+          "lrs": "system_aktiv ist True, spuren_match ist 55.",
+          "vars": {
+            "system_aktiv": true,
+            "spuren_match": 55
+          },
+          "code": "if not system_aktiv:\n    festplatte_kopieren()\nelif spuren_match >= 70:\n    hacker_datenbank_abgleichen()\nelse:\n    live_ueberwachung_starten()",
+          "hints": [
+            "`system_aktiv` ist True. Was macht `not` aus True?",
+            "`not True` ist False – das `if` fällt weg. `55 >= 70` ist ebenfalls False. Welcher Zweig bleibt übrig?"
+          ],
+          "explain": "`system_aktiv` ist eine **Boolean-Variable**: Sie enthält direkt True oder False und kann deshalb allein als Bedingung stehen. `not` **dreht den Wahrheitswert um**: `not True` ergibt False, also wird die Festplatte nicht kopiert. Weil auch `55 >= 70` False ist, landet ARGUS im else-Zweig und startet die Live-Überwachung.",
+          "success": "*\"Live-Überwachung aktiv. Verbindung wird zurückverfolgt …\"* Zwanzig Minuten später blinkt eine Adresse auf: ein leerstehendes Lagerhaus am Osthafen. Hansen greift schon nach seiner Jacke. \"Ich fahr mit. Allein lass ich dich da nicht hin.\""
+        },
+        {
+          "id": "3-3",
+          "type": "choice",
+          "title": "Das Lagerhaus",
+          "text": "Das Lagerhaus am Osthafen ist dunkel, Regen tropft durch das kaputte Dach. Hansen übernimmt den Hinterausgang, du gehst vorn hinein – allein.\n\nAuf deinem Handy zeigt ARGUS das Signal des Servers. Und eine Bewegung. Jemand ist hier, etwa 250 Meter entfernt, am anderen Ende der Hallen.\n\nÜber Funk flüstert Herzog: \"Verstärkung braucht noch zehn Minuten. Keine Heldentaten, Müller.\"\n\nARGUS hat ein Sicherheitsprotokoll für genau diesen Fall. Es verbindet einen Wahrheitswert mit Zahlen: `signal_aktiv` ist `True`, die Entfernung beträgt 250 Meter, und `allein` ist ebenfalls `True`.\n\n**Aufgabe:** Welche Aktion empfiehlt ARGUS?",
+          "lrs": "signal_aktiv ist True, entfernung ist 250, allein ist True.",
+          "vars": {
+            "signal_aktiv": true,
+            "entfernung": 250,
+            "allein": true
+          },
+          "code": "if signal_aktiv and entfernung <= 50:\n    sofort_zurueckziehen()\nelif entfernung <= 200 or allein:\n    in_deckung_gehen()\nelse:\n    spur_weiter_folgen()",
+          "hints": [
+            "Beim `and` müssen beide Seiten stimmen. `signal_aktiv` ist True – aber ist `250 <= 50` wahr?",
+            "Die erste Bedingung scheitert an der Entfernung. Beim `or` reicht eine wahre Seite: `250 <= 200` ist False – aber was steht in `allein`?"
+          ],
+          "explain": "Die erste Bedingung ist eine **and-Verknüpfung**: `signal_aktiv` ist True, aber `250 <= 50` ist False – damit ist das Ganze False. Die zweite ist eine **or-Verknüpfung**: Sie ist schon True, wenn **eine** Seite stimmt. `250 <= 200` ist False, doch `allein` ist True – also schickt ARGUS dich in Deckung.",
+          "success": "Du drückst dich hinter einen rostigen Container. Schritte, eine Tür quietscht – dann Stille. Kurz darauf kommt Hansen von hinten herein, außer Atem. \"Er ist raus. Ich hab nur einen Schatten gesehen.\" Im Licht deiner Taschenlampe liegt etwas auf dem Boden: ein CyberTech-Ausweis. Name: **Marc Fischer**."
+        },
+        {
+          "id": "3-4",
+          "type": "bug",
+          "title": "Der Haftbefehl",
+          "text": "Zurück im Revier legt Herzog den Ausweis in seiner Plastikhülle auf den Tisch. \"Fischers Ausweis, genau da, wo der Server stand. Das reicht mir. Ich will einen Haftbefehl!\"\n\nDoch Dr. Klein runzelt die Stirn. \"Er hat ein Alibi. Zwei Zeugen – und inzwischen auch die Kamera am S-Bahnhof Ostkreuz. Um 22:30 Uhr steht er dort auf dem Bahnsteig.\"\n\nDu schaust dir ARGUS' Haftbefehl-Regel an. Eigentlich soll sie lauten: Haftbefehl nur, wenn ein Beweisstück zur Person führt **und** die Person **kein** Alibi hat. Trotzdem steht auf dem Schirm schon: *\"Haftbefehl gegen Marc Fischer wird beantragt.\"*\n\n**Aufgabe:** Finde die fehlerhafte Zeile und repariere sie, bevor ein Unschuldiger verhaftet wird.",
+          "lrs": "Haftbefehl nur, wenn beweis_gefunden True ist und hat_alibi False ist.",
+          "vars": {
+            "beweis_gefunden": true,
+            "hat_alibi": true
+          },
+          "code": "haftbefehl = False\nif beweis_gefunden or not hat_alibi:\n    haftbefehl = True\n    print(\"ARGUS: Haftbefehl wird beantragt.\")",
+          "bugLine": 2,
+          "fix": "if beweis_gefunden and not hat_alibi:",
+          "tests": [
+            {
+              "label": "Fischer: Beweisstück, aber Alibi → kein Haftbefehl",
+              "vars": {
+                "beweis_gefunden": true,
+                "hat_alibi": true
+              },
+              "expect": {
+                "haftbefehl": false
+              }
+            },
+            {
+              "label": "Beweisstück und kein Alibi → Haftbefehl",
+              "vars": {
+                "beweis_gefunden": true,
+                "hat_alibi": false
+              },
+              "expect": {
+                "haftbefehl": true
+              }
+            },
+            {
+              "label": "Kein Beweisstück, kein Alibi → kein Haftbefehl (ohne Beweis kein Verdacht)",
+              "vars": {
+                "beweis_gefunden": false,
+                "hat_alibi": false
+              },
+              "expect": {
+                "haftbefehl": false
+              }
+            },
+            {
+              "label": "Kein Beweisstück, Alibi → kein Haftbefehl",
+              "vars": {
+                "beweis_gefunden": false,
+                "hat_alibi": true
+              },
+              "expect": {
+                "haftbefehl": false
+              }
+            }
+          ],
+          "hints": [
+            "Setze Fischers Werte ein: `beweis_gefunden` ist True. Wie viele Seiten müssen bei `or` stimmen, damit alles True wird?",
+            "Mit `or` reicht schon das Beweisstück – das Alibi wird einfach ignoriert. Beide Teile müssen gelten: Ersetze `or` durch `and`."
+          ],
+          "explain": "`or` ist True, sobald **eine** Seite True ist: Das Beweisstück allein hätte gereicht, Fischers Alibi wäre völlig egal gewesen – und ohne Beweis hätte schon ein fehlendes Alibi genügt. Mit `and` müssen **beide** Bedingungen erfüllt sein: Beweis gefunden **und** `not hat_alibi`. Bei Regeln, die Menschen schwer belasten, entscheidet ein einziges Wort darüber, ob ein Unschuldiger in Haft kommt.",
+          "success": "*\"Haftbefehl zurückgezogen.\"* Herzog reibt sich die Augen. \"Gut, dass einer von uns noch klar denkt.\" Dr. Klein sieht dich nachdenklich an. \"Wenn Fischer es nicht war – wer legt seinen Ausweis genau dorthin, wo wir ihn garantiert finden?\"",
+          "onFail": [
+            {
+              "res": "ruf",
+              "inc": -2
+            },
+            {
+              "res": "vertrauen",
+              "inc": -3
+            }
+          ]
+        },
+        {
+          "id": "3-5",
+          "type": "fill",
+          "title": "Die Alibi-Regel",
+          "text": "Herzog will so einen Fehler nie wieder sehen. \"Müller, du baust ARGUS eine saubere Alibi-Regel. Eine, die für jeden Verdächtigen gleich funktioniert.\"\n\nMit Dr. Klein legst du die Regel fest: Ein Alibi gilt, wenn ein Zeuge **oder** eine Kamera die Person zur Tatzeit woanders gesehen hat – **und** wenn es **keinen** Widerspruch zu den Spuren gibt. Ein Zeuge, der lügt, nützt niemandem.\n\nTom hat die drei Wahrheitswerte vorbereitet: `zeuge`, `kamera` und `widerspruch`. \"Achtung\", warnt er. \"ARGUS rechnet `and` vor `or` – so wie Punkt vor Strich. Wenn du eine andere Reihenfolge willst, brauchst du Klammern.\"\n\n**Aufgabe:** Schreibe die Bedingung, die entscheidet, ob das Alibi gilt.",
+          "lrs": "Alibi gilt: (zeuge oder kamera) und kein widerspruch.",
+          "vars": {
+            "zeuge": true,
+            "kamera": false,
+            "widerspruch": false
+          },
+          "code": "status = \"Alibi wackelt\"\nif ___:\n    status = \"Alibi gilt\"\nprint(status)",
+          "solution": [
+            "(zeuge or kamera) and not widerspruch"
+          ],
+          "tests": [
+            {
+              "label": "Zeuge und Kamera, kein Widerspruch → Alibi gilt",
+              "vars": {
+                "zeuge": true,
+                "kamera": true,
+                "widerspruch": false
+              },
+              "expect": {
+                "status": "Alibi gilt"
+              }
+            },
+            {
+              "label": "Zeuge und Kamera, mit Widerspruch → Alibi wackelt",
+              "vars": {
+                "zeuge": true,
+                "kamera": true,
+                "widerspruch": true
+              },
+              "expect": {
+                "status": "Alibi wackelt"
+              }
+            },
+            {
+              "label": "Nur Zeuge, kein Widerspruch → Alibi gilt",
+              "vars": {
+                "zeuge": true,
+                "kamera": false,
+                "widerspruch": false
+              },
+              "expect": {
+                "status": "Alibi gilt"
+              }
+            },
+            {
+              "label": "Nur Zeuge, mit Widerspruch → Alibi wackelt",
+              "vars": {
+                "zeuge": true,
+                "kamera": false,
+                "widerspruch": true
+              },
+              "expect": {
+                "status": "Alibi wackelt"
+              }
+            },
+            {
+              "label": "Nur Kamera, kein Widerspruch → Alibi gilt",
+              "vars": {
+                "zeuge": false,
+                "kamera": true,
+                "widerspruch": false
+              },
+              "expect": {
+                "status": "Alibi gilt"
+              }
+            },
+            {
+              "label": "Nur Kamera, mit Widerspruch → Alibi wackelt",
+              "vars": {
+                "zeuge": false,
+                "kamera": true,
+                "widerspruch": true
+              },
+              "expect": {
+                "status": "Alibi wackelt"
+              }
+            },
+            {
+              "label": "Weder Zeuge noch Kamera, kein Widerspruch → Alibi wackelt",
+              "vars": {
+                "zeuge": false,
+                "kamera": false,
+                "widerspruch": false
+              },
+              "expect": {
+                "status": "Alibi wackelt"
+              }
+            },
+            {
+              "label": "Weder Zeuge noch Kamera, mit Widerspruch → Alibi wackelt",
+              "vars": {
+                "zeuge": false,
+                "kamera": false,
+                "widerspruch": true
+              },
+              "expect": {
+                "status": "Alibi wackelt"
+              }
+            }
+          ],
+          "hints": [
+            "Zerlege die Regel in zwei Teile: „Zeuge oder Kamera“ und „kein Widerspruch“. Mit welchem Operator verbindest du die beiden? Und wie schreibst du „kein“ in Python?",
+            "Die Bedingung lautet `(zeuge or kamera) and not widerspruch`. Ohne Klammern rechnet ARGUS zuerst `kamera and not widerspruch` – dann gälte ein Zeuge sogar trotz Widerspruch."
+          ],
+          "explain": "Die Regel besteht aus zwei Teilen: `zeuge or kamera` (eine Bestätigung reicht) und `not widerspruch` (es darf keinen Widerspruch geben). Beide müssen stimmen, also verbindet sie `and`. Weil Python `and` **vor** `or` auswertet, braucht der or-Teil **Klammern** – sonst bekäme ein Zeuge selbst bei einem Widerspruch ein gültiges Alibi. Die acht Tests prüfen alle Kombinationen aus True und False.",
+          "success": "ARGUS übernimmt die Regel. Fischers Alibi: *gilt*. Doch bevor ihr durchatmen könnt, klingelt Herzogs Telefon, und sein Gesicht wird grau. \"Ein zweites Opfer. Lisa Hoffmann, Programmiererin. Und wieder ein Zettel: `Variable_2 = False. Das Spiel wird komplexer.`\" Tom starrt auf seinen Monitor. \"Es gibt Überwachungsvideos vom Firmengelände – stundenlang. Das schaffen wir nur mit Schleifen.\"",
+          "onSuccess": [
+            {
+              "res": "hinweise",
+              "inc": 3
+            },
+            {
+              "res": "vertrauen",
+              "inc": 5
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "k4",
+      "title": "Die Überwachungsbänder",
+      "concept": "Schleifen (while & for)",
+      "image": "images/krimi/k4.webp",
+      "intro": "Zwei Opfer, zwei Zettel – und kein Verdächtiger, dessen Spur wirklich hält. Im Forensik-Labor im Keller des Reviers riecht es nach kaltem Kaffee und heißer Elektronik. Tom Richter hat drei Monitore aufgebaut, daneben stapeln sich Festplatten. \"Acht Kameras auf dem CyberTech-Gelände, jede läuft rund um die Uhr. Das sind 192 Stunden Material – allein für die Tatnacht.\"\n\nDu stöhnst. ARGUS meldet sich: *\"Wiederholte Arbeit erkannt. Empfehlung: Schleifen. `while` wiederholt, solange eine Bedingung wahr ist. `for` mit `range()` zählt eine feste Anzahl von Runden ab.\"*\n\nTom grinst. \"Hörst du? Wir schauen nicht 192 Stunden Video. Wir lassen schauen.\"\n\nHansen steckt den Kopf zur Tür herein. \"Na, ihr Nachteulen? Wenn ihr was findet, sagt ihr mir zuerst Bescheid, ja?\"",
+      "missions": [
+        {
+          "id": "4-1",
+          "type": "trace",
+          "title": "Der Turbo-Spuler",
+          "text": "Tom startet sein selbst geschriebenes Suchprogramm. \"Ich nenne es den Turbo-Spuler\", sagt er stolz. \"Bei jedem Tastendruck verdoppelt sich das Abspieltempo. Einfach, doppelt, vierfach – bis wir mindestens beim 50-fachen Tempo sind. Schneller kann die Gesichtserkennung nicht mehr mithalten.\"\n\nAuf dem Bildschirm huschen Menschen im Zeitraffer durch die CyberTech-Lobby wie Ameisen. \"Und wie oft drückt dein Programm auf die Taste?\", fragst du.\n\nTom zögert. \"Äh. Oft?\"\n\nARGUS: *\"'Oft' ist keine Zahl. Bitte präzisieren.\"*\n\n**Aufgabe:** Wie oft läuft der Körper der `while`-Schleife?",
+          "lrs": "Start: tempo = 1. Jede Runde wird tempo verdoppelt. Die Schleife läuft, solange tempo < 50 ist.",
+          "vars": {},
+          "code": "tempo = 1\ntastendruecke = 0\nwhile tempo < 50:\n    tempo = tempo * 2\n    tastendruecke = tastendruecke + 1\nprint(\"Abspieltempo:\", str(tempo) + \"-fach\")",
+          "ask": {
+            "loops": true
+          },
+          "options": [
+            "5",
+            "6",
+            "7",
+            "Endlos – das Tempo wächst immer weiter"
+          ],
+          "hints": [
+            "Schreib das Tempo vor jedem Durchlauf auf: 1, 2, 4, … Die Bedingung `tempo < 50` wird vor jeder Runde neu geprüft.",
+            "Bei 32 ist `32 < 50` noch wahr – es gibt also noch eine Runde, danach steht das Tempo bei 64. Zähl die Werte 1, 2, 4, 8, 16, 32."
+          ],
+          "explain": "Die `while`-Schleife prüft ihre Bedingung **vor jedem Durchlauf**. Bei den Tempi 1, 2, 4, 8, 16 und 32 ist `tempo < 50` wahr – das sind sechs Durchläufe. Danach ist `tempo` 64, die Bedingung ist `False`, und das Programm macht hinter der Schleife weiter. Eine `while`-Schleife hört also nicht nach einer festen Zahl von Runden auf, sondern sobald ihre Bedingung falsch wird.",
+          "success": "Die Lobby-Aufnahmen rauschen im 64-fachen Tempo vorbei. Tom lehnt sich zurück. \"Sechs Tastendrücke. Ich hätte auf zwölf getippt.\" ARGUS: *\"Deshalb tippe ich nicht.\"*"
+        },
+        {
+          "id": "4-2",
+          "type": "trace",
+          "title": "Der Ostflügel",
+          "text": "Lisa Hoffmanns Büro lag im Ostflügel von CyberTech. Dort hängen die Kameras 3 bis 6. Tom öffnet die Aufnahmen. \"Bei jeder Kamera schauen wir uns die 15 Minuten vor der Tatzeit an. Mehr schaffen wir heute Nacht nicht.\"\n\nDu überfliegst seinen Code. Bei `range(3, 7)` stutzt du. \"Moment – drei bis sieben? Im Ostflügel gibt es doch gar keine Kamera 7.\"\n\nTom zuckt mit den Schultern. \"Vertrau mir. Oder vertrau ARGUS.\"\n\nARGUS: *\"Vertrauen ist etwas für Menschen. Ich zähle.\"*\n\nHerzog will gleich wissen, wie viele Minuten Material ihr gesichtet habt.\n\n**Aufgabe:** Welchen Wert hat `minuten` nach der Schleife?",
+          "lrs": "minuten startet bei 0. range(3, 7) liefert die Zahlen 3, 4, 5, 6. Jede Runde kommen 15 Minuten dazu.",
+          "vars": {},
+          "code": "minuten = 0\nfor kamera in range(3, 7):\n    print(\"Kamera\", kamera, \"gesichtet\")\n    minuten = minuten + 15\nprint(\"Gesichtete Minuten:\", minuten)",
+          "ask": {
+            "var": "minuten"
+          },
+          "hints": [
+            "`range(3, 7)` beginnt bei 3, aber die 7 ist **nicht** mehr dabei. Welche Kameranummern kommen also vor?",
+            "`kamera` ist nacheinander 3, 4, 5 und 6 – das sind vier Runden mit je 15 Minuten."
+          ],
+          "explain": "`range(start, stopp)` erzeugt alle Zahlen von `start` bis **eins vor** `stopp` – hier also 3, 4, 5, 6. Die `for`-Schleife läuft deshalb genau viermal, und die **Schleifenvariable** `kamera` bekommt in jeder Runde die nächste Nummer. Viermal 15 Minuten ergibt 60. Die 7 im Code ist also keine Kamera, sondern die Grenze, an der `range` aufhört.",
+          "success": "60 Minuten Ostflügel – und nichts. Kein Besucher, kein Schatten. Tom runzelt die Stirn. \"Viel zu ruhig. Entweder ist der Täter durch die Wand gegangen, oder er kam von unten. Aus der Tiefgarage.\""
+        },
+        {
+          "id": "4-3",
+          "type": "bug",
+          "title": "ARGUS friert ein",
+          "text": "Tom lädt das Band von Kamera 7 aus der Tiefgarage und lässt ARGUS es in Abschnitten von 5 Minuten durchsuchen. Sekunden später erstarren alle drei Monitore. Der Lüfter heult auf.\n\n*\"Warnung\"*, meldet ARGUS, merklich langsamer als sonst. *\"Schleife läuft seit 4800 Runden. Das Band ist {laenge} Minuten lang. Ich bin bei Minute ... null. Immer noch null.\"*\n\nHansen kommt mit zwei Kaffeebechern herein. \"Habt ihr den Laden kaputt gemacht?\" Er stellt dir einen Becher hin und schaut auffällig lange auf den Bildschirm.\n\n\"Aber da steht doch, dass die Minute hochzählt!\", ruft Tom. Du siehst genauer hin. Ein einziger Buchstabe zu viel.\n\n**Aufgabe:** Finde die Zeile, wegen der die Schleife nie endet, und repariere sie.",
+          "lrs": "minute startet bei 0. In jeder Runde soll minute um 5 steigen, bis minute nicht mehr kleiner als laenge ist.",
+          "vars": {
+            "laenge": 30
+          },
+          "code": "minute = 0\nabschnitte = 0\nwhile minute < laenge:\n    print(\"Prüfe ab Minute\", minute)\n    abschnitte = abschnitte + 1\n    minuten = minute + 5\nprint(\"Band durchsucht:\", abschnitte, \"Abschnitte\")",
+          "bugLine": 6,
+          "fix": "minute = minute + 5",
+          "tests": [
+            {
+              "label": "Band mit 30 Minuten → 6 Abschnitte",
+              "vars": {
+                "laenge": 30
+              },
+              "expect": {
+                "abschnitte": 6,
+                "minute": 30
+              }
+            },
+            {
+              "label": "Band mit 12 Minuten → 3 Abschnitte (ab 0, 5, 10)",
+              "vars": {
+                "laenge": 12
+              },
+              "expect": {
+                "abschnitte": 3,
+                "minute": 15
+              }
+            },
+            {
+              "label": "Leeres Band (0 Minuten) → nichts zu prüfen",
+              "vars": {
+                "laenge": 0
+              },
+              "expect": {
+                "abschnitte": 0,
+                "minute": 0
+              }
+            }
+          ],
+          "hints": [
+            "Die Schleife endet erst, wenn `minute < laenge` falsch wird. Welche Variable wird im Körper verändert – ist das wirklich `minute`?",
+            "Die letzte Zeile der Schleife schreibt in eine **neue** Variable `minuten`. Richtig wäre `minute = minute + 5`."
+          ],
+          "explain": "Das ist eine **Endlosschleife**: Die Bedingung `minute < laenge` bleibt für immer wahr, weil sich `minute` nie ändert. Durch den Tippfehler entsteht eine neue Variable `minuten`, die zwar den Wert 5 bekommt, aber in der Bedingung gar nicht vorkommt. Python beschwert sich darüber nicht – für den Computer ist `minuten` ein ganz normaler Name. Faustregel: Im Körper einer `while`-Schleife muss sich die Variable ändern, die in der Bedingung steht.",
+          "success": "Die Monitore erwachen. ARGUS rattert die Tiefgarage Abschnitt für Abschnitt durch. *\"Danke. Ich war kurz davor, die Unendlichkeit persönlich kennenzulernen.\"* Hansen ist schon wieder verschwunden – sein Kaffee steht unberührt neben deinem."
+        },
+        {
+          "id": "4-4",
+          "type": "bug",
+          "title": "Die vergessene Kamera",
+          "text": "Kamera 7: nichts. Tom will schon aufgeben, da fällt dein Blick auf den Lageplan. \"Tom, die Ausfahrt der Tiefgarage – welche Nummer hat die Kamera dort?\" – \"Acht. Die letzte.\"\n\nDu öffnest sein Auswertungsprogramm. Es soll alle {anzahl} Kameras durchgehen, nummeriert ab 1. Im Protokoll stehen aber Kamera 0 bis Kamera 7. \"Eine Kamera 0 gibt es gar nicht\", sagst du. \"Und die Ausfahrt hat nie jemand angeschaut.\"\n\nTom wird blass. \"Der Klassiker. Informatiker zählen ab null, Hausmeister ab eins.\"\n\nARGUS: *\"Ich zähle, wie man es mir sagt. Man hat es mir falsch gesagt.\"*\n\n**Aufgabe:** Finde die fehlerhafte Zeile und repariere sie, sodass die Kameras 1 bis `anzahl` ausgewertet werden.",
+          "lrs": "anzahl = 8. Ausgewertet werden sollen die Kameras 1, 2, … bis 8. range(a, b) hört eins vor b auf.",
+          "vars": {
+            "anzahl": 8
+          },
+          "code": "geprueft = 0\nfor kamera in range(anzahl):\n    print(\"Kamera\", kamera, \"ausgewertet\")\n    geprueft = geprueft + 1\n    letzte = kamera\nprint(\"Fertig:\", geprueft, \"Kameras\")",
+          "bugLine": 2,
+          "fix": "for kamera in range(1, anzahl + 1):",
+          "tests": [
+            {
+              "label": "8 Kameras → die letzte ist die Ausfahrt (Kamera 8)",
+              "vars": {
+                "anzahl": 8
+              },
+              "expect": {
+                "geprueft": 8,
+                "letzte": 8
+              }
+            },
+            {
+              "label": "3 Kameras → Kamera 1, 2, 3",
+              "vars": {
+                "anzahl": 3
+              },
+              "output": [
+                "Kamera 1 ausgewertet",
+                "Kamera 2 ausgewertet",
+                "Kamera 3 ausgewertet",
+                "Fertig: 3 Kameras"
+              ]
+            },
+            {
+              "label": "Nur 1 Kamera → Kamera 1",
+              "vars": {
+                "anzahl": 1
+              },
+              "expect": {
+                "geprueft": 1,
+                "letzte": 1
+              }
+            }
+          ],
+          "hints": [
+            "Welche Zahlen liefert `range(anzahl)` bei `anzahl = 8`? Womit fängt es an – und ist die 8 dabei?",
+            "Du brauchst den Startwert 1 und einen Stoppwert, der eins größer ist als die letzte Kamera: `range(1, anzahl + 1)`."
+          ],
+          "explain": "`range(anzahl)` zählt von **0** bis `anzahl - 1`. Die Zahl der Runden stimmt also (acht), aber jede Nummer ist um eins verschoben. So einen Fehler nennt man **Off-by-one-Fehler** (eins daneben). Mit `range(1, anzahl + 1)` beginnt die Zählung bei 1 und endet genau bei `anzahl`. Tückisch: `geprueft` war auch vorher schon 8 – nur wurde eine Kamera angeschaut, die es nicht gibt, und die wichtigste vergessen.",
+          "success": "Kamera 8, Ausfahrt Tiefgarage, 22:41 Uhr: Eine Gestalt mit Kapuze geht zu Fuß die Rampe hinauf. Und genau dieser Abschnitt der Videodatei ist verschlüsselt. Tom flüstert: \"Jemand wollte nicht, dass wir das hier sehen.\""
+        },
+        {
+          "id": "4-5",
+          "type": "fill",
+          "title": "Der Schlüssel",
+          "text": "Tom hat die verschlüsselte Videodatei vor sich. \"CyberTech-Standard: ein vierstelliger Zahlenschlüssel. Im Dateikopf steht, dass er bei {startwert} oder höher liegt. Den Rest müssen wir ausprobieren.\"\n\nARGUS kann einen Schlüssel blitzschnell an der Datei testen. Aber jemand muss ihm sagen, dass er es wiederholen soll, bis es passt. Im Code steht `geheim` für den Schlüssel, den die Datei erwartet.\n\n\"Diesmal du\", sagt Tom und schiebt dir die Tastatur hin. \"Ich hab heute schon eine Endlosschleife gebaut. Das reicht für eine Woche.\"\n\nDiesmal schreibst du die ganze Kopfzeile der Schleife selbst.\n\n**Aufgabe:** Schreib die Kopfzeile einer `while`-Schleife, die läuft, solange `schluessel` nicht gleich `geheim` ist, und die Zeile, die zum nächsten Schlüssel weiterzählt.",
+          "lrs": "schluessel startet bei startwert. Solange schluessel nicht gleich geheim ist: schluessel um 1 erhöhen. versuche zählt mit.",
+          "vars": {
+            "startwert": 7300,
+            "geheim": 7342
+          },
+          "code": "schluessel = startwert\nversuche = 0\n___\n    ___\n    versuche = versuche + 1\nprint(\"Datei entschlüsselt mit\", schluessel, \"nach\", versuche, \"Versuchen\")",
+          "solution": [
+            "while schluessel != geheim:",
+            "schluessel = schluessel + 1"
+          ],
+          "tests": [
+            {
+              "label": "Ab 7300, Schlüssel 7342 → 42 Versuche",
+              "vars": {
+                "startwert": 7300,
+                "geheim": 7342
+              },
+              "expect": {
+                "schluessel": 7342,
+                "versuche": 42
+              }
+            },
+            {
+              "label": "Ab 1000, Schlüssel 1009 → 9 Versuche",
+              "vars": {
+                "startwert": 1000,
+                "geheim": 1009
+              },
+              "expect": {
+                "schluessel": 1009,
+                "versuche": 9
+              }
+            },
+            {
+              "label": "Startwert passt sofort → 0 Versuche",
+              "vars": {
+                "startwert": 5000,
+                "geheim": 5000
+              },
+              "expect": {
+                "schluessel": 5000,
+                "versuche": 0
+              }
+            }
+          ],
+          "require": [
+            {
+              "pattern": "while ",
+              "message": "Benutze eine `while`-Schleife – vorher weiß niemand, wie viele Versuche nötig sind."
+            }
+          ],
+          "onSuccess": [
+            {
+              "res": "hinweise",
+              "inc": 3
+            },
+            {
+              "res": "vertrauen",
+              "inc": 5
+            }
+          ],
+          "hints": [
+            "Die Kopfzeile beginnt mit `while`, dann kommt die Bedingung und am Ende ein Doppelpunkt. „Nicht gleich“ schreibt man in Python `!=`. Im Körper muss sich `schluessel` ändern – sonst hast du die nächste Endlosschleife.",
+            "Kopfzeile: `while schluessel != geheim:` – Körper: `schluessel = schluessel + 1`."
+          ],
+          "explain": "Das ist **Ausprobieren mit einer Schleife** (Fachwort: *Brute Force*). Die `while`-Schleife wiederholt den Versuch, solange `schluessel != geheim` wahr ist, und `schluessel = schluessel + 1` schiebt in jeder Runde zum nächsten Kandidaten. `while` ist hier die richtige Wahl, weil vorher niemand weiß, wie viele Runden nötig sind. Passt schon der Startwert, läuft der Körper kein einziges Mal.",
+          "success": "Die Datei springt auf. Die Gestalt hält an der Schranke eine Karte an den Leser – Tom vergrößert das Bild: ein grün-silbernes Wappen. \"Das ist ... ein Polizeiausweis.\" Da vibriert dein Handy, unbekannte Nummer, eine nervöse Stimme: \"Detective Müller? Sie suchen am falschen Ort. Er sitzt bei Ihnen im Revier. Morgen, 7 Uhr, Parkhaus Ostbahnhof. Kommen Sie allein.\""
+        }
+      ]
+    },
+    {
+      "id": "k5",
+      "title": "Die Zugangsprotokolle",
+      "concept": "Listen",
+      "image": "images/krimi/k5.webp",
+      "intro": "Parkhaus Ostbahnhof, 7 Uhr morgens. Von der Betondecke tropft Regenwasser. Zwischen zwei Pfeilern wartet ein Mann mit Sonnenbrille – obwohl die Sonne seit Tagen nicht scheint. Er sieht sich ständig um. \"Ich hab früher die Technik in eurem Revier gewartet\", sagt er leise und drückt dir einen USB-Stick in die Hand. \"Da drauf sind die Zugangsprotokolle eurer Türen. Jede Ausweiskarte, jede Uhrzeit. Was Sie damit machen, ist Ihre Sache.\" Dann ist er weg.\n\nIm Auto steckst du den Stick an. ARGUS: *\"Daten erkannt. Format: Listen. Eine Liste speichert viele Werte unter einem Namen, zum Beispiel `ausweise = [4471, 2093]`. Jeder Eintrag hat einen Index – der erste hat Index 0. Ich erwähne das, weil Menschen es gern vergessen.\"*",
+      "missions": [
+        {
+          "id": "5-1",
+          "type": "trace",
+          "title": "Der USB-Stick",
+          "text": "Auf dem Stick liegen die Protokolle des Serverraums im Revier – ausgerechnet des Raums, in dem alle Ermittlungsakten gespeichert sind. ARGUS lädt die Ausweisnummern der Tatnacht in eine Liste. Eine Buchung kommt verspätet herein, und das Protokoll hängt sie mit `append` hinten an.\n\nDu willst drei Dinge wissen: Welche Karte kam als erste? Welche als vorletzte? Und wie viele Buchungen gab es insgesamt?\n\nARGUS: *\"Hinweis: Negative Indizes zählen von hinten. `-1` ist der letzte Eintrag. Rate, was `-2` ist.\"*\n\n\"Ich rate nicht\", murmelst du. \"Ich rechne.\"\n\n**Aufgabe:** Was gibt das Programm aus?",
+          "lrs": "Liste: [4471, 2093, 4471, 3318], dann kommt 7730 hinten dazu. Index 0 = erster Eintrag, Index -2 = vorletzter Eintrag.",
+          "vars": {},
+          "code": "ausweise = [4471, 2093, 4471, 3318]\nausweise.append(7730)\nerste = ausweise[0]\nvorletzte = ausweise[-2]\nanzahl = len(ausweise)\nprint(erste, vorletzte, anzahl)",
+          "ask": {
+            "output": true
+          },
+          "options": [
+            "4471 3318 5",
+            "2093 7730 5",
+            "4471 7730 4",
+            "2093 3318 4"
+          ],
+          "hints": [
+            "Wie sieht die Liste nach `append(7730)` aus? Schreib sie auf und notiere die Indizes 0, 1, 2, … darunter.",
+            "Nach `append` ist die Liste `[4471, 2093, 4471, 3318, 7730]`. Index 0 ist der erste Eintrag, `-1` der letzte, `-2` der davor."
+          ],
+          "explain": "`append` hängt einen Wert **hinten** an – danach hat die Liste fünf Einträge. Der **Index** beginnt bei 0, also ist `ausweise[0]` der erste Eintrag (4471). Negative Indizes zählen von hinten: `ausweise[-1]` ist 7730, `ausweise[-2]` ist 3318. `len(ausweise)` zählt alle Einträge – auch doppelte – und ergibt 5.",
+          "success": "\"4471, 3318, fünf Buchungen\", liest du vor. Doch die 7730 ganz am Ende lässt dich nicht los: eine Buchung, die erst nachträglich ins Protokoll gerutscht ist. Wer korrigiert Protokolle im Nachhinein?"
+        },
+        {
+          "id": "5-2",
+          "type": "fill",
+          "title": "Immer wieder Karte 7730",
+          "text": "Zurück im Revier ziehst du dich in den Besprechungsraum zurück und lässt die Jalousien herunter. Die Karte 7730 taucht im Protokoll der Tatnacht immer wieder auf. Du willst wissen, wie oft genau.\n\nDr. Emma Klein kommt herein und sieht dir über die Schulter. \"Wer nachts immer wieder an dieselbe Tür geht, ist entweder sehr fleißig – oder sehr nervös. Wie oft war es?\"\n\nDu tippst schon `protokoll.count(...)`, doch ARGUS blockiert: *\"Methode im Revier-Netz gesperrt. Begründung: Datenschutzrichtlinie von 2009. Ich habe sie nicht geschrieben.\"*\n\nAlso von Hand: Eine `for`-Schleife geht jeden Eintrag durch und zählt mit.\n\n**Aufgabe:** Ergänze die Bedingung und die Zeile, die den Zähler erhöht.",
+          "lrs": "protokoll ist eine Liste von Kartennummern. Zähle, wie oft die Nummer gesucht darin vorkommt – ohne .count().",
+          "vars": {
+            "protokoll": [
+              7730,
+              4471,
+              7730,
+              2093,
+              7730
+            ],
+            "gesucht": 7730
+          },
+          "code": "treffer = 0\nfor nummer in protokoll:\n    if ___:\n        ___\nprint(\"Karte\", gesucht, \"wurde\", treffer, \"mal benutzt\")",
+          "solution": [
+            "nummer == gesucht",
+            "treffer = treffer + 1"
+          ],
+          "tests": [
+            {
+              "label": "Tatnacht: Karte 7730 → 3 Buchungen",
+              "expect": {
+                "treffer": 3
+              }
+            },
+            {
+              "label": "Karte 2093 → nur 1 Buchung",
+              "vars": {
+                "gesucht": 2093
+              },
+              "expect": {
+                "treffer": 1
+              }
+            },
+            {
+              "label": "Karte 9999 → nie benutzt",
+              "vars": {
+                "gesucht": 9999
+              },
+              "expect": {
+                "treffer": 0
+              }
+            },
+            {
+              "label": "Leeres Protokoll → 0 Buchungen",
+              "vars": {
+                "protokoll": []
+              },
+              "expect": {
+                "treffer": 0
+              }
+            }
+          ],
+          "require": [
+            "for "
+          ],
+          "forbid": [
+            ".count("
+          ],
+          "hints": [
+            "In jeder Runde steht in `nummer` ein Eintrag aus dem Protokoll. Wann soll gezählt werden? Für den Vergleich brauchst du `==`.",
+            "Bedingung: `nummer == gesucht`. Darunter eingerückt: `treffer = treffer + 1`."
+          ],
+          "explain": "Das ist das **Zähl-Muster**: Ein Zähler startet bei 0, eine `for`-Schleife geht die **Liste** Eintrag für Eintrag durch, und nur wenn die Bedingung stimmt, wird hochgezählt. `for nummer in protokoll:` liefert dir direkt die Einträge – einen Index brauchst du dafür nicht. Bei einer leeren Liste läuft die Schleife gar nicht, und `treffer` bleibt 0. Genau so arbeitet auch `.count()` im Inneren.",
+          "success": "Dreimal in einer Nacht. Dr. Klein hebt eine Augenbraue. \"Das ist kein fleißiger Kollege. Das ist jemand, der etwas zu Ende bringen musste.\""
+        },
+        {
+          "id": "5-3",
+          "type": "fill",
+          "title": "Die letzte Buchung",
+          "text": "Wer zuletzt im Serverraum war, hatte die letzte Chance, Akten zu verändern. Das Protokoll speichert jede Buchung in zwei Listen: `zeiten` enthält die Uhrzeit, `ausweise` die Kartennummer – am selben Index gehören sie zusammen. Die Uhrzeit steht ohne Doppelpunkt da: 22:47 Uhr ist `2247`.\n\n\"Praktisch\", sagt Tom, der mit zwei Brötchen hereinkommt. \"Dann ist die spätere Uhrzeit einfach die größere Zahl.\"\n\nARGUS: *\"`max` liefert nur die Uhrzeit, nicht die Karte. Empfehlung: selbst suchen.\"*\n\nDie Idee: Merk dir die erste Buchung. Geh dann alle durch – findest du eine spätere, merkst du dir ihre Uhrzeit **und** ihre Karte.\n\n**Aufgabe:** Ergänze die Bedingung und die Zeile, die sich die Karte zur neuen spätesten Uhrzeit merkt.",
+          "lrs": "zeiten und ausweise sind zwei Listen. Am selben Index gehören Uhrzeit und Karte zusammen. Gesucht: die größte Uhrzeit und die Karte dazu – ohne max().",
+          "vars": {
+            "zeiten": [
+              2105,
+              2247,
+              1930,
+              2318,
+              2236
+            ],
+            "ausweise": [
+              4471,
+              7730,
+              2093,
+              7730,
+              3318
+            ]
+          },
+          "code": "spaeteste = zeiten[0]\nwer = ausweise[0]\nfor i in range(len(zeiten)):\n    if ___:\n        spaeteste = zeiten[i]\n        ___\nprint(\"Letzte Buchung:\", spaeteste, \"von Karte\", wer)",
+          "solution": [
+            "zeiten[i] > spaeteste",
+            "wer = ausweise[i]"
+          ],
+          "tests": [
+            {
+              "label": "Tatnacht → 23:18 Uhr, Karte 7730",
+              "expect": {
+                "spaeteste": 2318,
+                "wer": 7730
+              }
+            },
+            {
+              "label": "Späteste Buchung ganz vorne → Karte 4471",
+              "vars": {
+                "zeiten": [
+                  2350,
+                  2100,
+                  2200
+                ],
+                "ausweise": [
+                  4471,
+                  2093,
+                  3318
+                ]
+              },
+              "expect": {
+                "spaeteste": 2350,
+                "wer": 4471
+              }
+            },
+            {
+              "label": "Späteste Buchung ganz hinten → Karte 3318",
+              "vars": {
+                "zeiten": [
+                  1800,
+                  1900,
+                  2359
+                ],
+                "ausweise": [
+                  4471,
+                  2093,
+                  3318
+                ]
+              },
+              "expect": {
+                "spaeteste": 2359,
+                "wer": 3318
+              }
+            },
+            {
+              "label": "Nur eine Buchung → Karte 2093",
+              "vars": {
+                "zeiten": [
+                  2015
+                ],
+                "ausweise": [
+                  2093
+                ]
+              },
+              "expect": {
+                "spaeteste": 2015,
+                "wer": 2093
+              }
+            }
+          ],
+          "forbid": [
+            "max(",
+            "sorted("
+          ],
+          "hints": [
+            "Wann ist eine Buchung später als die bisher späteste? Vergleiche `zeiten[i]` mit `spaeteste`. Die passende Karte steht in `ausweise` am **selben** Index `i`.",
+            "Bedingung: `zeiten[i] > spaeteste`. Darunter: `wer = ausweise[i]`."
+          ],
+          "explain": "So findet man das **Maximum von Hand**: Man startet mit dem ersten Eintrag als Kandidat und ersetzt ihn, sobald ein größerer kommt. Weil die Schleife über den **Index** `i` läuft, kann man mit demselben `i` in beiden Listen nachschauen – `zeiten[i]` und `ausweise[i]` gehören zur selben Buchung. Mit `max(zeiten)` hätte man nur die Uhrzeit, aber nicht die Karte.",
+          "success": "23:18 Uhr, Karte 7730. Zehn Minuten später ging laut Serverprotokoll eine Löschanfrage für die Akte Weber raus. Tom verschluckt sich fast an seinem Brötchen."
+        },
+        {
+          "id": "5-4",
+          "type": "bug",
+          "title": "Rein und raus",
+          "text": "Dr. Klein hat eine Idee. \"Wer etwas Verbotenes tut, will schnell wieder raus. Schau dir an, wie viel Zeit zwischen zwei Türöffnungen liegt.\" Die Liste `minuten` enthält, wann die Serverraumtür nach 22 Uhr aufging – die 5 steht also für 22:05 Uhr.\n\nDu schreibst ein Programm, das jeden Eintrag mit seinem Nachfolger vergleicht. Liegen höchstens 2 Minuten dazwischen, war jemand nur ganz kurz im Raum.\n\nDoch beim Start stürzt das Programm ab. ARGUS: *\"IndexError. Du fragst nach einem Eintrag, den es nicht gibt. Das ist, als würdest du fragen, wer nach dem Letzten in der Schlange steht.\"*\n\n**Aufgabe:** Finde die fehlerhafte Zeile und repariere sie, sodass jedes Nachbarpaar genau einmal verglichen wird.",
+          "lrs": "Eine Liste mit 6 Einträgen hat die Indizes 0 bis 5. Verglichen wird jeder Eintrag mit dem nächsten. Der letzte hat keinen Nachfolger.",
+          "vars": {
+            "minuten": [
+              5,
+              12,
+              13,
+              40,
+              42,
+              58
+            ]
+          },
+          "code": "kurz = 0\nfor i in range(len(minuten)):\n    abstand = minuten[i + 1] - minuten[i]\n    if abstand <= 2:\n        kurz = kurz + 1\nprint(kurz, \"verdächtig kurze Besuche\")",
+          "bugLine": 2,
+          "fix": "for i in range(len(minuten) - 1):",
+          "tests": [
+            {
+              "label": "Tatnacht → 2 kurze Besuche",
+              "vars": {
+                "minuten": [
+                  5,
+                  12,
+                  13,
+                  40,
+                  42,
+                  58
+                ]
+              },
+              "expect": {
+                "kurz": 2
+              }
+            },
+            {
+              "label": "Zwei Öffnungen weit auseinander → 0",
+              "vars": {
+                "minuten": [
+                  10,
+                  30
+                ]
+              },
+              "expect": {
+                "kurz": 0
+              }
+            },
+            {
+              "label": "Drei Öffnungen kurz hintereinander → 2",
+              "vars": {
+                "minuten": [
+                  20,
+                  21,
+                  22
+                ]
+              },
+              "expect": {
+                "kurz": 2
+              }
+            },
+            {
+              "label": "Nur eine Türöffnung → nichts zu vergleichen",
+              "vars": {
+                "minuten": [
+                  7
+                ]
+              },
+              "expect": {
+                "kurz": 0
+              }
+            }
+          ],
+          "hints": [
+            "Bei 6 Einträgen gibt es die Indizes 0 bis 5. Was ist `minuten[i + 1]`, wenn `i` schon 5 ist?",
+            "Der letzte Eintrag hat keinen Nachfolger. Die Schleife muss eine Runde früher aufhören: `for i in range(len(minuten) - 1):`."
+          ],
+          "explain": "Eine Liste mit `n` Einträgen hat die Indizes 0 bis `n - 1`. Wer mit `minuten[i + 1]` auf den **Nachfolger** zugreift, darf `i` nur bis `n - 2` laufen lassen – sonst fragt die letzte Runde nach einem Index, den es nicht gibt (**IndexError**). `range(len(minuten) - 1)` liefert genau die passenden Indizes. Bei sechs Einträgen gibt es eben nur fünf Nachbarpaare.",
+          "success": "Zwei Kurzbesuche: um 22:12 Uhr eine Minute lang, um 22:40 Uhr zwei Minuten. Beide Male mit Karte 7730. Rein, etwas erledigen, raus."
+        },
+        {
+          "id": "5-5",
+          "type": "parsons",
+          "title": "Wem gehört die Karte?",
+          "text": "Bevor du jemanden beschuldigst, willst du sauber arbeiten. Herzog hat es dir am ersten Tag eingeschärft: \"Eine Spur ist erst ein Beweis, wenn sie jeden Test übersteht.\" Also lässt du ARGUS alle Karten heraussuchen, die ab 22 Uhr am Serverraum gebucht wurden – in eine neue Liste `nachts`.\n\nTom hat dir den Code geschickt, aber beim Kopieren sind die Zeilen durcheinandergeraten, und die Einrückung ist weg. Zwei Zeilen gehören gar nicht dazu.\n\nIm Großraumbüro lacht Hansen laut über irgendeinen Witz. Du schaust nicht hin.\n\n**Aufgabe:** Bring die Zeilen in die richtige Reihenfolge, stelle die Einrückung ein und sortiere die falschen Zeilen aus.",
+          "lrs": "Neue leere Liste nachts. Für jede Buchung: Ist die Uhrzeit 2200 oder später, kommt die Karte mit append in nachts.",
+          "vars": {
+            "zeiten": [
+              1930,
+              2105,
+              2247,
+              2318
+            ],
+            "ausweise": [
+              2093,
+              4471,
+              7730,
+              7730
+            ]
+          },
+          "solution": "nachts = []\nfor i in range(len(zeiten)):\n    if zeiten[i] >= 2200:\n        nachts.append(ausweise[i])\nprint(\"Karten ab 22 Uhr:\", nachts)",
+          "distractors": [
+            "nachts = 0",
+            "nachts.append(zeiten[i])"
+          ],
+          "tests": [
+            {
+              "label": "Tatnacht → zweimal Karte 7730",
+              "expect": {
+                "nachts": [
+                  7730,
+                  7730
+                ]
+              }
+            },
+            {
+              "label": "Alle Buchungen vor 22 Uhr → leere Liste",
+              "vars": {
+                "zeiten": [
+                  800,
+                  1200
+                ],
+                "ausweise": [
+                  2093,
+                  3318
+                ]
+              },
+              "expect": {
+                "nachts": []
+              }
+            },
+            {
+              "label": "Genau 22:00 Uhr zählt mit → [3318]",
+              "vars": {
+                "zeiten": [
+                  2159,
+                  2200
+                ],
+                "ausweise": [
+                  2093,
+                  3318
+                ]
+              },
+              "expect": {
+                "nachts": [
+                  3318
+                ]
+              }
+            },
+            {
+              "label": "Leeres Protokoll → leere Liste",
+              "vars": {
+                "zeiten": [],
+                "ausweise": []
+              },
+              "expect": {
+                "nachts": []
+              }
+            }
+          ],
+          "hints": [
+            "Die neue Liste muss **vor** der Schleife leer angelegt werden. In der Schleife wird jede Uhrzeit geprüft – gesammelt wird aber die **Karte**, nicht die Uhrzeit.",
+            "Reihenfolge: `nachts = []`, dann `for`, darin eingerückt das `if`, darin noch einmal eingerückt `nachts.append(ausweise[i])`. Das `print` steht ganz links am Ende."
+          ],
+          "explain": "Das ist das **Filter-Muster** mit zwei Listen: Vor der Schleife wird eine leere Liste `[]` angelegt, und in der Schleife hängt `append` nur die Einträge an, die die Bedingung erfüllen. Der gemeinsame Index `i` verbindet Uhrzeit und Karte. `nachts = 0` wäre eine Zahl – darauf gibt es kein `append`. Und mit `append(zeiten[i])` hättest du Uhrzeiten gesammelt statt Verdächtige.",
+          "success": "ARGUS gleicht Karte 7730 mit der Personaldatenbank ab. Ein Name erscheint, und dir wird schlecht: **Hansen, Mordkommission.** Dein eigener Partner. Als er an deinem Tisch vorbeigeht und dir zuzwinkert, klappst du den Laptop zu – niemand darf davon wissen. Noch nicht."
+        }
+      ]
+    },
+    {
+      "id": "k6",
+      "title": "Die Falle",
+      "concept": "Funktionen (def, Parameter, return)",
+      "image": "images/krimi/k6.webp",
+      "intro": "Eine Karte ist noch kein Geständnis. \"Ausweise kann man stehlen\", sagt Herzog, als du ihm spätabends in seinem Büro alles zeigst – ihm allein. Er schweigt lange. Dann: \"Wenn du recht hast, Müller, brauchen wir ihn auf frischer Tat.\"\n\nDein Plan: eine Köder-Datei auf dem Server, angeblich mit neuen Beweisen. Jeder im Team erfährt von seiner eigenen, leicht anderen Version. Wird eine davon geöffnet, weißt du, wer geplaudert hat.\n\nARGUS: *\"Für wiederkehrende Aufgaben empfehle ich Funktionen. Mit `def` gibst du einem Stück Code einen Namen. Beim Aufruf bekommt die Funktion Werte als **Parameter** und liefert mit `return` ein Ergebnis zurück. Ich mag Funktionen. Sie sind so ... zuverlässig.\"*",
+      "missions": [
+        {
+          "id": "6-1",
+          "type": "trace",
+          "title": "Die Köder-Dateien",
+          "text": "Jede Köder-Datei bekommt einen Namen, der gleich aussieht – bis auf eine kleine Versionsnummer. Tom bekommt Version 1, Dr. Klein Version 2, Hansen Version 3. Damit du dich bei keinem Namen vertippst, schreibst du eine Funktion `koeder`.\n\nHerzog liest mit, die Lesebrille auf der Nasenspitze. \"Und was spuckt das Ding für Hansen aus?\" Er tippt auf den Bildschirm. \"Da oben steht `name`, da unten steht `datei`. Wo ist denn jetzt der eigentliche Name?\"\n\nARGUS: *\"Parameter sind Platzhalter. Beim Aufruf werden sie gefüllt. Das klingt banal. Ist es auch.\"*\n\n**Aufgabe:** Was gibt das Programm aus?",
+          "lrs": "Die Funktion setzt name + \"_v\" + Versionsnummer + \".zip\" zusammen. Ausgegeben wird nur die Datei für Hansen (Version 3).",
+          "vars": {},
+          "code": "def koeder(name, version):\n    datei = name + \"_v\" + str(version) + \".zip\"\n    return datei\n\nfuer_tom = koeder(\"beweise_weber\", 1)\nfuer_hansen = koeder(\"beweise_weber\", 3)\nprint(fuer_hansen)",
+          "ask": {
+            "output": true
+          },
+          "options": [
+            "beweise_weber_v3.zip",
+            "beweise_weber_v1.zip",
+            "datei",
+            "name_vversion.zip"
+          ],
+          "hints": [
+            "Beim Aufruf `koeder(\"beweise_weber\", 3)` bekommt `name` den Text `\"beweise_weber\"` und `version` die Zahl 3. Was setzt die Funktion daraus zusammen?",
+            "Die Funktion klebt `\"beweise_weber\"` + `\"_v\"` + `\"3\"` + `\".zip\"` zusammen und gibt das mit `return` zurück. Ausgegeben wird nur `fuer_hansen`."
+          ],
+          "explain": "Mit `def` wird die Funktion nur **definiert** – ausgeführt wird sie erst beim **Aufruf**. Dabei bekommen die **Parameter** die Werte aus den Klammern, in derselben Reihenfolge: `name` wird zu `\"beweise_weber\"`, `version` zu 3. `str(version)` macht aus der Zahl einen Text, damit man ihn mit `+` anhängen kann. Mit `return` landet das Ergebnis in `fuer_hansen` – eine Funktion, zwei Aufrufe, zwei verschiedene Ergebnisse.",
+          "success": "Drei Dateien, drei Versionen, drei Namen. Herzog nickt langsam. \"Morgen früh erzähle ich jedem ganz nebenbei von *seiner* Datei. Dann warten wir.\""
+        },
+        {
+          "id": "6-2",
+          "type": "fill",
+          "title": "Nur nachts scharf",
+          "text": "Tagsüber öffnen Dutzende Kollegen Dateien auf dem Server – das gäbe ständig Fehlalarm. Die Falle soll deshalb nur nachts scharf sein: ab 22 Uhr und vor 6 Uhr morgens. Wie im Protokoll steht die Uhrzeit ohne Doppelpunkt, 23:15 Uhr ist also `2315`.\n\nARGUS hat aus deiner Beschreibung schon den Inhalt der Prüffunktion erzeugt. *\"Kopfzeile und Rückgabe überlasse ich dir. Eine Funktion ohne Namen kann niemand aufrufen. Eine Funktion ohne `return` gibt niemandem etwas zurück. Beides wäre schade.\"*\n\nDer Aufruf steht schon unten: `scharf = ist_nachts(zeit)`.\n\n**Aufgabe:** Schreib die Kopfzeile der Funktion `ist_nachts` mit dem Parameter `uhrzeit` und die Zeile, die das Ergebnis zurückgibt.",
+          "lrs": "Erste Lücke: Kopfzeile mit def, Funktionsname ist_nachts, Parameter uhrzeit. Zweite Lücke: ergebnis mit return zurückgeben.",
+          "vars": {
+            "zeit": 2315
+          },
+          "code": "___\n    if uhrzeit >= 2200 or uhrzeit < 600:\n        ergebnis = True\n    else:\n        ergebnis = False\n    ___\n\nscharf = ist_nachts(zeit)\nprint(\"Falle scharf:\", scharf)",
+          "solution": [
+            "def ist_nachts(uhrzeit):",
+            "return ergebnis"
+          ],
+          "tests": [
+            {
+              "label": "23:15 Uhr → Falle scharf",
+              "vars": {
+                "zeit": 2315
+              },
+              "expect": {
+                "scharf": true
+              }
+            },
+            {
+              "label": "14:30 Uhr → Falle aus",
+              "vars": {
+                "zeit": 1430
+              },
+              "expect": {
+                "scharf": false
+              }
+            },
+            {
+              "label": "05:45 Uhr → noch scharf",
+              "vars": {
+                "zeit": 545
+              },
+              "expect": {
+                "scharf": true
+              }
+            },
+            {
+              "label": "Genau 06:00 Uhr → Falle aus",
+              "vars": {
+                "zeit": 600
+              },
+              "expect": {
+                "scharf": false
+              },
+              "output": [
+                "Falle scharf: False"
+              ]
+            }
+          ],
+          "require": [
+            "def ",
+            "return"
+          ],
+          "hints": [
+            "Eine Kopfzeile hat die Form `def name(parameter):` – mit Doppelpunkt am Ende. In der letzten Zeile der Funktion gibst du mit `return` zurück, was in `ergebnis` steht.",
+            "Kopfzeile: `def ist_nachts(uhrzeit):` – letzte Zeile: `return ergebnis`."
+          ],
+          "explain": "Die Kopfzeile `def ist_nachts(uhrzeit):` legt den **Namen** der Funktion und ihren **Parameter** fest. Beim Aufruf `ist_nachts(zeit)` bekommt `uhrzeit` den Wert von `zeit` – die Namen drinnen und draußen müssen also nicht gleich sein. `return ergebnis` gibt `True` oder `False` als **Rückgabewert** an die Aufrufstelle zurück, wo er in `scharf` gespeichert wird. Ohne `return` stünde in `scharf` nur `None`.",
+          "success": "*\"Prüffunktion aktiv. Falle scharf ab 22:00 Uhr\"*, meldet ARGUS. Draußen wird es dunkel. Du gehst früh nach Hause, so wie immer – damit niemand Verdacht schöpft."
+        },
+        {
+          "id": "6-3",
+          "type": "bug",
+          "title": "Alarmstufe: None",
+          "text": "22:58 Uhr. Du sitzt zu Hause, den Laptop auf den Knien, per Fernzugriff mit dem Revier verbunden. ARGUS soll dir anzeigen, wie ernst die Lage ist: Wird eine Köder-Datei dreimal oder öfter angefasst, ist die Stufe `rot`, ab einem Zugriff `gelb`, sonst `gruen`.\n\nIm Testlauf mit {koeder_zugriffe} Zugriffen erscheint auf dem Bildschirm nur: *Alarmstufe: None*.\n\nDu starrst auf den Code. Die Funktion rechnet die Stufe doch aus – Zeile für Zeile. ARGUS: *\"Korrekt. Sie rechnet sie aus. Und dann behält sie sie für sich. Wie ein schlechter Kollege.\"*\n\nEin unangenehmer Vergleich, heute Nacht.\n\n**Aufgabe:** Finde die Zeile, wegen der `anzeige` den Wert `None` bekommt, und repariere sie.",
+          "lrs": "Die Funktion soll \"rot\" (ab 3), \"gelb\" (ab 1) oder \"gruen\" zurückgeben. Gerade gibt sie nichts zurück.",
+          "vars": {
+            "koeder_zugriffe": 2
+          },
+          "code": "def alarm_stufe(zugriffe):\n    if zugriffe >= 3:\n        stufe = \"rot\"\n    elif zugriffe >= 1:\n        stufe = \"gelb\"\n    else:\n        stufe = \"gruen\"\n    stufe\n\nanzeige = alarm_stufe(koeder_zugriffe)\nprint(\"Alarmstufe:\", anzeige)",
+          "bugLine": 8,
+          "fix": "return stufe",
+          "tests": [
+            {
+              "label": "Testlauf mit 2 Zugriffen → gelb",
+              "vars": {
+                "koeder_zugriffe": 2
+              },
+              "expect": {
+                "anzeige": "gelb"
+              },
+              "output": [
+                "Alarmstufe: gelb"
+              ]
+            },
+            {
+              "label": "Genau 3 Zugriffe → rot",
+              "vars": {
+                "koeder_zugriffe": 3
+              },
+              "expect": {
+                "anzeige": "rot"
+              }
+            },
+            {
+              "label": "Kein Zugriff → gruen",
+              "vars": {
+                "koeder_zugriffe": 0
+              },
+              "expect": {
+                "anzeige": "gruen"
+              }
+            }
+          ],
+          "hints": [
+            "Was bekommt `anzeige`, wenn die Funktion nie bei einem `return` ankommt? Schau dir die letzte Zeile im Funktionskörper an – bewirkt sie überhaupt etwas?",
+            "Die Zeile `stufe` allein nennt den Wert nur, gibt ihn aber nicht heraus. Richtig ist `return stufe`."
+          ],
+          "explain": "Eine Funktion ohne `return` liefert automatisch **`None`** – „nichts“. Die Zeile `stufe` allein ist zwar erlaubt, bewirkt aber nichts: Der Wert wird kurz angeschaut und sofort vergessen. Erst `return stufe` gibt die Stufe an die Aufrufstelle zurück, wo sie in `anzeige` landet. Die Variable `stufe` selbst gibt es nur **innerhalb** der Funktion – nach draußen kommt nur, was mit `return` herausgegeben wird.",
+          "success": "Im Testlauf steht jetzt *Alarmstufe: gelb* – genau wie geplant. Die echte Anzeige daneben: *gruen*. Noch ist alles ruhig. Du kochst dir einen Tee und lässt den Bildschirm nicht aus den Augen."
+        },
+        {
+          "id": "6-4",
+          "type": "parsons",
+          "title": "Die Falle schnappt zu",
+          "text": "23:12 Uhr. Dein Laptop piept. ARGUS: *\"Zugriff auf eine Köder-Datei registriert.\"* Dein Herz rast. Welche Version?\n\nDu brauchst eine Funktion, die das Serverprotokoll durchgeht: Taucht die gesuchte Version darin auf, gibt sie sofort `True` zurück. Ist das ganze Protokoll durch und nichts gefunden, gibt sie `False` zurück. Du hattest sie schon vorbereitet – aber beim Fernzugriff sind die Zeilen durcheinandergeraten, die Einrückung ist weg, und zwei fremde Zeilen sind dazugekommen.\n\nARGUS: *\"Hinweis: Diese Funktion hat drei Einrückungsebenen. Ein `return` an der falschen Stelle beendet die Suche zu früh.\"*\n\n**Aufgabe:** Setze die Funktion `wurde_geoeffnet` und ihren Aufruf richtig zusammen und sortiere die falschen Zeilen aus.",
+          "lrs": "Die Funktion geht jeden Eintrag im Protokoll durch. Ist er gleich version: sofort True zurückgeben. Nach der Schleife: False zurückgeben.",
+          "vars": {
+            "server_log": [
+              2,
+              3
+            ]
+          },
+          "solution": "def wurde_geoeffnet(protokoll, version):\n    for eintrag in protokoll:\n        if eintrag == version:\n            return True\n    return False\nalarm = wurde_geoeffnet(server_log, 3)",
+          "distractors": [
+            "if eintrag != version:",
+            "alarm = wurde_geoeffnet(3)"
+          ],
+          "tests": [
+            {
+              "label": "Protokoll 1, 4, 3 → Version 3 wurde geöffnet",
+              "vars": {
+                "server_log": [
+                  1,
+                  4,
+                  3
+                ]
+              },
+              "expect": {
+                "alarm": true
+              }
+            },
+            {
+              "label": "Version 3 gleich als Erstes → True",
+              "vars": {
+                "server_log": [
+                  3,
+                  1
+                ]
+              },
+              "expect": {
+                "alarm": true
+              }
+            },
+            {
+              "label": "Nur Version 2 und 1 → kein Alarm",
+              "vars": {
+                "server_log": [
+                  2,
+                  2,
+                  1
+                ]
+              },
+              "expect": {
+                "alarm": false
+              }
+            },
+            {
+              "label": "Leeres Protokoll → kein Alarm",
+              "vars": {
+                "server_log": []
+              },
+              "expect": {
+                "alarm": false
+              }
+            }
+          ],
+          "onSuccess": [
+            {
+              "res": "hinweise",
+              "inc": 3
+            },
+            {
+              "res": "vertrauen",
+              "inc": -10
+            }
+          ],
+          "hints": [
+            "Die `def`-Zeile steht ganz oben links, der Aufruf ganz unten links. Die `for`-Schleife steht im Funktionskörper, das `if` in der Schleife, `return True` im `if`.",
+            "`return False` darf erst kommen, wenn die Schleife ganz durch ist – also auf derselben Ebene wie `for`, nicht darin. Reihenfolge: `def`, `for`, `if`, `return True`, `return False`, `alarm = wurde_geoeffnet(server_log, 3)`."
+          ],
+          "explain": "Ein `return` beendet die Funktion **sofort** – auch mitten in einer Schleife. Deshalb steht `return True` im `if`: Sobald die Version gefunden ist, ist die Suche vorbei. `return False` steht **hinter** der Schleife, eine Ebene weniger eingerückt, und wird nur erreicht, wenn kein einziger Eintrag gepasst hat. Stünde es in der Schleife, würde die Funktion schon nach dem ersten falschen Eintrag aufgeben. Beim Aufruf müssen beide **Parameter** übergeben werden – sonst fehlt der Funktion das Protokoll.",
+          "success": "`alarm = True`. Geöffnet wurde Version 3 – Hansens Version. Du hast Herzog am Telefon, da meldet ARGUS: *\"Karte 7730 verlässt das Revier. Tiefgarage. Er weiß, dass er aufgeflogen ist.\"* Du rennst zum Auto."
+        },
+        {
+          "id": "6-5",
+          "type": "fill",
+          "title": "Die Verfolgung",
+          "text": "Hansens Wagen rast durch das nasse Berlin, Richtung Osten. Du sitzt neben Herzog im Dienstwagen, Tom ist per Funk zugeschaltet, ARGUS steuert Ampeln und Streifenwagen. Er lädt eure echten Werte: Glaubwürdigkeit {ruf}, Hinweise {hinweise}, Team-Vertrauen {vertrauen}.\n\nHerzog fasst zusammen: \"Je mehr Hinweise wir haben, desto kleiner sein Vorsprung – wir wissen, wohin er will. Liegt deine Glaubwürdigkeit unter 40, zögert die Leitstelle, und er bekommt 6 Blöcke extra. Hält das Team zusammen – Vertrauen ab 50 –, holen wir pro Kreuzung 4 Blöcke auf, sonst nur 2. Wir bleiben dran, solange er noch Vorsprung hat.\"\n\n**Aufgabe:** Ergänze, was `aufholen` bei Vertrauen unter 50 zurückgibt, und die Bedingung der `while`-Schleife.",
+          "lrs": "Vertrauen ab 50: 4 Blöcke pro Kreuzung, sonst 2. Die Schleife läuft, solange vorsprung größer als 0 ist.",
+          "useResources": true,
+          "vars": {},
+          "code": "def aufholen(team):\n    if team >= 50:\n        return 4\n    ___\nvorsprung = 30 - hinweise // 5\nif ruf < 40:\n    vorsprung = vorsprung + 6\nkreuzungen = 0\nwhile ___:\n    vorsprung = vorsprung - aufholen(vertrauen)\n    kreuzungen = kreuzungen + 1\nprint(\"Vorsprung aufgeholt nach\", kreuzungen, \"Kreuzungen\")",
+          "solution": [
+            "return 2",
+            "vorsprung > 0"
+          ],
+          "tests": [
+            {
+              "label": "Starkes Team (Hinweise 80, Vertrauen 70) → 4 Kreuzungen",
+              "vars": {
+                "ruf": 90,
+                "hinweise": 80,
+                "vertrauen": 70
+              },
+              "expect": {
+                "kreuzungen": 4,
+                "vorsprung": -2
+              }
+            },
+            {
+              "label": "Wackliges Team, wenig Glaubwürdigkeit → 13 Kreuzungen",
+              "vars": {
+                "ruf": 30,
+                "hinweise": 50,
+                "vertrauen": 40
+              },
+              "expect": {
+                "kreuzungen": 13,
+                "vorsprung": 0
+              }
+            },
+            {
+              "label": "Vertrauen genau 50, Glaubwürdigkeit genau 40 → 3 Kreuzungen",
+              "vars": {
+                "ruf": 40,
+                "hinweise": 100,
+                "vertrauen": 50
+              },
+              "expect": {
+                "kreuzungen": 3,
+                "vorsprung": -2
+              }
+            },
+            {
+              "label": "Alles bei null → 18 Kreuzungen",
+              "vars": {
+                "ruf": 0,
+                "hinweise": 0,
+                "vertrauen": 0
+              },
+              "expect": {
+                "kreuzungen": 18,
+                "vorsprung": 0
+              }
+            }
+          ],
+          "require": [
+            "return"
+          ],
+          "onFail": [
+            {
+              "res": "ruf",
+              "inc": -3
+            }
+          ],
+          "hints": [
+            "In der Funktion fehlt der Fall „Vertrauen unter 50“: Welche Zahl soll sie dann zurückgeben? Die Schleife soll weiterlaufen, solange Hansen noch Vorsprung hat – also solange `vorsprung` größer als 0 ist.",
+            "Funktion: `return 2`. Schleife: `while vorsprung > 0:`."
+          ],
+          "explain": "Hier arbeitet alles zusammen: Die **Funktion** `aufholen` entscheidet mit `if`, wie viele Blöcke pro Kreuzung aufgeholt werden, und gibt die Zahl mit `return` zurück – wird das erste `return` nicht erreicht, läuft sie einfach zur nächsten Zeile weiter. Das `if` außerhalb verändert den Startwert, und die **`while`-Schleife** ruft die Funktion so lange auf, bis kein Vorsprung mehr übrig ist. Weil der Vorsprung in jeder Runde um mindestens 2 schrumpft, endet die Schleife bei jedem Spielstand. Mit `vorsprung >= 0` gäbe es bei genau 0 eine Kreuzung zu viel.",
+          "success": "Oberbaumbrücke. Streifenwagen von beiden Seiten, Blaulicht spiegelt sich in der Spree. Hansens Wagen schlingert, bremst – die Fahrertür fliegt auf. Herzog greift zum Funkgerät, du zur Türklinke. ARGUS: *\"ARGUS wertet jetzt die gesamte Ermittlung aus – jede Spur, jeden Fehler, jedes Vertrauen. Wie diese Nacht endet, entscheidet nicht dieser eine Moment, sondern alles, was du bis hierher getan hast …\"*"
+        }
+      ]
+    }
+  ],
+  "endings": {
+    "code": "if ruf >= 75 and hinweise >= 75:\n    ende = \"ueberfuehrt\"\nelif ruf >= 25:\n    ende = \"gefasst\"\nelse:\n    ende = \"entkommen\"",
+    "intro": "ARGUS wertet die gesamte Ermittlung aus – mit deinen eigenen Werten:",
+    "list": {
+      "ueberfuehrt": {
+        "title": "Fall gelöst – Hansen überführt",
+        "text": "Drei Monate später, Landgericht Berlin. Die Beweiskette ist lückenlos: jedes Zugangsprotokoll, jede Zeile Code, jeder Zeitstempel. Hansens Verteidiger findet keinen einzigen Fehler in deiner Ermittlung.\n\nAls das Urteil fällt, steht Kommissar Herzog neben dir. \"Eine Woche bei der Mordkommission und schon den schwierigsten Fall des Jahres gelöst. Gewöhn dich nicht dran, Müller.\" Er grinst.\n\nAuf deinem Bildschirm blinkt ARGUS: *\"Ermittlung abgeschlossen. Fehlerquote: minimal. Empfehlung: Detective Müller dauerhaft an ARGUS koppeln.\"*",
+        "image": "images/krimi/ende-ueberfuehrt.webp"
+      },
+      "gefasst": {
+        "title": "Gefasst – aber knapp",
+        "text": "Hansen sitzt in Untersuchungshaft. Doch vor Gericht wird es eng: Sein Anwalt zerpflückt jeden Fehler, den du während der Ermittlung gemacht hast. \"Wenn die Detective sich schon da geirrt hat – warum nicht auch hier?\"\n\nAm Ende reichen die Beweise. Knapp. Herzog klopft dir auf die Schulter. \"Gewonnen ist gewonnen. Aber nächstes Mal arbeiten wir sauberer.\"\n\nARGUS: *\"Ermittlung erfolgreich. Fehlentscheidungen im Protokoll: zu viele. Lernkurve: vorhanden.\"*",
+        "image": "images/krimi/ende-gefasst.webp"
+      },
+      "entkommen": {
+        "title": "Spur verloren",
+        "text": "Als das SEK Hansens Wohnung stürmt, ist sie leer. Auf dem Küchentisch liegt ein Zettel: `Variable_3 = None. Bis zum nächsten Spiel.`\n\nZu viele Fehlschlüsse, zu viele falsche Spuren – Hansen hatte genug Zeit, um zu verschwinden. Der Fall bleibt offen. Du pinnst sein Foto an die Wand über deinem Schreibtisch.\n\nARGUS: *\"Ermittlung unvollständig. Empfehlung: Fall neu aufrollen und jeden Code genauer lesen.\"*",
+        "image": "images/krimi/ende-entkommen.webp"
+      }
+    }
+  }
 }
